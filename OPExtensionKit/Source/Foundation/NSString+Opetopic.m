@@ -1,0 +1,191 @@
+//
+//  NSString+Opetopic.m
+//  OPKit
+//
+//  Created by Brandon Williams on 12/4/10.
+//  Copyright 2010 Opetopic. All rights reserved.
+//
+
+#import "NSString+Opetopic.h"
+#import <CommonCrypto/CommonHMAC.h>
+#import "NSDictionary+Opetopic.h"
+
+@implementation NSString (Opetopic)
+
+-(NSString*) md5 {
+    
+	const char *cStr = [self UTF8String];
+	unsigned char result[16];
+	CC_MD5(cStr, (CC_LONG)strlen(cStr), result);
+	return  [NSString stringWithFormat:@"%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X",
+			 result[0], result[1], result[2], result[3], result[4], result[5], result[6], result[7],result[8], 
+			 result[9], result[10], result[11],result[12], result[13], result[14], result[15]];
+}
+
+-(NSString*) prettyPhoneNumber {
+	
+    NSString *s = [self stripNonNumericCharacters];
+    
+	switch ([s length]) {
+		case 1:
+		case 2:
+		case 3:
+			return [NSString stringWithFormat:@"(%@", s];
+		case 4:
+		case 5:
+		case 6:
+			return [NSString stringWithFormat:@"(%@) %@",
+					[s substringToIndex:3], [s substringFromIndex:3]];
+		case 7:
+		case 8:
+		case 9:
+		case 10:
+			return [NSString stringWithFormat:@"(%@) %@-%@", 
+					[s substringToIndex:3], [s substringWithRange:NSMakeRange(3, 3)], [s substringFromIndex:6]];
+		case 11:
+			return [NSString stringWithFormat:@"%@ (%@) %@-%@", 
+					[s substringToIndex:1],
+                    [s substringWithRange:NSMakeRange(1, 3)], 
+                    [s substringWithRange:NSMakeRange(4, 3)], 
+                    [s substringFromIndex:7]];
+	}
+	
+	return self;
+}
+
+-(NSString*) stripNonNumericCharacters {
+	
+	return [[self componentsSeparatedByCharactersInSet:[[NSCharacterSet characterSetWithCharactersInString:@"1234567890"] invertedSet]]
+			componentsJoinedByString:@""];
+}
+
+-(NSString*) stripNonTelephonyCharacters {
+    
+	return [[self componentsSeparatedByCharactersInSet:[[NSCharacterSet characterSetWithCharactersInString:@"+1234567890"] invertedSet]]
+			componentsJoinedByString:@""];
+}
+
+-(NSString*) stripNonAlphanumericCharacters {
+    
+    return [[self componentsSeparatedByCharactersInSet:[[NSCharacterSet alphanumericCharacterSet] invertedSet]] 
+            componentsJoinedByString:@""];
+}
+
+-(NSString*) trim {
+	
+	return [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+}
+
+-(NSString*) truncateToLength:(NSUInteger)length {
+    
+    return [self truncateToLength:length continued:@"..."];
+}
+
+-(NSString*) truncateToLength:(NSUInteger)length continued:(NSString*)continued {
+    
+    if ([self length] <= length)
+        return self;
+    
+    return [NSString stringWithFormat:@"%@%@", [[self substringToIndex:length] trim], continued];
+}
+
+-(NSString*) stringBySubstituting:(NSDictionary*)substitutions {
+    
+    NSString *retVal = self;
+    for (NSString *key in substitutions)
+        retVal = [retVal stringByReplacingOccurrencesOfString:key withString:[substitutions stringForKey:key]];
+    
+    return retVal;
+}
+
+-(NSString*) normalizedString {
+    
+	NSMutableString *result = [NSMutableString stringWithString:self];
+	CFStringNormalize((__bridge CFMutableStringRef)result, kCFStringNormalizationFormD);
+	CFStringFold((__bridge CFMutableStringRef)result, kCFCompareCaseInsensitive | kCFCompareDiacriticInsensitive | kCFCompareWidthInsensitive, NULL);
+	return result;	
+}
+
+- (NSString *)URLEncodedString  
+{
+    NSString *result = (__bridge NSString *)CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
+                                                                           (__bridge CFStringRef)self,
+                                                                           NULL,
+																		   CFSTR("!*'();:@&=+$,/?%#[]"),
+                                                                           kCFStringEncodingUTF8);
+	return result;
+}
+
+- (NSString*)URLDecodedString {
+	
+	NSString *result = (__bridge NSString *)CFURLCreateStringByReplacingPercentEscapesUsingEncoding(kCFAllocatorDefault,
+																						   (__bridge CFStringRef)self,
+																						   CFSTR(""),
+																						   kCFStringEncodingUTF8);
+	return result;	
+}
+
+-(BOOL) isPhoneNumber {
+	
+	NSPredicate *regExPredicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", @"[0-9+ ()\\-+#*]{10,20}"];
+	return [regExPredicate evaluateWithObject:self]; 
+}
+
+-(BOOL) isEmail {
+    
+	NSString *emailRegEx =
+    @"(?:[a-zA-Z0-9!#$%\\&'*+/=?\\^_`{|}~-]+(?:\\.[a-zA-Z0-9!#$%\\&'*+/=?\\^_`{|}"
+    @"~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\"
+    @"x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[a-zA-Z0-9](?:[a-"
+    @"zA-Z0-9-]*[a-zA-Z0-9])?\\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?|\\[(?:(?:25[0-5"
+    @"]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-"
+    @"9][0-9]?|[a-zA-Z0-9-]*[a-zA-Z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21"
+    @"-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])";
+	
+	return [[NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegEx] evaluateWithObject:self];
+}
+
+-(BOOL) isPresent {
+    
+    return [[self trim] length] > 0;
+}
+
+-(NSRange) fullRange {
+    return NSMakeRange(0, [self length]);
+}
+
+//-(void) drawInRect:(CGRect)rect withFont:(UIFont*)font lineBreakMode:(UILineBreakMode)mode alignment:(UITextAlignment)alignment color:(UIColor*)color shadow:(UIColor*)shadow offset:(CGSize)offset {
+//    
+//    [shadow set];
+//    CGRect shadowRect = CGRectMake(rect.origin.x + offset.width, rect.origin.y + offset.height, rect.size.width, rect.size.height);
+//    [self drawInRect:shadowRect withFont:font lineBreakMode:mode alignment:alignment];
+//    
+//    [color set];
+//    [self drawInRect:rect withFont:font lineBreakMode:mode alignment:alignment];
+//}
+
+-(NSDictionary*) dictionaryBySplitting:(NSString*)outer and:(NSString*)inner {
+    
+    NSArray *pieces = [self componentsSeparatedByString:outer];
+    NSMutableDictionary *retVal = [NSMutableDictionary dictionaryWithCapacity:[pieces count]];
+    
+    for (NSString *piece in pieces)
+    {
+        NSArray *keyAndValue = [piece componentsSeparatedByString:inner];
+        if ([keyAndValue count] == 2)
+            [retVal setObject:[keyAndValue objectAtIndex:1] forKey:[keyAndValue objectAtIndex:0]];
+    }
+    
+    return retVal;
+}
+
+-(NSDictionary*) queryParameters {
+    
+    NSMutableDictionary *retVal = [[self dictionaryBySplitting:@"&" and:@"="] mutableCopy];
+    NSArray *keys = [retVal allKeys];
+    for (id key in keys)
+        [retVal setObject:[[retVal objectForKey:key] URLDecodedString] forKey:key];
+    return retVal;
+}
+
+@end

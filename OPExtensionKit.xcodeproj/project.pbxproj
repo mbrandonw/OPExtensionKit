@@ -41,6 +41,7 @@
 		A784E17414B4132A0099272D /* UIView+Opetopic.m in Sources */ = {isa = PBXBuildFile; fileRef = A784E15714B4132A0099272D /* UIView+Opetopic.m */; };
 		A784E17514B4132A0099272D /* UIViewController+Opetopic.m in Sources */ = {isa = PBXBuildFile; fileRef = A784E15914B4132A0099272D /* UIViewController+Opetopic.m */; };
 		A784E17614B4132A0099272D /* UIWebView+Opetopic.m in Sources */ = {isa = PBXBuildFile; fileRef = A784E15B14B4132A0099272D /* UIWebView+Opetopic.m */; };
+		A784E17D14B414500099272D /* OPExtensionKit.podspec in Resources */ = {isa = PBXBuildFile; fileRef = A784E17C14B414500099272D /* OPExtensionKit.podspec */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -109,6 +110,7 @@
 		A784E15914B4132A0099272D /* UIViewController+Opetopic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Opetopic.m"; sourceTree = "<group>"; };
 		A784E15A14B4132A0099272D /* UIWebView+Opetopic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+Opetopic.h"; sourceTree = "<group>"; };
 		A784E15B14B4132A0099272D /* UIWebView+Opetopic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+Opetopic.m"; sourceTree = "<group>"; };
+		A784E17C14B414500099272D /* OPExtensionKit.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OPExtensionKit.podspec; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +170,7 @@
 			children = (
 				A784E10714B412000099272D /* OPAppDelegate.h */,
 				A784E10814B412000099272D /* OPAppDelegate.m */,
+				A784E17C14B414500099272D /* OPExtensionKit.podspec */,
 				A784E10A14B412000099272D /* OPExtensionKit.xcdatamodeld */,
 				A784E10014B412000099272D /* OPExtensionKit-Info.plist */,
 				A784E10414B412000099272D /* main.m */,
@@ -328,6 +331,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A784E17D14B414500099272D /* OPExtensionKit.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

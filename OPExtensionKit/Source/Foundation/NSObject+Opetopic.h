@@ -30,4 +30,9 @@
  */
 +(void) performBlockNextRunloop:(void(^)(void))block;
 
+/**
+ Tappity tap
+ */
+-(id) tap:(void(^)(id obj))tap;
+
 @end

@@ -32,4 +32,9 @@
     });
 }
 
+-(id) tap:(void(^)(id obj))tap {
+    tap(self);
+    return self;
+}
+
 @end

@@ -64,4 +64,34 @@
     return nil;
 }
 
+-(NSDictionary*) merge:(NSDictionary*)dict {
+    return [self merge:dict conflicts:^id(id key, id lvalue, id rvalue) {
+        return rvalue;
+    }];
+}
+
+-(NSDictionary*) mergeInto:(NSDictionary*)dict {
+    return [self merge:dict conflicts:^id(id key, id lvalue, id rvalue) {
+        return lvalue;
+    }];
+}
+
+-(NSDictionary*) merge:(NSDictionary *)dict conflicts:(id(^)(id key, id lvalue, id rvalue))conflict {
+    
+    NSMutableDictionary *retVal = [NSMutableDictionary dictionaryWithDictionary:self];
+    
+    for (id key in dict)
+    {
+        if ([self objectForKey:key])
+        {
+            id obj = conflict ? conflict(key, [self objectForKey:key], [dict objectForKey:key]) : [dict objectForKey:key];
+            [retVal setObject:obj forKey:key];
+        }
+        else
+            [retVal setObject:[dict objectForKey:key] forKey:key];
+    }
+    
+    return retVal;
+}
+
 @end

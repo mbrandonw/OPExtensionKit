@@ -53,4 +53,18 @@
  */
 -(NSDate*) dateForKey:(id)key;
 
+/**
+ Merges `dict` into the dictionary, keeping the values in the `dict` if there are any conflicts.
+ */
+-(NSDictionary*) merge:(NSDictionary*)dict;
+
+/** Merges `dict` into the dictionary, keeping the values of the caller if there are any conflicts.
+ */
+-(NSDictionary*) mergeInto:(NSDictionary*)dict;
+
+/**
+ Merges `dict` into the dictionary, allowing an additional block to determine how to handle conflcits.
+ */
+-(NSDictionary*) merge:(NSDictionary *)dict conflicts:(id(^)(id key, id lvalue, id rvalue))conflict;
+
 @end

@@ -15,8 +15,6 @@
     
     if ([r isKindOfClass:[NSString class]])
         return r;
-    if ([r isKindOfClass:[NSNumber class]])
-        return [r stringValue];
     
     return nil;
 }

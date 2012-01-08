@@ -116,12 +116,4 @@
 }
 #pragma mark -
 
-
-#pragma mark Helper methods for getting month names
-+(NSString*) nameOfMonth:(NSUInteger)month {
-    
-    return [[[NSDateFormatter formatterWithDateStyle:NSDateFormatterMediumStyle timeStyle:NSDateFormatterNoStyle] shortMonthSymbols] objectAtIndex:(month-1)];
-}
-#pragma mark -
-
 @end

@@ -23,4 +23,11 @@
  */
 +(NSDateFormatter*) formatterWithDateStyle:(NSDateFormatterStyle)dateStyle timeStyle:(NSDateFormatterStyle)timeStyle;
 
+/**
+ */
++(NSArray*) monthSymbols;
++(NSArray*) shortMonthSymbols;
++(NSArray*) weekdaySymbols;
++(NSArray*) shortWeekdaySymbols;
+
 @end

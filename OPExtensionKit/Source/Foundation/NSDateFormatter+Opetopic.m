@@ -7,6 +7,8 @@
 //
 
 #import "NSDateFormatter+Opetopic.h"
+#import "NSCache+Opetopic.h"
+#import "BlocksKit.h"
 
 static NSDateFormatter *__formatters[NSDateFormatterFullStyle][NSDateFormatterFullStyle];
 
@@ -22,6 +24,34 @@ static NSDateFormatter *__formatters[NSDateFormatterFullStyle][NSDateFormatterFu
 		}
         return __formatters[dateStyle][timeStyle];
 	}
+}
+
++(NSArray*) monthSymbols {
+    
+    return [[NSCache sharedCache] objectForKey:@"NSDateFormatter/Opetopic/monthSymbols" withGetter:^id{
+        return [[NSDateFormatter formatterWithDateStyle:NSDateFormatterNoStyle timeStyle:NSDateFormatterNoStyle] monthSymbols];
+    }];
+}
+
++(NSArray*) shortMonthSymbols {
+    
+    return [[NSCache sharedCache] objectForKey:@"NSDateFormatter/Opetopic/shortMonthSymbols" withGetter:^id{
+        return [[NSDateFormatter formatterWithDateStyle:NSDateFormatterNoStyle timeStyle:NSDateFormatterNoStyle] shortMonthSymbols];
+    }];
+}
+
++(NSArray*) weekdaySymbols {
+    
+    return [[NSCache sharedCache] objectForKey:@"NSDateFormatter/Opetopic/weekdaySymbols" withGetter:^id{
+        return [[NSDateFormatter formatterWithDateStyle:NSDateFormatterNoStyle timeStyle:NSDateFormatterNoStyle] weekdaySymbols];
+    }];
+}
+
++(NSArray*) shortWeekdaySymbols {
+    
+    return [[NSCache sharedCache] objectForKey:@"NSDateFormatter/Opetopic/shortWeekdaySymbols" withGetter:^id{
+        return [[NSDateFormatter formatterWithDateStyle:NSDateFormatterNoStyle timeStyle:NSDateFormatterNoStyle] shortWeekdaySymbols];
+    }];
 }
 
 @end

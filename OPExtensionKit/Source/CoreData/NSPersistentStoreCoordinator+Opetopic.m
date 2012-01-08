@@ -7,6 +7,7 @@
 //
 
 #import "NSPersistentStoreCoordinator+Opetopic.h"
+#import <CoreData/CoreData.h>
 
 @implementation NSPersistentStoreCoordinator (Opetopic)
 

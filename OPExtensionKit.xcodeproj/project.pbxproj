@@ -588,6 +588,7 @@
 				A784E21714B416E40099272D /* Sources */,
 				A784E21814B416E40099272D /* Frameworks */,
 				A784E21914B416E40099272D /* Resources */,
+				A7F05C1914BA309C005CF16F /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -643,6 +644,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A7F05C1914BA309C005CF16F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "sh OPExtensionKitTests/RunTests.sh";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A784E0EE14B412000099272D /* Sources */ = {

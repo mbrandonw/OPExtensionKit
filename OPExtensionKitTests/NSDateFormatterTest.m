@@ -18,11 +18,11 @@
 
 -(void) testMonthAndWeekdayMethods {
     
-    GHAssertEqualObjects([NSDateFormatter monthSymbols], $arr(@"January",@"February",@"March",@"April",@"May",@"June",@"July",@"August",@"September",@"October",@"November",@"December"), @"");
-    GHAssertEqualObjects([NSDateFormatter shortMonthSymbols], $arr(@"Jan",@"Feb",@"Mar",@"Apr",@"May",@"Jun",@"Jul",@"Aug",@"Sep",@"Oct",@"Nov",@"Dec"), @"");
+    GHAssertEqualObjects([NSDateFormatter monthSymbols], ARRAY(@"January",@"February",@"March",@"April",@"May",@"June",@"July",@"August",@"September",@"October",@"November",@"December"), @"");
+    GHAssertEqualObjects([NSDateFormatter shortMonthSymbols], ARRAY(@"Jan",@"Feb",@"Mar",@"Apr",@"May",@"Jun",@"Jul",@"Aug",@"Sep",@"Oct",@"Nov",@"Dec"), @"");
     
-    GHAssertEqualObjects([NSDateFormatter weekdaySymbols], $arr(@"Sunday",@"Monday",@"Tuesday",@"Wednesday",@"Thursday",@"Friday",@"Saturday"), @"");
-    GHAssertEqualObjects([NSDateFormatter shortWeekdaySymbols], $arr(@"Sun",@"Mon",@"Tue",@"Wed",@"Thu",@"Fri",@"Sat"), @"");
+    GHAssertEqualObjects([NSDateFormatter weekdaySymbols], ARRAY(@"Sunday",@"Monday",@"Tuesday",@"Wednesday",@"Thursday",@"Friday",@"Saturday"), @"");
+    GHAssertEqualObjects([NSDateFormatter shortWeekdaySymbols], ARRAY(@"Sun",@"Mon",@"Tue",@"Wed",@"Thu",@"Fri",@"Sat"), @"");
 }
 
 @end

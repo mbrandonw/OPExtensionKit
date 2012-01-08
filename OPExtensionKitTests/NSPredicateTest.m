@@ -18,29 +18,29 @@
 
 -(void) testSearchingPredicate {
     
-    NSArray *array = $arr(
-                          $dict(@"here's some foo", @"field1",
+    NSArray *array = ARRAY(
+                          DICT(@"here's some foo", @"field1",
                                 @"but nothing else", @"field2"),
-                          $dict(@"nothing here", @"field1",
+                          DICT(@"nothing here", @"field1",
                                 @"but some bar here", @"field2"),
-                          $dict(@"here's some foo", @"field1",
+                          DICT(@"here's some foo", @"field1",
                                 @"and some bar", @"field2"),
-                          $dict(@"nothin here", @"field1",
+                          DICT(@"nothin here", @"field1",
                                 @"or here", @"field2")
                           );
     
-    GHAssertTrue([[array filteredArrayUsingPredicate:[NSPredicate predicateForSearching:@"foo" fields:$arr(@"field1")]] count] == 2, @"");
-    GHAssertTrue([[array filteredArrayUsingPredicate:[NSPredicate predicateForSearching:@"bar" fields:$arr(@"field1")]] count] == 0, @"");
-    GHAssertTrue([[array filteredArrayUsingPredicate:[NSPredicate predicateForSearching:@"foo" fields:$arr(@"field2")]] count] == 0, @"");
-    GHAssertTrue([[array filteredArrayUsingPredicate:[NSPredicate predicateForSearching:@"bar" fields:$arr(@"field2")]] count] == 2, @"");
+    GHAssertTrue([[array filteredArrayUsingPredicate:[NSPredicate predicateForSearching:@"foo" fields:ARRAY(@"field1")]] count] == 2, @"");
+    GHAssertTrue([[array filteredArrayUsingPredicate:[NSPredicate predicateForSearching:@"bar" fields:ARRAY(@"field1")]] count] == 0, @"");
+    GHAssertTrue([[array filteredArrayUsingPredicate:[NSPredicate predicateForSearching:@"foo" fields:ARRAY(@"field2")]] count] == 0, @"");
+    GHAssertTrue([[array filteredArrayUsingPredicate:[NSPredicate predicateForSearching:@"bar" fields:ARRAY(@"field2")]] count] == 2, @"");
     
-    GHAssertTrue([[array filteredArrayUsingPredicate:[NSPredicate predicateForSearching:@"foo" fields:$arr(@"field1",@"field2")]] count] == 2, @"");
-    GHAssertTrue([[array filteredArrayUsingPredicate:[NSPredicate predicateForSearching:@"bar" fields:$arr(@"field1",@"field2")]] count] == 2, @"");
+    GHAssertTrue([[array filteredArrayUsingPredicate:[NSPredicate predicateForSearching:@"foo" fields:ARRAY(@"field1",@"field2")]] count] == 2, @"");
+    GHAssertTrue([[array filteredArrayUsingPredicate:[NSPredicate predicateForSearching:@"bar" fields:ARRAY(@"field1",@"field2")]] count] == 2, @"");
     
-    GHAssertTrue([[array filteredArrayUsingPredicate:[NSPredicate predicateForSearching:@"foo bar" fields:$arr(@"field1")]] count] == 0, @"");
-    GHAssertTrue([[array filteredArrayUsingPredicate:[NSPredicate predicateForSearching:@"foo bar" fields:$arr(@"field2")]] count] == 0, @"");
+    GHAssertTrue([[array filteredArrayUsingPredicate:[NSPredicate predicateForSearching:@"foo bar" fields:ARRAY(@"field1")]] count] == 0, @"");
+    GHAssertTrue([[array filteredArrayUsingPredicate:[NSPredicate predicateForSearching:@"foo bar" fields:ARRAY(@"field2")]] count] == 0, @"");
     
-    GHAssertTrue([[array filteredArrayUsingPredicate:[NSPredicate predicateForSearching:@"foo bar" fields:$arr(@"field1",@"field2")]] count] == 1, @"");
+    GHAssertTrue([[array filteredArrayUsingPredicate:[NSPredicate predicateForSearching:@"foo bar" fields:ARRAY(@"field1",@"field2")]] count] == 1, @"");
 }
 
 @end

@@ -12,31 +12,26 @@
 
 +(NSPredicate*) predicateForSearching:(NSString*)text fields:(NSArray*)fields {
     
+    NSPredicate *predicate = nil;
+    
     NSArray *searchParts = [text componentsSeparatedByString:@" "];
-    
-    NSMutableString *format = [NSMutableString string];
-    NSMutableArray *arguments = [NSMutableArray arrayWithCapacity:[searchParts count] * [fields count]];
-    
     for (NSString *part in searchParts)
     {
         if ([part length])
         {
-            [format appendFormat:@"("];
-            {
-                for (NSString *field in fields) {
-                    [format appendFormat:@"%@ contains[cd] %%@ %@", field, field!=[fields lastObject] ? @" OR " : @" "];
-                    [arguments addObject:part];
-                }
+            NSPredicate *subPredicate = nil;
+            for (NSString *field in fields) {
+                if (subPredicate)
+                    subPredicate = [subPredicate or:[NSPredicate predicateWithFormat:@"%K contains[cd] %@", field, part]];
+                else
+                    subPredicate = [NSPredicate predicateWithFormat:@"%K contains[cd] %@", field, part];
             }
-            [format appendFormat:@") AND "];
+            
+            predicate = predicate ? [predicate and:subPredicate] : subPredicate;
         }
     }
     
-    if ([arguments count] == 0)
-        return [NSPredicate predicateWithFormat:@"1==1"];
-    
-    return [NSPredicate predicateWithFormat:[format stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"AND"]]
-                              argumentArray:arguments];
+    return predicate;
 }
 
 -(NSPredicate*) and:(NSPredicate*)predicate {

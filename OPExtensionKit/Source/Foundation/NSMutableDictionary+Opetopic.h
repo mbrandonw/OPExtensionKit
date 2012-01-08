@@ -13,7 +13,7 @@
 
 #import <Foundation/Foundation.h>
 
-#define $mdict(...) [NSMutableDictionary dictionaryWithObjectsAndKeys:__VA_ARGS__, nil]
+#define MDICT(...) [NSMutableDictionary dictionaryWithObjectsAndKeys:__VA_ARGS__, nil]
 
 @interface NSMutableDictionary (Opetopic)
 

@@ -125,6 +125,14 @@
 	return result;	
 }
 
+-(NSURL*) asURL {
+    return [NSURL URLWithString:self];
+}
+
+-(NSURLRequest*) asURLRequest {
+    return [NSURLRequest requestWithURL:[self asURL]];
+}
+
 -(BOOL) isPhoneNumber {
 	
 	NSPredicate *regExPredicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", @"[0-9+ ()\\-+#*]{10,20}"];

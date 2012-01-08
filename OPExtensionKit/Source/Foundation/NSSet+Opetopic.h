@@ -13,8 +13,8 @@
 
 #import <Foundation/Foundation.h>
 
-#define $set(...)   [NSSet setWithObjects:__VA_ARGS__, nil]
-#define $mset(...)  [NSMutableSet setWithObjects:__VA_ARGS__, nil]
+#define SET(...)   [NSSet setWithObjects:__VA_ARGS__, nil]
+#define MSET(...)  [NSMutableSet setWithObjects:__VA_ARGS__, nil]
 
 @interface NSSet (Opetopic)
 

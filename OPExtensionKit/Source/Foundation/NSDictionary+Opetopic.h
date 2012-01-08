@@ -13,7 +13,7 @@
 
 #import <Foundation/Foundation.h>
 
-#define $dict(...)  [NSDictionary dictionaryWithObjectsAndKeys:__VA_ARGS__, nil]
+#define DICT(...)  [NSDictionary dictionaryWithObjectsAndKeys:__VA_ARGS__, nil]
 
 @interface NSDictionary (Opetopic)
 

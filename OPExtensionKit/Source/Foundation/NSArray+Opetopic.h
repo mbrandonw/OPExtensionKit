@@ -13,7 +13,7 @@
 
 #import <Foundation/Foundation.h>
 
-#define $arr(...)   [NSArray arrayWithObjects:__VA_ARGS__, nil]
+#define ARRAY(...)   [NSArray arrayWithObjects:__VA_ARGS__, nil]
 
 @interface NSArray (Opetopic)
 

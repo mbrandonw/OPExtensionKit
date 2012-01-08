@@ -13,7 +13,7 @@
 
 #import <Foundation/Foundation.h>
 
-#define $marr(...)  [NSMutableArray arrayWithObjects:__VA_ARGS__, nil]
+#define MARRAY(...)  [NSMutableArray arrayWithObjects:__VA_ARGS__, nil]
 
 @interface NSMutableArray (Opetopic)
 

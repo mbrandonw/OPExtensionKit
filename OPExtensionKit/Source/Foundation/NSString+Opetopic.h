@@ -13,8 +13,8 @@
 
 #import <UIKit/UIKit.h>
 
-#define $str(...)   [NSString stringWithFormat:__VA_ARGS__]
-#define $mstr(...)  [NSMutableString stringWithFormat:__VA_ARGS__]
+#define STRINGFMT(...)   [NSString stringWithFormat:__VA_ARGS__]
+#define MSTRINGFMT(...)  [NSMutableString stringWithFormat:__VA_ARGS__]
 
 @interface NSString (Opetopic)
 
@@ -78,6 +78,16 @@
  URL decodes the string.
  */
 - (NSString *)URLDecodedString;
+
+/**
+ URL represpentation of string.
+ */
+-(NSURL*) asURL;
+
+/**
+ URL request representation of string.
+ */
+-(NSURLRequest*) asURLRequest;
 
 /**
  Very basic detection of phone number.

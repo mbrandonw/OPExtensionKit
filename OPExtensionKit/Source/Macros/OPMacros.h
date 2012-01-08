@@ -27,7 +27,8 @@ void OPProfile(NSString *label, void(^task)(void));
 
 #define OP_SAFE_RELEASE(p)	{[p release]; p = nil;}
 
-#define COALLESCE(o1,o2)    ({__typeof__(o1) __o1 = (o1); __o1?__o1:o2;})
+// returns the first non-nil object
+id OPCoalesce(NSUInteger count, ...);
 
 // Allows all orientations for the iPad, and everything but upside down portrait on the iPhone
 #define UI_ACCEPTABLE_INTERFACE_ORIENTATIONS(orientation)  (UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad ? YES : (UIInterfaceOrientationIsLandscape(orientation)||orientation==UIInterfaceOrientationPortrait))
@@ -54,8 +55,8 @@ void OPProfile(NSString *label, void(^task)(void));
 #define NSBool(b)	[NSNumber numberWithBool:(b)]
 
 
-#define randi(a,b)	(arc4random() % (b - a) + a)
-#define randf(a,b)	(((float)(arc4random() % ((unsigned)RAND_MAX+1)) / (float)RAND_MAX) * ((b)-(a)) + (a))
-#define randd(a,b)	(((double)(arc4random() % ((unsigned)RAND_MAX+1)) / (double)RAND_MAX) * ((b)-(a)) + (a))
+#define randi(a,b)	({ __typeof__(a) __a=(a); __typeof__(b) __b=(b); (arc4random() % (__b - __a) + __a); })
+#define randf(a,b)	({ __typeof__(a) __a=(a); __typeof__(b) __b=(b); (((float)(arc4random() % ((unsigned)RAND_MAX+1)) / (float)RAND_MAX) * (__b - __a) + __a); })
+#define randd(a,b)	({ __typeof__(a) __a=(a); __typeof__(b) __b=(b); (((double)(arc4random() % ((unsigned)RAND_MAX+1)) / (float)RAND_MAX) * (__b - __a) + __a); })
 
-#define signf(a)	((a) == 0.0f ? 0.0f : ABS(a)/(a))
+#define signf(a)	({ __typeof__(a) __a=(a); __a > 0.0f ? 1.0f : __a < 0.0f ? -1.0f : 0.0f; })

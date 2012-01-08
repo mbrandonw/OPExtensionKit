@@ -21,7 +21,7 @@
 -(BOOL) in:(NSArray*)array;
 
 /**
- Performs the selector `aSelector` on the object and passes each object in `objects`.
+ Performs the selector `aSelector` on the caller and passes each object in `objects`.
  */
 -(void) performSelector:(SEL)aSelector withEachObjectIn:(id<NSFastEnumeration>)objects;
 

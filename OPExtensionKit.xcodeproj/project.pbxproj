@@ -81,6 +81,54 @@
 		A784E23114B417580099272D /* NSArrayTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A784E23014B417580099272D /* NSArrayTest.m */; };
 		A784E23314B417CC0099272D /* NSDictionary+Opetopic.m in Sources */ = {isa = PBXBuildFile; fileRef = A784E13214B4132A0099272D /* NSDictionary+Opetopic.m */; };
 		A784E23414B417D80099272D /* NSArray+Opetopic.m in Sources */ = {isa = PBXBuildFile; fileRef = A784E12814B4132A0099272D /* NSArray+Opetopic.m */; };
+		A7F05BE414BA1394005CF16F /* OPMacrosTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A7F05BE314BA1394005CF16F /* OPMacrosTest.m */; };
+		A7F05BE614BA1B2D005CF16F /* OPMacros.m in Sources */ = {isa = PBXBuildFile; fileRef = A784E14714B4132A0099272D /* OPMacros.m */; };
+		A7F05BE914BA24DC005CF16F /* NSDateFormatterTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A7F05BE814BA24DC005CF16F /* NSDateFormatterTest.m */; };
+		A7F05BEA14BA2586005CF16F /* NSDateFormatter+Opetopic.m in Sources */ = {isa = PBXBuildFile; fileRef = A784E13014B4132A0099272D /* NSDateFormatter+Opetopic.m */; };
+		A7F05BEB14BA25A3005CF16F /* NSCache+Opetopic.m in Sources */ = {isa = PBXBuildFile; fileRef = A784E12A14B4132A0099272D /* NSCache+Opetopic.m */; };
+		A7F05BEC14BA25B7005CF16F /* NSData+Opetopic.m in Sources */ = {isa = PBXBuildFile; fileRef = A784E12C14B4132A0099272D /* NSData+Opetopic.m */; };
+		A7F05BED14BA25B7005CF16F /* NSDate+Opetopic.m in Sources */ = {isa = PBXBuildFile; fileRef = A784E12E14B4132A0099272D /* NSDate+Opetopic.m */; };
+		A7F05BEE14BA25B7005CF16F /* NSLocale+Opetopic.m in Sources */ = {isa = PBXBuildFile; fileRef = A784E13414B4132A0099272D /* NSLocale+Opetopic.m */; };
+		A7F05BEF14BA25B7005CF16F /* NSMutableArray+Opetopic.m in Sources */ = {isa = PBXBuildFile; fileRef = A784E13614B4132A0099272D /* NSMutableArray+Opetopic.m */; };
+		A7F05BF014BA25B7005CF16F /* NSMutableDictionary+Opetopic.m in Sources */ = {isa = PBXBuildFile; fileRef = A784E13814B4132A0099272D /* NSMutableDictionary+Opetopic.m */; };
+		A7F05BF114BA25B7005CF16F /* NSNotificationCenter+Opetopic.m in Sources */ = {isa = PBXBuildFile; fileRef = A784E13A14B4132A0099272D /* NSNotificationCenter+Opetopic.m */; };
+		A7F05BF214BA25B7005CF16F /* NSObject+Opetopic.m in Sources */ = {isa = PBXBuildFile; fileRef = A784E13C14B4132A0099272D /* NSObject+Opetopic.m */; };
+		A7F05BF314BA25B7005CF16F /* NSPredicate+Opetopic.m in Sources */ = {isa = PBXBuildFile; fileRef = A784E13E14B4132A0099272D /* NSPredicate+Opetopic.m */; };
+		A7F05BF414BA25B7005CF16F /* NSSet+Opetopic.m in Sources */ = {isa = PBXBuildFile; fileRef = A784E14014B4132A0099272D /* NSSet+Opetopic.m */; };
+		A7F05BF514BA25B7005CF16F /* NSString+Opetopic.m in Sources */ = {isa = PBXBuildFile; fileRef = A784E14214B4132A0099272D /* NSString+Opetopic.m */; };
+		A7F05BF614BA25B7005CF16F /* NSURL+Opetopic.m in Sources */ = {isa = PBXBuildFile; fileRef = A784E14414B4132A0099272D /* NSURL+Opetopic.m */; };
+		A7F05BF714BA25E1005CF16F /* A2BlockDelegate+BlocksKit.m in Sources */ = {isa = PBXBuildFile; fileRef = A784E18214B4148F0099272D /* A2BlockDelegate+BlocksKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A7F05BF814BA25E1005CF16F /* MFMailComposeViewController+BlocksKit.m in Sources */ = {isa = PBXBuildFile; fileRef = A784E18914B4148F0099272D /* MFMailComposeViewController+BlocksKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A7F05BF914BA25E1005CF16F /* MFMessageComposeViewController+BlocksKit.m in Sources */ = {isa = PBXBuildFile; fileRef = A784E18B14B4148F0099272D /* MFMessageComposeViewController+BlocksKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A7F05BFA14BA25E1005CF16F /* NSArray+BlocksKit.m in Sources */ = {isa = PBXBuildFile; fileRef = A784E18D14B4148F0099272D /* NSArray+BlocksKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A7F05BFB14BA25E1005CF16F /* NSCache+BlocksKit.m in Sources */ = {isa = PBXBuildFile; fileRef = A784E18F14B4148F0099272D /* NSCache+BlocksKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A7F05BFC14BA2606005CF16F /* NSDictionary+BlocksKit.m in Sources */ = {isa = PBXBuildFile; fileRef = A784E19114B4148F0099272D /* NSDictionary+BlocksKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A7F05BFD14BA2606005CF16F /* NSIndexSet+BlocksKit.m in Sources */ = {isa = PBXBuildFile; fileRef = A784E19314B4148F0099272D /* NSIndexSet+BlocksKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A7F05BFE14BA2606005CF16F /* NSInvocation+BlocksKit.m in Sources */ = {isa = PBXBuildFile; fileRef = A784E19514B4148F0099272D /* NSInvocation+BlocksKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A7F05BFF14BA2606005CF16F /* NSMutableArray+BlocksKit.m in Sources */ = {isa = PBXBuildFile; fileRef = A784E19714B4148F0099272D /* NSMutableArray+BlocksKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A7F05C0014BA2606005CF16F /* NSMutableDictionary+BlocksKit.m in Sources */ = {isa = PBXBuildFile; fileRef = A784E19914B4148F0099272D /* NSMutableDictionary+BlocksKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A7F05C0114BA2606005CF16F /* NSMutableIndexSet+BlocksKit.m in Sources */ = {isa = PBXBuildFile; fileRef = A784E19B14B4148F0099272D /* NSMutableIndexSet+BlocksKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A7F05C0214BA2606005CF16F /* NSMutableSet+BlocksKit.m in Sources */ = {isa = PBXBuildFile; fileRef = A784E19D14B4148F0099272D /* NSMutableSet+BlocksKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A7F05C0314BA2606005CF16F /* NSObject+BlocksKit.m in Sources */ = {isa = PBXBuildFile; fileRef = A784E1A314B4148F0099272D /* NSObject+BlocksKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A7F05C0414BA2606005CF16F /* NSSet+BlocksKit.m in Sources */ = {isa = PBXBuildFile; fileRef = A784E1A514B4148F0099272D /* NSSet+BlocksKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A7F05C0514BA2606005CF16F /* NSTimer+BlocksKit.m in Sources */ = {isa = PBXBuildFile; fileRef = A784E1A714B4148F0099272D /* NSTimer+BlocksKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A7F05C0614BA2606005CF16F /* NSURLConnection+BlocksKit.m in Sources */ = {isa = PBXBuildFile; fileRef = A784E1A914B4148F0099272D /* NSURLConnection+BlocksKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A7F05C0714BA2606005CF16F /* UIActionSheet+BlocksKit.m in Sources */ = {isa = PBXBuildFile; fileRef = A784E1AB14B4148F0099272D /* UIActionSheet+BlocksKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A7F05C0814BA2606005CF16F /* UIAlertView+BlocksKit.m in Sources */ = {isa = PBXBuildFile; fileRef = A784E1AD14B4148F0099272D /* UIAlertView+BlocksKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A7F05C0914BA2606005CF16F /* UIBarButtonItem+BlocksKit.m in Sources */ = {isa = PBXBuildFile; fileRef = A784E1AF14B4148F0099272D /* UIBarButtonItem+BlocksKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A7F05C0A14BA2606005CF16F /* UIControl+BlocksKit.m in Sources */ = {isa = PBXBuildFile; fileRef = A784E1B114B4148F0099272D /* UIControl+BlocksKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A7F05C0B14BA2606005CF16F /* UIGestureRecognizer+BlocksKit.m in Sources */ = {isa = PBXBuildFile; fileRef = A784E1B314B4148F0099272D /* UIGestureRecognizer+BlocksKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A7F05C0C14BA2606005CF16F /* UIPopoverController+BlocksKit.m in Sources */ = {isa = PBXBuildFile; fileRef = A784E1B514B4148F0099272D /* UIPopoverController+BlocksKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A7F05C0D14BA2606005CF16F /* UIView+BlocksKit.m in Sources */ = {isa = PBXBuildFile; fileRef = A784E1B714B4148F0099272D /* UIView+BlocksKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A7F05C0E14BA2606005CF16F /* UIWebView+BlocksKit.m in Sources */ = {isa = PBXBuildFile; fileRef = A784E1B914B4148F0099272D /* UIWebView+BlocksKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A7F05C0F14BA2658005CF16F /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A784E1FB14B415450099272D /* MessageUI.framework */; };
+		A7F05C1014BA2658005CF16F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A784E1F914B4152E0099272D /* MapKit.framework */; };
+		A7F05C1114BA2658005CF16F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A784E0FC14B412000099272D /* CoreData.framework */; };
+		A7F05C1214BA2667005CF16F /* A2BlockDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A784E1D814B414AD0099272D /* A2BlockDelegate.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A7F05C1314BA266A005CF16F /* A2DynamicDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A784E1DA14B414AD0099272D /* A2DynamicDelegate.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A7F05C1414BA26D6005CF16F /* NSObject+AssociatedObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = A784E19F14B4148F0099272D /* NSObject+AssociatedObjects.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A7F05C1514BA26F6005CF16F /* NSObject+BlockObservation.m in Sources */ = {isa = PBXBuildFile; fileRef = A784E1A114B4148F0099272D /* NSObject+BlockObservation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A7F05C1814BA2BF5005CF16F /* NSPredicateTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A7F05C1714BA2BF5005CF16F /* NSPredicateTest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -219,6 +267,9 @@
 		A784E22614B416E40099272D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A784E22814B416E40099272D /* OPExtensionKitTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OPExtensionKitTests-Prefix.pch"; sourceTree = "<group>"; };
 		A784E23014B417580099272D /* NSArrayTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSArrayTest.m; sourceTree = "<group>"; };
+		A7F05BE314BA1394005CF16F /* OPMacrosTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPMacrosTest.m; sourceTree = "<group>"; };
+		A7F05BE814BA24DC005CF16F /* NSDateFormatterTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDateFormatterTest.m; sourceTree = "<group>"; };
+		A7F05C1714BA2BF5005CF16F /* NSPredicateTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSPredicateTest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -239,10 +290,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A784E22F14B416EC0099272D /* GHUnitIOS.framework in Frameworks */,
+				A7F05C0F14BA2658005CF16F /* MessageUI.framework in Frameworks */,
+				A7F05C1014BA2658005CF16F /* MapKit.framework in Frameworks */,
 				A784E21D14B416E40099272D /* UIKit.framework in Frameworks */,
 				A784E21E14B416E40099272D /* Foundation.framework in Frameworks */,
-				A784E22F14B416EC0099272D /* GHUnitIOS.framework in Frameworks */,
 				A784E21F14B416E40099272D /* CoreGraphics.framework in Frameworks */,
+				A7F05C1114BA2658005CF16F /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -489,6 +543,9 @@
 			isa = PBXGroup;
 			children = (
 				A784E23014B417580099272D /* NSArrayTest.m */,
+				A7F05BE314BA1394005CF16F /* OPMacrosTest.m */,
+				A7F05BE814BA24DC005CF16F /* NSDateFormatterTest.m */,
+				A7F05C1714BA2BF5005CF16F /* NSPredicateTest.m */,
 				A784E22114B416E40099272D /* Supporting Files */,
 			);
 			path = OPExtensionKitTests;
@@ -657,10 +714,55 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A784E23414B417D80099272D /* NSArray+Opetopic.m in Sources */,
-				A784E23314B417CC0099272D /* NSDictionary+Opetopic.m in Sources */,
 				A784E22714B416E40099272D /* main.m in Sources */,
+				A7F05BE614BA1B2D005CF16F /* OPMacros.m in Sources */,
 				A784E23114B417580099272D /* NSArrayTest.m in Sources */,
+				A784E23414B417D80099272D /* NSArray+Opetopic.m in Sources */,
+				A7F05BEB14BA25A3005CF16F /* NSCache+Opetopic.m in Sources */,
+				A7F05BEC14BA25B7005CF16F /* NSData+Opetopic.m in Sources */,
+				A7F05BED14BA25B7005CF16F /* NSDate+Opetopic.m in Sources */,
+				A7F05BEA14BA2586005CF16F /* NSDateFormatter+Opetopic.m in Sources */,
+				A784E23314B417CC0099272D /* NSDictionary+Opetopic.m in Sources */,
+				A7F05BEE14BA25B7005CF16F /* NSLocale+Opetopic.m in Sources */,
+				A7F05BEF14BA25B7005CF16F /* NSMutableArray+Opetopic.m in Sources */,
+				A7F05BF014BA25B7005CF16F /* NSMutableDictionary+Opetopic.m in Sources */,
+				A7F05BF114BA25B7005CF16F /* NSNotificationCenter+Opetopic.m in Sources */,
+				A7F05BF214BA25B7005CF16F /* NSObject+Opetopic.m in Sources */,
+				A7F05BF314BA25B7005CF16F /* NSPredicate+Opetopic.m in Sources */,
+				A7F05BF414BA25B7005CF16F /* NSSet+Opetopic.m in Sources */,
+				A7F05BF514BA25B7005CF16F /* NSString+Opetopic.m in Sources */,
+				A7F05BF614BA25B7005CF16F /* NSURL+Opetopic.m in Sources */,
+				A7F05BE414BA1394005CF16F /* OPMacrosTest.m in Sources */,
+				A7F05BE914BA24DC005CF16F /* NSDateFormatterTest.m in Sources */,
+				A7F05BF814BA25E1005CF16F /* MFMailComposeViewController+BlocksKit.m in Sources */,
+				A7F05BF914BA25E1005CF16F /* MFMessageComposeViewController+BlocksKit.m in Sources */,
+				A7F05BFA14BA25E1005CF16F /* NSArray+BlocksKit.m in Sources */,
+				A7F05BFB14BA25E1005CF16F /* NSCache+BlocksKit.m in Sources */,
+				A7F05BFC14BA2606005CF16F /* NSDictionary+BlocksKit.m in Sources */,
+				A7F05BFD14BA2606005CF16F /* NSIndexSet+BlocksKit.m in Sources */,
+				A7F05BFE14BA2606005CF16F /* NSInvocation+BlocksKit.m in Sources */,
+				A7F05BFF14BA2606005CF16F /* NSMutableArray+BlocksKit.m in Sources */,
+				A7F05C0014BA2606005CF16F /* NSMutableDictionary+BlocksKit.m in Sources */,
+				A7F05C0114BA2606005CF16F /* NSMutableIndexSet+BlocksKit.m in Sources */,
+				A7F05C0214BA2606005CF16F /* NSMutableSet+BlocksKit.m in Sources */,
+				A7F05C1414BA26D6005CF16F /* NSObject+AssociatedObjects.m in Sources */,
+				A7F05C1514BA26F6005CF16F /* NSObject+BlockObservation.m in Sources */,
+				A7F05C0314BA2606005CF16F /* NSObject+BlocksKit.m in Sources */,
+				A7F05C0414BA2606005CF16F /* NSSet+BlocksKit.m in Sources */,
+				A7F05C0514BA2606005CF16F /* NSTimer+BlocksKit.m in Sources */,
+				A7F05C0614BA2606005CF16F /* NSURLConnection+BlocksKit.m in Sources */,
+				A7F05C0714BA2606005CF16F /* UIActionSheet+BlocksKit.m in Sources */,
+				A7F05C0814BA2606005CF16F /* UIAlertView+BlocksKit.m in Sources */,
+				A7F05C0914BA2606005CF16F /* UIBarButtonItem+BlocksKit.m in Sources */,
+				A7F05C0A14BA2606005CF16F /* UIControl+BlocksKit.m in Sources */,
+				A7F05C0B14BA2606005CF16F /* UIGestureRecognizer+BlocksKit.m in Sources */,
+				A7F05C0C14BA2606005CF16F /* UIPopoverController+BlocksKit.m in Sources */,
+				A7F05C0D14BA2606005CF16F /* UIView+BlocksKit.m in Sources */,
+				A7F05C0E14BA2606005CF16F /* UIWebView+BlocksKit.m in Sources */,
+				A7F05C1314BA266A005CF16F /* A2DynamicDelegate.m in Sources */,
+				A7F05C1214BA2667005CF16F /* A2BlockDelegate.m in Sources */,
+				A7F05BF714BA25E1005CF16F /* A2BlockDelegate+BlocksKit.m in Sources */,
+				A7F05C1814BA2BF5005CF16F /* NSPredicateTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -804,6 +906,7 @@
 				A784E22E14B416E40099272D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

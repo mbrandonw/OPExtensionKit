@@ -10,4 +10,6 @@
 
 @interface NSCache (Opetopic)
 
++(id) sharedCache;
+
 @end

@@ -7,7 +7,10 @@
 //
 
 #import "NSCache+Opetopic.h"
+#import "OPMacros.h"
 
 @implementation NSCache (Opetopic)
+
+OP_SYNTHESIZE_SINGLETON_FOR_CLASS(NSCache, sharedCache);
 
 @end

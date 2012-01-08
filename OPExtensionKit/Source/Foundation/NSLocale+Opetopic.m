@@ -9,18 +9,13 @@
 #import "NSLocale+Opetopic.h"
 #import "BlocksKit.h"
 #import "NSString+Opetopic.h"
-
-static NSCache *NSLocaleCache;
+#import "NSCache+Opetopic.h"
 
 @implementation NSLocale (Opetopic)
 
-+(void) load {
-    NSLocaleCache = [NSCache new];
-}
-
 +(NSArray*) countryList {
     
-    return [NSLocaleCache objectForKey:@"NSLocale/countryList" withGetter:^id(void){
+    return [[NSCache sharedCache] objectForKey:@"NSLocale/countryList" withGetter:^id(void){
         
         return [[NSLocale ISOCountryCodes] map:^id(id obj) {
             return [[NSLocale currentLocale] displayNameForKey:NSLocaleCountryCode value:obj];
@@ -30,7 +25,7 @@ static NSCache *NSLocaleCache;
 
 +(NSArray*) countryListSortedByName {
     
-    return [NSLocaleCache objectForKey:@"NSLocale/countryListSortedByLetter" withGetter:^id(void){
+    return [[NSCache sharedCache] objectForKey:@"NSLocale/countryListSortedByLetter" withGetter:^id(void){
         
         return [[self countryList] sortedArrayUsingSelector:@selector(compare:)];
     }];
@@ -38,7 +33,7 @@ static NSCache *NSLocaleCache;
 
 +(NSArray*) countryListGroupedByLetter {
     
-    return [NSLocaleCache objectForKey:@"NSLocale/countryListGroupedByLetter" withGetter:^id(void){
+    return [[NSCache sharedCache] objectForKey:@"NSLocale/countryListGroupedByLetter" withGetter:^id(void){
         
         NSMutableDictionary *letterGroups = [NSMutableDictionary dictionaryWithCapacity:26];
         [[self countryListSortedByName] each:^(id sender) {

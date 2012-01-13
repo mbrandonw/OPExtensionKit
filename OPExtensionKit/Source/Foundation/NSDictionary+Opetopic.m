@@ -8,6 +8,20 @@
 
 #import "NSDictionary+Opetopic.h"
 
+NSDictionary *DictionaryWithArrayPrivate(NSUInteger count, id __unsafe_unretained keysAndObjects[]) {
+    
+    id keys[count];
+    id objects[count];
+    
+    for (NSUInteger i = 0; i < count; i++)
+    {
+        keys[i] = keysAndObjects[2 * i];
+        objects[i] = keysAndObjects[2 * i + 1];
+    }
+    
+    return [NSDictionary dictionaryWithObjects:objects forKeys:keys count:count];
+}
+
 @implementation NSDictionary (Opetopic)
 
 - (NSString*) stringForKey:(id)key {

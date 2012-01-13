@@ -21,9 +21,9 @@ void OPProfile(NSString *label, void(^task)(void)) {
     DLog(@"=========== /PROFILING ============");
 }
 
-id OPCoalescePrivate(int count, id __unsafe_unretained objs[]) {
+id OPCoalescePrivate(NSUInteger count, id __unsafe_unretained objs[]) {
     
-    for (int i = 0; i < count; i++)
+    for (NSUInteger i = 0; i < count; i++)
         if (objs[i])
             return objs[i];
     return nil;

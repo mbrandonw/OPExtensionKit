@@ -18,7 +18,7 @@
 
 -(void) testAnyObject {
     
-    NSArray *nonEmptyArray = ARRAY(@"1",@"2",@"3");
+    NSArray *nonEmptyArray = $array(@"1",@"2",@"3");
     for (int i = 0; i < 10; i++)
         GHAssertNotNil([nonEmptyArray anyObject], nil);
     
@@ -29,7 +29,7 @@
 -(void) testAnyObjectExcept {
     
     id except = @"666";
-    NSArray *nonEmpty = ARRAY(@"1",@"2",except,@"3",@"4");
+    NSArray *nonEmpty = $array(@"1",@"2",except,@"3",@"4");
     for (int i = 0; i < 10; i++)
     {
         id obj = [nonEmpty anyObjectExcept:except];
@@ -37,17 +37,17 @@
         GHAssertNotEqualObjects(obj, except, nil);
     }
     
-    NSArray *onlyExcept = ARRAY(except);
+    NSArray *onlyExcept = $array(except);
     GHAssertNil([onlyExcept anyObjectExcept:except], nil);
     
-    onlyExcept = ARRAY(except, except);
+    onlyExcept = $array(except, except);
     GHAssertNil([onlyExcept anyObjectExcept:except], nil);
 }
 
 -(void) testFirstObject {
     
     id first = @"1";
-    NSArray *nonEmpty = ARRAY(first, @"2");
+    NSArray *nonEmpty = $array(first, @"2");
     GHAssertEquals(first, [nonEmpty firstObject], nil);
     
     NSArray *empty = [NSArray array];
@@ -57,31 +57,31 @@
 -(void) testSecondObject {
     
     id second = @"2";
-    NSArray *nonEmpty = ARRAY(@"1", second, @"3");
+    NSArray *nonEmpty = $array(@"1", second, @"3");
     GHAssertEquals(second, [nonEmpty secondObject], nil);
     
     NSArray *empty = [NSArray array];
     GHAssertNil([empty secondObject], nil);
     
-    NSArray *singleton = ARRAY(@"1");
+    NSArray *singleton = $array(@"1");
     GHAssertNil([singleton secondObject], nil);
 }
 
 -(void) testArrayByPrependingObject {
     
-    NSArray *original = ARRAY(@"2",@"3",@"4");
+    NSArray *original = $array(@"2",@"3",@"4");
     id obj = @"1";
-    NSArray *result = ARRAY(obj, @"2",@"3",@"4");
+    NSArray *result = $array(obj, @"2",@"3",@"4");
     
     GHAssertEqualObjects([original arrayByPrependingObject:obj], result, nil);
     
     NSArray *empty = [NSArray array];
-    GHAssertEqualObjects([empty arrayByPrependingObject:obj], ARRAY(obj), nil);
+    GHAssertEqualObjects([empty arrayByPrependingObject:obj], $array(obj), nil);
 }
 
 -(void) testContainsCaseInsensitiveString {
     
-    NSArray *array = ARRAY(@"1", @"asdf", @"Bob", @"MaGiCk");
+    NSArray *array = $array(@"1", @"asdf", @"Bob", @"MaGiCk");
     GHAssertTrue([array containsCaseInsensitiveString:@"1"], nil);
     GHAssertTrue([array containsCaseInsensitiveString:@"ASDF"], nil);
     GHAssertTrue([array containsCaseInsensitiveString:@"bob"], nil);
@@ -90,9 +90,9 @@
 
 -(void) testContainsAnObjectIn {
     
-    NSArray *array1 = ARRAY(@"1",@"2",@"3",@"4");
-    NSArray *array2 = ARRAY(@"a",@"b",@"c",@"d");
-    NSArray *array3 = ARRAY(@"1",@"x",@"y",@"d");
+    NSArray *array1 = $array(@"1",@"2",@"3",@"4");
+    NSArray *array2 = $array(@"a",@"b",@"c",@"d");
+    NSArray *array3 = $array(@"1",@"x",@"y",@"d");
     
     GHAssertFalse([array1 containsAnObjectIn:array2], nil);
     GHAssertTrue([array2 containsAnObjectIn:array3], nil);
@@ -103,7 +103,7 @@
     
     NSMutableArray *array = [NSMutableArray new];
     for (int i = 0; i < 10; i++)
-        [array addObject:DICT(NSInt(arc4random()%1000), @"key")];
+        [array addObject:$dict(@"key", NSInt(arc4random()%1000))];
     
     NSArray *sort1 = [array sortedArrayUsingDescriptor:[NSSortDescriptor sortDescriptorWithKey:@"key" ascending:YES]];
     NSArray *sort2 = [array sortedArrayUsingDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"key" ascending:YES]]];
@@ -113,13 +113,13 @@
 
 -(void) testSynchronizeWith {
     
-    NSArray *array1 = ARRAY(DICT(@"3",@"id"), 
-                           DICT(@"2",@"id"), 
-                           DICT(@"5",@"id"));
+    NSArray *array1 = $array($dict(@"id",@"3"), 
+                             $dict(@"id",@"2"), 
+                             $dict(@"id",@"5"));
     
-    NSArray *array2 = ARRAY(DICT(@"2",@"_id"), 
-                           DICT(@"1",@"_id"), 
-                           DICT(@"6",@"_id"));
+    NSArray *array2 = $array($dict(@"_id",@"2"), 
+                             $dict(@"_id",@"1"), 
+                             $dict(@"_id",@"6"));
     
     __block NSUInteger updateCount = 0;
     __block NSUInteger insertCount = 0;

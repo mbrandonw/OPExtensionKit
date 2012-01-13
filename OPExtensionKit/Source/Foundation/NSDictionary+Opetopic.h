@@ -12,8 +12,13 @@
  */
 
 #import <Foundation/Foundation.h>
+#import "OPMacros.h"
 
-#define DICT(...)  [NSDictionary dictionaryWithObjectsAndKeys:__VA_ARGS__, nil]
+/**
+ Macro for concisely creating a dictionary with key/value order, as opposed to value/key.
+ */
+#define $dict(...)  DictionaryWithArrayPrivate(VA_ARGS_COUNT(__VA_ARGS__)/2, VA_ARGS_C_ARRAY(__VA_ARGS__))
+NSDictionary *DictionaryWithArrayPrivate(NSUInteger count, id __unsafe_unretained keysAndObjects[]);
 
 @interface NSDictionary (Opetopic)
 

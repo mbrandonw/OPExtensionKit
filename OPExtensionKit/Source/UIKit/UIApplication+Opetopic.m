@@ -25,6 +25,22 @@
     }
 }
 
+-(void) preventDeviceFromIdlingWhile:(void (^)(void))task {
+    
+    BOOL previousValue = [UIApplication sharedApplication].idleTimerDisabled;
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [UIApplication sharedApplication].idleTimerDisabled = YES;
+    });
+    
+    if (task)
+        task();
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [UIApplication sharedApplication].idleTimerDisabled = previousValue;
+    });
+}
+
 +(void) call:(NSString*)number {
     
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://%@", [number stripNonTelephonyCharacters]]]];

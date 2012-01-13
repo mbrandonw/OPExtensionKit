@@ -19,6 +19,13 @@
  */
 -(void) performBackgroundTask:(void(^)(void))task completion:(void(^)(void))completion expiration:(void(^)(void))expiration;
 
+/**
+ */
+-(void) preventDeviceFromIdlingWhile:(void(^)(void))task;
+
+/**
+ Invoke particular -openURL: schemes.
+ */
 +(void) call:(NSString*)number;
 +(void) facetime:(NSString*)number;
 +(void) openMaps:(NSString*)address;

@@ -40,15 +40,15 @@
 
 -(void) testCoalesce {
     
-    GHAssertEqualObjects(OPCoalesce(2, nil, @""), @"", @"");
-    GHAssertEqualObjects(OPCoalesce(2, nil, [NSNull null]), [NSNull null], @"");
-    GHAssertEqualObjects(OPCoalesce(2, @"a", @"b"), @"a", @"");
-    GHAssertEqualObjects(OPCoalesce(2, @"a", nil), @"a", @"");
-    GHAssertEqualObjects(OPCoalesce(2, [NSNull null], nil), [NSNull null], @"");
+    GHAssertEqualObjects(OPCoalesce(nil, @""), @"", @"");
+    GHAssertEqualObjects(OPCoalesce(nil, [NSNull null]), [NSNull null], @"");
+    GHAssertEqualObjects(OPCoalesce(@"a", @"b"), @"a", @"");
+    GHAssertEqualObjects(OPCoalesce(@"a", nil), @"a", @"");
+    GHAssertEqualObjects(OPCoalesce([NSNull null], nil), [NSNull null], @"");
     
-    GHAssertEqualObjects(OPCoalesce(3, nil, nil, nil), nil, @"");
-    GHAssertEqualObjects(OPCoalesce(4, nil, nil, nil, @""), @"", @"");
-    GHAssertEqualObjects(OPCoalesce(5, nil, nil, nil, @"a", @"b"), @"a", @"");
+    GHAssertEqualObjects(OPCoalesce(nil, nil, nil), nil, @"");
+    GHAssertEqualObjects(OPCoalesce(nil, nil, nil, @""), @"", @"");
+    GHAssertEqualObjects(OPCoalesce(nil, nil, nil, @"a", @"b"), @"a", @"");
 }
 
 @end

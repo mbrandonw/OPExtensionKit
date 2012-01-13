@@ -21,19 +21,10 @@ void OPProfile(NSString *label, void(^task)(void)) {
     DLog(@"=========== /PROFILING ============");
 }
 
-id OPCoalesce(NSUInteger count, ...) {
-    
-    va_list args;
-    va_start(args, count);
-    
-    id obj;
+id OPCoalescePrivate(int count, id __unsafe_unretained objs[]) {
     
     for (int i = 0; i < count; i++)
-    {
-        obj = va_arg(args, id);
-        if (obj)
-            return obj;
-    }
-    
+        if (objs[i])
+            return objs[i];
     return nil;
 }

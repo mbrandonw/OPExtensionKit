@@ -7,6 +7,7 @@
 //
 
 #import "OPAppDelegate.h"
+#import "NSLocale+Opetopic.h"
 
 @implementation OPAppDelegate
 
@@ -14,6 +15,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    NSLog(@"%@", [NSLocale countryList]);
+    NSLog(@"%@", [NSLocale countryListSortedByName]);
+    NSLog(@"%@", [NSLocale countryListGroupedByLetter]);
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];

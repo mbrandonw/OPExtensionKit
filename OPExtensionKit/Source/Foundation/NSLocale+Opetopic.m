@@ -7,46 +7,70 @@
 //
 
 #import "NSLocale+Opetopic.h"
-#import "BlocksKit.h"
 #import "NSString+Opetopic.h"
 #import "NSCache+Opetopic.h"
 
 @implementation NSLocale (Opetopic)
 
 +(NSArray*) countryList {
+    static NSString *CacheKey = @"NSLocale/Opetopic/countryList";
     
-    return [[NSCache sharedCache] objectForKey:@"NSLocale/countryList" withGetter:^id(void){
+    NSMutableArray *retVal = [[NSCache sharedCache] objectForKey:CacheKey];
+    
+    if (! retVal)
+    {
+        NSArray *codes = [NSLocale ISOCountryCodes];
+        retVal = [NSMutableArray arrayWithCapacity:[codes count]];
+        for (id code in codes)
+            [retVal addObject:[[NSLocale currentLocale] displayNameForKey:NSLocaleCountryCode value:code]];
         
-        return [[NSLocale ISOCountryCodes] map:^id(id obj) {
-            return [[NSLocale currentLocale] displayNameForKey:NSLocaleCountryCode value:obj];
-        }];
-    }];
+        [[NSCache sharedCache] setObject:retVal forKey:CacheKey];
+    }
+    
+    return retVal;
 }
 
 +(NSArray*) countryListSortedByName {
+    static NSString *CacheKey = @"NSLocale/Opetopic/countryListSortedByName";
     
-    return [[NSCache sharedCache] objectForKey:@"NSLocale/countryListSortedByLetter" withGetter:^id(void){
-        
-        return [[self countryList] sortedArrayUsingSelector:@selector(compare:)];
-    }];
+    NSArray *retVal = [[NSCache sharedCache] objectForKey:CacheKey];
+    
+    if (! retVal)
+    {
+        retVal = [[self countryList] sortedArrayUsingSelector:@selector(compare:)];
+        if (retVal)
+            [[NSCache sharedCache] setObject:retVal forKey:CacheKey];
+    }
+    
+    return retVal;
 }
 
 +(NSArray*) countryListGroupedByLetter {
+    static NSString *CacheKey = @"NSLocale/Opetopic/countryListGroupedByLetter";
     
-    return [[NSCache sharedCache] objectForKey:@"NSLocale/countryListGroupedByLetter" withGetter:^id(void){
+    NSMutableArray *retVal = [[NSCache sharedCache] objectForKey:CacheKey];
+    
+    if (! retVal)
+    {
+        retVal = [NSMutableArray arrayWithCapacity:26];
+        __block NSString *previousFirstLetter = nil;
         
-        NSMutableDictionary *letterGroups = [NSMutableDictionary dictionaryWithCapacity:26];
-        [[self countryListSortedByName] each:^(id sender) {
-            NSString *key = [[[sender substringToIndex:1] normalizedString] uppercaseString];
-            if (! [letterGroups objectForKey:key])
-                [letterGroups setObject:[NSMutableArray array] forKey:key];
-            [[letterGroups objectForKey:key] addObject:sender];
+        [[self countryListSortedByName] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            
+            NSString *firstLetter = [[[obj substringToIndex:1] normalizedString] uppercaseString];
+            
+            if (! [firstLetter isEqualToString:previousFirstLetter])
+                [retVal addObject:[NSMutableArray array]];
+            
+            [[retVal lastObject] addObject:obj];
+            
+            previousFirstLetter = firstLetter;
         }];
         
-        return [[[letterGroups allKeys] sortedArrayUsingSelector:@selector(compare:)] map:^id(id obj) {
-            return [letterGroups objectForKey:obj];
-        }];
-    }];
+        [[NSCache sharedCache] setObject:retVal forKey:CacheKey];
+    }
+    
+    return retVal;
 }
 
 @end

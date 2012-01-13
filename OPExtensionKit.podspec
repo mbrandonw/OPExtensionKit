@@ -12,6 +12,4 @@ Pod::Spec.new do |s|
   
   s.frameworks = 'CoreData', 'QuartzCore', 'MapKit'
   
-  s.dependency 'BlocksKit', '~> 1.0.2'
-
 end

@@ -8,7 +8,10 @@
 
 #import "NSDateFormatter+Opetopic.h"
 #import "NSCache+Opetopic.h"
-#import "BlocksKit.h"
+
+@interface NSDateFormatter (Opetopic_Private)
++(NSArray*) _symbolProxy:(SEL)selector;
+@end
 
 static NSDateFormatter *__formatters[NSDateFormatterFullStyle][NSDateFormatterFullStyle];
 
@@ -27,31 +30,39 @@ static NSDateFormatter *__formatters[NSDateFormatterFullStyle][NSDateFormatterFu
 }
 
 +(NSArray*) monthSymbols {
-    
-    return [[NSCache sharedCache] objectForKey:@"NSDateFormatter/Opetopic/monthSymbols" withGetter:^id{
-        return [[NSDateFormatter formatterWithDateStyle:NSDateFormatterNoStyle timeStyle:NSDateFormatterNoStyle] monthSymbols];
-    }];
+    return [[self class] _symbolProxy:_cmd];
 }
 
 +(NSArray*) shortMonthSymbols {
-    
-    return [[NSCache sharedCache] objectForKey:@"NSDateFormatter/Opetopic/shortMonthSymbols" withGetter:^id{
-        return [[NSDateFormatter formatterWithDateStyle:NSDateFormatterNoStyle timeStyle:NSDateFormatterNoStyle] shortMonthSymbols];
-    }];
+    return [[self class] _symbolProxy:_cmd];
 }
 
 +(NSArray*) weekdaySymbols {
-    
-    return [[NSCache sharedCache] objectForKey:@"NSDateFormatter/Opetopic/weekdaySymbols" withGetter:^id{
-        return [[NSDateFormatter formatterWithDateStyle:NSDateFormatterNoStyle timeStyle:NSDateFormatterNoStyle] weekdaySymbols];
-    }];
+    return [[self class] _symbolProxy:_cmd];
 }
 
 +(NSArray*) shortWeekdaySymbols {
+    return [[self class] _symbolProxy:_cmd];
+}
+
++(NSArray*) _symbolProxy:(SEL)selector {
     
-    return [[NSCache sharedCache] objectForKey:@"NSDateFormatter/Opetopic/shortWeekdaySymbols" withGetter:^id{
-        return [[NSDateFormatter formatterWithDateStyle:NSDateFormatterNoStyle timeStyle:NSDateFormatterNoStyle] shortWeekdaySymbols];
-    }];
+    NSString *cacheKey = [NSString stringWithFormat:@"NSDateFormatter/Opetopic/%@", NSStringFromSelector(selector)];
+    
+    NSArray *retVal = [[NSCache sharedCache] objectForKey:cacheKey];
+    
+    if (! retVal)
+    {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+        retVal = [[NSDateFormatter formatterWithDateStyle:NSDateFormatterNoStyle timeStyle:NSDateFormatterNoStyle] performSelector:selector];
+#pragma clang diagnostic pop
+        
+        if (retVal)
+            [[NSCache sharedCache] setObject:retVal forKey:cacheKey];
+    }
+    
+    return retVal;
 }
 
 @end

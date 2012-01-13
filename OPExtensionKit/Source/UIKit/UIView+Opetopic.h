@@ -66,4 +66,9 @@
  */
 -(void) hideAllSubviews;
 
+/**
+ Removes all of the view's subviews.
+ */
+-(void) removeAllSubviews;
+
 @end

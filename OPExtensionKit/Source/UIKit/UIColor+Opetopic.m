@@ -238,14 +238,14 @@
     
     CGFloat h, s, l, a;
     [self hue:&h saturation:&s lightness:&l alpha:&a];
-    return [UIColor colorWithHue:h saturation:s lightness:((1.0f - l) * percent) alpha:a];
+    return [UIColor colorWithHue:h saturation:s lightness:(l + (1.0f - l) * percent) alpha:a];
 }
 
 -(UIColor*) darken:(CGFloat)percent {
     
     CGFloat h, s, l, a;
     [self hue:&h saturation:&s lightness:&l alpha:&a];
-    return [UIColor colorWithHue:h saturation:s lightness:(l * percent) alpha:a];
+    return [UIColor colorWithHue:h saturation:s lightness:(l - l * percent) alpha:a];
 }
 
 -(UIColor*) mix:(UIColor*)color {

@@ -14,8 +14,6 @@
 
 #import <UIKit/UIKit.h>
 
-typedef void(^OPViewDrawingBlock)(UIView* v, CGRect r, CGContextRef c);
-
 @interface UIView (Opetopic)
 
 /**
@@ -82,10 +80,5 @@ typedef void(^OPViewDrawingBlock)(UIView* v, CGRect r, CGContextRef c);
  Easy access to `recursiveDescription`. Don't worry, this is App Store safe.
  */
 -(NSString*) rDescription;
-
--(void) addBackDrawingBlock:(OPViewDrawingBlock)block;
--(void) addFrontDrawingBlock:(OPViewDrawingBlock)block;
--(void) drawFrontRect:(CGRect)rect;
--(void) drawBackRect:(CGRect)rect;
 
 @end

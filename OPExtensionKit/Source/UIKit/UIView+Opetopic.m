@@ -8,15 +8,7 @@
 
 #import "UIView+Opetopic.h"
 
-@interface OPView ()
-@property (nonatomic, strong) NSMutableArray *frontDrawingBlocks;
-@property (nonatomic, strong) NSMutableArray *backDrawingBlocks;
-@end
-
 @implementation UIView (Opetopic)
-
-@synthesize frontDrawingBlocks;
-@synthesize backDrawingBlocks;
 
 -(CGFloat) left {
 	return self.frame.origin.x;
@@ -127,31 +119,4 @@
 #endif
 }
 
--(void) addBackDrawingBlock:(OPViewDrawingBlock)block {
-    
-    if (! self.backDrawingBlocks)
-        self.backDrawingBlocks = [NSMutableArray new];
-    [self.backDrawingBlocks addObject:[block copy]];
-}
-
--(void) addFrontDrawingBlock:(OPViewDrawingBlock)block {
-    
-    if (! self.frontDrawingBlocks)
-        self.frontDrawingBlocks = [NSMutableArray new];
-    [self.frontDrawingBlocks addObject:[block copy]];
-}
-
--(void) drawFrontRect:(CGRect)rect {
-    
-    CGContextRef c = UIGraphicsGetCurrentContext();
-    for (OPViewDrawingBlock block in self.frontDrawingBlocks)
-        block(self, rect, c);
-}
-
--(void) drawBackRect:(CGRect)rect {
-    
-    CGContextRef c = UIGraphicsGetCurrentContext();
-    for (OPViewDrawingBlock block in self.backDrawingBlocks)
-        block(self, rect, c);
-}
 @end

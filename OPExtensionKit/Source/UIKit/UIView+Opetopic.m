@@ -94,6 +94,11 @@
     [self setCenter:CGPointMake(self.center.x, centerY)];
 }
 
+-(void) addSubviewToBack:(UIView *)view {
+    [self addSubview:view];
+    [self sendSubviewToBack:view];
+}
+
 -(void) hideAllSubviews {
 	
 	for (UIView *s in self.subviews)

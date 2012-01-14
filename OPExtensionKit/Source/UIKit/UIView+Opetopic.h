@@ -62,6 +62,11 @@
 @property (nonatomic, assign) CGFloat centerY;
 
 /**
+ Add a subview to the back of the hierarcy.
+ */
+-(void) addSubviewToBack:(UIView *)view;
+
+/**
  Hides all of the view's subviews.
  */
 -(void) hideAllSubviews;

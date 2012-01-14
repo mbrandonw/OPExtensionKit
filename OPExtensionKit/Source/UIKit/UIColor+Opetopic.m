@@ -237,6 +237,35 @@
     return $rgbaf(temp[0], temp[1], temp[2], alpha);
 }
 
+-(UIColor*) lighten:(CGFloat)percent {
+    
+    CGFloat h, s, l, a;
+    [self hue:&h saturation:&s lightness:&l alpha:&a];
+    return [UIColor colorWithHue:h saturation:s lightness:((1.0f - l) * percent) alpha:a];
+}
+
+-(UIColor*) darken:(CGFloat)percent {
+    
+    CGFloat h, s, l, a;
+    [self hue:&h saturation:&s lightness:&l alpha:&a];
+    return [UIColor colorWithHue:h saturation:s lightness:(l * percent) alpha:a];
+}
+
+-(UIColor*) mix:(UIColor*)color {
+    return [self mix:color amount:0.5f];
+}
+
+-(UIColor*) mix:(UIColor*)color amount:(CGFloat)amount {
+    
+    CGFloat r1,g1,b1,a1, r2,g2,b2,a2;
+    [self red:&r1 green:&g1 blue:&b1 alpha:&a1];
+    [self red:&r2 green:&g2 blue:&b2 alpha:&a2];
+    return [UIColor colorWithRed:(r1*amount + r2*(amount-1.0f))
+                           green:(g1*amount + g2*(amount-1.0f))
+                            blue:(b1*amount + b2*(amount-1.0f))
+                           alpha:(a1*amount + a2*(amount-1.0f))];
+}
+
 +(UIColor*) veryLightGrayColor {
     return $waf(0.85f, 1.0f);
 }

@@ -55,6 +55,14 @@
 +(UIColor*) colorWithHue:(CGFloat)hue saturation:(CGFloat)saturation lightness:(CGFloat)lightness alpha:(CGFloat)alpha;
 
 /**
+ Creating new colors by applying effects.
+ */
+-(UIColor*) lighten:(CGFloat)percent;
+-(UIColor*) darken:(CGFloat)percent;
+-(UIColor*) mix:(UIColor*)color;
+-(UIColor*) mix:(UIColor*)color amount:(CGFloat)amount;
+
+/**
  Color palette.
  */
 +(UIColor*) veryLightGrayColor;

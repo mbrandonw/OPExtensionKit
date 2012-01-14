@@ -11,51 +11,57 @@
 
 @implementation UIColor (Opetopic)
 
-- (CGColorSpaceModel)colorSpaceModel {
-    return CGColorSpaceGetModel(CGColorGetColorSpace(self.CGColor));
-}
-
-- (BOOL)canProvideRGBComponents {
-    switch (self.colorSpaceModel) {
-        case kCGColorSpaceModelRGB:
-        case kCGColorSpaceModelMonochrome:
-            return YES;
-        default:
-            return NO;
-    }
-}
-
-- (CGFloat)red {
+- (CGFloat)redf {
     NSAssert(self.canProvideRGBComponents, @"Must be an RGB color to use -red");
     const CGFloat *c = CGColorGetComponents(self.CGColor);
     return c[0];
 }
 
-- (CGFloat)green {
+-(UInt8) redi {
+    return (UInt8)roundf(self.redf * 255.0f);
+}
+
+- (CGFloat)greenf {
     NSAssert(self.canProvideRGBComponents, @"Must be an RGB color to use -green");
     const CGFloat *c = CGColorGetComponents(self.CGColor);
     if (self.colorSpaceModel == kCGColorSpaceModelMonochrome) return c[0];
     return c[1];
 }
 
-- (CGFloat)blue {
+-(UInt8) greeni {
+    return (UInt8)roundf(self.greenf * 255.0f);
+}
+
+- (CGFloat)bluef {
     NSAssert(self.canProvideRGBComponents, @"Must be an RGB color to use -blue");
     const CGFloat *c = CGColorGetComponents(self.CGColor);
     if (self.colorSpaceModel == kCGColorSpaceModelMonochrome) return c[0];
     return c[2];
 }
 
-- (CGFloat)white {
+-(UInt8) bluei {
+    return (UInt8)roundf(self.bluef * 255.0f);
+}
+
+- (CGFloat)whitef {
     NSAssert(self.colorSpaceModel == kCGColorSpaceModelMonochrome, @"Must be a Monochrome color to use -white");
     const CGFloat *c = CGColorGetComponents(self.CGColor);
     return c[0];
 }
 
-- (CGFloat)alpha {
+-(UInt8) whitei {
+    return (UInt8)roundf(self.whitef * 100.0f);
+}
+
+- (CGFloat)alphaf {
     return CGColorGetAlpha(self.CGColor);
 }
 
--(BOOL) red:(CGFloat*)red green:(CGFloat*)green blue:(CGFloat*)blue alpha:(CGFloat*)alpha {
+-(UInt8) alphai {
+    return (UInt8)roundf(self.alphaf * 100.0f);
+}
+
+-(BOOL) RGBAf:(CGFloat*)red :(CGFloat*)green :(CGFloat*)blue :(CGFloat*)alpha {
     
     CGFloat r,g,b,a;
     const CGFloat *components = CGColorGetComponents(self.CGColor);
@@ -84,28 +90,61 @@
         *blue = b;
     if (alpha)
         *alpha = a;
+    
     return YES;
 }
 
--(BOOL) hue:(CGFloat*)hue saturation:(CGFloat*)saturation brightness:(CGFloat*)brightness alpha:(CGFloat*)alpha {
+-(BOOL) RGBAi:(UInt8*)red :(UInt8*)green :(UInt8*)blue :(UInt8*)alpha {
+    
+    CGFloat r,g,b,a;
+    if (! [self RGBAf:&r :&g :&b :&a])
+        return NO;
+    
+    if (red)
+        *red = (UInt8)roundf(r * 255.0f);
+    if (green)
+        *green = (UInt8)roundf(g * 255.0f);
+    if (blue)
+        *blue = (UInt8)roundf(b * 255.0f);
+    if (alpha)
+        *alpha = (UInt8)roundf(a * 255.0f);
+    
+    return YES;
+}
+
+-(BOOL) HSBAf:(CGFloat*)hue :(CGFloat*)saturation :(CGFloat*)brightness :(CGFloat*)alpha {
     
     if ([self respondsToSelector:@selector(getHue:saturation:brightness:alpha:)])
         return [self getHue:hue saturation:saturation brightness:brightness alpha:alpha];
     return NO;
 }
 
--(BOOL) hue:(CGFloat*)hue saturation:(CGFloat*)saturation lightness:(CGFloat*)lightness alpha:(CGFloat*)alpha {
+-(BOOL) HSBAi:(UInt16 *)hue :(UInt8 *)saturation :(UInt8 *)brightness :(UInt8 *)alpha {
     
-    CGFloat r, g, b;
-    if (! [self red:&r green:&g blue:&b alpha:alpha])
+    CGFloat h, s, b, a;
+    if (! [self HSBAf:&h :&s :&b :&a])
         return NO;
     
-    float h,s, l, v, m, vm, r2, g2, b2;
+    if (hue)
+        *hue = (UInt16)roundf(h * 360.0f);
+    if (saturation)
+        *saturation = (UInt8)roundf(s * 100.0f);
+    if (brightness)
+        *brightness = (UInt8)roundf(b * 100.0f);
+    if (alpha)
+        *alpha = (UInt8)roundf(a * 100.0f);
     
-    h = 0;
-    s = 0;
-    l = 0;
+    return YES;
+}
+
+-(BOOL) HSLAf:(CGFloat*)hue :(CGFloat*)saturation :(CGFloat*)lightness :(CGFloat*)alpha {
     
+    CGFloat r, g, b;
+    if (! [self RGBAf:&r :&g :&b :alpha])
+        return NO;
+    
+    float h = 0, s = 0, l = 0, v, m, vm, r2, g2, b2;
+     
     v = MAX(r, g);
     v = MAX(v, b);
     m = MIN(r, g);
@@ -113,7 +152,8 @@
     
     l = (m+v)/2.0f;
     
-    if (l <= 0.0){
+    if (l <= 0.0)
+    {
         if(hue)
             *hue = h;
         if(saturation)
@@ -126,9 +166,12 @@
     vm = v - m;
     s = vm;
     
-    if (s > 0.0f){
-        s/= (l <= 0.5f) ? (v + m) : (2.0 - v - m); 
-    }else{
+    if (s > 0.0f)
+    {
+        s /= (l <= 0.5f) ? (v + m) : (2.0 - v - m); 
+    }
+    else
+    {
         if(hue)
             *hue = h;
         if(saturation)
@@ -142,15 +185,14 @@
     g2 = (v - g)/vm;
     b2 = (v - b)/vm;
     
-    if (r == v){
+    if (r == v)
         h = (g == m ? 5.0f + b2 : 1.0f - g2);
-    }else if (g == v){
+    else if (g == v)
         h = (b == m ? 1.0f + r2 : 3.0 - b2);
-    }else{
+    else
         h = (r == m ? 3.0f + g2 : 5.0f - r2);
-    }
     
-    h/=6.0f;
+    h /= 6.0f;
     
     if(hue)
         *hue = h;
@@ -162,29 +204,67 @@
     return YES;
 }
 
-+(UIColor*) hex:(UInt32)hex {
+-(BOOL) HSLAi:(UInt16 *)hue :(UInt8 *)saturation :(UInt8 *)lightness :(UInt8 *)alpha {
+    
+    CGFloat h, s, l, a;
+    if (! [self HSLAf:&h :&s :&l :&a])
+        return NO;
+    
+    if (hue)
+        *hue = (UInt16)roundf(h * 360.0f);
+    if (saturation)
+        *saturation = (UInt8)roundf(s * 100.0f);
+    if (lightness)
+        *lightness = (UInt8)roundf(l * 100.0f);
+    if (alpha)
+        *alpha = (UInt8)roundf(a * 100.0f);
+    
+    return YES;
+}
+
++(UIColor*) hex:(UInt64)hex {
+    
+    if (hex > 0xffffff)
+    {
+        return [UIColor colorWithRed:((hex >> 24) & 0xff) / 255.0f
+                               green:((hex >> 16) & 0xff) / 255.0f
+                                blue:((hex >>  8) & 0xff) / 255.0f
+                               alpha:((hex >>  0) & 0xff) / 255.0f];
+    }
+    
     return [UIColor hex:hex alpha:1.0f];
 }
 
 +(UIColor*) hex:(UInt32)hex alpha:(CGFloat)alpha {
-    return [UIColor colorWithRed:((hex & 0xff0000) >> 16)/255.0f
-                           green:((hex & 0xff00) >> 8)/255.0f
-                            blue:(hex & 0xff)/255.0f
+    
+    return [UIColor colorWithRed:((hex >> 16) & 0xff) / 255.0f
+                           green:((hex >>  8) & 0xff) / 255.0f
+                            blue:((hex >>  0) & 0xff) / 255.0f
                            alpha:alpha];
 }
 
 -(UInt32) hex {
-    NSAssert(self.canProvideRGBComponents, @"Must be a RGB color to use rgbHex");
+    NSAssert(self.canProvideRGBComponents, @"Must be a RGB color to use hex");
     
     CGFloat r,g,b,a;
-    if (![self red:&r green:&g blue:&b alpha:&a])
+    if (![self RGBAf:&r :&g :&b :&a])
         return 0;
     
-    r = clip(self.red, 0.0f, 1.0f);
-    g = clip(self.green, 0.0f, 1.0f);
-    b = clip(self.blue, 0.0f, 1.0f);
+    return (((UInt32)roundf(r * 255)) << 16) | (((UInt32)roundf(g * 255)) << 8) | (((UInt32)roundf(b * 255)));
+}
+
+-(UInt64) hexa {
+    NSAssert(self.canProvideRGBComponents, @"Must be a RGB color to use hex");
     
-    return (((int)roundf(r * 255)) << 16) | (((int)roundf(g * 255)) << 8) | (((int)roundf(b * 255)));
+    CGFloat r,g,b,a;
+    if (![self RGBAf:&r :&g :&b :&a])
+        return 0;
+    
+    return 
+    (((UInt64)roundf(r * 255)) << 24) | 
+    (((UInt64)roundf(g * 255)) << 16) | 
+    (((UInt64)roundf(b * 255)) <<  8) |
+    (((UInt64)roundf(b * 255)) <<  0);
 }
 
 +(UIColor*) colorWithHue:(CGFloat)hue saturation:(CGFloat)saturation lightness:(CGFloat)lightness alpha:(CGFloat)alpha {
@@ -195,7 +275,7 @@
     
     // Check for saturation. If there isn't any just return the luminance value for each, which results in gray.
     if(saturation == 0.0)
-        return $rgbaf(lightness, lightness, lightness, alpha);
+        return $RGBAf(lightness, lightness, lightness, alpha);
     
     // Test for luminance and compute temporary values based on luminance and saturation 
     if(lightness < 0.5)
@@ -231,20 +311,20 @@
         }
     }
     
-    return $rgbaf(temp[0], temp[1], temp[2], alpha);
+    return $RGBAf(temp[0], temp[1], temp[2], alpha);
 }
 
 -(UIColor*) lighten:(CGFloat)percent {
     
     CGFloat h, s, l, a;
-    [self hue:&h saturation:&s lightness:&l alpha:&a];
+    [self HSLAf:&h :&s :&l :&a];
     return [UIColor colorWithHue:h saturation:s lightness:(l + (1.0f - l) * percent) alpha:a];
 }
 
 -(UIColor*) darken:(CGFloat)percent {
     
     CGFloat h, s, l, a;
-    [self hue:&h saturation:&s lightness:&l alpha:&a];
+    [self HSLAf:&h :&s :&l :&a];
     return [UIColor colorWithHue:h saturation:s lightness:(l - l * percent) alpha:a];
 }
 
@@ -255,8 +335,8 @@
 -(UIColor*) mix:(UIColor*)color amount:(CGFloat)amount {
     
     CGFloat r1,g1,b1,a1, r2,g2,b2,a2;
-    [self red:&r1 green:&g1 blue:&b1 alpha:&a1];
-    [self red:&r2 green:&g2 blue:&b2 alpha:&a2];
+    [self RGBAf:&r1 :&g1 :&b1 :&a1];
+    [self RGBAf:&r2 :&g2 :&b2 :&a2];
     return [UIColor colorWithRed:(r1*amount + r2*(amount-1.0f))
                            green:(g1*amount + g2*(amount-1.0f))
                             blue:(b1*amount + b2*(amount-1.0f))
@@ -264,27 +344,41 @@
 }
 
 +(UIColor*) veryLightGrayColor {
-    return $waf(0.85f, 1.0f);
+    return $WAf(0.85f, 1.0f);
 }
 
 +(UIColor*) veryDarkGrayColor {
-    return $waf(0.15f, 1.0f);
+    return $WAf(0.15f, 1.0f);
 }
 
 +(UIColor*) FacebookBlueColor {
-    return $rgbi(59, 89, 182);
+    return $RGBi(59, 89, 182);
 }
 
 +(UIColor*) TwitterBlueColor {
-    return $rgbi(64,153,255);
+    return $RGBi(64,153,255);
 }
 
 +(UIColor*) UIKitHighlightBlueTopColor {
-    return $rgbi(5, 140, 245);
+    return $RGBi(5, 140, 245);
 }
 
 +(UIColor*) UIKitHighlightBlueBottomColor {
-    return $rgbi(1, 95, 230);
+    return $RGBi(1, 95, 230);
+}
+
+- (CGColorSpaceModel)colorSpaceModel {
+    return CGColorSpaceGetModel(CGColorGetColorSpace(self.CGColor));
+}
+
+- (BOOL)canProvideRGBComponents {
+    switch (self.colorSpaceModel) {
+        case kCGColorSpaceModelRGB:
+        case kCGColorSpaceModelMonochrome:
+            return YES;
+        default:
+            return NO;
+    }
 }
 
 @end

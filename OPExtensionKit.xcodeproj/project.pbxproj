@@ -59,6 +59,8 @@
 		A7A9C19514C1104700C39504 /* UIColor+Opetopic.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A9C19414C1104700C39504 /* UIColor+Opetopic.m */; };
 		A7A9C19614C1104700C39504 /* UIColor+Opetopic.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A9C19414C1104700C39504 /* UIColor+Opetopic.m */; };
 		A7A9C19914C11BF900C39504 /* UIColorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A9C19814C11BF900C39504 /* UIColorTest.m */; };
+		A7A9C23C14C24A5400C39504 /* NSNumber+Opetopic.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A9C23B14C24A5400C39504 /* NSNumber+Opetopic.m */; };
+		A7A9C23D14C24A5400C39504 /* NSNumber+Opetopic.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A9C23B14C24A5400C39504 /* NSNumber+Opetopic.m */; };
 		A7F05BE414BA1394005CF16F /* OPMacrosTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A7F05BE314BA1394005CF16F /* OPMacrosTest.m */; };
 		A7F05BE614BA1B2D005CF16F /* OPMacros.m in Sources */ = {isa = PBXBuildFile; fileRef = A784E14714B4132A0099272D /* OPMacros.m */; };
 		A7F05BE914BA24DC005CF16F /* NSDateFormatterTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A7F05BE814BA24DC005CF16F /* NSDateFormatterTest.m */; };
@@ -162,6 +164,8 @@
 		A7A9C19314C1104700C39504 /* UIColor+Opetopic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Opetopic.h"; sourceTree = "<group>"; };
 		A7A9C19414C1104700C39504 /* UIColor+Opetopic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Opetopic.m"; sourceTree = "<group>"; };
 		A7A9C19814C11BF900C39504 /* UIColorTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIColorTest.m; sourceTree = "<group>"; };
+		A7A9C23A14C24A5400C39504 /* NSNumber+Opetopic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+Opetopic.h"; sourceTree = "<group>"; };
+		A7A9C23B14C24A5400C39504 /* NSNumber+Opetopic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+Opetopic.m"; sourceTree = "<group>"; };
 		A7F05BE314BA1394005CF16F /* OPMacrosTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPMacrosTest.m; sourceTree = "<group>"; };
 		A7F05BE814BA24DC005CF16F /* NSDateFormatterTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = NSDateFormatterTest.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A7F05C1714BA2BF5005CF16F /* NSPredicateTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = NSPredicateTest.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
@@ -314,6 +318,8 @@
 				A784E14214B4132A0099272D /* NSString+Opetopic.m */,
 				A784E14314B4132A0099272D /* NSURL+Opetopic.h */,
 				A784E14414B4132A0099272D /* NSURL+Opetopic.m */,
+				A7A9C23A14C24A5400C39504 /* NSNumber+Opetopic.h */,
+				A7A9C23B14C24A5400C39504 /* NSNumber+Opetopic.m */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -529,6 +535,7 @@
 				A784E17614B4132A0099272D /* UIWebView+Opetopic.m in Sources */,
 				A7A9C18E14C10C0F00C39504 /* Quartz+Opetopic.m in Sources */,
 				A7A9C19514C1104700C39504 /* UIColor+Opetopic.m in Sources */,
+				A7A9C23C14C24A5400C39504 /* NSNumber+Opetopic.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -560,6 +567,7 @@
 				A7A9C18F14C10C0F00C39504 /* Quartz+Opetopic.m in Sources */,
 				A7A9C19614C1104700C39504 /* UIColor+Opetopic.m in Sources */,
 				A7A9C19914C11BF900C39504 /* UIColorTest.m in Sources */,
+				A7A9C23D14C24A5400C39504 /* NSNumber+Opetopic.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

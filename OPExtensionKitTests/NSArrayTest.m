@@ -10,6 +10,7 @@
 #import "NSArray+Opetopic.h"
 #import "NSDictionary+Opetopic.h"
 #import "OPMacros.h"
+#import "NSNumber+Opetopic.h"
 
 @interface NSArrayTest : GHTestCase
 @end
@@ -103,7 +104,7 @@
     
     NSMutableArray *array = [NSMutableArray new];
     for (int i = 0; i < 10; i++)
-        [array addObject:$dict(@"key", NSInt(arc4random()%1000))];
+        [array addObject:$dict(@"key", $int(arc4random()%1000))];
     
     NSArray *sort1 = [array sortedArrayUsingDescriptor:[NSSortDescriptor sortDescriptorWithKey:@"key" ascending:YES]];
     NSArray *sort2 = [array sortedArrayUsingDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"key" ascending:YES]]];

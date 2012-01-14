@@ -60,14 +60,6 @@ id OPCoalescePrivate(NSUInteger count, id __unsafe_unretained objs[]);
     return shared##className; \
 }
 
-
-// shortcuts for creating helper objc objects
-#define NSInt(i)	[NSNumber numberWithInt:(i)]
-#define NSFloat(f)	[NSNumber numberWithFloat:(f)]
-#define NSDouble(d)	[NSNumber numberWithDouble:(d)]
-#define NSBool(b)	[NSNumber numberWithBool:(b)]
-
-
 #define randi(a,b) ({ \
     __typeof__(a) __a=(a); \
     __typeof__(b) __b=(b); \

@@ -56,6 +56,9 @@
 		A7A9C18F14C10C0F00C39504 /* Quartz+Opetopic.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A9C18D14C10C0F00C39504 /* Quartz+Opetopic.m */; };
 		A7A9C19114C10C3900C39504 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7A9C19014C10C3900C39504 /* QuartzCore.framework */; };
 		A7A9C19214C10C3F00C39504 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7A9C19014C10C3900C39504 /* QuartzCore.framework */; };
+		A7A9C19514C1104700C39504 /* UIColor+Opetopic.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A9C19414C1104700C39504 /* UIColor+Opetopic.m */; };
+		A7A9C19614C1104700C39504 /* UIColor+Opetopic.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A9C19414C1104700C39504 /* UIColor+Opetopic.m */; };
+		A7A9C19914C11BF900C39504 /* UIColorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A9C19814C11BF900C39504 /* UIColorTest.m */; };
 		A7F05BE414BA1394005CF16F /* OPMacrosTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A7F05BE314BA1394005CF16F /* OPMacrosTest.m */; };
 		A7F05BE614BA1B2D005CF16F /* OPMacros.m in Sources */ = {isa = PBXBuildFile; fileRef = A784E14714B4132A0099272D /* OPMacros.m */; };
 		A7F05BE914BA24DC005CF16F /* NSDateFormatterTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A7F05BE814BA24DC005CF16F /* NSDateFormatterTest.m */; };
@@ -156,6 +159,9 @@
 		A7A9C18C14C10C0F00C39504 /* Quartz+Opetopic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Quartz+Opetopic.h"; sourceTree = "<group>"; };
 		A7A9C18D14C10C0F00C39504 /* Quartz+Opetopic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Quartz+Opetopic.m"; sourceTree = "<group>"; };
 		A7A9C19014C10C3900C39504 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		A7A9C19314C1104700C39504 /* UIColor+Opetopic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Opetopic.h"; sourceTree = "<group>"; };
+		A7A9C19414C1104700C39504 /* UIColor+Opetopic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Opetopic.m"; sourceTree = "<group>"; };
+		A7A9C19814C11BF900C39504 /* UIColorTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIColorTest.m; sourceTree = "<group>"; };
 		A7F05BE314BA1394005CF16F /* OPMacrosTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPMacrosTest.m; sourceTree = "<group>"; };
 		A7F05BE814BA24DC005CF16F /* NSDateFormatterTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = NSDateFormatterTest.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A7F05C1714BA2BF5005CF16F /* NSPredicateTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = NSPredicateTest.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
@@ -349,6 +355,8 @@
 				A784E15914B4132A0099272D /* UIViewController+Opetopic.m */,
 				A784E15A14B4132A0099272D /* UIWebView+Opetopic.h */,
 				A784E15B14B4132A0099272D /* UIWebView+Opetopic.m */,
+				A7A9C19314C1104700C39504 /* UIColor+Opetopic.h */,
+				A7A9C19414C1104700C39504 /* UIColor+Opetopic.m */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -360,6 +368,7 @@
 				A7F05BE314BA1394005CF16F /* OPMacrosTest.m */,
 				A7F05BE814BA24DC005CF16F /* NSDateFormatterTest.m */,
 				A7F05C1714BA2BF5005CF16F /* NSPredicateTest.m */,
+				A7A9C19814C11BF900C39504 /* UIColorTest.m */,
 				A784E22114B416E40099272D /* Supporting Files */,
 			);
 			path = OPExtensionKitTests;
@@ -519,6 +528,7 @@
 				A784E17514B4132A0099272D /* UIViewController+Opetopic.m in Sources */,
 				A784E17614B4132A0099272D /* UIWebView+Opetopic.m in Sources */,
 				A7A9C18E14C10C0F00C39504 /* Quartz+Opetopic.m in Sources */,
+				A7A9C19514C1104700C39504 /* UIColor+Opetopic.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -548,6 +558,8 @@
 				A7F05BE914BA24DC005CF16F /* NSDateFormatterTest.m in Sources */,
 				A7F05C1814BA2BF5005CF16F /* NSPredicateTest.m in Sources */,
 				A7A9C18F14C10C0F00C39504 /* Quartz+Opetopic.m in Sources */,
+				A7A9C19614C1104700C39504 /* UIColor+Opetopic.m in Sources */,
+				A7A9C19914C11BF900C39504 /* UIColorTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

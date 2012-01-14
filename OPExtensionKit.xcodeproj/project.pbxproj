@@ -52,6 +52,10 @@
 		A784E23114B417580099272D /* NSArrayTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A784E23014B417580099272D /* NSArrayTest.m */; };
 		A784E23314B417CC0099272D /* NSDictionary+Opetopic.m in Sources */ = {isa = PBXBuildFile; fileRef = A784E13214B4132A0099272D /* NSDictionary+Opetopic.m */; };
 		A784E23414B417D80099272D /* NSArray+Opetopic.m in Sources */ = {isa = PBXBuildFile; fileRef = A784E12814B4132A0099272D /* NSArray+Opetopic.m */; };
+		A7A9C18E14C10C0F00C39504 /* Quartz+Opetopic.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A9C18D14C10C0F00C39504 /* Quartz+Opetopic.m */; };
+		A7A9C18F14C10C0F00C39504 /* Quartz+Opetopic.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A9C18D14C10C0F00C39504 /* Quartz+Opetopic.m */; };
+		A7A9C19114C10C3900C39504 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7A9C19014C10C3900C39504 /* QuartzCore.framework */; };
+		A7A9C19214C10C3F00C39504 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7A9C19014C10C3900C39504 /* QuartzCore.framework */; };
 		A7F05BE414BA1394005CF16F /* OPMacrosTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A7F05BE314BA1394005CF16F /* OPMacrosTest.m */; };
 		A7F05BE614BA1B2D005CF16F /* OPMacros.m in Sources */ = {isa = PBXBuildFile; fileRef = A784E14714B4132A0099272D /* OPMacros.m */; };
 		A7F05BE914BA24DC005CF16F /* NSDateFormatterTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A7F05BE814BA24DC005CF16F /* NSDateFormatterTest.m */; };
@@ -149,6 +153,9 @@
 		A784E22614B416E40099272D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A784E22814B416E40099272D /* OPExtensionKitTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OPExtensionKitTests-Prefix.pch"; sourceTree = "<group>"; };
 		A784E23014B417580099272D /* NSArrayTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = NSArrayTest.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		A7A9C18C14C10C0F00C39504 /* Quartz+Opetopic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Quartz+Opetopic.h"; sourceTree = "<group>"; };
+		A7A9C18D14C10C0F00C39504 /* Quartz+Opetopic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Quartz+Opetopic.m"; sourceTree = "<group>"; };
+		A7A9C19014C10C3900C39504 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		A7F05BE314BA1394005CF16F /* OPMacrosTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPMacrosTest.m; sourceTree = "<group>"; };
 		A7F05BE814BA24DC005CF16F /* NSDateFormatterTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = NSDateFormatterTest.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A7F05C1714BA2BF5005CF16F /* NSPredicateTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = NSPredicateTest.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
@@ -159,6 +166,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7A9C19114C10C3900C39504 /* QuartzCore.framework in Frameworks */,
 				A784E1FC14B415460099272D /* MessageUI.framework in Frameworks */,
 				A784E1FA14B4152E0099272D /* MapKit.framework in Frameworks */,
 				A784E0F714B412000099272D /* UIKit.framework in Frameworks */,
@@ -176,6 +184,7 @@
 				A7F05C0F14BA2658005CF16F /* MessageUI.framework in Frameworks */,
 				A7F05C1014BA2658005CF16F /* MapKit.framework in Frameworks */,
 				A784E21D14B416E40099272D /* UIKit.framework in Frameworks */,
+				A7A9C19214C10C3F00C39504 /* QuartzCore.framework in Frameworks */,
 				A784E21E14B416E40099272D /* Foundation.framework in Frameworks */,
 				A784E21F14B416E40099272D /* CoreGraphics.framework in Frameworks */,
 				A7F05C1114BA2658005CF16F /* CoreData.framework in Frameworks */,
@@ -207,6 +216,7 @@
 		A784E0F514B412000099272D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A7A9C19014C10C3900C39504 /* QuartzCore.framework */,
 				A784E21514B415DB0099272D /* GHUnitIOS.framework */,
 				A784E1FB14B415450099272D /* MessageUI.framework */,
 				A784E1F914B4152E0099272D /* MapKit.framework */,
@@ -249,6 +259,7 @@
 				A784E14514B4132A0099272D /* Macros */,
 				A784E14814B4132A0099272D /* MapKit */,
 				A784E14B14B4132A0099272D /* UIKit */,
+				A7A9C18A14C10C0000C39504 /* Quartz */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -362,6 +373,15 @@
 				A784E22814B416E40099272D /* OPExtensionKitTests-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A7A9C18A14C10C0000C39504 /* Quartz */ = {
+			isa = PBXGroup;
+			children = (
+				A7A9C18C14C10C0F00C39504 /* Quartz+Opetopic.h */,
+				A7A9C18D14C10C0F00C39504 /* Quartz+Opetopic.m */,
+			);
+			path = Quartz;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -498,6 +518,7 @@
 				A784E17414B4132A0099272D /* UIView+Opetopic.m in Sources */,
 				A784E17514B4132A0099272D /* UIViewController+Opetopic.m in Sources */,
 				A784E17614B4132A0099272D /* UIWebView+Opetopic.m in Sources */,
+				A7A9C18E14C10C0F00C39504 /* Quartz+Opetopic.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -526,6 +547,7 @@
 				A7F05BE414BA1394005CF16F /* OPMacrosTest.m in Sources */,
 				A7F05BE914BA24DC005CF16F /* NSDateFormatterTest.m in Sources */,
 				A7F05C1814BA2BF5005CF16F /* NSPredicateTest.m in Sources */,
+				A7A9C18F14C10C0F00C39504 /* Quartz+Opetopic.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

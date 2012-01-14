@@ -74,6 +74,6 @@
 /**
  Easy access to `recursiveDescription`. Don't worry, this is App Store safe.
  */
--(void) recDesc;
+-(NSString*) rDescription;
 
 @end

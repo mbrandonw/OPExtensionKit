@@ -75,4 +75,12 @@
     GHAssertEqualsWithAccuracy(alpha, a/100.0f, kAccuracy, @"");
 }
 
+-(void) testLighten {
+    
+    CGFloat r = 0.3f, g = 0.6f, b = 0.2f, a = 1.0f;
+    UIColor *color = $waf(g, a);
+    CGFloat p = 0.2f;
+    UIColor *lighter = [color lighten:p];
+}
+
 @end

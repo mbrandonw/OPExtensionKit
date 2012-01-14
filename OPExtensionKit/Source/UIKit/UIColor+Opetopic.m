@@ -57,9 +57,6 @@
 
 -(BOOL) red:(CGFloat*)red green:(CGFloat*)green blue:(CGFloat*)blue alpha:(CGFloat*)alpha {
     
-    if ([self respondsToSelector:@selector(getRed:green:blue:alpha:)])
-        return [self getRed:red green:green blue:blue alpha:alpha];
-    
     CGFloat r,g,b,a;
     const CGFloat *components = CGColorGetComponents(self.CGColor);
     

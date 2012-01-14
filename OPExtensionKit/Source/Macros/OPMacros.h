@@ -68,8 +68,29 @@ id OPCoalescePrivate(NSUInteger count, id __unsafe_unretained objs[]);
 #define NSBool(b)	[NSNumber numberWithBool:(b)]
 
 
-#define randi(a,b)	({ __typeof__(a) __a=(a); __typeof__(b) __b=(b); (arc4random() % (__b - __a) + __a); })
-#define randf(a,b)	({ __typeof__(a) __a=(a); __typeof__(b) __b=(b); (((float)(arc4random() % ((unsigned)RAND_MAX+1)) / (float)RAND_MAX) * (__b - __a) + __a); })
-#define randd(a,b)	({ __typeof__(a) __a=(a); __typeof__(b) __b=(b); (((double)(arc4random() % ((unsigned)RAND_MAX+1)) / (float)RAND_MAX) * (__b - __a) + __a); })
+#define randi(a,b) ({ \
+    __typeof__(a) __a=(a); \
+    __typeof__(b) __b=(b); \
+    (arc4random() % (__b - __a) + __a); \
+})
+
+#define randf(a,b) ({ \
+    __typeof__(a) __a=(a); \
+    __typeof__(b) __b=(b); \
+    (((float)(arc4random() % ((unsigned)RAND_MAX+1)) / (float)RAND_MAX) * (__b - __a) + __a); \
+})
+
+#define randd(a,b) ({ \
+    __typeof__(a) __a=(a); \
+    __typeof__(b) __b=(b); \
+    (((double)(arc4random() % ((unsigned)RAND_MAX+1)) / (float)RAND_MAX) * (__b - __a) + __a); \
+})
+
+#define clip(f,a,b) ({ \
+    __typeof__(f) __f=(f); \
+    __typeof__(a) __a=(a); \
+    __typeof__(b) __b=(b); \
+    __f < __a ? __a : __f > __b ? __b : __f; \
+})
 
 #define signf(a)	({ __typeof__(a) __a=(a); __a > 0.0f ? 1.0f : __a < 0.0f ? -1.0f : 0.0f; })

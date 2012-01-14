@@ -106,4 +106,10 @@
         [[self.subviews lastObject] removeFromSuperview];
 }
 
+-(void) recDesc {
+#ifdef DEBUG
+    [self performSelector:@selector(recursiveDescription)];
+#endif
+}
+
 @end

@@ -1,6 +1,6 @@
 //
 //  NSArray+Opetopic.h
-//  OPKit
+//  //  OPExtensionKit
 //
 //  Created by Brandon Williams on 11/21/10.
 //  Copyright 2010 Opetopic. All rights reserved.

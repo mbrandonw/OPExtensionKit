@@ -1,6 +1,6 @@
 //
 //  NSData+Opetopic.m
-//  OPKit
+//  //  OPExtensionKit
 //
 //  Created by Brandon Williams on 12/4/10.
 //  Copyright 2010 Opetopic. All rights reserved.

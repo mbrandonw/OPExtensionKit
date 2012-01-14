@@ -1,6 +1,6 @@
 //
 //  UIImage+Opetopic.h
-//  OPKit
+//  //  OPExtensionKit
 //
 //  Created by Brandon Williams on 7/3/11.
 //  Copyright 2011 Opetopic. All rights reserved.
@@ -12,5 +12,6 @@
 
 -(NSInteger) rightCapWidth;
 -(NSInteger) bottomCapHeight;
+-(BOOL) isStretchableImage;
 
 @end

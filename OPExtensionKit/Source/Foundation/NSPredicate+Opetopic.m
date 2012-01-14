@@ -1,6 +1,6 @@
 //
 //  NSPredicate+Opetopic.m
-//  OPKit
+//  //  OPExtensionKit
 //
 //  Created by Brandon Williams on 9/22/11.
 //  Copyright 2011 Opetopic. All rights reserved.

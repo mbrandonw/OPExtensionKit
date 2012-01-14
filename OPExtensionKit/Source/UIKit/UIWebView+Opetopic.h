@@ -1,6 +1,6 @@
 //
 //  UIWebView+Opetopic.h
-//  OPKit
+//  //  OPExtensionKit
 //
 //  Created by Brandon Williams on 12/9/11.
 //  Copyright (c) 2011 Opetopic. All rights reserved.

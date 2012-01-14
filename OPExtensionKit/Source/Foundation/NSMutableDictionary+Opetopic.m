@@ -1,6 +1,6 @@
 //
 //  NSMutableDictionary+Opetopic.m
-//  OPKit
+//  //  OPExtensionKit
 //
 //  Created by Brandon Willians on 10/17/11.
 //  Copyright (c) 2011 Opetopic. All rights reserved.

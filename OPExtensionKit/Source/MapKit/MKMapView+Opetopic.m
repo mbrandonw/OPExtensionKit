@@ -1,6 +1,6 @@
 //
 //  MKMapView+Opetopic.m
-//  OPKit
+//  //  OPExtensionKit
 //
 //  Created by Brandon Williams on 11/11/11.
 //  Copyright (c) 2011 Opetopic. All rights reserved.

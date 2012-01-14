@@ -1,6 +1,6 @@
 //
 //  NSURL+Opetopic.m
-//  OPKit
+//  //  OPExtensionKit
 //
 //  Created by Brandon Williams on 12/1/11.
 //  Copyright (c) 2011 Opetopic. All rights reserved.

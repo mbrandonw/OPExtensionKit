@@ -1,6 +1,6 @@
 //
 //  NSObject+Opetopic.m
-//  //  OPExtensionKit
+//  OPExtensionKit
 //
 //  Created by Brandon Williams on 9/24/11.
 //  Copyright 2011 Opetopic. All rights reserved.

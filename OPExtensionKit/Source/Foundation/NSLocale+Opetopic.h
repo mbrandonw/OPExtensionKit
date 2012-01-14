@@ -1,6 +1,6 @@
 //
 //  NSLocale+Opetopic.h
-//  //  OPExtensionKit
+//  OPExtensionKit
 //
 //  Created by Brandon Williams on 10/31/11.
 //  Copyright (c) 2011 Opetopic. All rights reserved.

@@ -1,6 +1,6 @@
 //
 //  NSDictionary+Opetopic.m
-//  //  OPExtensionKit
+//  OPExtensionKit
 //
 //  Created by Brandon Williams on 9/21/11.
 //  Copyright 2011 Opetopic. All rights reserved.

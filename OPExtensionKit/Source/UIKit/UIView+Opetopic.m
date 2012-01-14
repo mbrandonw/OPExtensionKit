@@ -1,6 +1,6 @@
 //
 //  UIView+Opetopic.m
-//  //  OPExtensionKit
+//  OPExtensionKit
 //
 //  Created by Brandon Williams on 4/25/10.
 //  Copyright 2010 Opetopic. All rights reserved.

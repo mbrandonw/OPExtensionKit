@@ -1,6 +1,6 @@
 //
 //  NSMutableArray+Opetopic.m
-//  //  OPExtensionKit
+//  OPExtensionKit
 //
 //  Created by Brandon Williams on 5/28/11.
 //  Copyright 2011 Opetopic. All rights reserved.

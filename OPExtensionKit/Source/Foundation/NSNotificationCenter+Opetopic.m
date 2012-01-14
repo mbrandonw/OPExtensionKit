@@ -1,6 +1,6 @@
 //
 //  NSNotificationCenter+Opetopic.m
-//  //  OPExtensionKit
+//  OPExtensionKit
 //
 //  Created by Brandon Williams on 10/11/11.
 //  Copyright 2011 Opetopic. All rights reserved.

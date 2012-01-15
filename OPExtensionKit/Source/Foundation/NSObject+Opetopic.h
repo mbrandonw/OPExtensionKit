@@ -35,4 +35,9 @@
  */
 -(id) tap:(void(^)(id obj))tap;
 
+/**
+ Swizzle selectors/
+ */
++(void) op_swizzleSelector:(SEL)oldSel withSelector:(SEL)newSel;
+
 @end

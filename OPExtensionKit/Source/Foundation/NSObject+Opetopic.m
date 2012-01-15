@@ -7,6 +7,7 @@
 //
 
 #import "NSObject+Opetopic.h"
+#import <objc/runtime.h>
 
 @implementation NSObject (Opetopic)
 
@@ -35,6 +36,18 @@
 -(id) tap:(void(^)(id obj))tap {
     tap(self);
     return self;
+}
+
++(void) op_swizzleSelector:(SEL)oldSel withSelector:(SEL)newSel {
+    
+    Method oldMethod = class_getInstanceMethod(self, oldSel);
+    Method newMethod = class_getInstanceMethod(self, newSel);
+    Class c = [self class];
+    
+    if(class_addMethod(c, oldSel, method_getImplementation(newMethod), method_getTypeEncoding(newMethod)))
+        class_replaceMethod(c, newSel, method_getImplementation(oldMethod), method_getTypeEncoding(oldMethod));
+    else
+        method_exchangeImplementations(oldMethod, newMethod);
 }
 
 @end

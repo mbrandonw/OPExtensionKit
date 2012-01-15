@@ -13,8 +13,8 @@
 
 #import <UIKit/UIKit.h>
 
-#define STRINGFMT(...)   [NSString stringWithFormat:__VA_ARGS__]
-#define MSTRINGFMT(...)  [NSMutableString stringWithFormat:__VA_ARGS__]
+#define $strfmt(...)   [NSString stringWithFormat:__VA_ARGS__]
+#define $mstrfmt(...)  [NSMutableString stringWithFormat:__VA_ARGS__]
 
 @interface NSString (Opetopic)
 

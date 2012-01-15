@@ -54,6 +54,10 @@
 #define $HSLf(h,s,l)    [UIColor colorWithHue:(h)/360.0f saturation:(s)/100.0f lightness:(l)/100.0f alpha:1.0f]
 #define $HSLAf(h,s,l,a) [UIColor colorWithHue:(h) saturation:(s) lightness:(l) alpha:(a)]
 
+/* Macro for creating colors from hex values.
+ */
+#define $hex(h)         [UIColor hex:(h)]
+
 @interface UIColor (Opetopic)
 
 /**

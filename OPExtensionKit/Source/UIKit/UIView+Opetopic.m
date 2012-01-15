@@ -94,6 +94,11 @@
     [self setCenter:CGPointMake(self.center.x, centerY)];
 }
 
+-(void) setNeedsDisplayAndLayout {
+    [self setNeedsDisplay];
+    [self setNeedsLayout];
+}
+
 -(void) addSubviewToBack:(UIView *)view {
     [self addSubview:view];
     [self sendSubviewToBack:view];

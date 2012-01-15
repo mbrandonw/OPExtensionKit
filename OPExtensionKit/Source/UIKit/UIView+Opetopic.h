@@ -62,6 +62,11 @@
 @property (nonatomic, assign) CGFloat centerY;
 
 /**
+ Just a helper method to kill two birds with one stone.
+ */
+-(void) setNeedsDisplayAndLayout;
+
+/**
  Add a subview to the back of the hierarcy.
  */
 -(void) addSubviewToBack:(UIView *)view;

@@ -108,7 +108,7 @@
 
 - (NSString *)URLEncodedString  
 {
-    NSString *result = (__bridge NSString *)CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
+    NSString *result = (__bridge_transfer NSString *)CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
                                                                            (__bridge CFStringRef)self,
                                                                            NULL,
 																		   CFSTR("!*'();:@&=+$,/?%#[]"),
@@ -118,7 +118,7 @@
 
 - (NSString*)URLDecodedString {
 	
-	NSString *result = (__bridge NSString *)CFURLCreateStringByReplacingPercentEscapesUsingEncoding(kCFAllocatorDefault,
+	NSString *result = (__bridge_transfer NSString *)CFURLCreateStringByReplacingPercentEscapesUsingEncoding(kCFAllocatorDefault,
 																						   (__bridge CFStringRef)self,
 																						   CFSTR(""),
 																						   kCFStringEncodingUTF8);

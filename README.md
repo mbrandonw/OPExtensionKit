@@ -11,7 +11,7 @@ OPUIKit was built to collect all of those random categories/functions/macros we 
 * `-darken:`
 * `-mix:`
 
-`OPCoalesce` : A macro that returns the first non `nil` value in a variable number of arguments, i.e. 
+`OPCoalesce` : A macro that returns the first non-`nil` value in a variable number of arguments, i.e. 
 
     id obj1 = nil;
 	id obj2 = @"foo";

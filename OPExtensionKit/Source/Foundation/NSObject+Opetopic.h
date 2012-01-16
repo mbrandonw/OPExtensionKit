@@ -36,8 +36,14 @@
 -(id) tap:(void(^)(id obj))tap;
 
 /**
- Swizzle selectors/
+ Swizzle selectors.
  */
 +(void) op_swizzleSelector:(SEL)oldSel withSelector:(SEL)newSel;
+
+/**
+ Array of this class' superclasses, ordered by decreasing specificity, i.e. the first object in 
+ the array is the direct parent superclass, and the last object is the root class.
+ */
++(NSArray*) superclasses; 
 
 @end

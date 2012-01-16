@@ -50,4 +50,16 @@
         method_exchangeImplementations(oldMethod, newMethod);
 }
 
++(NSArray*) superclasses {
+    
+    NSMutableArray *retVal = [NSMutableArray new];
+    Class class = [self superclass];
+    while (class)
+    {
+        [retVal addObject:class];
+        class = [class superclass];
+    }
+    return retVal;
+}
+
 @end

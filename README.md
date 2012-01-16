@@ -30,6 +30,6 @@ Checkout [OPKitDemo](http://www.opetopic.com) for a demo application using OPExt
 
 ##Author
 
-Brandon Williams
-brandon@opetopic.com
+Brandon Williams  
+brandon@opetopic.com  
 [www.opetopic.com](http://www.opetopic.com)

@@ -16,7 +16,7 @@
 @interface NSManagedObjectContext (Opetopic)
 
 /**
- Finds an NSManagedObject from its permanent URI.
+ Finds an NSManagedObject from its permanent URI (see http://cocoawithlove.com/2008/08/safely-fetching-nsmanagedobject-by-uri.html )
  */
 -(NSManagedObject*) objectWithURI:(NSURL*)uri;
 

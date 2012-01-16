@@ -46,7 +46,7 @@
     
     CGFloat r = 50.0f/255.0f, g = 249.0f/255.0f, b = 173.0f/255.0f, a = 0.6666666f;
     UInt32 hex = 0x32f9ad;
-    UIColor *color = [UIColor hex:hex alpha:a];
+    UIColor *color = [UIColor colorWithHex:hex alpha:a];
     
     GHAssertEqualsWithAccuracy(r, color.redf, kAccuracy, @"");
     GHAssertEqualsWithAccuracy(g, color.greenf, kAccuracy, @"");

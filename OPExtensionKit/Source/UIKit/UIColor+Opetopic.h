@@ -56,7 +56,7 @@
 
 /* Macro for creating colors from hex values.
  */
-#define $hex(h)         [UIColor hex:(h)]
+#define $hex(h)         [UIColor colorWithHex:(h)]
 
 @interface UIColor (Opetopic)
 

@@ -222,7 +222,7 @@
     return YES;
 }
 
-+(UIColor*) hex:(UInt64)hex {
++(UIColor*) colorWithHex:(UInt64)hex {
     
     if (hex > 0xffffff)
     {
@@ -232,10 +232,10 @@
                                alpha:((hex >>  0) & 0xff) / 255.0f];
     }
     
-    return [UIColor hex:hex alpha:1.0f];
+    return [UIColor colorWithHex:hex alpha:1.0f];
 }
 
-+(UIColor*) hex:(UInt32)hex alpha:(CGFloat)alpha {
++(UIColor*) colorWithHex:(UInt32)hex alpha:(CGFloat)alpha {
     
     return [UIColor colorWithRed:((hex >> 16) & 0xff) / 255.0f
                            green:((hex >>  8) & 0xff) / 255.0f

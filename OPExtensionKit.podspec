@@ -4,11 +4,11 @@ Pod::Spec.new do |s|
   s.license  = 'MIT'
   
   s.summary  = 'Shared extensions used in Opetopic projects.'
-  s.homepage = 'https://brandonwilliams.beanstalkapp.com/opextensionkit'
+  s.homepage = 'https://github.com/mbrandonw/OPExtensionKit'
   s.author   = { 'Brandon Williams' => 'brandon@opetopic.com' }
-  s.source   = { :git => 'git@brandonwilliams.beanstalkapp.com:/opextensionkit.git' }
+  s.source   = { :git => 'git@github.com:mbrandonw/OPExtensionKit.git' }
   
-  s.source_files = 'Source/**/*.{h,m}'
+  s.source_files = 'OPExtensionKit/Source/**/*.{h,m}'
   
   s.frameworks = 'CoreData', 'QuartzCore', 'MapKit'
   

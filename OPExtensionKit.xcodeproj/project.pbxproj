@@ -147,7 +147,7 @@
 		A784E15914B4132A0099272D /* UIViewController+Opetopic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Opetopic.m"; sourceTree = "<group>"; };
 		A784E15A14B4132A0099272D /* UIWebView+Opetopic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+Opetopic.h"; sourceTree = "<group>"; };
 		A784E15B14B4132A0099272D /* UIWebView+Opetopic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+Opetopic.m"; sourceTree = "<group>"; };
-		A784E17C14B414500099272D /* OPExtensionKit.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OPExtensionKit.podspec; sourceTree = SOURCE_ROOT; };
+		A784E17C14B414500099272D /* OPExtensionKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; fileEncoding = 4; indentWidth = 2; path = OPExtensionKit.podspec; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A784E1F914B4152E0099272D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		A784E1FB14B415450099272D /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		A784E21514B415DB0099272D /* GHUnitIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GHUnitIOS.framework; path = OPExtensionKitTests/GHUnitIOS.framework; sourceTree = "<group>"; };

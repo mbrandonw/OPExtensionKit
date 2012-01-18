@@ -79,6 +79,8 @@
 		A7F05C1014BA2658005CF16F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A784E1F914B4152E0099272D /* MapKit.framework */; };
 		A7F05C1114BA2658005CF16F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A784E0FC14B412000099272D /* CoreData.framework */; };
 		A7F05C1814BA2BF5005CF16F /* NSPredicateTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A7F05C1714BA2BF5005CF16F /* NSPredicateTest.m */; };
+		CA656E8714C63D4100464B10 /* NSNotificationCenterTest.m in Sources */ = {isa = PBXBuildFile; fileRef = CA656E8614C63D4100464B10 /* NSNotificationCenterTest.m */; };
+		CA656E8B14C63EFE00464B10 /* NSObjectTest.m in Sources */ = {isa = PBXBuildFile; fileRef = CA656E8A14C63EFE00464B10 /* NSObjectTest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -165,6 +167,8 @@
 		A7F05BE314BA1394005CF16F /* OPMacrosTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPMacrosTest.m; sourceTree = "<group>"; };
 		A7F05BE814BA24DC005CF16F /* NSDateFormatterTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = NSDateFormatterTest.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A7F05C1714BA2BF5005CF16F /* NSPredicateTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = NSPredicateTest.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		CA656E8614C63D4100464B10 /* NSNotificationCenterTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSNotificationCenterTest.m; sourceTree = "<group>"; };
+		CA656E8A14C63EFE00464B10 /* NSObjectTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSObjectTest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -370,6 +374,8 @@
 				A7F05BE814BA24DC005CF16F /* NSDateFormatterTest.m */,
 				A7F05C1714BA2BF5005CF16F /* NSPredicateTest.m */,
 				A7A9C19814C11BF900C39504 /* UIColorTest.m */,
+				CA656E8614C63D4100464B10 /* NSNotificationCenterTest.m */,
+				CA656E8A14C63EFE00464B10 /* NSObjectTest.m */,
 				A784E22114B416E40099272D /* Supporting Files */,
 			);
 			path = OPExtensionKitTests;
@@ -552,6 +558,8 @@
 				A7A9C19614C1104700C39504 /* UIColor+Opetopic.m in Sources */,
 				A7A9C19914C11BF900C39504 /* UIColorTest.m in Sources */,
 				A7A9C23D14C24A5400C39504 /* NSNumber+Opetopic.m in Sources */,
+				CA656E8714C63D4100464B10 /* NSNotificationCenterTest.m in Sources */,
+				CA656E8B14C63EFE00464B10 /* NSObjectTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

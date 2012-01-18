@@ -9,6 +9,7 @@ Pod::Spec.new do |s|
   s.source   = { :git => 'git@github.com:mbrandonw/OPExtensionKit.git' }
   
   s.source_files = 'OPExtensionKit/Source/**/*.{h,m}'
+  s.requires_arc = true
   
   s.frameworks = 'CoreData', 'QuartzCore', 'MapKit'
   

@@ -169,6 +169,7 @@
 		A7F05C1714BA2BF5005CF16F /* NSPredicateTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = NSPredicateTest.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		CA656E8614C63D4100464B10 /* NSNotificationCenterTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSNotificationCenterTest.m; sourceTree = "<group>"; };
 		CA656E8A14C63EFE00464B10 /* NSObjectTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSObjectTest.m; sourceTree = "<group>"; };
+		CAAE537714C7307B006DC713 /* OPExtensionKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPExtensionKit.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -264,6 +265,7 @@
 		A784E12014B4132A0099272D /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				CAAE537714C7307B006DC713 /* OPExtensionKit.h */,
 				A784E12114B4132A0099272D /* CoreData */,
 				A784E12614B4132A0099272D /* Foundation */,
 				A784E14514B4132A0099272D /* Macros */,

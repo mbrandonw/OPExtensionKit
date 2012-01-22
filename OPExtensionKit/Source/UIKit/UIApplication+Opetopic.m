@@ -16,7 +16,7 @@
     if (task)
     {
         UIBackgroundTaskIdentifier identifier = [self beginBackgroundTaskWithExpirationHandler:expiration];
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
             task();
             if (completion)
                 completion();
@@ -29,15 +29,15 @@
     
     BOOL previousValue = [UIApplication sharedApplication].idleTimerDisabled;
     
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [UIApplication sharedApplication].idleTimerDisabled = YES;
+    dispatch_sync(dispatch_get_main_queue(), ^{
+        self.idleTimerDisabled = YES;
     });
     
     if (task)
         task();
     
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [UIApplication sharedApplication].idleTimerDisabled = previousValue;
+    dispatch_sync(dispatch_get_main_queue(), ^{
+        self.idleTimerDisabled = previousValue;
     });
 }
 

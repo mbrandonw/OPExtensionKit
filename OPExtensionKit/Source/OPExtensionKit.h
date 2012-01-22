@@ -37,3 +37,4 @@
 #import "UIViewController+Opetopic.h"
 #import "UIWebView+Opetopic.h"
 #import "UIColor+Opetopic.h"
+#import "UIBezierPath+Opetopic.h"

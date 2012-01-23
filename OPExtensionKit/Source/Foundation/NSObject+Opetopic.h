@@ -36,6 +36,11 @@
 -(id) tap:(void(^)(id obj))tap;
 
 /**
+ Turn any object into a string, lickity-split.
+ */
+-(NSString*) toString;
+
+/**
  Swizzle selectors.
  */
 +(void) op_swizzleSelector:(SEL)oldSel withSelector:(SEL)newSel;

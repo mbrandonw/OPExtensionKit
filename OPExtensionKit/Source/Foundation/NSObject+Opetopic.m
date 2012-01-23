@@ -38,6 +38,10 @@
     return self;
 }
 
+-(NSString*) toString {
+    return [NSString stringWithFormat:@"%@", self];
+}
+
 +(void) op_swizzleSelector:(SEL)oldSel withSelector:(SEL)newSel {
     
     Method oldMethod = class_getInstanceMethod(self, oldSel);

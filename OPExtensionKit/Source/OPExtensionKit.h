@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 #import "NSManagedObjectContext+Opetopic.h"
+#import "NSManagedObject+Opetopic.h"
 #import "NSPersistentStoreCoordinator+Opetopic.h"
 #import "NSArray+Opetopic.h"
 #import "NSCache+Opetopic.h"
@@ -25,6 +26,7 @@
 #import "NSSet+Opetopic.h"
 #import "NSString+Opetopic.h"
 #import "NSURL+Opetopic.h"
+#import "NSURLRequest+Opetopic.h"
 #import "NSNumber+Opetopic.h"
 #import "OPMacros.h"
 #import "MKMapView+Opetopic.h"

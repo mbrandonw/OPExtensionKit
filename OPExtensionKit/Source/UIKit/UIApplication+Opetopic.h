@@ -16,6 +16,8 @@
 @interface UIApplication (Opetopic)
 
 /**
+ Takes care of setting up `UIBackgroundTaskIdentifier` and running the task on a background thread. Both `task` and `completion`
+ are called on a background thread.
  */
 -(void) performBackgroundTask:(void(^)(void))task completion:(void(^)(void))completion expiration:(void(^)(void))expiration;
 

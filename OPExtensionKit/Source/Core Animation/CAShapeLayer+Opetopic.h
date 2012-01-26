@@ -1,9 +1,9 @@
 //
 //  CAShapeLayer+Opetopic.h
-//  Kickstarter
+//  OPExtensionKit
 //
 //  Created by Brandon Williams on 1/26/12.
-//  Copyright (c) 2012 Kickstarter. All rights reserved.
+//  Copyright (c) 2012 Opetopic. All rights reserved.
 //
 
 #import <QuartzCore/QuartzCore.h>

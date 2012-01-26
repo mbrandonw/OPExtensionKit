@@ -40,3 +40,4 @@
 #import "UIWebView+Opetopic.h"
 #import "UIColor+Opetopic.h"
 #import "UIBezierPath+Opetopic.h"
+#import "CAShapeLayer+Opetopic.h"

@@ -51,11 +51,11 @@ id OPCoalescePrivate(NSUInteger count, id __unsafe_unretained objs[]);
 
 #define OP_SYNTHESIZE_SINGLETON_FOR_CLASS(className, singletonMethod) \
 \
-+(className *)singletonMethod { \
++(id) singletonMethod { \
     static className *shared##className = nil; \
     static dispatch_once_t once; \
     dispatch_once(&once, ^{ \
-        shared##className = [[self alloc] init]; \
+        shared##className = [[[self class] alloc] init]; \
     }); \
     return shared##className; \
 }

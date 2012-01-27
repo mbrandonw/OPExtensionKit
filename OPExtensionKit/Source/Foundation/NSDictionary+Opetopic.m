@@ -106,4 +106,8 @@ NSDictionary *DictionaryWithArrayPrivate(NSUInteger count, id __unsafe_unretaine
     return retVal;
 }
 
+-(BOOL) hasElements {
+    return [[self allKeys] count] > 0;
+}
+
 @end

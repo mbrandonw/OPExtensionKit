@@ -72,4 +72,9 @@ NSDictionary *DictionaryWithArrayPrivate(NSUInteger count, id __unsafe_unretaine
  */
 -(NSDictionary*) merge:(NSDictionary *)dict conflicts:(id(^)(id key, id lvalue, id rvalue))conflict;
 
+/**
+ Dictionary has elements?
+ */
+-(BOOL) hasElements;
+
 @end

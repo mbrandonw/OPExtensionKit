@@ -51,6 +51,18 @@
 
 
 /**
+ Array has elements?
+ */
+-(BOOL) hasElements;
+
+
+/**
+ Removes [NSNull null] items.
+ */
+-(NSArray*) compact;
+
+
+/**
  Prepends an object to an array.
  
  @param object The object to prepend.

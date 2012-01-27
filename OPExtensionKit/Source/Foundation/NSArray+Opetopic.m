@@ -49,6 +49,18 @@
     return [self objectAtIndex:1];
 }
 
+-(BOOL) hasElements {
+    return [self count] > 0;
+}
+
+-(NSArray*) compact {
+    NSMutableArray *retVal = [NSMutableArray new];
+    for (id obj in self)
+        if (obj != [NSNull null])
+            [retVal addObject:obj];
+    return retVal;
+}
+
 -(NSArray*) arrayByPrependingObject:(id)object {
     
     NSMutableArray *array = [NSMutableArray arrayWithObject:object];

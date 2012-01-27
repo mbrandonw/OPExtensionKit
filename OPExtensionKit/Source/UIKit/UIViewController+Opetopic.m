@@ -14,7 +14,7 @@
 	[self dismissModalViewControllerAnimated:YES];
 }
 
--(BOOL) isVisible {
+-(BOOL) isViewVisible {
     return self.isViewLoaded && self.view.window != nil;
 }
 

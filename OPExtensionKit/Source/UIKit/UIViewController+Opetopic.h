@@ -11,7 +11,7 @@
 @interface UIViewController (Opetopic)
 
 -(void) dismissModalViewControllerWithAnimation;
--(BOOL) isVisible;
+-(BOOL) isViewVisible;
 -(void) simulateMemoryWarning;
 
 @end

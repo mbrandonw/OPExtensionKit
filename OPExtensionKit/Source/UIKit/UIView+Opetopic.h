@@ -14,6 +14,11 @@
 
 #import <UIKit/UIKit.h>
 
+enum {
+    UIViewAutoresizingFlexibleSize = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight,
+    UIViewAutoresizingFlexibleMargins = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin,
+};
+
 @interface UIView (Opetopic)
 
 /**

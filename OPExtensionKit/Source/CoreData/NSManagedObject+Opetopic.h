@@ -11,8 +11,8 @@
 @interface NSManagedObject (Opetopic)
 
 /**
- YES if the object has been inserted into a context, but not yet saved.
+ YES if the object has not yet been saved.
  */
--(BOOL) isNew;
+-(BOOL) isUnsaved;
 
 @end

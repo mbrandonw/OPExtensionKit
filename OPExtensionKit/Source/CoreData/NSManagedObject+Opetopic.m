@@ -10,7 +10,7 @@
 
 @implementation NSManagedObject (Opetopic)
 
--(BOOL) isNew {
+-(BOOL) isUnsaved {
     return [[self committedValuesForKeys:nil] count] == 0;
 }
 

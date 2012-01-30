@@ -53,6 +53,10 @@
 +(BOOL) hasTelephony {
     return [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"tel://"]];
 }
+
++(BOOL) isAtLeastiOS5 {
+    return [[[UIDevice currentDevice] systemVersion] floatValue] >= 5.0;
+}
 #pragma mark -
 
 @end

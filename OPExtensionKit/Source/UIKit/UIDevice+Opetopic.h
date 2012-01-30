@@ -22,5 +22,6 @@
 +(BOOL) isFast;
 +(BOOL) hasFacetime;
 +(BOOL) hasTelephony;
++(BOOL) isAtLeastiOS5;
 
 @end

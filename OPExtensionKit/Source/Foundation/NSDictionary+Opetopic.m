@@ -8,7 +8,7 @@
 
 #import "NSDictionary+Opetopic.h"
 
-NSDictionary *DictionaryWithArrayPrivate(NSUInteger count, id __unsafe_unretained keysAndObjects[]) {
+NSDictionary *DictionaryWithArrayPrivate(NSUInteger count, id __unsafe_unretained keysAndObjects[], BOOL coalesceNils) {
     
     id keys[count];
     id objects[count];
@@ -17,6 +17,11 @@ NSDictionary *DictionaryWithArrayPrivate(NSUInteger count, id __unsafe_unretaine
     {
         keys[i] = keysAndObjects[2 * i];
         objects[i] = keysAndObjects[2 * i + 1];
+        
+        if (coalesceNils && !keys[i])
+            keys[i] = [NSNull null];
+        if (coalesceNils && !objects[i])
+            objects[i] = [NSNull null];
     }
     
     return [NSDictionary dictionaryWithObjects:objects forKeys:keys count:count];
@@ -70,8 +75,10 @@ NSDictionary *DictionaryWithArrayPrivate(NSUInteger count, id __unsafe_unretaine
 -(NSDate*) dateForKey:(id)key {
 	id r = [self objectForKey:key];
 	
-    if ([r isKindOfClass:[NSNumber class]])
+    if ([r isKindOfClass:[NSNumber class]] && [r doubleValue] > 0.0f)
+    {
         return [NSDate dateWithTimeIntervalSince1970:[r doubleValue]];
+    }
     
     return nil;
 }

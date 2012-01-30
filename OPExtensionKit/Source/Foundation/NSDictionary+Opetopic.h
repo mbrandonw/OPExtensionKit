@@ -17,8 +17,9 @@
 /**
  Macro for concisely creating a dictionary with key/value order, as opposed to value/key.
  */
-#define $dict(...)  DictionaryWithArrayPrivate(VA_ARGS_COUNT(__VA_ARGS__)/2, VA_ARGS_C_ARRAY(__VA_ARGS__))
-NSDictionary *DictionaryWithArrayPrivate(NSUInteger count, id __unsafe_unretained keysAndObjects[]);
+#define $dict(...)      DictionaryWithArrayPrivate(VA_ARGS_COUNT(__VA_ARGS__)/2, VA_ARGS_C_ARRAY(__VA_ARGS__), NO)
+#define $dictsafe(...)  DictionaryWithArrayPrivate(VA_ARGS_COUNT(__VA_ARGS__)/2, VA_ARGS_C_ARRAY(__VA_ARGS__), YES)
+NSDictionary *DictionaryWithArrayPrivate(NSUInteger count, id __unsafe_unretained keysAndObjects[], BOOL coalesceNils);
 
 @interface NSDictionary (Opetopic)
 

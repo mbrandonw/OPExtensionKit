@@ -94,14 +94,20 @@
     // let's cover the degenerate case of all new data
     if ([self count] == 0)
     {
-        for (id obj in collection)
-            insertBlock(obj);
+        for (id obj in collection) {
+            @autoreleasepool {
+                insertBlock(obj);
+            }
+        }
     }
     // and the degenerate case of removing all data
     else if ([collection count] == 0)
     {
-        for (id obj in self)
-            deleteBlock(obj);
+        for (id obj in self) {
+            @autoreleasepool {
+                deleteBlock(obj);
+            }
+        }
     }
     // otherwise we fallback on a full syncing of data
     else
@@ -112,27 +118,29 @@
         
         // loop through the collections simulateously to detect updates, inserts and deletions
         NSUInteger i = 0, j = 0;
-        while (i < [sortedSelf count] || j < [sortedOther count]) 
-        {
-            id obj1 = i < [sortedSelf count] ? [sortedSelf objectAtIndex:i] : nil;
-            id obj2 = j < [sortedOther count] ? [sortedOther objectAtIndex:j] : nil;
-            id id1 = [obj1 valueForKey:key1];
-            id id2 = [obj2 valueForKey:key2];
-            
-            if ([id1 isEqual:id2])
-            {
-                updateBlock(obj1, obj2);
-                i++, j++;
-            }
-            else if (! id2 || [id1 compare:id2] == NSOrderedAscending) // doing [- compare:nil] is a crashy crash
-            {
-                deleteBlock(obj1);
-                i++;
-            }
-            else
-            {
-                insertBlock(obj2);
-                j++;
+        while (i < [sortedSelf count] || j < [sortedOther count]) {
+            @autoreleasepool {
+                
+                id obj1 = i < [sortedSelf count] ? [sortedSelf objectAtIndex:i] : nil;
+                id obj2 = j < [sortedOther count] ? [sortedOther objectAtIndex:j] : nil;
+                id id1 = [obj1 valueForKey:key1];
+                id id2 = [obj2 valueForKey:key2];
+                
+                if ([id1 isEqual:id2])
+                {
+                    updateBlock(obj1, obj2);
+                    i++, j++;
+                }
+                else if (! id2 || [id1 compare:id2] == NSOrderedAscending) // doing [- compare:nil] is a crashy crash
+                {
+                    deleteBlock(obj1);
+                    i++;
+                }
+                else
+                {
+                    insertBlock(obj2);
+                    j++;
+                }
             }
         }
     }

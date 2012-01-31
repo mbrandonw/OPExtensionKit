@@ -55,7 +55,8 @@ NSDictionary *DictionaryWithArrayPrivate(NSUInteger count, id __unsafe_unretaine
  The date object for a key.
  
  @return The date object for a key, or `nil` if the object isn't a date (in this case
- we only allow numbers which are interpreted as number of seconds since epoch).
+ we only allow numbers which are interpreted as number of seconds since epoch, and we
+ return `nil` if the object is 0).
  */
 -(NSDate*) dateForKey:(id)key;
 

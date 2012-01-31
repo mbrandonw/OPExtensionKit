@@ -15,6 +15,8 @@
 
 @interface NSPredicate (Opetopic)
 
+#define $pred(...)  [NSPredicate predicateWithFormat:__VA_ARGS__, nil]
+
 /**
  Compiles a nice search predicate on a bunch of fields.
  */

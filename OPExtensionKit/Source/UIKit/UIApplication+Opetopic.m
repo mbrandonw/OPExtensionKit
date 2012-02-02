@@ -46,9 +46,17 @@
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://%@", [number stripNonTelephonyCharacters]]]];
 }
 
++(BOOL) canMakeCalls {
+    return [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"tel://"]];
+}
+
 +(void) facetime:(NSString*)number {
     
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"facetime://%@", [number stripNonTelephonyCharacters]]]];
+}
+
++(BOOL) canFacetime {
+    return [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"facetime://"]];
 }
 
 +(void) openMaps:(NSString *)address {

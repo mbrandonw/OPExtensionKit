@@ -29,7 +29,9 @@
  Invoke particular -openURL: schemes.
  */
 +(void) call:(NSString*)number;
++(BOOL) canMakeCalls;
 +(void) facetime:(NSString*)number;
++(BOOL) canFacetime;
 +(void) openMaps:(NSString*)address;
 +(void) openMapsWithDirectionsTo:(NSString*)address;
 

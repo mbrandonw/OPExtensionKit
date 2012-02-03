@@ -367,6 +367,10 @@
     return $RGBi(1, 95, 230);
 }
 
++(UIColor*) darkBlueColor {
+    return $RGBi(81, 102, 145);
+}
+
 - (CGColorSpaceModel)colorSpaceModel {
     return CGColorSpaceGetModel(CGColorGetColorSpace(self.CGColor));
 }

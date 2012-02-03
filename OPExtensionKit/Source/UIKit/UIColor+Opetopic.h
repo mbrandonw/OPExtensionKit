@@ -122,6 +122,7 @@
 +(UIColor*) TwitterBlueColor;
 +(UIColor*) UIKitHighlightBlueTopColor;
 +(UIColor*) UIKitHighlightBlueBottomColor;
++(UIColor*) darkBlueColor;
 
 /**
  Accessing color model info easily.

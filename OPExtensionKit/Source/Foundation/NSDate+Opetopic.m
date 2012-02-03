@@ -91,18 +91,13 @@
 	return [[NSDateFormatter formatterWithDateStyle:dateStyle timeStyle:timeStyle] stringFromDate:self];
 }
 
-
-#pragma mark Returns an NSDate object from a twitter date string
 +(NSDate*) dateFromTwitterDateString:(NSString*)string {
     
     NSDateFormatter *formatter = [NSDateFormatter new];
     [formatter setDateFormat:@"eee MMM dd HH:mm:ss ZZZZ yyyy"];
     return [formatter dateFromString:string];
 }
-#pragma mark -
 
-
-#pragma mark Helper methods for getting dates from now
 +(NSDate*) dateWithDaysFromNow:(CGFloat)days {
     return [NSDate dateWithTimeIntervalSinceNow:60.0f*60.0f*24.0f*days];
 }
@@ -114,6 +109,9 @@
 +(NSDate*) dateWithYearsFromNow:(CGFloat)years {
     return [NSDate dateWithTimeIntervalSinceNow:60.0f*60.0f*24.0f*7.0f*365.0f*years];
 }
-#pragma mark -
+
+-(NSDate*) startOfDay {
+    return [NSDate dateWithTimeIntervalSince1970:floor([self timeIntervalSince1970]/NSDateSecondsInDays(1))*NSDateSecondsInDays(1)];
+}
 
 @end

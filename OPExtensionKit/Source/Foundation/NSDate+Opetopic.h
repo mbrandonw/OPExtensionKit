@@ -13,6 +13,8 @@
 
 #import <Foundation/Foundation.h>
 
+#define NSDateSecondsInDays(d)  (60.0f*60.0f*24.0f*d)
+
 @interface NSDate (Opetopic)
 
 /**
@@ -58,5 +60,10 @@
 /** 
  */
 +(NSDate*) dateWithYearsFromNow:(CGFloat)years;
+
+/**
+ Date representing the beginning of today.
+ */
+-(NSDate*) startOfDay;
 
 @end

@@ -66,6 +66,11 @@
 -(NSString*) stringBySubstituting:(NSDictionary*)substitutions;
 
 /**
+ Appends a query parameter to the string.
+ */
+-(NSString*) stringByAppendingQueryValue:(id)value forKey:(NSString*)key;
+
+/**
  */
 -(NSString*) normalizedString;
 

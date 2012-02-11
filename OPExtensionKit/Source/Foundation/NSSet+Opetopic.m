@@ -33,10 +33,22 @@
             insertBlock:(void(^)(id obj))insertBlock
             deleteBlock:(void(^)(id obj))deleteBlock {
     
+    [self synchronizeWith:collection usingKeys:key1 :key2 needsSort:YES updateBlock:updateBlock insertBlock:insertBlock deleteBlock:deleteBlock];
+}
+
+-(void) synchronizeWith:(id)collection 
+              usingKeys:(NSString *)key1 :(NSString *)key2 
+              needsSort:(BOOL)needsSort 
+            updateBlock:(void (^)(id, id))updateBlock 
+            insertBlock:(void (^)(id))insertBlock 
+            deleteBlock:(void (^)(id))deleteBlock {
+    
     [[self allObjects] synchronizeWith:collection 
                              usingKeys:key1 :key2 
+                             needsSort:needsSort
                            updateBlock:updateBlock
                            insertBlock:insertBlock
                            deleteBlock:deleteBlock];
 }
+
 @end

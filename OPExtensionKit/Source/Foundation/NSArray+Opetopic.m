@@ -91,30 +91,40 @@
             insertBlock:(void(^)(id obj))insertBlock
             deleteBlock:(void(^)(id obj))deleteBlock {
     
+    [self synchronizeWith:collection usingKeys:key1 :key2 needsSort:YES updateBlock:updateBlock insertBlock:insertBlock deleteBlock:deleteBlock];
+}
+
+-(void) synchronizeWith:(id)collection 
+              usingKeys:(NSString *)key1 :(NSString *)key2 
+              needsSort:(BOOL)needsSort 
+            updateBlock:(void (^)(id, id))updateBlock 
+            insertBlock:(void (^)(id))insertBlock 
+            deleteBlock:(void (^)(id))deleteBlock {
+    
     // let's cover the degenerate case of all new data
     if ([self count] == 0)
     {
-        for (id obj in collection) {
+        [collection enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
             @autoreleasepool {
                 insertBlock(obj);
             }
-        }
+        }];
     }
     // and the degenerate case of removing all data
     else if ([collection count] == 0)
     {
-        for (id obj in self) {
+        [self enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
             @autoreleasepool {
                 deleteBlock(obj);
             }
-        }
+        }];
     }
     // otherwise we fallback on a full syncing of data
     else
     {
         // sort the two collects of data by their ids
-        NSArray *sortedSelf = [self respondsToSelector:@selector(sortedArrayUsingDescriptor:)] ? [self sortedArrayUsingDescriptor:[NSSortDescriptor sortDescriptorWithKey:key1 ascending:YES]] : nil;
-        NSArray *sortedOther = [(id)collection respondsToSelector:@selector(sortedArrayUsingDescriptor:)] ? [(id)collection sortedArrayUsingDescriptor:[NSSortDescriptor sortDescriptorWithKey:key2 ascending:YES]] : nil;
+        NSArray *sortedSelf = !needsSort ? self : [self respondsToSelector:@selector(sortedArrayUsingDescriptor:)] ? [self sortedArrayUsingDescriptor:[NSSortDescriptor sortDescriptorWithKey:key1 ascending:YES]] : nil;
+        NSArray *sortedOther = !needsSort ? collection : [(id)collection respondsToSelector:@selector(sortedArrayUsingDescriptor:)] ? [(id)collection sortedArrayUsingDescriptor:[NSSortDescriptor sortDescriptorWithKey:key2 ascending:YES]] : nil;
         
         // loop through the collections simulateously to detect updates, inserts and deletions
         NSUInteger i = 0, j = 0;

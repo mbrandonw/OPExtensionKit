@@ -167,15 +167,15 @@
     return NSMakeRange(0, [self length]);
 }
 
-//-(void) drawInRect:(CGRect)rect withFont:(UIFont*)font lineBreakMode:(UILineBreakMode)mode alignment:(UITextAlignment)alignment color:(UIColor*)color shadow:(UIColor*)shadow offset:(CGSize)offset {
-//    
-//    [shadow set];
-//    CGRect shadowRect = CGRectMake(rect.origin.x + offset.width, rect.origin.y + offset.height, rect.size.width, rect.size.height);
-//    [self drawInRect:shadowRect withFont:font lineBreakMode:mode alignment:alignment];
-//    
-//    [color set];
-//    [self drawInRect:rect withFont:font lineBreakMode:mode alignment:alignment];
-//}
+-(void) drawInRect:(CGRect)rect withFont:(UIFont*)font lineBreakMode:(UILineBreakMode)mode alignment:(UITextAlignment)alignment color:(UIColor*)color shadow:(UIColor*)shadow offset:(CGSize)offset {
+    
+    [shadow set];
+    CGRect shadowRect = CGRectMake(rect.origin.x + offset.width, rect.origin.y + offset.height, rect.size.width, rect.size.height);
+    [self drawInRect:shadowRect withFont:font lineBreakMode:mode alignment:alignment];
+    
+    [color set];
+    [self drawInRect:rect withFont:font lineBreakMode:mode alignment:alignment];
+}
 
 -(NSDictionary*) dictionaryBySplitting:(NSString*)outer and:(NSString*)inner {
     

@@ -87,6 +87,11 @@ enum {
 -(void) removeAllSubviews;
 
 /**
+ Renders the view into a UIImage.
+ */
+-(UIImage*) image;
+
+/**
  Easy access to `recursiveDescription`. Don't worry, this is App Store safe.
  */
 -(NSString*) rDescription;

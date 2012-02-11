@@ -116,6 +116,15 @@
         [[self.subviews lastObject] removeFromSuperview];
 }
 
+-(UIImage*) image {
+    
+    UIGraphicsBeginImageContextWithOptions(self.bounds.size, self.opaque, [[UIScreen mainScreen] scale]);
+    [self.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return image;
+}
+
 -(NSString*) rDescription {
 #ifdef DEBUG
     return [self performSelector:@selector(recursiveDescription)];

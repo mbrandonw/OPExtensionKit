@@ -27,7 +27,7 @@
 }
 
 +(void) performBlockNextRunloop:(void(^)(void))block {
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0), dispatch_get_main_queue(), ^(void){
+    dispatch_async(dispatch_get_current_queue(), ^{
         if (block)
             block();
     });

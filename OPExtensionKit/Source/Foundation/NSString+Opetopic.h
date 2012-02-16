@@ -12,9 +12,11 @@
  */
 
 #import <UIKit/UIKit.h>
+#import "NSArray+Opetopic.h"
 
-#define $strfmt(...)   [NSString stringWithFormat:__VA_ARGS__]
-#define $mstrfmt(...)  [NSMutableString stringWithFormat:__VA_ARGS__]
+#define $strfmt(...)    [NSString stringWithFormat:__VA_ARGS__]
+#define $mstrfmt(...)   [NSMutableString stringWithFormat:__VA_ARGS__]
+#define $keypath(...)   [$array(__VA_ARGS__) componentsJoinedByString:@"."]
 
 @interface NSString (Opetopic)
 

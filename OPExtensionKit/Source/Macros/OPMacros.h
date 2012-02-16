@@ -37,12 +37,6 @@ void OPProfile(NSString *label, void(^task)(void));
  */
 #define VA_ARGS_COUNT(...)  (sizeof(VA_ARGS_C_ARRAY(__VA_ARGS__)) / sizeof(id))
 
-/*
- Returns the first non-nil object.
- */
-#define OPCoalesce(...)     OPCoalescePrivate(VA_ARGS_COUNT(__VA_ARGS__), VA_ARGS_C_ARRAY(__VA_ARGS__))
-id OPCoalescePrivate(NSUInteger count, id __unsafe_unretained objs[]);
-
 // Allows all orientations for the iPad, and everything but upside down portrait on the iPhone
 #define UI_ACCEPTABLE_INTERFACE_ORIENTATIONS(orientation)  (UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad ? YES : (UIInterfaceOrientationIsLandscape(orientation)||orientation==UIInterfaceOrientationPortrait))
 

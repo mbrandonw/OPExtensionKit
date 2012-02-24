@@ -14,6 +14,34 @@
 
 #import <UIKit/UIKit.h>
 
+static inline CGSize CGSizeAspectFit(CGSize size, CGSize maxSize) {
+    CGSize retVal = maxSize;
+    if (size.width/size.height > maxSize.width/maxSize.height)
+    {
+        retVal.height = roundf(maxSize.width * size.height/size.width);
+    }
+    else
+    {
+        retVal.width = roundf(maxSize.height * size.width/size.height);
+    }
+    return retVal;
+}
+
+static inline CGRect CGRectAspectFit(CGRect rect, CGRect maxRect) {
+    CGRect retVal = maxRect;
+    if (rect.size.width/rect.size.height > maxRect.size.width/maxRect.size.height)
+    {
+        retVal.size.height = roundf(maxRect.size.width * rect.size.height/rect.size.width);
+        retVal.origin.y += roundf((maxRect.size.height - retVal.size.height) / 2.0f);
+    }
+    else
+    {
+        retVal.size.width = roundf(maxRect.size.height * rect.size.width / rect.size.height);
+        retVal.origin.x += roundf((maxRect.size.width - retVal.size.width) / 2.0f);
+    }
+    return retVal;
+}
+
 enum {
     UIViewAutoresizingFlexibleSize = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight,
     UIViewAutoresizingFlexibleMargins = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin,

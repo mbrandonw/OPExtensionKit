@@ -9,10 +9,6 @@
 #import "NSManagedObject+Opetopic.h"
 #import <objc/runtime.h>
 
-@interface NSManagedObject (Opetopic_Private)
--(void) addToContext:(NSManagedObjectContext *)context parentRelationshipDescription:(NSRelationshipDescription*)parentRelationshipDescription;
-@end
-
 @implementation NSManagedObject (Opetopic)
 
 -(BOOL) isUnsaved {
@@ -20,33 +16,25 @@
 }
 
 -(void) addToContext:(NSManagedObjectContext*)context {
-    [self addToContext:context parentRelationshipDescription:nil];
-}
-
--(void) addToContext:(NSManagedObjectContext *)context parentRelationshipDescription:(NSRelationshipDescription*)parentRelationshipDescription {
     if (! self.managedObjectContext)
     {
+        [context insertObject:self];
+        
         // first add all relationships to the context
         NSDictionary *relationships = [[self entity] relationshipsByName];
         [relationships enumerateKeysAndObjectsUsingBlock:^(id relationshipKey, NSRelationshipDescription *relationshipDescription, BOOL *stop) {
-            
-            // skip relationships that have already been taken care of
-            if ([[relationshipDescription inverseRelationship] isEqual:parentRelationshipDescription])
-                return ;
             
             id relationship = [self valueForKey:relationshipKey];
             if ([relationship conformsToProtocol:@protocol(NSFastEnumeration)])
             {
                 for (NSManagedObject *object in relationship)
-                    [object addToContext:context parentRelationshipDescription:relationshipDescription];
+                    [object addToContext:context];
             }
             else
             {
-                [relationship addToContext:context parentRelationshipDescription:relationshipDescription];
+                [relationship addToContext:context];
             }
         }];
-        
-        [context insertObject:self];
     }
 }
 

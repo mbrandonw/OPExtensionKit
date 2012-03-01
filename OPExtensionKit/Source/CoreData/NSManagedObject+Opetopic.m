@@ -9,6 +9,10 @@
 #import "NSManagedObject+Opetopic.h"
 #import <objc/runtime.h>
 
+@interface NSManagedObject (Opetopic_Private)
+-(void) addToContext:(NSManagedObjectContext *)context parentRelationshipDescription:(NSRelationshipDescription*)parentRelationshipDescription;
+@end
+
 @implementation NSManagedObject (Opetopic)
 
 -(BOOL) isUnsaved {
@@ -16,17 +20,31 @@
 }
 
 -(void) addToContext:(NSManagedObjectContext*)context {
+    [self addToContext:context parentRelationshipDescription:nil];
+}
+
+-(void) addToContext:(NSManagedObjectContext *)context parentRelationshipDescription:(NSRelationshipDescription*)parentRelationshipDescription {
     if (! self.managedObjectContext)
     {
+        // first add all relationships to the context
         NSDictionary *relationships = [[self entity] relationshipsByName];
-        for (NSRelationshipDescription *relationship in relationships)
-        {
-            NSString *key = [NSString stringWithFormat:@"%@", relationship];
-            for (NSManagedObject *object in [self valueForKey:key])
+        [relationships enumerateKeysAndObjectsUsingBlock:^(id relationshipKey, NSRelationshipDescription *relationshipDescription, BOOL *stop) {
+            
+            // skip relationships that have already been taken care of
+            if ([[relationshipDescription inverseRelationship] isEqual:parentRelationshipDescription])
+                return ;
+            
+            id relationship = [self valueForKey:relationshipKey];
+            if ([relationship conformsToProtocol:@protocol(NSFastEnumeration)])
             {
-                [object addToContext:context];
+                for (NSManagedObject *object in relationship)
+                    [object addToContext:context parentRelationshipDescription:relationshipDescription];
             }
-        }
+            else
+            {
+                [relationship addToContext:context parentRelationshipDescription:relationshipDescription];
+            }
+        }];
         
         [context insertObject:self];
     }

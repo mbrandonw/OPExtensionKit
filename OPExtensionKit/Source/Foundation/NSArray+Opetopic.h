@@ -13,6 +13,12 @@
 
 #import <Foundation/Foundation.h>
 
+typedef enum {
+    NSArrayCompactOptionNone            = 0,
+    NSArrayCompactOptionNull            = 1 << 0,
+    NSArrayCompactOptionEmptyCollection = 1 << 1,
+} NSArrayCompactOptions;
+
 #define $array(...)   [NSArray arrayWithObjects:__VA_ARGS__, nil]
 
 @interface NSArray (Opetopic)
@@ -60,6 +66,11 @@
  Removes [NSNull null] items.
  */
 -(NSArray*) compact;
+
+/**
+ Removes [NSNull null] objects, empty arrays, empty dictionarys, empty sets...
+ */
+-(NSArray*) compactWithOptions:(NSArrayCompactOptions)options;
 
 
 /**

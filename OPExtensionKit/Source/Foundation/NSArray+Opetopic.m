@@ -61,6 +61,21 @@
     return retVal;
 }
 
+-(NSArray*) compactWithOptions:(NSArrayCompactOptions)options {
+    NSMutableArray *retVal = [NSMutableArray new];
+    for (id obj in self)
+    {
+        BOOL passes = YES;
+        if (options & NSArrayCompactOptionNull && obj == [NSNull null])
+            passes = NO;
+        else if (options & NSArrayCompactOptionEmptyCollection && [obj respondsToSelector:@selector(count)] && [obj count] == 0)
+            passes = NO;
+        if (passes)
+            [retVal addObject:obj];
+    }
+    return retVal;
+}
+
 -(NSArray*) arrayByPrependingObject:(id)object {
     
     NSMutableArray *array = [NSMutableArray arrayWithObject:object];

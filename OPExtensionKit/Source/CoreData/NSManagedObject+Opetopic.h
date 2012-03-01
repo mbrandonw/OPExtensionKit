@@ -15,4 +15,6 @@
  */
 -(BOOL) isUnsaved;
 
+-(void) addToContext:(NSManagedObjectContext*)context;
+
 @end

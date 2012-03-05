@@ -125,13 +125,13 @@ typedef enum {
 -(void) synchronizeWith:(id)collection 
               usingKeys:(NSString*)key1 :(NSString*)key2 
             updateBlock:(void(^)(id obj1, id obj2))updateBlock
-            insertBlock:(void(^)(id obj))insertBlock
+            insertBlock:(id(^)(id obj))insertBlock
             deleteBlock:(void(^)(id obj))deleteBlock;
 -(void) synchronizeWith:(id)collection 
               usingKeys:(NSString*)key1 :(NSString*)key2 
               needsSort:(BOOL)needsSort
             updateBlock:(void(^)(id obj1, id obj2))updateBlock
-            insertBlock:(void(^)(id obj))insertBlock
+            insertBlock:(id(^)(id obj))insertBlock
             deleteBlock:(void(^)(id obj))deleteBlock;
 
 @end

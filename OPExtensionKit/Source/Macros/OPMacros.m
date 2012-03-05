@@ -8,15 +8,32 @@
 
 #import "OPMacros.h"
 
+static NSMutableDictionary *averagesByLabel;
+static NSMutableDictionary *countsByLabel;
 
 void OPProfile(NSString *label, void(^task)(void)) {
+#if defined(DEBUG)
+    if (!averagesByLabel && !countsByLabel) {
+        averagesByLabel = [NSMutableDictionary new];
+        countsByLabel = [NSMutableDictionary new];
+    }
+    
+    NSTimeInterval average = [[averagesByLabel objectForKey:label] doubleValue];
+    NSUInteger count = [[countsByLabel objectForKey:label] unsignedIntValue];
     
     NSTimeInterval start = [NSDate timeIntervalSinceReferenceDate];
+    task();
+    NSTimeInterval elapsed = [NSDate timeIntervalSinceReferenceDate] - start;
     
-    if (task)
-        task();
+    average = (average*count+elapsed)/(count+1.0f);
+    [averagesByLabel setObject:[NSNumber numberWithDouble:average] forKey:label];
+    [countsByLabel setObject:[NSNumber numberWithUnsignedInt:count+1] forKey:label];
     
     DLog(@"============ PROFILING ============");
-    DLog(@"%@: %.4f seconds", label, [NSDate timeIntervalSinceReferenceDate] - start);
+    DLog(@"%@: %.4f seconds", label, elapsed);
+    DLog(@"average: %.4f seconds", average);
     DLog(@"=========== /PROFILING ============");
+#else
+    task();
+#endif
 }

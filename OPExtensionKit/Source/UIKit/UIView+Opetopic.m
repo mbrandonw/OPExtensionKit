@@ -116,7 +116,7 @@
         [[self.subviews lastObject] removeFromSuperview];
 }
 
--(UIImage*) image {
+-(UIImage*) renderedImage {
     
     UIGraphicsBeginImageContextWithOptions(self.bounds.size, self.opaque, [[UIScreen mainScreen] scale]);
     [self.layer renderInContext:UIGraphicsGetCurrentContext()];

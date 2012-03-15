@@ -43,3 +43,4 @@
 #import "CAShapeLayer+Opetopic.h"
 #import "GCD+Opetopic.h"
 #import "NSUserDefaults+Opetopic.h"
+#import "OPTabBarItem.h"

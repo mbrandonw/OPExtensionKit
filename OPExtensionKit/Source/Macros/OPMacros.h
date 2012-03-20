@@ -22,8 +22,46 @@ void OPProfile(NSString *label, void(^task)(void));
 #	define DLog(...)	do{}while(0);
 #endif
 
-// ALog always displays output regardless of the DEBUG setting
-#define ALog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+#define DLogLevelUrgent     0
+#define DLogLevelDebug      1
+#define DLogLevelInfo       2
+#define DLogLevelProfiling  4
+
+#ifdef DEBUG
+    #define DLogMessageCompat(fmt, ...)         LogMessageCompat(fmt, ##__VA_ARGS__)
+    #define DLogMessage(tag, level, fmt, ...)   LogMessage(tag, level, fmt, ##__VA_ARGS__)
+    #define DLogMessageF(tag, level, fmt, ...)  LogMessageF(__FILE__, __LINE__, __PRETTY_FUNCTION__, tag, level, fmt, ##__VA_ARGS__)
+
+    #define DLogData(tag, level, data)          LogData(tag, level, data)
+    #define DLogDataF(tag, level, data)         LogDataF(__FILE__, __LINE__, __PRETTY_FUNCTION__, tag, level, data)
+
+    #define DLogImageData(tag, level, width, height, data)      LogImageData(tag, level, width, height, data)
+    #define DLogImageDataF(tag, level, width, height, data)     LogImageDataF(__FILE__, __LINE__, __PRETTY_FUNCTION__, tag, level, width, height, data)
+
+    #define DLogImage(tag, level, image)      LogImageData(tag, level, image.size.width, image.size.height, UIImagePNGRepresentation(image))
+    #define DLogImageF(tag, level, image)     LogImageDataF(__FILE__, __LINE__, __PRETTY_FUNCTION__, tag, level, image.size.width, image.size.height, UIImagePNGRepresentation(image))
+
+    #define DLogStartBlock(fmt, ...)        LogStartBlock(fmt, ##__VA_ARGS__)
+    #define DLogEndBlock()                  LogEndBlock()
+    #define DLogMarker(marker)              LogMarker(marker)
+#else
+    #define DLogMessageCompat(fmt, ...)         do{}while(0)
+    #define DLogMessage(tag, level, fmt, ...)   do{}while(0)
+    #define DLogMessageF(tag, level, fmt, ...)  do{}while(0)
+
+    #define DLogData(tag, level, data)          do{}while(0)
+    #define DLogDataF(tag, level, data)         do{}while(0)
+
+    #define DLogImageData(tag, level, width, height, data)      do{}while(0)
+    #define DLogImageDataF(tag, level, width, height, data)     do{}while(0)
+
+    #define DLogImage(tag, level, image)      do{}while(0)
+    #define DLogImageF(tag, level, image)     do{}while(0)
+
+    #define DLogStartBlock(fmt, ...)        do{}while(0)
+    #define DLogEndBlock()                  do{}while(0)
+    #define DLogMarker(marker)              do{}while(0)
+#endif
 
 #define OP_SAFE_RELEASE(p)	{[p release]; p = nil;}
 

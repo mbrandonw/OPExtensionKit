@@ -7,6 +7,7 @@
 //
 
 #import "OPMacros.h"
+#import "NSString+Opetopic.h"
 
 static NSMutableDictionary *averagesByLabel;
 static NSMutableDictionary *countsByLabel;
@@ -29,10 +30,7 @@ void OPProfile(NSString *label, void(^task)(void)) {
     [averagesByLabel setObject:[NSNumber numberWithDouble:average] forKey:label];
     [countsByLabel setObject:[NSNumber numberWithUnsignedInt:count+1] forKey:label];
     
-    DLog(@"============ PROFILING ============");
-    DLog(@"%@: %.4f seconds", label, elapsed);
-    DLog(@"average: %.4f seconds", average);
-    DLog(@"=========== /PROFILING ============");
+    DLogMessage(nil, DLogLevelProfiling, @"PROFILING: %@\nRun time: %.4f seconds\nAvg time: %.4f", label, elapsed, average);
 #else
     task();
 #endif

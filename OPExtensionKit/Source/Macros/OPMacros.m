@@ -30,7 +30,7 @@ void OPProfile(NSString *label, void(^task)(void)) {
     [averagesByLabel setObject:[NSNumber numberWithDouble:average] forKey:label];
     [countsByLabel setObject:[NSNumber numberWithUnsignedInt:count+1] forKey:label];
     
-    DLogMessage(nil, DLogLevelProfiling, @"PROFILING: %@\nRun time: %.4f seconds\nAvg time: %.4f", label, elapsed, average);
+    DLogMessage(nil, DLogLevelProfiling, @"PROFILING: %@\nRun time: %.4f seconds\nAvg time: %.4f seconds", label, elapsed, average);
 #else
     task();
 #endif

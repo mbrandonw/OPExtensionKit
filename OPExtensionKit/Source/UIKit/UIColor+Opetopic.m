@@ -8,6 +8,7 @@
 
 #import "UIColor+Opetopic.h"
 #import "OPMacros.h"
+#import "OPCache.h"
 
 @implementation UIColor (Opetopic)
 
@@ -344,31 +345,45 @@
 }
 
 +(UIColor*) veryLightGrayColor {
-    return $WAf(0.85f, 1.0f);
+    return [[OPCache sharedCache] objectForKey:@"UIColor/Opetopic/veryLightGrayColor" withGetter:^id{
+        return $WAf(0.85f, 1.0f);
+    }];
 }
 
 +(UIColor*) veryDarkGrayColor {
-    return $WAf(0.15f, 1.0f);
+    return [[OPCache sharedCache] objectForKey:@"UIColor/Opetopic/veryDarkGrayColor" withGetter:^id{
+        return $WAf(0.15f, 1.0f);
+    }];
 }
 
 +(UIColor*) FacebookBlueColor {
-    return $RGBi(59, 89, 182);
+    return [[OPCache sharedCache] objectForKey:@"UIColor/Opetopic/FacebookBlueColor" withGetter:^id{
+        return $RGBi(59, 89, 182);
+    }];
 }
 
 +(UIColor*) TwitterBlueColor {
-    return $RGBi(64,153,255);
+    return [[OPCache sharedCache] objectForKey:@"UIColor/Opetopic/TwitterBlueColor" withGetter:^id{
+        return $RGBi(64,153,255);
+    }];
 }
 
 +(UIColor*) UIKitHighlightBlueTopColor {
-    return $RGBi(5, 140, 245);
+    return [[OPCache sharedCache] objectForKey:@"UIColor/Opetopic/UIKitHighlightBlueTopColor" withGetter:^id{
+        return $RGBi(5, 140, 245);
+    }];
 }
 
 +(UIColor*) UIKitHighlightBlueBottomColor {
-    return $RGBi(1, 95, 230);
+    return [[OPCache sharedCache] objectForKey:@"UIColor/Opetopic/UIKitHighlightBlueBottomColor" withGetter:^id{
+        return $RGBi(1, 95, 230);
+    }];
 }
 
 +(UIColor*) darkBlueColor {
-    return $RGBi(81, 102, 145);
+    return [[OPCache sharedCache] objectForKey:@"UIColor/Opetopic/darkBlueColor" withGetter:^id{
+        return $RGBi(81, 102, 145);
+    }];
 }
 
 - (CGColorSpaceModel)colorSpaceModel {

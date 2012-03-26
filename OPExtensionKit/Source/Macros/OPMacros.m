@@ -8,6 +8,7 @@
 
 #import "OPMacros.h"
 #import "NSString+Opetopic.h"
+#import <mach/mach_time.h>
 
 static NSMutableDictionary *averagesByLabel;
 static NSMutableDictionary *countsByLabel;
@@ -19,15 +20,17 @@ void OPProfile(NSString *label, void(^task)(void)) {
         countsByLabel = [NSMutableDictionary new];
     }
     
-    NSTimeInterval average = [[averagesByLabel objectForKey:label] doubleValue];
+    CGFloat average = [[averagesByLabel objectForKey:label] floatValue];
     NSUInteger count = [[countsByLabel objectForKey:label] unsignedIntValue];
     
-    NSTimeInterval start = [NSDate timeIntervalSinceReferenceDate];
+    mach_timebase_info_data_t info;
+    mach_timebase_info(&info);
+    uint64_t start = mach_absolute_time();
     task();
-    NSTimeInterval elapsed = [NSDate timeIntervalSinceReferenceDate] - start;
+    CGFloat elapsed = ((CGFloat)((mach_absolute_time() - start) * info.numer / info.denom)) / NSEC_PER_SEC;
     
     average = (average*count+elapsed)/(count+1.0f);
-    [averagesByLabel setObject:[NSNumber numberWithDouble:average] forKey:label];
+    [averagesByLabel setObject:[NSNumber numberWithFloat:average] forKey:label];
     [countsByLabel setObject:[NSNumber numberWithUnsignedInt:count+1] forKey:label];
     
     DLogMessage(nil, DLogLevelProfiling, @"PROFILING: %@\nRun time: %.4f seconds\nAvg time: %.4f seconds", label, elapsed, average);

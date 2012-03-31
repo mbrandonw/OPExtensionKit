@@ -55,6 +55,11 @@ typedef enum {
  */
 -(id) secondObject;
 
+/**
+ Second to last object in array, or nil if there is less than 2 objects in array.
+ */
+-(id) secondToLastObject;
+
 
 /**
  Array has elements?
@@ -66,6 +71,7 @@ typedef enum {
  Removes [NSNull null] items.
  */
 -(NSArray*) compact;
+
 
 /**
  Removes [NSNull null] objects, empty arrays, empty dictionarys, empty sets...

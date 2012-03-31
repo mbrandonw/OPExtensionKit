@@ -49,6 +49,13 @@
     return [self objectAtIndex:1];
 }
 
+-(id) secondToLastObject {
+    
+    if ([self count] >= 2)
+        return [self objectAtIndex:[self count]-2];
+    return nil;
+}
+
 -(BOOL) hasElements {
     return [self count] > 0;
 }

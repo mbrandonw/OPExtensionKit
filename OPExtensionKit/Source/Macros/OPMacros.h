@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NSString+Opetopic.h"
+#import <mach/mach_time.h>
 
 // Measures how long it takes to perform a task
 void OPProfile(NSString *label, void(^task)(void));
@@ -41,9 +43,10 @@ void OPProfile(NSString *label, void(^task)(void));
     #define DLogImage(tag, level, image)      LogImageData(tag, level, image.size.width, image.size.height, UIImagePNGRepresentation(image))
     #define DLogImageF(tag, level, image)     LogImageDataF(__FILE__, __LINE__, __PRETTY_FUNCTION__, tag, level, image.size.width, image.size.height, UIImagePNGRepresentation(image))
 
-    #define DLogStartBlock(fmt, ...)        LogStartBlock(fmt, ##__VA_ARGS__)
-    #define DLogEndBlock()                  LogEndBlock()
-    #define DLogMarker(marker)              LogMarker(marker)
+    #define DLogStartBlock(fmt, ...)                LogStartBlock(fmt, ##__VA_ARGS__)
+    #define DLogEndBlock()                          LogEndBlock()
+    #define DLogMarker(marker)                      LogMarker(marker)
+    #define DLoggerFlush(logger, waitForConnection) LoggerFlush(logger, waitForConnection)
 #else
     #define DLogMessageCompat(fmt, ...)         do{}while(0)
     #define DLogMessage(tag, level, fmt, ...)   do{}while(0)
@@ -58,9 +61,10 @@ void OPProfile(NSString *label, void(^task)(void));
     #define DLogImage(tag, level, image)      do{}while(0)
     #define DLogImageF(tag, level, image)     do{}while(0)
 
-    #define DLogStartBlock(fmt, ...)        do{}while(0)
-    #define DLogEndBlock()                  do{}while(0)
-    #define DLogMarker(marker)              do{}while(0)
+    #define DLogStartBlock(fmt, ...)                do{}while(0)
+    #define DLogEndBlock()                          do{}while(0)
+    #define DLogMarker(marker)                      do{}while(0)
+    #define DLoggerFlush(logger, waitForConnection) do{}while(0)
 #endif
 
 #define OP_SAFE_RELEASE(p)	{[p release]; p = nil;}

@@ -45,6 +45,7 @@ static inline CGRect CGRectAspectFit(CGRect rect, CGRect maxRect) {
 enum {
     UIViewAutoresizingFlexibleSize = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight,
     UIViewAutoresizingFlexibleMargins = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin,
+    UIViewAutoresizingFlexibleAll = UIViewAutoresizingFlexibleSize | UIViewAutoresizingFlexibleMargins,
 };
 
 @interface UIView (Opetopic)

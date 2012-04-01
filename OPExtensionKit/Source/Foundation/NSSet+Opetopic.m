@@ -43,9 +43,20 @@
             insertBlock:(id (^)(id))insertBlock 
             deleteBlock:(void (^)(id))deleteBlock {
     
+    [self synchronizeWith:collection usingKeys:key1 :key2 needsSort:needsSort :needsSort updateBlock:updateBlock insertBlock:insertBlock deleteBlock:deleteBlock];
+}
+
+
+-(void) synchronizeWith:(id)collection 
+              usingKeys:(NSString*)key1 :(NSString*)key2 
+              needsSort:(BOOL)needsSort1 :(BOOL)needsSort2
+            updateBlock:(void(^)(id obj1, id obj2))updateBlock
+            insertBlock:(id(^)(id obj))insertBlock
+            deleteBlock:(void(^)(id obj))deleteBlock {
+    
     [[self allObjects] synchronizeWith:collection 
                              usingKeys:key1 :key2 
-                             needsSort:needsSort
+                             needsSort:needsSort1 :needsSort2
                            updateBlock:updateBlock
                            insertBlock:insertBlock
                            deleteBlock:deleteBlock];

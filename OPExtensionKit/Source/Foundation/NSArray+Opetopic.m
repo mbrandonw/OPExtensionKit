@@ -123,6 +123,17 @@
             insertBlock:(id (^)(id))insertBlock 
             deleteBlock:(void (^)(id))deleteBlock {
     
+    [self synchronizeWith:collection usingKeys:key1 :key2 needsSort:needsSort :needsSort updateBlock:updateBlock insertBlock:insertBlock deleteBlock:deleteBlock];
+}
+
+
+-(void) synchronizeWith:(id)collection 
+              usingKeys:(NSString*)key1 :(NSString*)key2 
+              needsSort:(BOOL)needsSort1 :(BOOL)needsSort2
+            updateBlock:(void(^)(id obj1, id obj2))updateBlock
+            insertBlock:(id(^)(id obj))insertBlock
+            deleteBlock:(void(^)(id obj))deleteBlock {
+    
     // let's cover the degenerate case of all new data
     if ([self count] == 0)
     {
@@ -145,8 +156,8 @@
     else
     {
         // sort the two collects of data by their ids
-        NSArray *sortedSelf = !needsSort ? self : [self respondsToSelector:@selector(sortedArrayUsingDescriptor:)] ? [self sortedArrayUsingDescriptor:[NSSortDescriptor sortDescriptorWithKey:key1 ascending:YES]] : nil;
-        NSArray *sortedOther = !needsSort ? collection : [(id)collection respondsToSelector:@selector(sortedArrayUsingDescriptor:)] ? [(id)collection sortedArrayUsingDescriptor:[NSSortDescriptor sortDescriptorWithKey:key2 ascending:YES]] : nil;
+        NSArray *sortedSelf = !needsSort1 ? self : [self respondsToSelector:@selector(sortedArrayUsingDescriptor:)] ? [self sortedArrayUsingDescriptor:[NSSortDescriptor sortDescriptorWithKey:key1 ascending:YES]] : nil;
+        NSArray *sortedOther = !needsSort2 ? collection : [(id)collection respondsToSelector:@selector(sortedArrayUsingDescriptor:)] ? [(id)collection sortedArrayUsingDescriptor:[NSSortDescriptor sortDescriptorWithKey:key2 ascending:YES]] : nil;
         
         // loop through the collections simulateously to detect updates, inserts and deletions
         NSUInteger i = 0, j = 0;

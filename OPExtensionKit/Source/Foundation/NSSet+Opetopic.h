@@ -59,5 +59,11 @@
             updateBlock:(void(^)(id obj1, id obj2))updateBlock
             insertBlock:(id(^)(id obj))insertBlock
             deleteBlock:(void(^)(id obj))deleteBlock;
+-(void) synchronizeWith:(id)collection 
+              usingKeys:(NSString*)key1 :(NSString*)key2 
+              needsSort:(BOOL)needsSort1 :(BOOL)needsSort2
+            updateBlock:(void(^)(id obj1, id obj2))updateBlock
+            insertBlock:(id(^)(id obj))insertBlock
+            deleteBlock:(void(^)(id obj))deleteBlock;
 
 @end

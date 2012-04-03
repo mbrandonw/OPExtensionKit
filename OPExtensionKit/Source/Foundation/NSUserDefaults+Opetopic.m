@@ -12,10 +12,10 @@
 
 -(void) removeObjectsForKeysWithPrefix:(NSString*)prefix {
     
-    NSDictionary *defaults = [[[NSUserDefaults standardUserDefaults] dictionaryRepresentation] copy];
+    NSDictionary *defaults = [[self dictionaryRepresentation] copy];
     for (NSString *key in defaults)
         if ([key isKindOfClass:[NSString class]] && [key hasPrefix:prefix])
-            [[NSUserDefaults standardUserDefaults] removeObjectForKey:key];
+            [self removeObjectForKey:key];
 }
 
 -(void) removeAllObjects {

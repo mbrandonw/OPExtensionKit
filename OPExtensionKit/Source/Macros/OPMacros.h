@@ -43,6 +43,8 @@ void OPProfile(NSString *label, void(^task)(void));
     #define DLogImage(tag, level, image)      LogImageData(tag, level, image.size.width, image.size.height, UIImagePNGRepresentation(image))
     #define DLogImageF(tag, level, image)     LogImageDataF(__FILE__, __LINE__, __PRETTY_FUNCTION__, tag, level, image.size.width, image.size.height, UIImagePNGRepresentation(image))
 
+    #define DLogControllerAndMethod()   DLogMessageF(nil, DLogLevelInfo, @"%@ %@", [self class], NSStringFromSelector(_cmd))
+
     #define DLogStartBlock(fmt, ...)                LogStartBlock(fmt, ##__VA_ARGS__)
     #define DLogEndBlock()                          LogEndBlock()
     #define DLogMarker(marker)                      LogMarker(marker)

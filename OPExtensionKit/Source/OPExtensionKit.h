@@ -44,3 +44,4 @@
 #import "GCD+Opetopic.h"
 #import "NSUserDefaults+Opetopic.h"
 #import "UIScrollView+Opetopic.h"
+#import "CALayer+Opetopic.h"

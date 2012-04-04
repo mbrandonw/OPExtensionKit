@@ -11,5 +11,6 @@
 @interface NSURLRequest (Opetopic)
 
 +(id) requestWithString:(NSString*)string;
+-(NSString*) HTTPBodyAsString;
 
 @end

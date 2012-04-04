@@ -14,4 +14,8 @@
     return [[self class] requestWithURL:[NSURL URLWithString:string]];
 }
 
+-(NSString*) HTTPBodyAsString {
+    return [[NSString alloc] initWithData:[self HTTPBody] encoding:NSUTF8StringEncoding]; 
+}
+
 @end

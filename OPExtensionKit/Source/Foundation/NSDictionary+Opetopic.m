@@ -8,6 +8,8 @@
 
 #import "NSDictionary+Opetopic.h"
 
+static NSNumberFormatter *__numberFormatter;
+
 NSDictionary *DictionaryWithArrayPrivate(NSUInteger count, id __unsafe_unretained keysAndObjects[], BOOL coalesceNils) {
     
     id keys[count];
@@ -31,55 +33,83 @@ NSDictionary *DictionaryWithArrayPrivate(NSUInteger count, id __unsafe_unretaine
 
 - (NSString*) stringForKey:(id)key {
 	id r = [self objectForKey:key];
-    
     if ([r isKindOfClass:[NSString class]])
         return r;
-    
+    return nil;
+}
+
+-(NSString*) stringForKeyPath:(id)keyPath {
+	id r = [self valueForKeyPath:keyPath];
+    if ([r isKindOfClass:[NSString class]])
+        return r;
     return nil;
 }
 
 - (NSNumber*) numberForKey:(id)key {
 	id r = [self objectForKey:key];
-	
     if ([r isKindOfClass:[NSNumber class]])
 		return r;
-    
     if ([r isKindOfClass:[NSString class]])
     {
-        NSNumberFormatter *f = [NSNumberFormatter new];
-        [f setNumberStyle:NSNumberFormatterDecimalStyle];
-        return [f numberFromString:r];
+        __numberFormatter = __numberFormatter ?: [NSNumberFormatter new];
+        [__numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
+        return [__numberFormatter numberFromString:r];
     }
-    
+	return nil;
+}
+
+-(NSNumber*) numberForKeyPath:(id)keyPath {
+	id r = [self valueForKeyPath:keyPath];
+    if ([r isKindOfClass:[NSNumber class]])
+		return r;
+    if ([r isKindOfClass:[NSString class]])
+    {
+        __numberFormatter = __numberFormatter ?: [NSNumberFormatter new];
+        [__numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
+        return [__numberFormatter numberFromString:r];
+    }
 	return nil;
 }
 
 - (NSDictionary*) dictionaryForKey:(id)key {
 	id r = [self objectForKey:key];
-    
 	if ([r isKindOfClass:[NSDictionary class]])
 		return r;
-    
+	return nil;
+}
+
+-(NSDictionary*) dictionaryForKeyPath:(id)keyPath {
+	id r = [self valueForKeyPath:keyPath];
+	if ([r isKindOfClass:[NSDictionary class]])
+		return r;
 	return nil;
 }
 
 - (NSArray*) arrayForKey:(id)key {
 	id r = [self objectForKey:key];
-    
 	if ([r isKindOfClass:[NSArray class]])
 		return r;
-    
+	return nil;
+}
+
+-(NSArray*) arrayForKeyPath:(id)keyPath {
+	id r = [self valueForKeyPath:keyPath];
+	if ([r isKindOfClass:[NSArray class]])
+		return r;
 	return nil;
 }
 
 -(NSDate*) dateForKey:(id)key {
 	id r = [self objectForKey:key];
-	
     if ([r isKindOfClass:[NSNumber class]] && [r doubleValue] > 0.0f)
-    {
         return [NSDate dateWithTimeIntervalSince1970:[r doubleValue]];
-    }
-    
+    return nil;
+}
+
+-(NSDate*) dateForKeyPath:(id)keyPath {
+	id r = [self valueForKeyPath:keyPath];
+    if ([r isKindOfClass:[NSNumber class]] && [r doubleValue] > 0.0f)
+        return [NSDate dateWithTimeIntervalSince1970:[r doubleValue]];
     return nil;
 }
 

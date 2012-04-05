@@ -29,6 +29,7 @@ NSDictionary *DictionaryWithArrayPrivate(NSUInteger count, id __unsafe_unretaine
  @return The string object for a key, or `nil` if the object isn't a string.
  */
 -(NSString*) stringForKey:(id)key;
+-(NSString*) stringForKeyPath:(id)keyPath;
 
 /**
  The number object for a key.
@@ -36,6 +37,7 @@ NSDictionary *DictionaryWithArrayPrivate(NSUInteger count, id __unsafe_unretaine
  @return The number object for a key, or `nil` if the object isn't a number.
  */
 -(NSNumber*) numberForKey:(id)key;
+-(NSNumber*) numberForKeyPath:(id)keyPath;
 
 /**
  The dictionary object for a key.
@@ -43,6 +45,7 @@ NSDictionary *DictionaryWithArrayPrivate(NSUInteger count, id __unsafe_unretaine
  @return The dictionary object for a key, or `nil` if the object isn't a dictionary.
  */
 -(NSDictionary*) dictionaryForKey:(id)key;
+-(NSDictionary*) dictionaryForKeyPath:(id)keyPath;
 
 /**
  The array object for a key.
@@ -50,6 +53,7 @@ NSDictionary *DictionaryWithArrayPrivate(NSUInteger count, id __unsafe_unretaine
  @return The array object for a key, or `nil` if the object isn't a array.
  */
 -(NSArray*) arrayForKey:(id)key;
+-(NSArray*) arrayForKeyPath:(id)keyPath;
 
 /**
  The date object for a key.
@@ -59,6 +63,7 @@ NSDictionary *DictionaryWithArrayPrivate(NSUInteger count, id __unsafe_unretaine
  return `nil` if the object is 0).
  */
 -(NSDate*) dateForKey:(id)key;
+-(NSDate*) dateForKeyPath:(id)keyPath;
 
 /**
  Merges `dict` into the dictionary, keeping the values in the `dict` if there are any conflicts.

@@ -61,7 +61,7 @@
 }
 
 -(NSArray*) compact {
-    NSMutableArray *retVal = [NSMutableArray new];
+    NSMutableArray *retVal = [[NSMutableArray alloc] initWithCapacity:[self count]];
     for (id obj in self)
         if (obj != [NSNull null])
             [retVal addObject:obj];
@@ -69,7 +69,7 @@
 }
 
 -(NSArray*) compactWithOptions:(NSArrayCompactOptions)options {
-    NSMutableArray *retVal = [NSMutableArray new];
+    NSMutableArray *retVal = [[NSMutableArray alloc] initWithCapacity:[self count]];
     for (id obj in self)
     {
         BOOL passes = YES;

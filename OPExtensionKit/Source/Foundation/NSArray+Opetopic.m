@@ -137,9 +137,14 @@
     // let's cover the degenerate case of all new data
     if ([self count] == 0)
     {
-        [collection enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        NSArray *sortedCollection = !needsSort2 ? collection : [(id)collection respondsToSelector:@selector(sortedArrayUsingDescriptor:)] ? [(id)collection sortedArrayUsingDescriptor:[NSSortDescriptor sortDescriptorWithKey:key2 ascending:YES]] : nil;
+        __block id lastInsertedObj = nil;
+        
+        [sortedCollection enumerateObjectsUsingBlock:^(id obj2, NSUInteger idx, BOOL *stop) {
             @autoreleasepool {
-                updateBlock(insertBlock(obj), obj);
+                if (! [[lastInsertedObj valueForKey:key1] isEqual:[obj2 valueForKey:key2]])
+                    lastInsertedObj = insertBlock(obj2);
+                updateBlock(lastInsertedObj, obj2);
             }
         }];
     }
@@ -157,15 +162,16 @@
     {
         // sort the two collects of data by their ids
         NSArray *sortedSelf = !needsSort1 ? self : [self respondsToSelector:@selector(sortedArrayUsingDescriptor:)] ? [self sortedArrayUsingDescriptor:[NSSortDescriptor sortDescriptorWithKey:key1 ascending:YES]] : nil;
-        NSArray *sortedOther = !needsSort2 ? collection : [(id)collection respondsToSelector:@selector(sortedArrayUsingDescriptor:)] ? [(id)collection sortedArrayUsingDescriptor:[NSSortDescriptor sortDescriptorWithKey:key2 ascending:YES]] : nil;
+        NSArray *sortedCollection = !needsSort2 ? collection : [(id)collection respondsToSelector:@selector(sortedArrayUsingDescriptor:)] ? [(id)collection sortedArrayUsingDescriptor:[NSSortDescriptor sortDescriptorWithKey:key2 ascending:YES]] : nil;
         
         // loop through the collections simulateously to detect updates, inserts and deletions
         NSUInteger i = 0, j = 0;
-        while (i < [sortedSelf count] || j < [sortedOther count]) {
+        id lastInsertedObj = nil;
+        while (i < [sortedSelf count] || j < [sortedCollection count]) {
             @autoreleasepool {
                 
                 id obj1 = i < [sortedSelf count] ? [sortedSelf objectAtIndex:i] : nil;
-                id obj2 = j < [sortedOther count] ? [sortedOther objectAtIndex:j] : nil;
+                id obj2 = j < [sortedCollection count] ? [sortedCollection objectAtIndex:j] : nil;
                 id id1 = [obj1 valueForKey:key1];
                 id id2 = [obj2 valueForKey:key2];
                 
@@ -173,6 +179,7 @@
                 {
                     updateBlock(obj1, obj2);
                     i++, j++;
+                    lastInsertedObj = obj1;
                 }
                 else if (! id2 || [id1 compare:id2] == NSOrderedAscending) // doing [- compare:nil] is a crashy crash
                 {
@@ -181,7 +188,10 @@
                 }
                 else
                 {
-                    updateBlock(insertBlock(obj2), obj2);
+                    if (! [[lastInsertedObj valueForKey:key1] isEqual:[obj2 valueForKey:key2]])
+                        lastInsertedObj = insertBlock(obj2);
+                    
+                    updateBlock(lastInsertedObj, obj2);
                     j++;
                 }
             }

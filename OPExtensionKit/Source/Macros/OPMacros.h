@@ -49,6 +49,7 @@ void OPProfile(NSString *label, void(^task)(void));
     #define DLogEndBlock()                          LogEndBlock()
     #define DLogMarker(marker)                      LogMarker(marker)
     #define DLoggerFlush(logger, waitForConnection) LoggerFlush(logger, waitForConnection)
+    #define DLogFlush(waitForConnection)    LoggerFlush(NULL, waitForConnection)
 #else
     #define DLogMessageCompat(fmt, ...)         do{}while(0)
     #define DLogMessage(tag, level, fmt, ...)   do{}while(0)
@@ -63,10 +64,13 @@ void OPProfile(NSString *label, void(^task)(void));
     #define DLogImage(tag, level, image)      do{}while(0)
     #define DLogImageF(tag, level, image)     do{}while(0)
 
+    #define DLogClassAndMethod()    do{}while()
+
     #define DLogStartBlock(fmt, ...)                do{}while(0)
     #define DLogEndBlock()                          do{}while(0)
     #define DLogMarker(marker)                      do{}while(0)
     #define DLoggerFlush(logger, waitForConnection) do{}while(0)
+    #define DLogFlush(waitForConnection)            do{}while(0)
 #endif
 
 #define OP_SAFE_RELEASE(p)	{[p release]; p = nil;}

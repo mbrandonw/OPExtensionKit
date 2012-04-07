@@ -10,7 +10,7 @@
 
 @interface NSAttributedString (Opetopic)
 
--(id) initWithData:(NSData*)data;
++(id) attributedStringWithData:(NSData*)data;
 -(NSData*) convertToData; // stupid method name just so that we don't accidentally conflict with a future `-data` method.
 
 +(void)encodeAttributedStringAttributes:(NSDictionary*)attributes withKeyedArchiver:(NSKeyedArchiver*)archiver;

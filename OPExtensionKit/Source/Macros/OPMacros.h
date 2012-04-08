@@ -64,7 +64,7 @@ void OPProfile(NSString *label, void(^task)(void));
     #define DLogImage(tag, level, image)      do{}while(0)
     #define DLogImageF(tag, level, image)     do{}while(0)
 
-    #define DLogClassAndMethod()    do{}while()
+    #define DLogClassAndMethod()    do{}while(0)
 
     #define DLogStartBlock(fmt, ...)                do{}while(0)
     #define DLogEndBlock()                          do{}while(0)

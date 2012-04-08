@@ -1,9 +1,9 @@
 //
 //  NSUserDefaults+Opetopic.h
-//  Kickstarter
+//  OPExtensionKit
 //
 //  Created by Brandon Williams on 2/8/12.
-//  Copyright (c) 2012 Kickstarter. All rights reserved.
+//  Copyright (c) 2012 Opetopic. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

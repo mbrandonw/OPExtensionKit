@@ -71,6 +71,11 @@ enum {
 @property (nonatomic, assign) CGFloat bottom;
 
 /**
+ The view's top-left point.
+ */
+@property (nonatomic, assign) CGPoint origin;
+
+/**
  The view's width.
  */
 @property (nonatomic, assign) CGFloat width;

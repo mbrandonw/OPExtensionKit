@@ -201,4 +201,86 @@
     return retVal;
 }
 
+-(NSString*) stringByNormalizingConsecutiveWhitespace {
+    
+    // we'll construct a C-string with the normalized value
+    unichar *retChars = calloc([self length], sizeof(unichar));
+    [self getCharacters:retChars range:NSMakeRange(0, [self length])];
+    
+    NSInteger retLength = 0;
+    BOOL previousCharWasWhitespace = NO;
+    NSCharacterSet *whitespaceCharacterSet = [NSCharacterSet whitespaceCharacterSet];
+    
+    // we output to the same buffer as the input was
+    for (NSInteger i = 0; i < [self length]; i++)
+    {
+        unichar aChar = retChars[i];
+        if ([whitespaceCharacterSet characterIsMember:aChar])
+        {
+            // preserve only the first whitespace character in a consecutive sequence
+            if (! previousCharWasWhitespace) {
+                retChars[retLength] = ' ';
+                retLength++;
+                previousCharWasWhitespace = YES;
+            }
+        }
+        else
+        {
+            // all other characters we simply copy
+            retChars[retLength] = aChar;
+            retLength++;
+            previousCharWasWhitespace = NO;
+        }
+    }
+    
+    // create NSString from character buffer
+    NSString *retString = [NSString stringWithCharacters:retChars length:retLength];
+    
+    // clean up memory
+    free(retChars);
+    
+    return retString;
+}
+
+-(NSString*) stringByNormalizingNewlines {
+    
+    // we'll construct a C-string with the normalized value
+    unichar *retChars = calloc([self length], sizeof(unichar));
+    [self getCharacters:retChars range:NSMakeRange(0, [self length])];
+    
+    NSInteger retLength = 0;
+    NSCharacterSet *whitespaceCharacterSet = [NSCharacterSet whitespaceCharacterSet];
+    NSCharacterSet *newlineCharacterSet = [NSCharacterSet newlineCharacterSet];
+    
+    // we output to the same buffer as the input was
+    for (NSInteger i = 0; i < [self length]; i++)
+    {
+        unichar aChar = retChars[i];
+        if ([newlineCharacterSet characterIsMember:aChar])
+        {
+            // remove all newlines
+            
+            if (i < [self length] - 1 && i > 0 && ![whitespaceCharacterSet characterIsMember:retChars[i+1]] && ![whitespaceCharacterSet characterIsMember:retChars[i-1]])
+            {
+                retChars[retLength] = ' ';
+                retLength++;
+            }
+        }
+        else
+        {
+            // all other characters we simply copy
+            retChars[retLength] = aChar;
+            retLength++;
+        }
+    }
+    
+    // create NSString from character buffer
+    NSString *retString = [NSString stringWithCharacters:retChars length:retLength];
+    
+    // clean up memory
+    free(retChars);
+    
+    return retString;
+}
+
 @end

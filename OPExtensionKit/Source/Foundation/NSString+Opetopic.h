@@ -129,4 +129,14 @@
  */
 -(NSDictionary*) queryParameters;
 
+/**
+ Returns a string with consecutive whitespaces replaced with a single space.
+ */
+-(NSString*) stringByNormalizingConsecutiveWhitespace;
+
+/**
+ Returns a string with all newlines removed, and any consecutive newlines bordered by non-white space are replaced with a space.
+ */
+-(NSString*) stringByNormalizingNewlines;
+
 @end

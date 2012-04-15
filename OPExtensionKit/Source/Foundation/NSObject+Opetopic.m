@@ -16,21 +16,18 @@
 }
 
 -(void) performSelector:(SEL)aSelector withEachObjectIn:(id<NSFastEnumeration>)objects {
-    
-    for (id object in objects)
-    {
 #pragma clang diagnostic push 
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks" 
+    for (id object in objects)
+    {
         [self performSelector:aSelector withObject:object]; 
-#pragma clang diagnostic pop 
     }
+#pragma clang diagnostic pop 
 }
 
 +(void) performBlockNextRunloop:(void(^)(void))block {
-    dispatch_async(dispatch_get_current_queue(), ^{
-        if (block)
-            block();
-    });
+    if (block)
+        dispatch_async(dispatch_get_current_queue(), block);
 }
 
 -(id) tap:(void(^)(id obj))tap {

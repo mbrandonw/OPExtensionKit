@@ -24,6 +24,16 @@ typedef enum {
 @interface NSArray (Opetopic)
 
 /**
+ Returns an array with integers in the specified range (inclusive).
+ */
++(id) :(NSInteger)from to:(NSInteger)to;
+
+/**
+ Returns a new array shuffled.
+ */
+-(id) shuffledArray;
+
+/**
  A random object in the array.
  
  @return Returns a random object in the array, or `nil` if empty.

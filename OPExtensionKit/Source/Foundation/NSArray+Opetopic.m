@@ -11,6 +11,23 @@
 
 @implementation NSArray (Opetopic)
 
++(id) :(NSInteger)from to:(NSInteger)to {
+    NSMutableArray *retVal = [NSMutableArray new];
+    if (from > to)
+        return retVal;
+    for (NSInteger i = from; i <= to; i++)
+        [retVal addObject:[NSNumber numberWithInteger:i]];
+    return retVal;
+}
+
+-(id) shuffledArray {
+    return [self sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+        int a = rand();
+        int b = rand();
+        return a < b ? NSOrderedAscending : a > b ? NSOrderedDescending : NSOrderedSame;
+    }];
+}
+
 -(id) anyObject {
 	if ([self count] == 0)
 		return nil;

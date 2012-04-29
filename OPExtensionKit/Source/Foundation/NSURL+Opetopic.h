@@ -13,6 +13,8 @@
 
 #import <Foundation/Foundation.h>
 
+#define $url(string)    [NSURL URLWithString:string]
+
 @interface NSURL (Opetopic)
 
 -(NSDictionary*) queryParameters;

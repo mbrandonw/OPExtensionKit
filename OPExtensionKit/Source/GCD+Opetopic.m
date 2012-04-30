@@ -18,3 +18,12 @@ void dispatch_asap_queue(dispatch_queue_t queue, dispatch_block_t block) {
     else
         dispatch_async(queue, block);
 }
+
+void dispatch_next_runloop(dispatch_block_t block) {
+    if (block)
+        dispatch_async(dispatch_get_current_queue(), block);
+}
+
+void dispatch_after_delay(double delay, dispatch_block_t block) {
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, delay * NSEC_PER_SEC), dispatch_get_current_queue(), block);
+}

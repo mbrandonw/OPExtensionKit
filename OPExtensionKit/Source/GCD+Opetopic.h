@@ -19,3 +19,13 @@ void dispatch_asap_main_queue(dispatch_block_t block);
  otherwise it dispatches async it to the queue.
  */
 void dispatch_asap_queue(dispatch_queue_t queue, dispatch_block_t block);
+
+/**
+ Calls the passed block on the next runloop iteration.
+ */
+void dispatch_next_runloop(dispatch_block_t block);
+
+/**
+ Calls the passed block on the current queue after the specified amount of time.
+ */
+void dispatch_after_delay(double delay, dispatch_block_t block);

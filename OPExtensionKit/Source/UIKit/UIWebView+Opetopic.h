@@ -11,5 +11,6 @@
 @interface UIWebView (Opetopic)
 
 -(void) clearCookies;
+-(void) removeBackgroundGradients;
 
 @end

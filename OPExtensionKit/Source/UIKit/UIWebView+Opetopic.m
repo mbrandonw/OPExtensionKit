@@ -17,4 +17,13 @@
         [storage deleteCookie:cookie];
 }
 
+-(void) removeBackgroundGradients {
+    
+    for (UIView *subview in self.scrollView.subviews) {
+        if ([subview isKindOfClass:[UIImageView class]]) {
+            [subview setHidden:YES];
+        }
+    }
+}
+
 @end

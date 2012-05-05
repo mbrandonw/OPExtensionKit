@@ -22,10 +22,14 @@
 
 -(id) shuffledArray {
     return [self sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-        int a = rand();
-        int b = rand();
+        u_int32_t a = arc4random();
+        u_int32_t b = arc4random();
         return a < b ? NSOrderedAscending : a > b ? NSOrderedDescending : NSOrderedSame;
     }];
+}
+
+-(NSRange) fullRange {
+    return NSMakeRange(0, [self count]);
 }
 
 -(id) anyObject {

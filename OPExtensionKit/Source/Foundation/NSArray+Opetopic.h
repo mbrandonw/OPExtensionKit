@@ -28,10 +28,18 @@ typedef enum {
  */
 +(id) :(NSInteger)from to:(NSInteger)to;
 
+
 /**
  Returns a new array shuffled.
  */
 -(id) shuffledArray;
+
+
+/**
+ @return An NSRange covering the whole array.
+ */
+-(NSRange) fullRange;
+
 
 /**
  A random object in the array.

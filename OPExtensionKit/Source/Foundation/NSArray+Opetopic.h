@@ -42,6 +42,23 @@ typedef enum {
 
 
 /**
+ Assuming the receiver is already sorted, this will search through the array until the comparator
+ block returns NSOrderedSame. At any step during the binary search if you want to continue searching
+ the lower half then the comparator should return NSOrderedDescending, and if you want to continue
+ search the upper half then return NSOrderedAscending. If the comparator never returns NSOrderedSame,
+ then this method returns NSNotFound.
+ */
+-(NSUInteger) indexFromBinarySearchUsingBlock:(NSComparisonResult(^)(id))comparator;
+
+
+/**
+ Same as `indexFromBinarySearchUsingBlock:`, except the object at the searched index is returned, 
+ or `nil` if no index was found.
+ */
+-(id) objectFromBinarySearchUsingBlock:(NSComparisonResult(^)(id))comparator;
+
+
+/**
  A random object in the array.
  
  @return Returns a random object in the array, or `nil` if empty.

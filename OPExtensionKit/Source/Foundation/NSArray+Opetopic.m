@@ -9,6 +9,10 @@
 #import "NSArray+Opetopic.h"
 #import "NSSet+Opetopic.h"
 
+@interface NSArray (Opetopic_Private)
+-(NSUInteger) __indexFromBinarySearchUsingBlock:(NSComparisonResult(^)(id))comparator range:(NSRange)range;
+@end
+
 @implementation NSArray (Opetopic)
 
 +(id) :(NSInteger)from to:(NSInteger)to {
@@ -30,6 +34,44 @@
 
 -(NSRange) fullRange {
     return NSMakeRange(0, [self count]);
+}
+
+-(NSUInteger) indexFromBinarySearchUsingBlock:(NSComparisonResult(^)(id))comparator {
+    return [self __indexFromBinarySearchUsingBlock:comparator range:[self fullRange]];
+}
+
+-(NSUInteger) __indexFromBinarySearchUsingBlock:(NSComparisonResult(^)(id))comparator range:(NSRange)range {
+    
+    NSUInteger midIndex = (NSUInteger)floorf(range.location + range.length/2.0f);
+    id obj = [self objectAtIndex:midIndex];
+    NSComparisonResult comparisonResult = comparator(obj);
+    
+    if (comparisonResult == NSOrderedSame)
+        return midIndex;
+    else if (comparisonResult == NSOrderedAscending)
+    {
+        NSUInteger location = midIndex + 1;
+        NSInteger length = range.location + range.length - 1 - midIndex;
+        if (length < 0 || location >= [self count])
+            return NSNotFound;
+        return [self __indexFromBinarySearchUsingBlock:comparator range:NSMakeRange(location, length)];
+    }
+    else if (comparisonResult == NSOrderedDescending)
+    {
+        NSInteger length = midIndex - 1 - range.location;
+        if (length < 0)
+            return NSNotFound;
+        return [self __indexFromBinarySearchUsingBlock:comparator range:NSMakeRange(range.location, length)];
+    }
+    
+    return NSNotFound;
+}
+
+-(id) objectFromBinarySearchUsingBlock:(NSComparisonResult(^)(id))comparator {
+    NSUInteger index = [self indexFromBinarySearchUsingBlock:comparator];
+    if (index == NSNotFound)
+        return nil;
+    return [self objectAtIndex:index];
 }
 
 -(id) anyObject {

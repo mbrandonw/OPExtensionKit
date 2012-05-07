@@ -29,4 +29,12 @@
  */
 -(id) pop;
 
+
+/**
+ Swaps objects at index i and j.
+ */
+-(void) swapObjectAtIndex:(NSUInteger)i withObjectAtIndex:(NSUInteger)j;
+-(void) swapObject:(id)obj withObjectAtIndex:(NSUInteger)i;
+-(void) swapObject:(id)obj1 withObject:(id)obj2;
+
 @end

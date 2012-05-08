@@ -205,7 +205,7 @@
         
         [sortedCollection enumerateObjectsUsingBlock:^(id obj2, NSUInteger idx, BOOL *stop) {
             @autoreleasepool {
-                if (! [[lastInsertedObj valueForKey:key1] isEqual:[obj2 valueForKey:key2]])
+                if (! [[lastInsertedObj valueForKeyPath:key1] isEqual:[obj2 valueForKeyPath:key2]])
                     lastInsertedObj = insertBlock(obj2);
                 updateBlock(lastInsertedObj, obj2);
             }
@@ -235,8 +235,8 @@
                 
                 id obj1 = i < [sortedSelf count] ? [sortedSelf objectAtIndex:i] : nil;
                 id obj2 = j < [sortedCollection count] ? [sortedCollection objectAtIndex:j] : nil;
-                id id1 = [obj1 valueForKey:key1];
-                id id2 = [obj2 valueForKey:key2];
+                id id1 = [obj1 valueForKeyPath:key1];
+                id id2 = [obj2 valueForKeyPath:key2];
                 
                 if ([id1 isEqual:id2])
                 {
@@ -251,7 +251,7 @@
                 }
                 else
                 {
-                    if (! [[lastInsertedObj valueForKey:key1] isEqual:[obj2 valueForKey:key2]])
+                    if (! [[lastInsertedObj valueForKeyPath:key1] isEqual:[obj2 valueForKeyPath:key2]])
                         lastInsertedObj = insertBlock(obj2);
                     
                     updateBlock(lastInsertedObj, obj2);

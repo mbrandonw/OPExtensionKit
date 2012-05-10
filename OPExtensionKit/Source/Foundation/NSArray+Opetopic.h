@@ -142,6 +142,12 @@ typedef enum {
 
 
 /**
+ */
+-(NSArray*) subarrayFromIndex:(NSUInteger)index;
+-(NSArray*) subarrayToIndex:(NSUInteger)index;
+
+
+/**
  Helper method to obtain sorted array with a single sort descriptor.
  
  @param sortDescription A single sort descriptor

@@ -166,6 +166,14 @@
     return NO;
 }
 
+-(NSArray*) subarrayFromIndex:(NSUInteger)index {
+    return [self subarrayWithRange:NSMakeRange(index, [self count] - index)];
+}
+
+-(NSArray*) subarrayToIndex:(NSUInteger)index {
+    return [self subarrayWithRange:NSMakeRange(0, index)];
+}
+
 -(NSArray*) sortedArrayUsingDescriptor:(NSSortDescriptor *)sortDescriptor {
     return [self sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortDescriptor]];
 }

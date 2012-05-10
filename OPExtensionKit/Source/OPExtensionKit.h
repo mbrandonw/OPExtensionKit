@@ -46,3 +46,4 @@
 #import "UIScrollView+Opetopic.h"
 #import "CALayer+Opetopic.h"
 #import "NSFileManager+Opetopic.h"
+#import "NSSortDescriptor+Opetopic.h"

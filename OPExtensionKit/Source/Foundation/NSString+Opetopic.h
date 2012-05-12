@@ -77,6 +77,11 @@
 -(NSString*) normalizedString;
 
 /**
+ Returns the string reversed.
+ */
+-(NSString*) reversedString;
+
+/**
  URL encodes the string.
  */
 - (NSString *)URLEncodedString;

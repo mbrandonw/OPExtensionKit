@@ -111,6 +111,23 @@
 	return result;	
 }
 
+-(NSString*) reversedString {
+    
+    char *chars = (char *)[self cStringUsingEncoding:NSUTF8StringEncoding];
+    NSUInteger length = [self length] - 1;
+    char temp;
+    
+    for (NSUInteger i = 0; i <= length/2; i++) {
+        if (chars[i] != chars[length - i]) {
+            temp = chars[i];
+            chars[i] = chars[length - i];
+            chars[length - i] = temp;
+        }
+    }
+    
+    return [NSString stringWithUTF8String:(const char *)chars];
+}
+
 - (NSString *)URLEncodedString  
 {
     NSString *result = (__bridge_transfer NSString *)CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,

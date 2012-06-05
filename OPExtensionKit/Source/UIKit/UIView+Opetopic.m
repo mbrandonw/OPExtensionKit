@@ -126,6 +126,14 @@
         [[self.subviews lastObject] removeFromSuperview];
 }
 
+-(void) bringToFront {
+    [self.superview bringSubviewToFront:self];
+}
+
+-(void) sendToBack {
+    [self.superview sendSubviewToBack:self];
+}
+
 -(UIImage*) renderedImage {
     
     UIGraphicsBeginImageContextWithOptions(self.bounds.size, self.opaque, [[UIScreen mainScreen] scale]);

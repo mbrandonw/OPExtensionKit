@@ -121,6 +121,11 @@ enum {
 -(void) removeAllSubviews;
 
 /**
+ */
+-(void) bringToFront;
+-(void) sendToBack;
+
+/**
  Renders the view into a UIImage.
  */
 -(UIImage*) renderedImage;

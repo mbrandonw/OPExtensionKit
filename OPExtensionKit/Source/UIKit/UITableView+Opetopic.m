@@ -13,3 +13,21 @@ UITableViewRowAnimation UITableViewRowAnimationAutomaticOr(UITableViewRowAnimati
         return UITableViewRowAnimationAutomatic;
     return rowAnimation;
 }
+
+@implementation UITableView (Opetopic)
+
+-(NSArray*) indexPathsInSection:(NSUInteger)section {
+    NSMutableArray *retVal = [NSMutableArray new];
+    for (NSUInteger row = 0; row < [self.dataSource tableView:self numberOfRowsInSection:section]; row++)
+        [retVal addObject:[NSIndexPath indexPathForRow:row inSection:section]];
+    return retVal;
+}
+
+-(NSArray*) allIndexPaths {
+    NSMutableArray *retVal = [NSMutableArray new];
+    for (NSUInteger section = 0; section < [self.dataSource numberOfSectionsInTableView:self]; section++)
+        [retVal addObjectsFromArray:[self indexPathsInSection:section]];
+    return retVal;
+}
+
+@end

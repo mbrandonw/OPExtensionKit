@@ -30,4 +30,41 @@ UITableViewRowAnimation UITableViewRowAnimationAutomaticOr(UITableViewRowAnimati
     return retVal;
 }
 
+-(NSArray*) indexPathsWithAccessoryType:(UITableViewCellAccessoryType)type inSection:(NSUInteger)section {
+    NSMutableArray *retVal = [NSMutableArray new];
+    for (NSUInteger row = 0; row < [self.dataSource tableView:self numberOfRowsInSection:section]; row++)
+    {
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:section];
+        UITableViewCell *cell = [self cellForRowAtIndexPath:indexPath];
+        if (cell.accessoryType == type)
+            [retVal addObject:indexPath];
+    }
+    return retVal;
+}
+
+-(NSArray*) indexPathsWithAccessoryType:(UITableViewCellAccessoryType)type {
+    NSMutableArray *retVal = [NSMutableArray new];
+    for (NSUInteger section = 0; section < [self.dataSource numberOfSectionsInTableView:self]; section++)
+        [retVal addObjectsFromArray:[self indexPathsWithAccessoryType:type inSection:section]];
+    return retVal;
+}
+
+-(NSArray*) cellsWithAccessoryType:(UITableViewCellAccessoryType)type inSection:(NSUInteger)section {
+    NSMutableArray *retVal = [NSMutableArray new];
+    for (NSUInteger row = 0; row < [self.dataSource tableView:self numberOfRowsInSection:section]; row++)
+    {
+        UITableViewCell *cell = [self cellForRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:section]];
+        if (cell.accessoryType == type)
+            [retVal addObject:cell];
+    }
+    return retVal;
+}
+
+-(NSArray*) cellsWithAccessoryType:(UITableViewCellAccessoryType)type {
+    NSMutableArray *retVal = [NSMutableArray new];
+    for (NSUInteger section = 0; section < [self.dataSource numberOfSectionsInTableView:self]; section++)
+        [retVal addObjectsFromArray:[self cellsWithAccessoryType:type inSection:section]];
+    return retVal;
+}
+
 @end

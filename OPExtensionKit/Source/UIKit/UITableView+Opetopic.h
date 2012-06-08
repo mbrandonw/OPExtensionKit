@@ -14,5 +14,9 @@ UITableViewRowAnimation UITableViewRowAnimationAutomaticOr(UITableViewRowAnimati
 
 -(NSArray*) indexPathsInSection:(NSUInteger)section;
 -(NSArray*) allIndexPaths;
+-(NSArray*) indexPathsWithAccessoryType:(UITableViewCellAccessoryType)type inSection:(NSUInteger)section;
+-(NSArray*) indexPathsWithAccessoryType:(UITableViewCellAccessoryType)type;
+-(NSArray*) cellsWithAccessoryType:(UITableViewCellAccessoryType)type inSection:(NSUInteger)section;
+-(NSArray*) cellsWithAccessoryType:(UITableViewCellAccessoryType)type;
 
 @end

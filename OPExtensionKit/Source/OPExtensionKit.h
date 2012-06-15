@@ -48,3 +48,5 @@
 #import "CALayer+Opetopic.h"
 #import "NSFileManager+Opetopic.h"
 #import "NSSortDescriptor+Opetopic.h"
+#import "NSMutableOrderedSet+Opetopic.h"
+#import "NSIndexPath+Opetopic.h"

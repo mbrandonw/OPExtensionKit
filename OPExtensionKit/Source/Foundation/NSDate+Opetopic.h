@@ -62,8 +62,12 @@
 +(NSDate*) dateWithYearsFromNow:(CGFloat)years;
 
 /**
- Date representing the beginning of today.
+ Date representing the beginning of the date.
  */
 -(NSDate*) startOfDay;
+
+/**
+ */
++(NSDate*) today;
 
 @end

@@ -114,4 +114,8 @@
     return [NSDate dateWithTimeIntervalSince1970:floor([self timeIntervalSince1970]/NSDateSecondsInDays(1))*NSDateSecondsInDays(1)];
 }
 
++(NSDate*) today {
+    return [[NSDate date] startOfDay];
+}
+
 @end

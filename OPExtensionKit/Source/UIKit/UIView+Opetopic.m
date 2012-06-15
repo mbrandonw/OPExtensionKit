@@ -135,8 +135,11 @@
 }
 
 -(UIImage*) renderedImage {
-    
-    UIGraphicsBeginImageContextWithOptions(self.bounds.size, self.opaque, [[UIScreen mainScreen] scale]);
+    return [self renderedImage:[[UIScreen mainScreen] scale]];
+}
+
+-(UIImage*) renderedImage:(CGFloat)scale {
+    UIGraphicsBeginImageContextWithOptions(self.bounds.size, self.opaque, scale);
     [self.layer renderInContext:UIGraphicsGetCurrentContext()];
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();

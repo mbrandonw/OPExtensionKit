@@ -129,6 +129,7 @@ enum {
  Renders the view into a UIImage.
  */
 -(UIImage*) renderedImage;
+-(UIImage*) renderedImage:(CGFloat)scale;
 
 /**
  Easy access to `recursiveDescription`. Don't worry, this is App Store safe.

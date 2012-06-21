@@ -24,4 +24,7 @@
 +(BOOL) hasTelephony;
 +(BOOL) isAtLeastiOS5;
 
++(double) freeMemory;
++(double) appMemoryUsage;
+
 @end

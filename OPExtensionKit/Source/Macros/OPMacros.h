@@ -44,6 +44,7 @@ void OPProfile(NSString *label, void(^task)(void));
     #define DLogImageF(tag, level, image)     LogImageDataF(__FILE__, __LINE__, __PRETTY_FUNCTION__, tag, level, image.size.width, image.size.height, UIImagePNGRepresentation(image))
 
     #define DLogClassAndMethod()   DLogMessageF(nil, DLogLevelInfo, @"%@ %@", [self class], NSStringFromSelector(_cmd))
+    #define DLogMemoryUsage()      DLogMessageF(nil, DLogLevelInfo, @"***Memory Usage***\nApp: %f\nDevice: %f", [UIDevice appMemoryUsage], [UIDevice freeMemory])
 
     #define DLogStartBlock(fmt, ...)                LogStartBlock(fmt, ##__VA_ARGS__)
     #define DLogEndBlock()                          LogEndBlock()
@@ -65,6 +66,7 @@ void OPProfile(NSString *label, void(^task)(void));
     #define DLogImageF(tag, level, image)     do{}while(0)
 
     #define DLogClassAndMethod()    do{}while(0)
+    #define DLogMemoryUsage()       do{}while(0)
 
     #define DLogStartBlock(fmt, ...)                do{}while(0)
     #define DLogEndBlock()                          do{}while(0)

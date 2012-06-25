@@ -13,6 +13,8 @@
 // Measures how long it takes to perform a task
 void OPProfile(NSString *label, void(^task)(void));
 
+void DLogSimple(NSString *fmt, ...);
+
 // DLog is almost a drop-in replacement for NSLog
 // DLog();
 // DLog(@"here");

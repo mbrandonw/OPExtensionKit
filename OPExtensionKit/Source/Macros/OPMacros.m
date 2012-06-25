@@ -39,3 +39,13 @@ void OPProfile(NSString *label, void(^task)(void)) {
     task();
 #endif
 }
+
+void DLogSimple(NSString *fmt, ...) {
+    va_list argList;
+    va_start (argList, fmt);
+    
+    NSString *message = [[NSString alloc] initWithFormat:fmt arguments:argList];
+    va_end (argList);
+    
+    fprintf (stderr, "%s\n", [message UTF8String]);
+}

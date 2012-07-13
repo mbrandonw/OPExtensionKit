@@ -224,15 +224,6 @@
 }
 
 +(UIColor*) colorWithHex:(UInt64)hex {
-    
-    if (hex > 0xffffff)
-    {
-        return [UIColor colorWithRed:((hex >> 24) & 0xff) / 255.0f
-                               green:((hex >> 16) & 0xff) / 255.0f
-                                blue:((hex >>  8) & 0xff) / 255.0f
-                               alpha:((hex >>  0) & 0xff) / 255.0f];
-    }
-    
     return [UIColor colorWithHex:hex alpha:1.0f];
 }
 

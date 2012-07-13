@@ -18,6 +18,8 @@
 #define $mstrfmt(...)   [NSMutableString stringWithFormat:__VA_ARGS__]
 #define $keypath(...)   [$array(__VA_ARGS__) componentsJoinedByString:@"."]
 
+#define $countstr(count,str) [NSString stringWithFormat:@"%i %@%@", count, str, count==1?@"":@"s"]
+
 @interface NSString (Opetopic)
 
 /**

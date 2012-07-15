@@ -17,9 +17,14 @@
 
 /**
  Takes care of setting up `UIBackgroundTaskIdentifier` and running the task on a background thread. Both `task` and `completion`
- are called on a background thread.
+ are called on the same background thread.
  */
 -(void) performBackgroundTask:(void(^)(void))task completion:(void(^)(void))completion expiration:(void(^)(void))expiration;
+
+/**
+ Same as above except blocks are exceuted on main thread.
+ */
+-(void) performBackgroundTaskOnMainThread:(void(^)(void))task completion:(void(^)(void))completion expiration:(void(^)(void))expiration;
 
 /**
  */

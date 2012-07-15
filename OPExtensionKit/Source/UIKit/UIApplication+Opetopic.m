@@ -25,6 +25,18 @@
     }
 }
 
+-(void) performBackgroundTaskOnMainThread:(void(^)(void))task completion:(void(^)(void))completion expiration:(void(^)(void))expiration {
+    
+    if (task)
+    {
+        UIBackgroundTaskIdentifier identifier = [self beginBackgroundTaskWithExpirationHandler:expiration];
+        task();
+        if (completion)
+            completion();
+        [self endBackgroundTask:identifier];
+    }
+}
+
 -(void) preventDeviceFromIdlingWhile:(void (^)(void))task {
     
     BOOL previousValue = [UIApplication sharedApplication].idleTimerDisabled;

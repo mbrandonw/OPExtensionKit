@@ -12,4 +12,6 @@
 
 +(id) bezierPathWithPointedRoundedRect:(CGRect)rect radius:(CGFloat)radius pointerSize:(CGFloat)pointerSize;
 
++(id) popoverPathWithRect:(CGRect)rect cornerRadius:(CGFloat)cornerRadius arrowPosition:(CGPoint)position arrowSize:(CGSize)size;
+
 @end

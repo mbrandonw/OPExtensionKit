@@ -146,6 +146,17 @@
     return image;
 }
 
++(void) animateWithDuration:(NSTimeInterval)duration animations:(void (^)(void))animations asapCompletion:(void (^)(BOOL finished))completion {
+    
+    if (duration <= 0.0f)
+    {
+        animations();
+        completion(YES);
+    }
+    else
+        [[self class] animateWithDuration:duration animations:animations completion:completion];
+}
+
 -(NSString*) rDescription {
 #ifdef DEBUG
     return [self performSelector:@selector(recursiveDescription)];

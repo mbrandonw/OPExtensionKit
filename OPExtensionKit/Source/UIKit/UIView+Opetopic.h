@@ -132,6 +132,12 @@ enum {
 -(UIImage*) renderedImage:(CGFloat)scale;
 
 /**
+ With the usual -animateWithDuration:animations:completion: method, if you pass a duration of 0 the completion block 
+ is called on the next run loop cycle. This method forces the completion to be called immediately in this case.
+ */
++(void) animateWithDuration:(NSTimeInterval)duration animations:(void (^)(void))animations asapCompletion:(void (^)(BOOL finished))completion;
+
+/**
  Easy access to `recursiveDescription`. Don't worry, this is App Store safe.
  */
 -(NSString*) rDescription;

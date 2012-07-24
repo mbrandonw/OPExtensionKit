@@ -51,3 +51,4 @@
 #import "NSMutableOrderedSet+Opetopic.h"
 #import "NSIndexPath+Opetopic.h"
 #import "NSFetchedResultsController+Opetopic.h"
+#import "NSRegularExpression+Opetopic.h"

@@ -13,6 +13,8 @@
 
 #import <Foundation/Foundation.h>
 
+#define $m(obj)     [obj mutableCopy]
+
 @interface NSObject (Opetopic)
 
 /**

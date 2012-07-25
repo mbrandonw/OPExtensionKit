@@ -46,7 +46,7 @@ NSMutableDictionary *MutableDictionaryWithArrayPrivate(NSUInteger count, id __un
 
 -(void) setDate:(NSDate*)obj forKey:(id)key {
     if ([obj isKindOfClass:[NSDate class]])
-        [self setObject:[NSNumber numberWithInteger:(NSInteger)[obj timeIntervalSince1970]] forKey:key];
+        [self setObject:@((NSInteger)[obj timeIntervalSince1970]) forKey:key];
 }
 
 -(void) setBoolean:(NSNumber*)obj forKey:(id)key {

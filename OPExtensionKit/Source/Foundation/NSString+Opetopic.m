@@ -125,7 +125,7 @@
         }
     }
     
-    return [NSString stringWithUTF8String:(const char *)chars];
+    return @((const char *)chars);
 }
 
 - (NSString *)URLEncodedString  

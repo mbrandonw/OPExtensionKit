@@ -20,7 +20,7 @@
     if (from > to)
         return retVal;
     for (NSInteger i = from; i <= to; i++)
-        [retVal addObject:[NSNumber numberWithInteger:i]];
+        [retVal addObject:@(i)];
     return retVal;
 }
 
@@ -175,7 +175,7 @@
 }
 
 -(NSArray*) sortedArrayUsingDescriptor:(NSSortDescriptor *)sortDescriptor {
-    return [self sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortDescriptor]];
+    return [self sortedArrayUsingDescriptors:@[sortDescriptor]];
 }
 
 -(void) synchronizeWith:(id)collection 

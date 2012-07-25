@@ -30,8 +30,8 @@ void OPProfile(NSString *label, void(^task)(void)) {
     CGFloat elapsed = ((CGFloat)((mach_absolute_time() - start) * info.numer / info.denom)) / NSEC_PER_SEC;
     
     average = (average*count+elapsed)/(count+1.0f);
-    [averagesByLabel setObject:[NSNumber numberWithFloat:average] forKey:label];
-    [countsByLabel setObject:[NSNumber numberWithUnsignedInt:count+1] forKey:label];
+    [averagesByLabel setObject:@(average) forKey:label];
+    [countsByLabel setObject:@(count+1) forKey:label];
     
     DLogMessage(nil, DLogLevelProfiling, @"PROFILING: %@\nRun time: %.6f seconds\nAvg time: %.6f seconds%@", 
                 label, elapsed, average, [NSThread isMainThread] && elapsed >= 1/30.0f ? @"\n******* Dropped a frame! *******" : @"");

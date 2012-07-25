@@ -35,11 +35,11 @@
 }
 
 -(NSPredicate*) and:(NSPredicate*)predicate {
-    return [NSCompoundPredicate andPredicateWithSubpredicates:[NSArray arrayWithObjects:self, predicate, nil]];
+    return [NSCompoundPredicate andPredicateWithSubpredicates:@[self, predicate]];
 }
 
 -(NSPredicate*) or:(NSPredicate*)predicate {
-    return [NSCompoundPredicate orPredicateWithSubpredicates:[NSArray arrayWithObjects:self, predicate, nil]];
+    return [NSCompoundPredicate orPredicateWithSubpredicates:@[self, predicate]];
 }
 
 @end

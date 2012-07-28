@@ -8,6 +8,7 @@
 
 #import "UIApplication+Opetopic.h"
 #import "NSString+Opetopic.h"
+#import "GCD+Opetopic.h"
 
 @implementation UIApplication (Opetopic)
 
@@ -30,9 +31,9 @@
     if (task)
     {
         UIBackgroundTaskIdentifier identifier = [self beginBackgroundTaskWithExpirationHandler:expiration];
-        task();
+        dispatch_asap_main_queue(task);
         if (completion)
-            completion();
+            dispatch_asap_main_queue(completion);
         [self endBackgroundTask:identifier];
     }
 }

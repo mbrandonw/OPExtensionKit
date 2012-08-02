@@ -40,15 +40,27 @@
     UIBezierPath *path = [UIBezierPath bezierPath];
     
     [path moveToPoint:CGPointMake(rect.origin.x + cornerRadius, rect.origin.y)];
-    [path addLineToPoint:CGPointMake(rect.origin.x + position.x - size.width/2.0f, rect.origin.y)];
-    [path addLineToPoint:CGPointMake(rect.origin.x + position.x, rect.origin.y - size.height)];
-    [path addLineToPoint:CGPointMake(rect.origin.x + position.x + size.width/2.0f, rect.origin.y)];
+    
+    // check if arrow is on top
+    if (position.y == 0.0f) {
+        [path addLineToPoint:CGPointMake(rect.origin.x + position.x - size.width/2.0f, rect.origin.y)];
+        [path addLineToPoint:CGPointMake(rect.origin.x + position.x, rect.origin.y - size.height)];
+        [path addLineToPoint:CGPointMake(rect.origin.x + position.x + size.width/2.0f, rect.origin.y)];
+    }
+    
     [path addLineToPoint:CGPointMake(rect.origin.x + rect.size.width - cornerRadius, rect.origin.y)];
     [path addArcWithCenter:CGPointMake(rect.origin.x + rect.size.width - cornerRadius, rect.origin.y + cornerRadius) 
                     radius:cornerRadius 
                 startAngle:M_PI*1.5f 
                   endAngle:M_PI*2.0f
                  clockwise:YES];
+    
+    // check if arrow is on right
+    if (position.x == rect.size.width) {
+        [path addLineToPoint:CGPointMake(rect.origin.x + rect.size.width, rect.origin.y + position.y - size.height/2.0f)];
+        [path addLineToPoint:CGPointMake(rect.origin.x + rect.size.width + size.width, rect.origin.y + position.y)];
+        [path addLineToPoint:CGPointMake(rect.origin.x + rect.size.width, rect.origin.y + position.y + size.height/2.0f)];
+    }
     
     [path addLineToPoint:CGPointMake(rect.origin.x + rect.size.width, rect.origin.y + rect.size.height - cornerRadius)];
     [path addArcWithCenter:CGPointMake(rect.origin.x + rect.size.width-cornerRadius, rect.origin.y+rect.size.height-cornerRadius)
@@ -57,12 +69,26 @@
                   endAngle:M_PI/2.0f
                  clockwise:YES];
     
+    // check if arrow is on bottom
+    if (position.y == rect.size.height) {
+        [path addLineToPoint:CGPointMake(rect.origin.x + position.x - size.width/2.0f, rect.origin.y + rect.size.height)];
+        [path addLineToPoint:CGPointMake(rect.origin.x + position.x, rect.origin.y + rect.size.height + size.height)];
+        [path addLineToPoint:CGPointMake(rect.origin.x + position.x + size.width/2.0f, rect.origin.y + rect.size.height)];
+    }
+    
     [path addLineToPoint:CGPointMake(rect.origin.x + cornerRadius, rect.origin.y+rect.size.height)];
     [path addArcWithCenter:CGPointMake(rect.origin.x + cornerRadius, rect.origin.y+rect.size.height-cornerRadius) 
                     radius:cornerRadius 
                 startAngle:M_PI/2.0f 
                   endAngle:M_PI 
                  clockwise:YES];
+    
+    // check if arrow is on left
+    if (position.x == 0.0f) {
+        [path addLineToPoint:CGPointMake(rect.origin.x, rect.origin.y + position.y + size.height/2.0f)];
+        [path addLineToPoint:CGPointMake(rect.origin.x - size.width, rect.origin.y + position.y)];
+        [path addLineToPoint:CGPointMake(rect.origin.x, rect.origin.y + position.y - size.height/2.0f)];
+    }
     
     [path addLineToPoint:CGPointMake(rect.origin.x, rect.origin.y + cornerRadius)];
     [path addArcWithCenter:CGPointMake(rect.origin.x + cornerRadius, rect.origin.y + cornerRadius) 

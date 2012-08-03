@@ -9,8 +9,6 @@
 #import "NSObject+Opetopic.h"
 #import <objc/runtime.h>
 
-#define OPAssertEnumerable  NSAssert([self conformsToProtocol:@protocol(NSFastEnumeration)], @"Object isn't enumerable.");
-
 @implementation NSObject (Opetopic)
 
 -(BOOL) in:(NSArray*)array {
@@ -39,59 +37,6 @@
 
 -(NSString*) toString {
     return [NSString stringWithFormat:@"%@", self];
-}
-
--(id) map:(id(^)(id))mapper {
-    OPAssertEnumerable
-    
-    BOOL isDictionary = [[self class] isSubclassOfClass:[NSDictionary class]];
-    id retVal = isDictionary ? [NSMutableDictionary new] : [[[self class] new] mutableCopy];
-    
-    for (id obj in (id<NSFastEnumeration>)self)
-    {
-        if (isDictionary)
-            [retVal setObject:mapper(obj) forKey:obj];
-        else
-            [retVal addObject:mapper(obj)];
-    }
-    return retVal;
-}
-
--(id) findAll:(BOOL(^)(id))finder {
-    OPAssertEnumerable
-    
-    BOOL isDictionary = [[self class] isSubclassOfClass:[NSDictionary class]];
-    id retVal = isDictionary ? [NSMutableDictionary new] : [[[self class] new] mutableCopy];
-    
-    for (id obj in (id<NSFastEnumeration>)self)
-    {
-        if (finder(obj))
-        {
-            if (isDictionary)
-                [retVal setObject:obj forKey:obj];
-            else
-                [retVal addObject:obj];
-        }
-    }
-    return retVal;
-}
-
--(id) select:(BOOL(^)(id))selector {
-    return [self findAll:selector];
-}
-
--(id) find:(BOOL(^)(id))finder {
-    OPAssertEnumerable
-    
-    for (id obj in (id<NSFastEnumeration>)self)
-        if (finder(obj))
-            return obj;
-    
-    return nil;
-}
-
--(id) detect:(BOOL (^)(id))detector {
-    return [self find:detector];
 }
 
 +(void) op_swizzleSelector:(SEL)oldSel withSelector:(SEL)newSel {

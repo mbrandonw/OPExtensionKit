@@ -52,3 +52,4 @@
 #import "NSIndexPath+Opetopic.h"
 #import "NSFetchedResultsController+Opetopic.h"
 #import "NSRegularExpression+Opetopic.h"
+#import "NSAttributedString+Opetopic.h"

@@ -1,0 +1,58 @@
+//
+//  NSAttributedString+Opetopic.m
+//  Kickstarter
+//
+//  Created by Brandon Williams on 8/2/12.
+//  Copyright (c) 2012 Kickstarter. All rights reserved.
+//
+
+#import "NSAttributedString+Opetopic.h"
+#import "OPCache.h"
+#import "NSString+Opetopic.h"
+
+@implementation NSAttributedString (Opetopic)
+
+-(void) drawInRect:(CGRect)rect parentBounds:(CGRect)bounds {
+    CGContextRef c = UIGraphicsGetCurrentContext();
+    
+    CTFramesetterRef framesetterRef = [self framesetterRef];
+    
+    CGContextSaveGState(c);
+    {
+        CGContextSetTextMatrix(c, CGAffineTransformIdentity);
+        CGContextTranslateCTM(c, 0.0, bounds.size.height);
+        CGContextScaleCTM(c, 1.0, -1.0);
+        
+        CGAffineTransform reverseT = CGAffineTransformIdentity;
+        reverseT = CGAffineTransformScale(reverseT, 1.0, -1.0);
+        reverseT = CGAffineTransformTranslate(reverseT, 0.0, -bounds.size.height);
+        
+        CGMutablePathRef topFramePath = CGPathCreateMutable();
+        CGPathAddRect(topFramePath, NULL, CGRectApplyAffineTransform(rect, reverseT));
+        
+        CTFrameRef topFrame = (__bridge CTFrameRef)[[OPCache sharedCache] objectForKey:$strfmt(@"%p-topFrame",self) withGetter:^id{
+            return (__bridge id)CTFramesetterCreateFrame(framesetterRef, CFRangeMake(0,0), topFramePath, NULL);
+        }];
+        
+        CTFrameDraw(topFrame, c);
+        
+        if (topFramePath)
+            CFRelease(topFramePath);
+    }
+    CGContextRestoreGState(c);
+}
+
+-(CTFramesetterRef) framesetterRef {
+    return (__bridge CTFramesetterRef)[[OPCache sharedCache] objectForKey:$strfmt(@"%p-framesetterRef",self) withGetter:^id{
+        return (__bridge id)CTFramesetterCreateWithAttributedString((__bridge CFAttributedStringRef)self);
+    }];
+}
+
+-(CGSize) sizeContrainedTo:(CGSize)constraints {
+    
+    CTFramesetterRef framesetterRef = [self framesetterRef];
+    
+    return CTFramesetterSuggestFrameSizeWithConstraints(framesetterRef, CFRangeMake(0, [self length]), NULL, constraints, NULL);
+}
+
+@end

@@ -8,6 +8,7 @@
 
 #import "NSAttributedString+Opetopic.h"
 #import "OPCache.h"
+#import "NSCache+Opetopic.h"
 #import "NSString+Opetopic.h"
 
 @implementation NSAttributedString (Opetopic)
@@ -30,7 +31,7 @@
         CGMutablePathRef topFramePath = CGPathCreateMutable();
         CGPathAddRect(topFramePath, NULL, CGRectApplyAffineTransform(rect, reverseT));
         
-        CTFrameRef topFrame = (__bridge CTFrameRef)[[OPCache sharedCache] objectForKey:$strfmt(@"%p-topFrame",self) withGetter:^id{
+        CTFrameRef topFrame = (__bridge CTFrameRef)[[OPCache sharedCache] fetch:$strfmt(@"%p-topFrame",self) :^id{
             return (__bridge id)CTFramesetterCreateFrame(framesetterRef, CFRangeMake(0,0), topFramePath, NULL);
         }];
         
@@ -43,7 +44,7 @@
 }
 
 -(CTFramesetterRef) framesetterRef {
-    return (__bridge CTFramesetterRef)[[OPCache sharedCache] objectForKey:$strfmt(@"%p-framesetterRef",self) withGetter:^id{
+    return (__bridge CTFramesetterRef)[[OPCache sharedCache] fetch:$strfmt(@"%p-framesetterRef",self) :^id{
         return (__bridge id)CTFramesetterCreateWithAttributedString((__bridge CFAttributedStringRef)self);
     }];
 }

@@ -142,6 +142,7 @@ typedef enum {
 
 
 /**
+ Helpers for getting the head or tail subarray.
  */
 -(NSArray*) subarrayFromIndex:(NSUInteger)index;
 -(NSArray*) subarrayToIndex:(NSUInteger)index;

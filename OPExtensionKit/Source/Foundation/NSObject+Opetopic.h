@@ -43,6 +43,16 @@
 -(NSString*) toString;
 
 /**
+ */
+-(id) map:(id(^)(id))mapper;
+
+-(id) find:(BOOL(^)(id))finder;
+-(id) detect:(BOOL(^)(id))detector;
+
+-(id) findAll:(BOOL(^)(id))finder;
+-(id) select:(BOOL(^)(id))selector;
+
+/**
  Swizzle selectors.
  */
 +(void) op_swizzleSelector:(SEL)oldSel withSelector:(SEL)newSel;

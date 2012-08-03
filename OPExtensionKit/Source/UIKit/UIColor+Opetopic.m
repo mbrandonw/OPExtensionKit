@@ -9,6 +9,7 @@
 #import "UIColor+Opetopic.h"
 #import "OPMacros.h"
 #import "OPCache.h"
+#import "NSCache+Opetopic.h"
 
 @implementation UIColor (Opetopic)
 
@@ -336,43 +337,43 @@
 }
 
 +(UIColor*) veryLightGrayColor {
-    return [[OPCache sharedCache] objectForKey:@"UIColor/Opetopic/veryLightGrayColor" withGetter:^id{
+    return [[OPCache sharedCache] fetch:@"UIColor/Opetopic/veryLightGrayColor" :^id{
         return $WAf(0.85f, 1.0f);
     }];
 }
 
 +(UIColor*) veryDarkGrayColor {
-    return [[OPCache sharedCache] objectForKey:@"UIColor/Opetopic/veryDarkGrayColor" withGetter:^id{
+    return [[OPCache sharedCache] fetch:@"UIColor/Opetopic/veryDarkGrayColor" :^id{
         return $WAf(0.15f, 1.0f);
     }];
 }
 
 +(UIColor*) FacebookBlueColor {
-    return [[OPCache sharedCache] objectForKey:@"UIColor/Opetopic/FacebookBlueColor" withGetter:^id{
+    return [[OPCache sharedCache] fetch:@"UIColor/Opetopic/FacebookBlueColor" :^id{
         return $RGBi(59, 89, 182);
     }];
 }
 
 +(UIColor*) TwitterBlueColor {
-    return [[OPCache sharedCache] objectForKey:@"UIColor/Opetopic/TwitterBlueColor" withGetter:^id{
+    return [[OPCache sharedCache] fetch:@"UIColor/Opetopic/TwitterBlueColor" :^id{
         return $RGBi(64,153,255);
     }];
 }
 
 +(UIColor*) UIKitHighlightBlueTopColor {
-    return [[OPCache sharedCache] objectForKey:@"UIColor/Opetopic/UIKitHighlightBlueTopColor" withGetter:^id{
+    return [[OPCache sharedCache] fetch:@"UIColor/Opetopic/UIKitHighlightBlueTopColor" :^id{
         return $RGBi(5, 140, 245);
     }];
 }
 
 +(UIColor*) UIKitHighlightBlueBottomColor {
-    return [[OPCache sharedCache] objectForKey:@"UIColor/Opetopic/UIKitHighlightBlueBottomColor" withGetter:^id{
+    return [[OPCache sharedCache] fetch:@"UIColor/Opetopic/UIKitHighlightBlueBottomColor" :^id{
         return $RGBi(1, 95, 230);
     }];
 }
 
 +(UIColor*) darkBlueColor {
-    return [[OPCache sharedCache] objectForKey:@"UIColor/Opetopic/darkBlueColor" withGetter:^id{
+    return [[OPCache sharedCache] fetch:@"UIColor/Opetopic/darkBlueColor" :^id{
         return $RGBi(81, 102, 145);
     }];
 }

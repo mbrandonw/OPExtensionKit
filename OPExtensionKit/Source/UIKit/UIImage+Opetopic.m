@@ -7,6 +7,7 @@
 //
 
 #import "UIImage+Opetopic.h"
+#import "NSCache+Opetopic.h"
 
 @implementation UIImage (Opetopic)
 
@@ -28,6 +29,25 @@
         return YES;
     
     return NO;
+}
+
++(UIImage*) imageFromColor:(UIColor *)color {
+    return [[NSCache sharedCache] fetch:color :^id{
+        
+        CGRect rect = {0.0f, 0.0f, 1.0f, 1.0f};
+        
+        UIImage *retVal = nil;
+        UIGraphicsBeginImageContext(rect.size);
+        {
+            [color setFill];
+            CGContextFillRect(UIGraphicsGetCurrentContext(), rect);
+            retVal = UIGraphicsGetImageFromCurrentImageContext();
+        }
+        UIGraphicsEndImageContext();
+        
+        return retVal;
+        
+    }];
 }
 
 @end

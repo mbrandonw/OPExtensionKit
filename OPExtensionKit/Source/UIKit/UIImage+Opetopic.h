@@ -13,5 +13,6 @@
 -(NSInteger) rightCapWidth;
 -(NSInteger) bottomCapHeight;
 -(BOOL) isStretchableImage;
++(UIImage*) imageFromColor:(UIColor*)color;
 
 @end

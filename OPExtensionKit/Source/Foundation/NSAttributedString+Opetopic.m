@@ -52,7 +52,6 @@
 -(CGSize) sizeContrainedTo:(CGSize)constraints {
     
     CTFramesetterRef framesetterRef = [self framesetterRef];
-    
     return CTFramesetterSuggestFrameSizeWithConstraints(framesetterRef, CFRangeMake(0, [self length]), NULL, constraints, NULL);
 }
 

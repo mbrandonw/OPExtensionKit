@@ -38,3 +38,9 @@
 -(void) swapObject:(id)obj1 withObject:(id)obj2;
 
 @end
+
+#if __IPHONE_OS_VERSION_MAX_ALLOWED < 60000
+@interface NSMutableArray (OPSubscripts)
+-(void)setObject:(id)obj atIndexedSubscript:(NSUInteger)idx;
+@end
+#endif

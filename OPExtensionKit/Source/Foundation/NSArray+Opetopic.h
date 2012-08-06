@@ -190,3 +190,8 @@ typedef enum {
 
 @end
 
+#if __IPHONE_OS_VERSION_MAX_ALLOWED < 60000
+@interface NSArray (OPSubscripts)
+-(id) objectAtIndexedSubscript:(NSUInteger)idx;
+@end
+#endif

@@ -102,4 +102,14 @@
     return path;
 }
 
+-(void) strokeAndFill {
+    [self fill];
+    [self stroke];
+}
+
+-(void) strokeAndFillWithBlendMode:(CGBlendMode)blendMode alpha:(CGFloat)alpha {
+    [self strokeWithBlendMode:blendMode alpha:alpha];
+    [self fillWithBlendMode:blendMode alpha:alpha];
+}
+
 @end

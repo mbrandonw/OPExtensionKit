@@ -300,4 +300,8 @@
     return retString;
 }
 
+-(NSString*) substringFromIndex:(NSUInteger)from to:(NSUInteger)to {
+    return [self substringWithRange:NSMakeRange(from, to-from)];
+}
+
 @end

@@ -146,4 +146,9 @@
  */
 -(NSString*) stringByNormalizingNewlines;
 
+/**
+ Get substring between two indices.
+ */
+-(NSString*) substringFromIndex:(NSUInteger)from to:(NSUInteger)to;
+
 @end

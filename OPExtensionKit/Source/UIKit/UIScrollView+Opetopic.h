@@ -10,6 +10,16 @@
 
 @interface UIScrollView (Opetopic)
 
+/**
+ */
+@property (nonatomic, assign) CGFloat contentInsetLeft;
+@property (nonatomic, assign) CGFloat contentInsetRight;
+@property (nonatomic, assign) CGFloat contentInsetTop;
+@property (nonatomic, assign) CGFloat contentInsetBottom;
+
+@property (nonatomic, assign) CGFloat contentOffsetX;
+@property (nonatomic, assign) CGFloat contentOffsetY;
+
 -(void) setContentOffsetX:(CGFloat)x animated:(BOOL)animated;
 -(void) setContentOffsetY:(CGFloat)y animated:(BOOL)animated;
 

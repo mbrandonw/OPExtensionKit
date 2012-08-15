@@ -53,3 +53,4 @@
 #import "NSFetchedResultsController+Opetopic.h"
 #import "NSRegularExpression+Opetopic.h"
 #import "NSAttributedString+Opetopic.h"
+#import "NSBundle+Opetopic.h"

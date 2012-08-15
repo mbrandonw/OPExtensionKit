@@ -20,8 +20,7 @@ void dispatch_asap_queue(dispatch_queue_t queue, dispatch_block_t block) {
 }
 
 void dispatch_next_runloop(dispatch_block_t block) {
-    if (block)
-        dispatch_async(dispatch_get_current_queue(), block);
+    dispatch_async(dispatch_get_current_queue(), block);
 }
 
 void dispatch_after_delay(double delay, dispatch_block_t block) {

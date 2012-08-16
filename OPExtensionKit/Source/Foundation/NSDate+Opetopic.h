@@ -67,6 +67,12 @@
 -(NSDate*) startOfDay;
 
 /**
+ Dates reprensenting the beginning of today, this year, etc...
+ */
++(NSDate*) startOfThisYear;
++(NSDate*) startOfToday;
+
+/**
  */
 +(NSDate*) today;
 

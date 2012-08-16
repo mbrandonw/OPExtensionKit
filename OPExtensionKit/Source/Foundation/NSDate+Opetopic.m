@@ -114,6 +114,14 @@
     return [NSDate dateWithTimeIntervalSince1970:floor([self timeIntervalSince1970]/NSDateSecondsInDays(1))*NSDateSecondsInDays(1)];
 }
 
++(NSDate*) startOfThisYear {
+    return [NSDate dateWithTimeIntervalSince1970:floor([[self class] timeIntervalSince1970]/NSDateSecondsInDays(365.25))*NSDateSecondsInDays(365.25)];
+}
+
++(NSDate*) startOfToday {
+    return [NSDate dateWithTimeIntervalSince1970:floor([[self class] timeIntervalSince1970]/NSDateSecondsInDays(1.0))*NSDateSecondsInDays(1.0)];
+}
+
 +(NSDate*) today {
     return [[NSDate date] startOfDay];
 }

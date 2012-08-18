@@ -71,6 +71,13 @@ enum {
 @property (nonatomic, assign) CGFloat bottom;
 
 /**
+ */
+@property (nonatomic, assign) CGPoint topLeft;
+@property (nonatomic, assign) CGPoint topRight;
+@property (nonatomic, assign) CGPoint bottomLeft;
+@property (nonatomic, assign) CGPoint bottomRight;
+
+/**
  The view's top-left point.
  */
 @property (nonatomic, assign) CGPoint origin;

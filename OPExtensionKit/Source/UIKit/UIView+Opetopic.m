@@ -50,6 +50,41 @@
 	self.frame = frame;
 }
 
+-(CGPoint) topLeft {
+    return self.origin;
+}
+
+-(void) setTopLeft:(CGPoint)topLeft {
+    self.origin = topLeft;
+}
+
+-(CGPoint) topRight {
+    return CGPointMake(self.right, self.top);
+}
+
+-(void) setTopRight:(CGPoint)topRight {
+    self.right = topRight.x;
+    self.top = topRight.y;
+}
+
+-(CGPoint) bottomLeft {
+    return CGPointMake(self.left, self.bottom);
+}
+
+-(void) setBottomLeft:(CGPoint)bottomLeft {
+    self.left = bottomLeft.x;
+    self.bottom = bottomLeft.y;
+}
+
+-(CGPoint) bottomRight {
+    return CGPointMake(self.right, self.bottom);
+}
+
+-(void) setBottomRight:(CGPoint)bottomRight {
+    self.right = bottomRight.x;
+    self.bottom = bottomRight.y;
+}
+
 -(void) setOrigin:(CGPoint)origin {
     CGRect frame = self.frame;
     frame.origin = origin;

@@ -16,7 +16,7 @@
 @interface UIDevice (Opetopic)
 
 +(BOOL) isGameCenterReady;
-+(BOOL) isHD;
++(BOOL) isRetina;
 +(BOOL) isPhone;
 +(BOOL) isPad;
 +(BOOL) isFast;

@@ -13,7 +13,6 @@
 
 @implementation UIDevice (Opetopic)
 
-#pragma mark Device capabilities
 +(BOOL) isGameCenterReady {
 	
     // Check for presence of GKLocalPlayer API.
@@ -27,7 +26,7 @@
     return (gcClass && osVersionSupported);
 }
 
-+(BOOL) isHD {
++(BOOL) isRetina {
 	return ((UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) || ([UIScreen instancesRespondToSelector:@selector(scale)] && [[UIScreen mainScreen] scale] > 1.0f));
 }
 

@@ -225,15 +225,15 @@
 }
 
 +(UIColor*) colorWithHex:(UInt64)hex {
-    return [UIColor colorWithHex:hex alpha:1.0f];
+    return [UIColor colorWithHex:hex alpha:0xff];
 }
 
-+(UIColor*) colorWithHex:(UInt32)hex alpha:(CGFloat)alpha {
++(UIColor*) colorWithHex:(UInt32)hex alpha:(UInt8)alpha {
     
     return [UIColor colorWithRed:((hex >> 16) & 0xff) / 255.0f
                            green:((hex >>  8) & 0xff) / 255.0f
                             blue:((hex >>  0) & 0xff) / 255.0f
-                           alpha:alpha];
+                           alpha:alpha / 255.0f];
 }
 
 -(UInt32) hex {

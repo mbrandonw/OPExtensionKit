@@ -56,7 +56,8 @@
 
 /* Macro for creating colors from hex values.
  */
-#define $hex(h)         [UIColor colorWithHex:(h)]
+#define $hex(h)     [UIColor colorWithHex:(h)]
+#define $hexa(h,a)  [UIColor colorWithHex:(h) alpha:(a)]
 
 @interface UIColor (Opetopic)
 
@@ -96,7 +97,7 @@
  Creating colors from hex values.
  */
 +(UIColor*) colorWithHex:(UInt64)hex;
-+(UIColor*) colorWithHex:(UInt32)hex alpha:(CGFloat)alpha;
++(UIColor*) colorWithHex:(UInt32)hex alpha:(UInt8)alpha;
 -(UInt32) hex;
 -(UInt64) hexa;
 

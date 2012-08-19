@@ -13,7 +13,7 @@
 +(id) bezierPathWithPointedRoundedRect:(CGRect)rect radius:(CGFloat)radius pointerSize:(CGFloat)pointerSize;
 +(id) popoverPathWithRect:(CGRect)rect cornerRadius:(CGFloat)cornerRadius arrowPosition:(CGPoint)position arrowSize:(CGSize)size;
 
--(void) strokeAndFill;
--(void) strokeAndFillWithBlendMode:(CGBlendMode)blendMode alpha:(CGFloat)alpha;
+-(void) fillAndStroke;
+-(void) fillAndStrokeWithBlendMode:(CGBlendMode)blendMode alpha:(CGFloat)alpha;
 
 @end

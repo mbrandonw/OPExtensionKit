@@ -59,11 +59,11 @@
 }
 
 -(void) setContentOffsetX:(CGFloat)x animated:(BOOL)animated {
-    [self setContentOffset:CGPointMake(x, self.contentOffset.y) animated:YES];
+    [self setContentOffset:CGPointMake(x, self.contentOffset.y) animated:animated];
 }
 
 -(void) setContentOffsetY:(CGFloat)y animated:(BOOL)animated {
-    [self setContentOffset:CGPointMake(self.contentOffset.x, y) animated:YES];
+    [self setContentOffset:CGPointMake(self.contentOffset.x, y) animated:animated];
 }
 
 @end

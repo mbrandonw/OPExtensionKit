@@ -4,29 +4,44 @@ OPUIKit was built to collect all of those random categories/functions/macros we 
 
 ##Highlights
 
-`UIColor` : Tons of extra methods... some our favorites:
+`UIColor` : Tons of extra methods and macros... some our favorites:
 
-* `+colorWithHue:saturation:lightness:alpha`
+* `+colorWithHue:saturation:lightness:alpha` (note: *lightness*, not *brightness*)
 * `-lighten:`
 * `-darken:`
 * `-mix:`
+* `$hex` macro: `$hex(0x87c442)`
 
-`OPCoalesce` : A macro that returns the first non-`nil` value in a variable number of arguments, i.e. 
+`GCD`
 
-    id obj1 = nil;
-	id obj2 = @"foo";
-	id obj3 = [NSObject new];
-	OPCoalesce(obj1, obj2, obj3); // @"foo"
+* `dispatch_next_runloop` Dispatches a block onto the next loop of the current run loop.
 
-`OP_SYNTHESIZE_SINGLETON_FOR_CLASS` : A macro for properly making a class into a singleton using the `dispatch_once` function.
+`NSCache`
+
+* `fetch::` You read that right. The second argument in this method is unnamed. This allows you to do cache retrieval/setting in the same statement with the syntax:
+
+```obj-c
+[cache fetch:@"key" :^id{
+  return @"value"
+}];
+```
+
+`NSDictionary`
+
+* `stringForKey:`, `numberForKey:`, `arrayForKey:`, etc. for some basic type checking when retrieving values. Useful handling JSON from a web service.
+
+`UIView`
+
+* `-top`, `-bottom`, `-left`, etc. Makes view positioning much nicer:
+
+```obj-c
+view.top = label.bottom + 4.0f;
+view.width = image.width;
+```
 
 ##Installation
 
 We love [CocoaPods](http://github.com/cocoapods/cocoapods), so we recommend you use it.
-
-##Demo
-
-Checkout [OPKitDemo](http://www.opetopic.com) for a demo application using OPExtensionKit, among other things.
 
 ##Author
 

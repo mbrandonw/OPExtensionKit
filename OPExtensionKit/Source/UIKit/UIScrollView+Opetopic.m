@@ -42,6 +42,38 @@
     return self.contentInset.bottom;
 }
 
+-(void) setScrollIndicatorInsetLeft:(CGFloat)scrollIndicatorInsetLeft {
+    self.scrollIndicatorInsets = UIEdgeInsetsMake(self.scrollIndicatorInsets.top, scrollIndicatorInsetLeft, self.scrollIndicatorInsets.bottom, self.scrollIndicatorInsets.right);
+}
+
+-(CGFloat) scrollIndicatorInsetLeft {
+    return self.scrollIndicatorInsets.left;
+}
+
+-(void) setScrollIndicatorInsetRight:(CGFloat)scrollIndicatorInsetRight {
+    self.scrollIndicatorInsets = UIEdgeInsetsMake(self.scrollIndicatorInsets.top, self.scrollIndicatorInsets.left, self.scrollIndicatorInsets.bottom, scrollIndicatorInsetRight);
+}
+
+-(CGFloat) scrollIndicatorInsetRight {
+    return self.scrollIndicatorInsets.right;
+}
+
+-(void) setScrollIndicatorInsetTop:(CGFloat)scrollIndicatorInsetTop {
+    self.scrollIndicatorInsets = UIEdgeInsetsMake(scrollIndicatorInsetTop, self.scrollIndicatorInsets.left, self.scrollIndicatorInsets.bottom, self.scrollIndicatorInsets.right);
+}
+
+-(CGFloat) scrollIndicatorInsetTop {
+    return self.scrollIndicatorInsets.top;
+}
+
+-(void) setScrollIndicatorInsetBottom:(CGFloat)scrollIndicatorInsetBottom {
+    self.scrollIndicatorInsets = UIEdgeInsetsMake(self.scrollIndicatorInsets.top, self.scrollIndicatorInsets.left, scrollIndicatorInsetBottom, self.scrollIndicatorInsets.right);
+}
+
+-(CGFloat) scrollIndicatorInsetBottom {
+    return self.scrollIndicatorInsets.bottom;
+}
+
 -(void) setContentOffsetX:(CGFloat)contentOffsetX {
     [self setContentOffsetX:contentOffsetX animated:NO];
 }

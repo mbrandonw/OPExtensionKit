@@ -57,6 +57,6 @@ NSMutableDictionary *MutableDictionaryWithArrayPrivate(NSUInteger count, id __un
 
 #if __IPHONE_OS_VERSION_MAX_ALLOWED < 60000
 @interface NSMutableDictionary (OPSubscripts)
--(void)setObject:(id)obj atIndexedSubscript:(NSUInteger)idx;
+- (void)setObject:(id)obj forKeyedSubscript:(id <NSCopying>)key;
 @end
 #endif

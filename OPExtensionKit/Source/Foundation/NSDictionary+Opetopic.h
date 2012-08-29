@@ -87,7 +87,7 @@ NSDictionary *DictionaryWithArrayPrivate(NSUInteger count, id __unsafe_unretaine
 @end
 
 #if __IPHONE_OS_VERSION_MAX_ALLOWED < 60000
-@interface NSDictionary (OPSubscripts)
--(id) objectAtIndexedSubscript:(NSUInteger)idx;
+@interface NSDictionary(OPSubscripts)
+- (id)objectForKeyedSubscript:(id)key;
 @end
 #endif

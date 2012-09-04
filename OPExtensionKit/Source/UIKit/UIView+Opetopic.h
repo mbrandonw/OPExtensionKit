@@ -114,6 +114,11 @@ enum {
 @property (nonatomic, assign) CGFloat centerY;
 
 /**
+ For those times you just want to initialize with a size.
+ */
+-(id) initWithSize:(CGSize)size;
+
+/**
  Just a helper method to kill two birds with one stone.
  */
 -(void) setNeedsDisplayAndLayout;

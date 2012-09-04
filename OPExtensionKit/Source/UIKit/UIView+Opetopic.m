@@ -139,6 +139,10 @@
     [self setCenter:CGPointMake(self.center.x, centerY)];
 }
 
+-(id) initWithSize:(CGSize)size {
+    return [self initWithFrame:(CGRect){0.0f, 0.0f, size}];
+}
+
 -(void) setNeedsDisplayAndLayout {
     [self setNeedsDisplay];
     [self setNeedsLayout];

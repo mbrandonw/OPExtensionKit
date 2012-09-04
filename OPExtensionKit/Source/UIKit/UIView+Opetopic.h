@@ -27,6 +27,12 @@ static inline CGSize CGSizeAspectFit(CGSize size, CGSize maxSize) {
     return retVal;
 }
 
+static inline CGSize CGSizeAspectConstrain(CGSize size, CGSize maxSize) {
+    if (size.width <= maxSize.width && size.height <= maxSize.height)
+        return size;
+    return CGSizeAspectFit(size, maxSize);
+}
+
 static inline CGRect CGRectAspectFit(CGRect rect, CGRect maxRect) {
     CGRect retVal = maxRect;
     if (rect.size.width/rect.size.height > maxRect.size.width/maxRect.size.height)

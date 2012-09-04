@@ -36,9 +36,6 @@
         }];
         
         CTFrameDraw(topFrame, c);
-        
-        if (topFramePath)
-            CFRelease(topFramePath);
     }
     CGContextRestoreGState(c);
 }

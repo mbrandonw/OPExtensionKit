@@ -171,7 +171,7 @@
 }
 
 -(NSArray*) subarrayToIndex:(NSUInteger)index {
-    return [self subarrayWithRange:NSMakeRange(0, index)];
+    return [self subarrayWithRange:NSMakeRange(0, MIN(index, [self count]))];
 }
 
 -(NSArray*) sortedArrayUsingDescriptor:(NSSortDescriptor *)sortDescriptor {

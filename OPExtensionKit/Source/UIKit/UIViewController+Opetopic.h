@@ -13,5 +13,6 @@
 -(void) dismissModalViewControllerWithAnimation;
 -(BOOL) isViewVisible;
 -(void) simulateMemoryWarning;
+-(UIViewController*) mostParentViewController;
 
 @end

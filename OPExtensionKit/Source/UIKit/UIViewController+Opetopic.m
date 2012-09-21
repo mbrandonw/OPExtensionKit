@@ -23,6 +23,12 @@
     CFNotificationCenterPostNotification(CFNotificationCenterGetDarwinNotifyCenter(), (CFStringRef)@"UISimulatedMemoryWarningNotification", NULL, NULL, true);
 #endif
 }
-#pragma mark -
+
+-(UIViewController*) mostParentViewController {
+    UIViewController *rootViewController = self;
+    while (rootViewController.parentViewController)
+        rootViewController = rootViewController.parentViewController;
+    return rootViewController;
+}
 
 @end

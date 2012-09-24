@@ -174,6 +174,10 @@
     return [self subarrayWithRange:NSMakeRange(0, MIN(index, [self count]))];
 }
 
+-(NSArray*) limit:(NSUInteger)limit {
+    return [self subarrayToIndex:limit];
+}
+
 -(NSArray*) sortedArrayUsingDescriptor:(NSSortDescriptor *)sortDescriptor {
     return [self sortedArrayUsingDescriptors:@[sortDescriptor]];
 }

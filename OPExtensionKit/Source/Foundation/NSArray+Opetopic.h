@@ -146,6 +146,7 @@ typedef enum {
  */
 -(NSArray*) subarrayFromIndex:(NSUInteger)index;
 -(NSArray*) subarrayToIndex:(NSUInteger)index;
+-(NSArray*) limit:(NSUInteger)limit;
 
 
 /**

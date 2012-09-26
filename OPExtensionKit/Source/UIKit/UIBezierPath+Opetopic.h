@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+static const int UIRectCornerTop = UIRectCornerTopLeft | UIRectCornerTopRight;
+static const int UIRectCornerBottom = UIRectCornerBottomLeft | UIRectCornerBottomRight;
+
 @interface UIBezierPath (Opetopic)
 
 +(id) bezierPathWithPointedRoundedRect:(CGRect)rect radius:(CGFloat)radius pointerSize:(CGFloat)pointerSize;

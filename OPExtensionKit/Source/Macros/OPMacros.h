@@ -20,7 +20,7 @@ void DLogSimple(NSString *fmt, ...);
 // DLog(@"here");
 // DLog(@"value: %d", x);
 // Unfortunately this doesn't work DLog(aStringVariable); you have to do this instead DLog(@"%@", aStringVariable);
-#if defined(DEBUG)
+#if defined(DEBUG) || defined(LOGGING_ENABLED)
 #	define DLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
 #else
 #	define DLog(...)	do{}while(0);
@@ -31,7 +31,7 @@ void DLogSimple(NSString *fmt, ...);
 #define DLogLevelInfo       2
 #define DLogLevelProfiling  4
 
-#ifdef DEBUG
+#if defined(DEBUG) || defined(LOGGING_ENABLED)
     #define DLogMessageCompat(fmt, ...)         LogMessageCompat(fmt, ##__VA_ARGS__)
     #define DLogMessage(tag, level, fmt, ...)   LogMessage(tag, level, fmt, ##__VA_ARGS__)
     #define DLogMessageF(tag, level, fmt, ...)  LogMessageF(__FILE__, __LINE__, __PRETTY_FUNCTION__, tag, level, fmt, ##__VA_ARGS__)

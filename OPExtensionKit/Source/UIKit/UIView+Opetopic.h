@@ -114,6 +114,13 @@ enum {
 @property (nonatomic, assign) CGFloat centerY;
 
 /**
+ Center this view within another view.
+ */
+-(void) centerXWithin:(UIView*)v;
+-(void) centerYWithin:(UIView*)v;
+-(void) centerWithin:(UIView*)v;
+
+/**
  For those times you just want to initialize with a size.
  */
 -(id) initWithSize:(CGSize)size;

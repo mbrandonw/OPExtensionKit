@@ -139,6 +139,20 @@
     [self setCenter:CGPointMake(self.center.x, centerY)];
 }
 
+
+-(void) centerXWithin:(UIView*)v {
+    self.left = roundf(v.bounds.size.width/2.0f - self.width/2.0f);
+}
+
+-(void) centerYWithin:(UIView*)v {
+    self.top = roundf(v.bounds.size.height/2.0f - self.height/2.0f);
+}
+
+-(void) centerWithin:(UIView*)v {
+    [self centerXWithin:v];
+    [self centerYWithin:v];
+}
+
 -(id) initWithSize:(CGSize)size {
     return [self initWithFrame:(CGRect){0.0f, 0.0f, size}];
 }

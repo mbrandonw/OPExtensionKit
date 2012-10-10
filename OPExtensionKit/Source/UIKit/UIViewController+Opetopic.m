@@ -14,6 +14,10 @@
 	[self dismissModalViewControllerAnimated:YES];
 }
 
+-(void) dismissViewControllerWithAnimation {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 -(BOOL) isViewVisible {
     return self.isViewLoaded && self.view.window != nil;
 }

@@ -11,6 +11,7 @@
 @interface UIViewController (Opetopic)
 
 -(void) dismissModalViewControllerWithAnimation;
+-(void) dismissViewControllerWithAnimation;
 -(BOOL) isViewVisible;
 -(void) simulateMemoryWarning;
 -(UIViewController*) mostParentViewController;

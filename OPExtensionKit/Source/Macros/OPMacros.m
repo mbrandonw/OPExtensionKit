@@ -10,11 +10,13 @@
 #import "NSString+Opetopic.h"
 #import <mach/mach_time.h>
 
+#if defined(DEBUG) || defined(LOGGING_ENABLED)
 static NSMutableDictionary *averagesByLabel;
 static NSMutableDictionary *countsByLabel;
+#endif
 
 void OPProfile(NSString *label, void(^task)(void)) {
-#if defined(DEBUG)
+#if defined(DEBUG) || defined(LOGGING_ENABLED)
     if (!averagesByLabel && !countsByLabel) {
         averagesByLabel = [NSMutableDictionary new];
         countsByLabel = [NSMutableDictionary new];

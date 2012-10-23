@@ -19,4 +19,6 @@ UITableViewRowAnimation UITableViewRowAnimationAutomaticOr(UITableViewRowAnimati
 -(NSArray*) cellsWithAccessoryType:(UITableViewCellAccessoryType)type inSection:(NSUInteger)section;
 -(NSArray*) cellsWithAccessoryType:(UITableViewCellAccessoryType)type;
 
+-(CGFloat) heightForSection:(NSInteger)section;
+
 @end

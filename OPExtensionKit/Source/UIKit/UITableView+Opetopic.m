@@ -67,4 +67,12 @@ UITableViewRowAnimation UITableViewRowAnimationAutomaticOr(UITableViewRowAnimati
     return retVal;
 }
 
+-(CGFloat) heightForSection:(NSInteger)section {
+    
+    CGFloat retVal = [self.delegate tableView:self heightForHeaderInSection:section] + [self.delegate tableView:self heightForFooterInSection:section];
+    for (NSUInteger row = 0; row < [self.dataSource tableView:self numberOfRowsInSection:section]; row++)
+        retVal += [self.delegate tableView:self heightForRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:section]];
+    return retVal;
+}
+
 @end

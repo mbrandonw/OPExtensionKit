@@ -304,4 +304,9 @@
     return [self substringWithRange:NSMakeRange(from, to-from)];
 }
 
+-(NSString*) indefiniteArticle {
+    NSString *lower = [self lowercaseString];
+    return [lower hasPrefix:@"a"] || [lower hasPrefix:@"e"] || [lower hasPrefix:@"i"] || [lower hasPrefix:@"o"] || [lower hasPrefix:@"u"] ? @"an" : @"a";
+}
+
 @end

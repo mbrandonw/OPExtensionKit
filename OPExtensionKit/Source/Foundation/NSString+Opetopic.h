@@ -151,4 +151,9 @@
  */
 -(NSString*) substringFromIndex:(NSUInteger)from to:(NSUInteger)to;
 
+/**
+ The indefinite article (a/an) for the word.
+ */
+-(NSString*) indefiniteArticle;
+
 @end

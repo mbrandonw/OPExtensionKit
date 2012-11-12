@@ -187,7 +187,7 @@
 -(void) drawInRect:(CGRect)rect withFont:(UIFont*)font lineBreakMode:(UILineBreakMode)mode alignment:(UITextAlignment)alignment color:(UIColor*)color shadow:(UIColor*)shadow offset:(CGSize)offset {
     
     [shadow set];
-    CGRect shadowRect = CGRectMake(rect.origin.x + offset.width, rect.origin.y + offset.height, rect.size.width, rect.size.height);
+    CGRect shadowRect = CGRectOffset(rect, offset.width, offset.height);
     [self drawInRect:shadowRect withFont:font lineBreakMode:mode alignment:alignment];
     
     [color set];

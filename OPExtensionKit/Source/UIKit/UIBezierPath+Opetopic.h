@@ -18,5 +18,7 @@ static const int UIRectCornerBottom = UIRectCornerBottomLeft | UIRectCornerBotto
 
 -(void) fillAndStroke;
 -(void) fillAndStrokeWithBlendMode:(CGBlendMode)blendMode alpha:(CGFloat)alpha;
+-(void) strokeAndFill;
+-(void) strokeAndFillWithBlendMode:(CGBlendMode)blendMode alpha:(CGFloat)alpha;
 
 @end

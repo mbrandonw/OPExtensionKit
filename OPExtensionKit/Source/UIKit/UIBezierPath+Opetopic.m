@@ -112,4 +112,14 @@
     [self fillWithBlendMode:blendMode alpha:alpha];
 }
 
+-(void) strokeAndFill {
+    [self stroke];
+    [self fill];
+}
+
+-(void) strokeAndFillWithBlendMode:(CGBlendMode)blendMode alpha:(CGFloat)alpha {
+    [self fillWithBlendMode:blendMode alpha:alpha];
+    [self strokeWithBlendMode:blendMode alpha:alpha];
+}
+
 @end

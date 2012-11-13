@@ -63,4 +63,9 @@
     return retVal;
 }
 
+-(void) copyValuesForKeys:(NSArray*)keys fromObject:(NSObject*)other {
+    for (id key in keys)
+        [self setValue:[other valueForKey:key] forKey:key];
+}
+
 @end

@@ -51,6 +51,10 @@
  Array of this class' superclasses, ordered by decreasing specificity, i.e. the first object in 
  the array is the direct parent superclass, and the last object is the root class.
  */
-+(NSArray*) superclasses; 
++(NSArray*) superclasses;
+
+/**
+ */
+-(void) copyValuesForKeys:(NSArray*)keys fromObject:(NSObject*)other;
 
 @end

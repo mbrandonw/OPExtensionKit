@@ -9,7 +9,7 @@
 #import "NSDate+Opetopic.h"
 #import "NSDateFormatter+Opetopic.h"
 
-#define kFullDateThreshold	(60.0f * 60.0f * 24.0f * 30.0f)
+const CGFloat OPFullDateThreshold = 60.0f * 60.0f * 24.0f * 30.0f;
 
 @implementation NSDate (Opetopic)
 
@@ -68,7 +68,7 @@
 	{
 		return @"yesterday";
 	}
-	else if (secondsDiff < kFullDateThreshold)
+	else if (secondsDiff < OPFullDateThreshold)
 	{
 		if (shortText)	return [NSString stringWithFormat:@"%@%.0f days%@", inString, daysDiff, agoString];
 		else			return [NSString stringWithFormat:@"%@%.0f days%@", inString, daysDiff, agoString];

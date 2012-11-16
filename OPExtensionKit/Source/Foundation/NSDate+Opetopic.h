@@ -14,6 +14,7 @@
 #import <Foundation/Foundation.h>
 
 #define NSDateSecondsInDays(d)  (60.0f*60.0f*24.0f*d)
+extern const CGFloat OPFullDateThreshold;
 
 @interface NSDate (Opetopic)
 

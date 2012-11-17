@@ -15,4 +15,8 @@
     return [[self query] queryParameters];
 }
 
+-(BOOL) isSecure {
+    return [self.absoluteString rangeOfString:@"https://"].location != NSNotFound;
+}
+
 @end

@@ -18,5 +18,6 @@
 @interface NSURL (Opetopic)
 
 -(NSDictionary*) queryParameters;
+-(BOOL) isSecure;
 
 @end

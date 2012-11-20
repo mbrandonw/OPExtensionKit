@@ -12,5 +12,6 @@
 
 -(void) clearCookies;
 -(void) removeBackgroundGradients;
+-(NSString*) rawHTML;
 
 @end

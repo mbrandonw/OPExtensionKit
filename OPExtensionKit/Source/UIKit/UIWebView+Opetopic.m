@@ -7,6 +7,10 @@
 //
 
 #import "UIWebView+Opetopic.h"
+#import <objc/runtime.h>
+
+@interface UIWebView (/**/)
+@end
 
 @implementation UIWebView (Opetopic)
 
@@ -24,6 +28,10 @@
             [subview setHidden:YES];
         }
     }
+}
+
+-(NSString*) rawHTML {
+    return [self stringByEvaluatingJavaScriptFromString:@"document.documentElement.outerHTML"];
 }
 
 @end

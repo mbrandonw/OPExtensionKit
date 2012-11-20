@@ -76,5 +76,6 @@ extern const CGFloat OPFullDateThreshold;
 /**
  */
 +(NSDate*) today;
++(NSDate*) yesterday;
 
 @end

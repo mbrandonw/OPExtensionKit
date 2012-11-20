@@ -126,4 +126,8 @@ const CGFloat OPFullDateThreshold = 60.0f * 60.0f * 24.0f * 30.0f;
     return [[NSDate date] startOfDay];
 }
 
++(NSDate*) yesterday {
+    return [[[self class] startOfToday] dateByAddingTimeInterval:-60.0f*60.0f*24.0f];
+}
+
 @end

@@ -68,4 +68,9 @@
         [self setValue:[other valueForKey:key] forKey:key];
 }
 
+-(void) copyValuesForKeyPaths:(NSArray*)keyPaths fromObject:(NSObject*)other {
+    for (id keyPath in keyPaths)
+        [self setValue:[other valueForKeyPath:keyPath] forKeyPath:keyPath];
+}
+
 @end

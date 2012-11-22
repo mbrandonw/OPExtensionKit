@@ -56,5 +56,6 @@
 /**
  */
 -(void) copyValuesForKeys:(NSArray*)keys fromObject:(NSObject*)other;
+-(void) copyValuesForKeyPaths:(NSArray*)keyPaths fromObject:(NSObject*)other;
 
 @end

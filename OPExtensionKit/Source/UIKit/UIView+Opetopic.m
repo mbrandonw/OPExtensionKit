@@ -63,8 +63,11 @@
 }
 
 -(void) setTopRight:(CGPoint)topRight {
-    self.right = topRight.x;
-    self.top = topRight.y;
+    self.frame = (CGRect){
+        topRight.x - self.width,
+        topRight.y,
+        self.size
+    };
 }
 
 -(CGPoint) bottomLeft {
@@ -72,8 +75,11 @@
 }
 
 -(void) setBottomLeft:(CGPoint)bottomLeft {
-    self.left = bottomLeft.x;
-    self.bottom = bottomLeft.y;
+    self.frame = (CGRect){
+        bottomLeft.x,
+        bottomLeft.y - self.height,
+        self.size
+    };
 }
 
 -(CGPoint) bottomRight {
@@ -81,8 +87,11 @@
 }
 
 -(void) setBottomRight:(CGPoint)bottomRight {
-    self.right = bottomRight.x;
-    self.bottom = bottomRight.y;
+    self.frame = (CGRect){
+        bottomRight.x - self.width,
+        bottomRight.y - self.height,
+        self.size
+    };
 }
 
 -(void) setOrigin:(CGPoint)origin {

@@ -42,6 +42,9 @@
 
 -(NSUInteger) __indexFromBinarySearchUsingBlock:(NSComparisonResult(^)(id))comparator range:(NSRange)range {
     
+    if ([self count] == 0)
+        return NSNotFound;
+    
     NSUInteger midIndex = (NSUInteger)floorf(range.location + range.length/2.0f);
     id obj = [self objectAtIndex:midIndex];
     NSComparisonResult comparisonResult = comparator(obj);

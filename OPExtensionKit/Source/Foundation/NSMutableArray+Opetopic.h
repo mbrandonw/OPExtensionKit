@@ -29,6 +29,10 @@
  */
 -(id) pop;
 
+/**
+ */
+-(void) prependObject:(id)object;
+
 
 /**
  Swaps objects at index i and j.

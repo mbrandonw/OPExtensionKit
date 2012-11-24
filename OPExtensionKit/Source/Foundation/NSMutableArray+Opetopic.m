@@ -25,6 +25,10 @@
 	return retVal;
 }
 
+-(void) prependObject:(id)object {
+    [self insertObject:object atIndex:0];
+}
+
 -(void) swapObjectAtIndex:(NSUInteger)i withObjectAtIndex:(NSUInteger)j {
     
     if (i != j && i < [self count] && j < [self count])

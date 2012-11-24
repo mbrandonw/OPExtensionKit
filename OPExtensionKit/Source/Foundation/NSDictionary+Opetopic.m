@@ -8,8 +8,6 @@
 
 #import "NSDictionary+Opetopic.h"
 
-static NSNumberFormatter *__numberFormatter;
-
 NSDictionary *DictionaryWithArrayPrivate(NSUInteger count, id __unsafe_unretained keysAndObjects[], BOOL coalesceNils) {
     
     id keys[count];
@@ -50,11 +48,7 @@ NSDictionary *DictionaryWithArrayPrivate(NSUInteger count, id __unsafe_unretaine
     if ([r isKindOfClass:[NSNumber class]])
 		return r;
     if ([r isKindOfClass:[NSString class]])
-    {
-        __numberFormatter = __numberFormatter ?: [NSNumberFormatter new];
-        [__numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
-        return [__numberFormatter numberFromString:r];
-    }
+        return @([r doubleValue]);
 	return nil;
 }
 
@@ -63,11 +57,7 @@ NSDictionary *DictionaryWithArrayPrivate(NSUInteger count, id __unsafe_unretaine
     if ([r isKindOfClass:[NSNumber class]])
 		return r;
     if ([r isKindOfClass:[NSString class]])
-    {
-        __numberFormatter = __numberFormatter ?: [NSNumberFormatter new];
-        [__numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
-        return [__numberFormatter numberFromString:r];
-    }
+        return @([r doubleValue]);
 	return nil;
 }
 

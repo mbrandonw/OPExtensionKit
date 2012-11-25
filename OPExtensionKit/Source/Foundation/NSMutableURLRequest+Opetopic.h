@@ -11,5 +11,6 @@
 @interface NSMutableURLRequest (Opetopic)
 
 -(void) addBasicHTTPAuthWithUsername:(NSString *)username password:(NSString *)password;
+-(void) setHTTPBodyAsString:(NSString*)body;
 
 @end

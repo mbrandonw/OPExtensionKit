@@ -20,4 +20,8 @@
     [self setValue:authValue forHTTPHeaderField:@"Authorization"];
 }
 
+-(void) setHTTPBodyAsString:(NSString*)body {
+    [self setHTTPBody:[body dataUsingEncoding:NSUTF8StringEncoding]];
+}
+
 @end

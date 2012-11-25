@@ -15,7 +15,9 @@
 }
 
 -(NSString*) HTTPBodyAsString {
-    return [[NSString alloc] initWithData:[self HTTPBody] encoding:NSUTF8StringEncoding]; 
+    if (self.HTTPBody)
+        return [[NSString alloc] initWithData:self.HTTPBody encoding:NSUTF8StringEncoding];
+    return nil;
 }
 
 @end

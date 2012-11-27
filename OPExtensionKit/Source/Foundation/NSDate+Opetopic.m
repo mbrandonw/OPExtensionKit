@@ -9,7 +9,7 @@
 #import "NSDate+Opetopic.h"
 #import "NSDateFormatter+Opetopic.h"
 
-const CGFloat OPFullDateThreshold = 60.0f * 60.0f * 24.0f * 30.0f;
+const NSTimeInterval OPFullDateThreshold = 60.0f * 60.0f * 24.0f * 30.0f;
 
 @implementation NSDate (Opetopic)
 
@@ -17,7 +17,23 @@ const CGFloat OPFullDateThreshold = 60.0f * 60.0f * 24.0f * 30.0f;
 	return [[NSDate date] timeIntervalSince1970];
 }
 
--(NSString*) prettyStringWithShortText:(BOOL)shortText explain:(BOOL)explain {
++(NSTimeInterval) distanceFutureTimeInterval {
+    return [[NSDate distantFuture] timeIntervalSince1970];
+}
+
+-(NSString*) relativeDateInWords {
+    return [self relativeDateInWords:YES];
+}
+
+-(NSString*) relativeDateInWords:(BOOL)shortText {
+    return [self relativeDateInWords:shortText explain:YES];
+}
+
+-(NSString*) relativeDateInWords:(BOOL)shortText explain:(BOOL)explain {
+    return [self relativeDateInWords:shortText explain:explain threshold:OPFullDateThreshold];
+}
+
+-(NSString*) relativeDateInWords:(BOOL)shortText explain:(BOOL)explain threshold:(NSTimeInterval)threshold {
 	
     NSTimeInterval secondsDiff = [NSDate timeIntervalSince1970] - [self timeIntervalSince1970];
 	NSTimeInterval daysDiff = floor(secondsDiff / 86400);
@@ -28,17 +44,18 @@ const CGFloat OPFullDateThreshold = 60.0f * 60.0f * 24.0f * 30.0f;
         inString = @"in ";
     if (secondsDiff > 0 && explain)
         agoString = @" ago";
-    
-    if (secondsDiff < 0)
-        secondsDiff *= -1.0f, daysDiff *= -1.0f;
 	
-    if (secondsDiff < 60) 
-	{
+    if (secondsDiff >= 0.0 && secondsDiff <= 60.0)
         return @"just now";
-    }
-	else if (secondsDiff < 3600)
+    else if (secondsDiff >= -60.0 && secondsDiff <= 0.0)
+        return @"right now";
+    
+    secondsDiff = ABS(secondsDiff);
+    daysDiff = ABS(daysDiff);
+    
+	if (secondsDiff < 3600.0)
 	{
-		NSTimeInterval minutesDiff = floor(secondsDiff / 60);
+		NSTimeInterval minutesDiff = floor(secondsDiff / 60.0);
 		if (minutesDiff == 1)
 		{
 			if (shortText)	return [NSString stringWithFormat:@"%@1 min%@", inString, agoString];
@@ -50,10 +67,10 @@ const CGFloat OPFullDateThreshold = 60.0f * 60.0f * 24.0f * 30.0f;
 			else			return [NSString stringWithFormat:@"%@%.0f minutes%@", inString, minutesDiff, agoString];
 		}
 	}
-	else if (secondsDiff < 86400)
+	else if (secondsDiff < 86400.0)
 	{
-		NSTimeInterval hoursDiff = floor(secondsDiff / 60 / 60);
-		if (hoursDiff == 1)
+		NSTimeInterval hoursDiff = floor(secondsDiff / 60.0 / 60.0);
+		if (hoursDiff == 1.0)
 		{
 			if (shortText)	return [NSString stringWithFormat:@"%@1 hr%@", inString, agoString];
 			else			return [NSString stringWithFormat:@"%@1 hour%@", inString, agoString];
@@ -64,11 +81,11 @@ const CGFloat OPFullDateThreshold = 60.0f * 60.0f * 24.0f * 30.0f;
 			else			return [NSString stringWithFormat:@"%@%.0f hours%@", inString, hoursDiff, agoString];
 		}
 	}
-	else if (daysDiff == 1)
+	else if (daysDiff == 1.0)
 	{
 		return @"yesterday";
 	}
-	else if (secondsDiff < OPFullDateThreshold)
+	else if (secondsDiff < threshold)
 	{
 		if (shortText)	return [NSString stringWithFormat:@"%@%.0f days%@", inString, daysDiff, agoString];
 		else			return [NSString stringWithFormat:@"%@%.0f days%@", inString, daysDiff, agoString];
@@ -81,9 +98,20 @@ const CGFloat OPFullDateThreshold = 60.0f * 60.0f * 24.0f * 30.0f;
 	return @"";
 }
 
-+(NSString*) prettyString:(NSTimeInterval)timeInterval shortText:(BOOL)shortText explain:(BOOL)explain {
-	
-	return [[NSDate dateWithTimeIntervalSince1970:timeInterval] prettyStringWithShortText:shortText explain:explain];
++(NSString*) relativeDateInWords:(NSTimeInterval)interval {
+    return [[self class] relativeDateInWords:interval shortText:YES];
+}
+
++(NSString*) relativeDateInWords:(NSTimeInterval)interval shortText:(BOOL)shortText {
+    return [[self class] relativeDateInWords:interval shortText:shortText explain:YES];
+}
+
++(NSString*) relativeDateInWords:(NSTimeInterval)interval shortText:(BOOL)shortText explain:(BOOL)explain {
+    return [[self class] relativeDateInWords:interval shortText:shortText explain:explain threshold:OPFullDateThreshold];
+}
+
++(NSString*) relativeDateInWords:(NSTimeInterval)interval shortText:(BOOL)shortText explain:(BOOL)explain threshold:(NSTimeInterval)threshold {
+    return [[NSDate dateWithTimeIntervalSince1970:interval] relativeDateInWords:shortText explain:explain threshold:threshold];
 }
 
 -(NSString*) formattedStringWithStyle:(NSDateFormatterStyle)dateStyle timeStyle:(NSDateFormatterStyle)timeStyle {

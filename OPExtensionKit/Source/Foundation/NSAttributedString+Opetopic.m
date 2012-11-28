@@ -32,7 +32,7 @@
         CGPathAddRect(topFramePath, NULL, CGRectApplyAffineTransform(rect, reverseT));
         
         CTFrameRef topFrame = (__bridge CTFrameRef)[[OPCache sharedCache] fetch:$strfmt(@"%p-topFrame",self) :^id{
-            return (__bridge id)CTFramesetterCreateFrame(framesetterRef, CFRangeMake(0,0), topFramePath, NULL);
+            return (__bridge_transfer id)CTFramesetterCreateFrame(framesetterRef, CFRangeMake(0,0), topFramePath, NULL);
         }];
         
         CTFrameDraw(topFrame, c);
@@ -42,7 +42,7 @@
 
 -(CTFramesetterRef) framesetterRef {
     return (__bridge CTFramesetterRef)[[OPCache sharedCache] fetch:$strfmt(@"%p-framesetterRef",self) :^id{
-        return (__bridge id)CTFramesetterCreateWithAttributedString((__bridge CFAttributedStringRef)self);
+        return (__bridge_transfer id)CTFramesetterCreateWithAttributedString((__bridge CFAttributedStringRef)self);
     }];
 }
 

@@ -137,4 +137,38 @@ NSDictionary *DictionaryWithArrayPrivate(NSUInteger count, id __unsafe_unretaine
     return [[self allKeys] count] > 0;
 }
 
+-(NSDictionary*) takeKeys:(NSArray *)keys {
+    NSMutableDictionary *retVal = [NSMutableDictionary new];
+    for (id key in keys)
+        if (self[key])
+            retVal[key] = self[key];
+    return retVal;
+}
+
+-(NSDictionary*) takeKeyPaths:(NSArray *)keyPaths {
+    NSMutableDictionary *retVal = [NSMutableDictionary new];
+    for (id keyPath in keyPaths)
+    {
+        if (self[keyPath])
+        {
+            retVal[keyPath] = self[keyPath];
+        }
+        else if ([self valueForKeyPath:keyPath])
+        {
+            NSArray *components = [keyPath componentsSeparatedByString:@"."];
+            NSMutableDictionary *obj = retVal;
+            for (id component in components)
+            {
+                if (component == [components lastObject]) {
+                    obj[component] = [self valueForKeyPath:keyPath];
+                } else {
+                    obj[component] = obj[component] ?: [NSMutableDictionary new];
+                    obj = obj[component];
+                }
+            }
+        }
+    }
+    return retVal;
+}
+
 @end

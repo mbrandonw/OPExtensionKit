@@ -13,7 +13,8 @@
 
 #import <Foundation/Foundation.h>
 
-#define $url(...)    [NSURL URLWithString:[NSString stringWithFormat:__VA_ARGS__]]
+#define $urlfmt(...) [NSURL URLWithString:[NSString stringWithFormat:__VA_ARGS__]]
+#define $url(string) [NSURL URLWithString:string]
 
 @interface NSURL (Opetopic)
 

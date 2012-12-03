@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#define $mrequest(string)    [NSMutableURLRequest requestWithString:string]
+
 @interface NSMutableURLRequest (Opetopic)
 
 -(void) addBasicHTTPAuthWithUsername:(NSString *)username password:(NSString *)password;

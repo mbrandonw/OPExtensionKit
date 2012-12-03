@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#define $request(string)    [NSURLRequest requestWithString:string]
+
 @interface NSURLRequest (Opetopic)
 
 +(id) requestWithString:(NSString*)string;

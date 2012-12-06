@@ -55,3 +55,4 @@
 #import "NSAttributedString+Opetopic.h"
 #import "NSBundle+Opetopic.h"
 #import "NSMutableURLRequest+Opetopic.h"
+#import "MPMoviePlayerController+Opetopic.h"

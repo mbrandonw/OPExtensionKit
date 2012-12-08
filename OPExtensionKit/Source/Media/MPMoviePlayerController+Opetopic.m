@@ -11,7 +11,9 @@
 @implementation MPMoviePlayerController (Opetopic)
 
 -(NSTimeInterval) completionPercentage {
-    return self.currentPlaybackTime / self.playableDuration;
+    if (self.duration > 0.0)
+        return self.currentPlaybackTime / self.duration;
+    return 0.0;
 }
 
 @end

@@ -73,6 +73,7 @@
  Appends a query parameter to the string.
  */
 -(NSString*) stringByAppendingQueryValue:(id)value forKey:(NSString*)key;
+-(NSString*) stringByAppendingQueryKeyValues:(NSDictionary*)keyValues;
 
 /**
  */

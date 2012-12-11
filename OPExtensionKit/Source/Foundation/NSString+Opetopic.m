@@ -103,6 +103,15 @@
     return [self stringByAppendingFormat:@"%@%@=%@", [self rangeOfString:@"?"].location == NSNotFound ? @"?" : @"&", key, value];
 }
 
+-(NSString*) stringByAppendingQueryKeyValues:(NSDictionary*)keyValues {
+    
+    NSString *retVal = self;
+    for (id key in keyValues) {
+        retVal = [retVal stringByAppendingQueryValue:keyValues[key] forKey:key];
+    }
+    return retVal;
+}
+
 -(NSString*) normalizedString {
     
 	NSMutableString *result = [NSMutableString stringWithString:self];

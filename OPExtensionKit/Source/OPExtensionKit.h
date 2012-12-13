@@ -56,3 +56,4 @@
 #import "NSBundle+Opetopic.h"
 #import "NSMutableURLRequest+Opetopic.h"
 #import "MPMoviePlayerController+Opetopic.h"
+#import "UIScreen+Opetopic.h"

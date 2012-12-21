@@ -318,4 +318,21 @@
     return [lower hasPrefix:@"a"] || [lower hasPrefix:@"e"] || [lower hasPrefix:@"i"] || [lower hasPrefix:@"o"] || [lower hasPrefix:@"u"] ? @"an" : @"a";
 }
 
+-(NSString*) htmlToPlainText {
+    
+    NSString *retVal = self;
+    NSScanner *scanner = [NSScanner scannerWithString:retVal];
+    while (! [scanner isAtEnd])
+    {
+        NSString *text = nil;
+        [scanner scanUpToString:@"<" intoString:NULL] ;
+        [scanner scanUpToString:@">" intoString:&text] ;
+        retVal = [retVal stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@>", text] withString:@" "];
+    }
+    retVal = [retVal trim];
+    NSRegularExpression *regexp = [NSRegularExpression regularExpressionWithPattern:@"\\s\\s+" options:0 error:NULL];
+    retVal = [regexp stringByReplacingMatchesInString:retVal options:0 range:[retVal fullRange] withTemplate:@" "];
+    return retVal;
+}
+
 @end

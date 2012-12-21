@@ -157,4 +157,9 @@
  */
 -(NSString*) indefiniteArticle;
 
+/**
+ Turns html into plain text.
+ */
+-(NSString*) htmlToPlainText;
+
 @end

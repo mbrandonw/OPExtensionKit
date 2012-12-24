@@ -185,6 +185,19 @@
     return [self sortedArrayUsingDescriptors:@[sortDescriptor]];
 }
 
+-(void) enumerateObjectsStartingAtIndex:(NSUInteger)index usingBlock:(void (^)(id, NSUInteger, BOOL *))block {
+    
+    NSUInteger idx = index;
+    BOOL stop = NO;
+    for (NSUInteger i = 0; i < [self count]; i++) {
+        block(self[idx], idx, &stop);
+        idx = (idx + 1) % [self count];
+        if (stop) {
+            break ;
+        }
+    }
+}
+
 -(void) synchronizeWith:(id)collection 
               usingKeys:(NSString*)key1 :(NSString*)key2 
             updateBlock:(void(^)(id obj1, id obj2))updateBlock

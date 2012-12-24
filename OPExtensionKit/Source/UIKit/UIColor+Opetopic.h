@@ -111,6 +111,8 @@
  */
 -(UIColor*) lighten:(CGFloat)percent;
 -(UIColor*) darken:(CGFloat)percent;
+-(UIColor*) saturate:(CGFloat)percent;
+-(UIColor*) desaturate;
 -(UIColor*) mix:(UIColor*)color;
 -(UIColor*) mix:(UIColor*)color amount:(CGFloat)amount;
 

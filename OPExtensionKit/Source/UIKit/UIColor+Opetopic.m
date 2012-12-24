@@ -321,6 +321,18 @@
     return [UIColor colorWithHue:h saturation:s lightness:(l - l * percent) alpha:a];
 }
 
+-(UIColor*) saturate:(CGFloat)percent {
+    CGFloat h, s, l, a;
+    [self HSLAf:&h :&s :&l :&a];
+    return [UIColor colorWithHue:h saturation:(s+(1.0f-s)*percent) lightness:l alpha:a];
+}
+
+-(UIColor*) desaturate {
+    CGFloat h, s, l, a;
+    [self HSLAf:&h :&s :&l :&a];
+    return [UIColor colorWithHue:h saturation:0.0f lightness:l alpha:a];
+}
+
 -(UIColor*) mix:(UIColor*)color {
     return [self mix:color amount:0.5f];
 }

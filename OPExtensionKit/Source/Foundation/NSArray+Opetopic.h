@@ -157,6 +157,11 @@ typedef enum {
  */
 -(NSArray*) sortedArrayUsingDescriptor:(NSSortDescriptor *)sortDescriptor;
 
+/**
+ Enumerates the objects of the array, but starts at `index` and loops around (if necessary).
+ */
+-(void) enumerateObjectsStartingAtIndex:(NSUInteger)index usingBlock:(void (^)(id obj, NSUInteger idx, BOOL *stop))block;
+
 
 /**
  Syncronizes two collections of objects.

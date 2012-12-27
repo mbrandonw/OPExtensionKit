@@ -10,10 +10,6 @@
 
 @implementation NSBundle (Opetopic)
 
--(NSString*) bundleIdentifier {
-    return [[self infoDictionary] objectForKey:@"CFBundleIdentifier"];
-}
-
 -(NSString*) bundleShortVersionString {
     return [[self infoDictionary] objectForKey:@"CFBundleShortVersionString"];
 }

@@ -10,7 +10,6 @@
 
 @interface NSBundle (Opetopic)
 
--(NSString*) bundleIdentifier;
 -(NSString*) bundleShortVersionString;
 -(NSString*) bundleVersion;
 

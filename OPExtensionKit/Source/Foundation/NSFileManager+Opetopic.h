@@ -15,4 +15,7 @@
 +(NSString*) documentsDirectoryPath;
 +(NSString*) applicationSupportDirectoryPath;
 
+-(void) touchFileAtPath:(NSString*)path;
+-(void) touchFileAtPath:(NSString*)path error:(NSError**)error;
+
 @end

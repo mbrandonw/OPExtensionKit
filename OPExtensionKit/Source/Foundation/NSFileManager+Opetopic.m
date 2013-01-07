@@ -26,4 +26,14 @@
     return [NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES) lastObject];
 }
 
+-(void) touchFileAtPath:(NSString*)path {
+    [self touchFileAtPath:path error:NULL];
+}
+
+-(void) touchFileAtPath:(NSString*)path error:(NSError**)error {
+    [self setAttributes:@{ NSFileModificationDate: [NSDate date] }
+           ofItemAtPath:path
+                  error:NULL];
+}
+
 @end

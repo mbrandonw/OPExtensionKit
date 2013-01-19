@@ -14,5 +14,7 @@
 -(NSInteger) bottomCapHeight;
 -(BOOL) isStretchableImage;
 +(UIImage*) imageFromColor:(UIColor*)color;
++(UIImage*) imageWithSize:(CGSize)size block:(void(^)(CGContextRef c, CGRect rect))block;
++(UIImage*) imageWithSize:(CGSize)size opaque:(BOOL)opaque scale:(CGFloat)scale block:(void(^)(CGContextRef c, CGRect rect))block;
 
 @end

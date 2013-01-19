@@ -32,7 +32,7 @@
 }
 
 +(UIImage*) imageFromColor:(UIColor *)color {
-    return [[NSCache sharedCache] fetch:color :^id{
+    return [[NSCache sharedCache] fetch:[color description] :^id{
         
         CGRect rect = {0.0f, 0.0f, 1.0f, 1.0f};
         
@@ -48,6 +48,21 @@
         return retVal;
         
     }];
+}
+
++(UIImage*) imageWithSize:(CGSize)size block:(void(^)(CGContextRef c, CGRect rect))block {
+    return [[self class] imageWithSize:size opaque:NO scale:[[UIScreen mainScreen] scale] block:block];
+}
+
++(UIImage*) imageWithSize:(CGSize)size opaque:(BOOL)opaque scale:(CGFloat)scale block:(void(^)(CGContextRef c, CGRect rect))block {
+
+    CGRect rect = {0.0f, 0.0f, size};
+    UIImage *retVal = nil;
+    UIGraphicsBeginImageContextWithOptions(rect.size, opaque, scale);
+    block(UIGraphicsGetCurrentContext(), rect);
+    retVal = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return retVal;
 }
 
 @end

@@ -10,8 +10,43 @@
 #import "NSString+Opetopic.h"
 #import <mach/mach.h>
 #import <mach/mach_host.h>
+#import <sys/sysctl.h>
 
 @implementation UIDevice (Opetopic)
+
++(OPDeviceType) deviceType {
+    
+#if TARGET_IPHONE_SIMULATOR
+    return UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? OPDeviceTypeiPhoneSimulator : OPDeviceTypeiPadSimulator;
+#endif
+    
+    size_t size;
+    sysctlbyname("hw.machine", NULL, &size, NULL, 0);
+    char *answer = malloc(size);
+    sysctlbyname("hw.machine", answer, &size, NULL, 0);
+    NSString *platform = [NSString stringWithCString:answer encoding: NSUTF8StringEncoding];
+    free(answer);
+    
+    if ([platform isEqualToString:@"iPhone1,1"])    return OPDeviceTypeiPhone;
+    if ([platform isEqualToString:@"iPhone1,2"])    return OPDeviceTypeiPhone3G;
+    if ([platform hasPrefix:@"iPhone2"])            return OPDeviceTypeiPhone3GS;
+    if ([platform hasPrefix:@"iPhone3"])            return OPDeviceTypeiPhone4;
+    if ([platform hasPrefix:@"iPhone4"])            return OPDeviceTypeiPhone4S;
+    if ([platform hasPrefix:@"iPhone5"])            return OPDeviceTypeiPhone5;
+    
+    if ([platform hasPrefix:@"iPod1"])              return OPDeviceTypeiPod1;
+    if ([platform hasPrefix:@"iPod2"])              return OPDeviceTypeiPod2;
+    if ([platform hasPrefix:@"iPod3"])              return OPDeviceTypeiPod3;
+    if ([platform hasPrefix:@"iPod4"])              return OPDeviceTypeiPod4;
+    if ([platform hasPrefix:@"iPod5"])              return OPDeviceTypeiPod5;
+    
+    if ([platform hasPrefix:@"iPad1"])              return OPDeviceTypeiPad;
+    if ([platform hasPrefix:@"iPad2"])              return OPDeviceTypeiPad2;
+    if ([platform hasPrefix:@"iPad3"])              return OPDeviceTypeiPad3;
+    if ([platform hasPrefix:@"iPad4"])              return OPDeviceTypeiPad4;
+    
+    return OPDeviceTypeUnknown;
+}
 
 +(BOOL) isGameCenterReady {
 	
@@ -39,12 +74,7 @@
 }
 
 +(BOOL) isFast {
-	
-#if defined(__ARM_NEON__) || defined(__MAC_OS_X_VERSION_MAX_ALLOWED) || TARGET_IPHONE_SIMULATOR
-	return YES;
-#else
-	return NO;
-#endif
+	return [[self class] deviceType] >= MAX(OPDeviceTypeiPad3, MAX(OPDeviceTypeiPhone4S, OPDeviceTypeiPod5));
 }
 
 +(BOOL) hasFacetime {

@@ -162,4 +162,9 @@
  */
 -(NSString*) htmlToPlainText;
 
+/**
+ Adds the indefinite article to the string.
+ */
+-(NSString*) articlize;
+
 @end

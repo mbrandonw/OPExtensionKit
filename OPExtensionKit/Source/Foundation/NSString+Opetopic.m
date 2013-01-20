@@ -335,4 +335,9 @@
     return retVal;
 }
 
+-(NSString*) articlize {
+    NSString *article = [@[@"a", @"e", @"i", @"o", @"u"] containsObject:[[self substringToIndex:1] lowercaseString]] ? @"an" : @"a";
+    return [NSString stringWithFormat:@"%@ %@", article, self];
+}
+
 @end

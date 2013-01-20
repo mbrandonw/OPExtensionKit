@@ -16,6 +16,6 @@
 +(NSString*) applicationSupportDirectoryPath;
 
 -(void) touchFileAtPath:(NSString*)path;
--(void) touchFileAtPath:(NSString*)path error:(NSError**)error;
+-(BOOL) touchFileAtPath:(NSString*)path error:(NSError**)error;
 
 @end

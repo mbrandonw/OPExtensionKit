@@ -30,10 +30,10 @@
     [self touchFileAtPath:path error:NULL];
 }
 
--(void) touchFileAtPath:(NSString*)path error:(NSError**)error {
-    [self setAttributes:@{ NSFileModificationDate: [NSDate date] }
-           ofItemAtPath:path
-                  error:NULL];
+-(BOOL) touchFileAtPath:(NSString*)path error:(NSError**)error {
+    return [self setAttributes:@{ NSFileModificationDate: [NSDate date] }
+                  ofItemAtPath:path
+                         error:error];
 }
 
 @end

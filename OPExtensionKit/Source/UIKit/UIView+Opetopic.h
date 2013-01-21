@@ -151,6 +151,10 @@ enum {
 -(void) sendToBack;
 
 /**
+ */
+-(void) sizeToFitWidth:(CGFloat)width;
+
+/**
  Renders the view into a UIImage.
  */
 -(UIImage*) renderedImage;

@@ -196,6 +196,12 @@
     [self.superview sendSubviewToBack:self];
 }
 
+-(void) sizeToFitWidth:(CGFloat)width {
+    self.width = width;
+    [self sizeToFit];
+    self.width = width;
+}
+
 -(UIImage*) renderedImage {
     return [self renderedImage:[[UIScreen mainScreen] scale]];
 }

@@ -139,15 +139,33 @@ const NSTimeInterval OPFullDateThreshold = 60.0f * 60.0f * 24.0f * 30.0f;
 }
 
 -(NSDate*) startOfDay {
-    return [NSDate dateWithTimeIntervalSince1970:floor([self timeIntervalSince1970]/NSDateSecondsInDays(1))*NSDateSecondsInDays(1)];
+    return [self startOfDayInTimeZone:[NSTimeZone localTimeZone]];
 }
 
-+(NSDate*) startOfThisYear {
-    return [NSDate dateWithTimeIntervalSince1970:floor([[self class] timeIntervalSince1970]/NSDateSecondsInDays(365.25))*NSDateSecondsInDays(365.25)];
+-(NSDate*) startOfDayInTimeZone:(NSTimeZone*)timeZone {
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    [calendar setTimeZone:timeZone];
+    NSDateComponents *components = [calendar components:NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit fromDate:self];
+    return [calendar dateFromComponents:components];
 }
 
-+(NSDate*) startOfToday {
-    return [NSDate dateWithTimeIntervalSince1970:floor([[self class] timeIntervalSince1970]/NSDateSecondsInDays(1.0))*NSDateSecondsInDays(1.0)];
+-(NSDate*) startOfDayInUTC {
+    return [self startOfDayInTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
+}
+
+-(NSDate*) startOfYear {
+    return [self startOfYearInTimeZone:[NSTimeZone localTimeZone]];
+}
+
+-(NSDate*) startOfYearInTimeZone:(NSTimeZone*)timeZone {
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    [calendar setTimeZone:timeZone];
+    NSDateComponents *components = [calendar components:NSYearCalendarUnit fromDate:self];
+    return [calendar dateFromComponents:components];
+}
+
+-(NSDate*) startOfYearInUTC {
+    return [self startOfYearInTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
 }
 
 +(NSDate*) today {
@@ -155,7 +173,7 @@ const NSTimeInterval OPFullDateThreshold = 60.0f * 60.0f * 24.0f * 30.0f;
 }
 
 +(NSDate*) yesterday {
-    return [[[self class] startOfToday] dateByAddingTimeInterval:-60.0f*60.0f*24.0f];
+    return [[[self class] today] dateByAddingTimeInterval:-60.0f*60.0f*24.0f];
 }
 
 @end

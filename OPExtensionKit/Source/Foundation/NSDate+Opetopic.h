@@ -77,12 +77,11 @@ extern const NSTimeInterval OPFullDateThreshold;
  Date representing the beginning of the date.
  */
 -(NSDate*) startOfDay;
-
-/**
- Dates reprensenting the beginning of today, this year, etc...
- */
-+(NSDate*) startOfThisYear;
-+(NSDate*) startOfToday;
+-(NSDate*) startOfDayInTimeZone:(NSTimeZone*)timeZone;
+-(NSDate*) startOfDayInUTC;
+-(NSDate*) startOfYear;
+-(NSDate*) startOfYearInTimeZone:(NSTimeZone*)timeZone;
+-(NSDate*) startOfYearInUTC;
 
 /**
  */

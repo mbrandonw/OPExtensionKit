@@ -7,7 +7,7 @@
 //
 
 #import "MFMailComposeViewController+Opetopic.h"
-#import "NSURL+Opetopic.h"
+#import "NSString+Opetopic.h"
 
 @implementation MFMailComposeViewController (Opetopic)
 
@@ -15,10 +15,14 @@
     if (! (self = [self init]))
         return nil;
     
-    NSDictionary *params = [url queryParameters];
+    NSUInteger queryIndex = MIN([url.absoluteString length], [url.absoluteString rangeOfString:@"?"].location);
+    NSString *parameterString = [url.absoluteString substringFromIndex:MIN([url.absoluteString length], queryIndex+1)];
+    NSDictionary *params = [parameterString queryParameters];
+    NSString *to = [url.absoluteString substringFromIndex:[url.absoluteString rangeOfString:@":"].location+1
+                                                       to:queryIndex];
+    [self setToRecipients:@[ to ?: @"" ]];
     [self setSubject:params[@"subject"]];
     [self setMessageBody:params[@"body"] isHTML:NO];
-    [self setToRecipients:@[ params[@"to"] ?: @"" ]];
     [self setCcRecipients:@[ params[@"cc"] ?: @"" ]];
     [self setBccRecipients:@[ params[@"bcc"] ?: @"" ]];
     

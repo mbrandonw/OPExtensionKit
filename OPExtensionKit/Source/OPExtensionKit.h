@@ -57,3 +57,4 @@
 #import "NSMutableURLRequest+Opetopic.h"
 #import "MPMoviePlayerController+Opetopic.h"
 #import "UIScreen+Opetopic.h"
+#import "MFMailComposeViewController+Opetopic.h"

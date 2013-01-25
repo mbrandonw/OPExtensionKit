@@ -39,6 +39,7 @@ typedef NS_ENUM(NSInteger, OPDeviceType) {
 
 @interface UIDevice (Opetopic)
 
++(NSString*) deviceString;
 +(OPDeviceType) deviceType;
 
 +(BOOL) isGameCenterReady;

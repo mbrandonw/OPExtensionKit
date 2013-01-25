@@ -14,11 +14,7 @@
 
 @implementation UIDevice (Opetopic)
 
-+(OPDeviceType) deviceType {
-    
-#if TARGET_IPHONE_SIMULATOR
-    return UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? OPDeviceTypeiPhoneSimulator : OPDeviceTypeiPadSimulator;
-#endif
++(NSString*) deviceString {
     
     size_t size;
     sysctlbyname("hw.machine", NULL, &size, NULL, 0);
@@ -26,6 +22,16 @@
     sysctlbyname("hw.machine", answer, &size, NULL, 0);
     NSString *platform = [NSString stringWithCString:answer encoding: NSUTF8StringEncoding];
     free(answer);
+    return platform;
+}
+
++(OPDeviceType) deviceType {
+    
+#if TARGET_IPHONE_SIMULATOR
+    return UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? OPDeviceTypeiPhoneSimulator : OPDeviceTypeiPadSimulator;
+#endif
+    
+    NSString *platform = [[self class] deviceString];
     
     if ([platform isEqualToString:@"iPhone1,1"])    return OPDeviceTypeiPhone;
     if ([platform isEqualToString:@"iPhone1,2"])    return OPDeviceTypeiPhone3G;

@@ -309,26 +309,28 @@
 
 -(UIColor*) lighten:(CGFloat)percent {
     
-    CGFloat h, s, l, a;
+    CGFloat h = 0.0f, s = 0.0f, l = 0.0f, a = 0.0f;
     [self HSLAf:&h :&s :&l :&a];
     return [UIColor colorWithHue:h saturation:s lightness:(l + (1.0f - l) * percent) alpha:a];
 }
 
 -(UIColor*) darken:(CGFloat)percent {
     
-    CGFloat h, s, l, a;
+    CGFloat h = 0.0f, s = 0.0f, l = 0.0f, a = 0.0f;
     [self HSLAf:&h :&s :&l :&a];
     return [UIColor colorWithHue:h saturation:s lightness:(l - l * percent) alpha:a];
 }
 
 -(UIColor*) saturate:(CGFloat)percent {
-    CGFloat h, s, l, a;
+    
+    CGFloat h = 0.0f, s = 0.0f, l = 0.0f, a = 0.0f;
     [self HSLAf:&h :&s :&l :&a];
     return [UIColor colorWithHue:h saturation:(s+(1.0f-s)*percent) lightness:l alpha:a];
 }
 
 -(UIColor*) desaturate {
-    CGFloat h, s, l, a;
+    
+    CGFloat h = 0.0f, s = 0.0f, l = 0.0f, a = 0.0f;
     [self HSLAf:&h :&s :&l :&a];
     return [UIColor colorWithHue:h saturation:0.0f lightness:l alpha:a];
 }
@@ -339,7 +341,7 @@
 
 -(UIColor*) mix:(UIColor*)color amount:(CGFloat)amount {
     
-    CGFloat r1,g1,b1,a1, r2,g2,b2,a2;
+    CGFloat r1 = 0.0f,g1 = 0.0f,b1 = 0.0f,a1 = 0.0f, r2 = 0.0f,g2 = 0.0f,b2 = 0.0f,a2 = 0.0f;
     [self RGBAf:&r1 :&g1 :&b1 :&a1];
     [self RGBAf:&r2 :&g2 :&b2 :&a2];
     return [UIColor colorWithRed:(r1*amount + r2*(amount-1.0f))

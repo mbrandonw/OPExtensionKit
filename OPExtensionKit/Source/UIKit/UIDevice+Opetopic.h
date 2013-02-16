@@ -49,7 +49,9 @@ typedef NS_ENUM(NSInteger, OPDeviceType) {
 +(BOOL) isFast;
 +(BOOL) hasFacetime;
 +(BOOL) hasTelephony;
+
 +(BOOL) isAtLeastiOS5;
++(BOOL) isAtLeastiOS6;
 
 +(double) freeMemory;
 +(double) appMemoryUsage;

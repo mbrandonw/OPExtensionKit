@@ -92,7 +92,11 @@
 }
 
 +(BOOL) isAtLeastiOS5 {
-    return [[[UIDevice currentDevice] systemVersion] floatValue] >= 5.0;
+    return [[[UIDevice currentDevice] systemVersion] floatValue] >= 5.0f;
+}
+
++(BOOL) isAtLeastiOS6 {
+    return [[[UIDevice currentDevice] systemVersion] floatValue] >= 6.0f;
 }
 
 +(double) freeMemory {

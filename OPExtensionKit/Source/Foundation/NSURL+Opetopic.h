@@ -20,5 +20,6 @@
 
 -(NSDictionary*) queryParameters;
 -(BOOL) isSecure;
+-(NSString*) fullpath;
 
 @end

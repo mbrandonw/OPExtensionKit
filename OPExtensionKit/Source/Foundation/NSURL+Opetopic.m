@@ -19,4 +19,11 @@
     return [self.absoluteString rangeOfString:@"https://"].location != NSNotFound;
 }
 
+-(NSString*) fullpath {
+    if ([self query]) {
+        return [NSString stringWithFormat:@"%@?%@", [self path], [self query]];
+    }
+    return [self path];
+}
+
 @end

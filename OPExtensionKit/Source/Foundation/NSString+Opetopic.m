@@ -210,9 +210,12 @@
     
     for (NSString *piece in pieces)
     {
-        NSArray *keyAndValue = [piece componentsSeparatedByString:inner];
-        if ([keyAndValue count] == 2)
-            [retVal setObject:[keyAndValue objectAtIndex:1] forKey:[keyAndValue objectAtIndex:0]];
+        NSRange equalsRange = [piece rangeOfString:inner];
+        if (equalsRange.location != NSNotFound) {
+            NSString *key = [piece substringToIndex:equalsRange.location];
+            NSString *value = [piece substringFromIndex:equalsRange.location+1];
+            retVal[key] = value;
+        }
     }
     
     return retVal;
@@ -222,8 +225,9 @@
     
     NSMutableDictionary *retVal = [[self dictionaryBySplitting:@"&" and:@"="] mutableCopy];
     NSArray *keys = [retVal allKeys];
-    for (id key in keys)
+    for (id key in keys) {
         [retVal setObject:[[retVal objectForKey:key] URLDecodedString] forKey:key];
+    }
     return retVal;
 }
 

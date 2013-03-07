@@ -12,9 +12,11 @@
 
 -(void) faultUnfaultedFetchedObjects {
     
-    for (NSManagedObject *object in [self fetchedObjects])
-        if (! [object isFault])
+    for (NSManagedObject *object in [self fetchedObjects]) {
+        if (! [object isFault]) {
             [object.managedObjectContext refreshObject:object mergeChanges:NO];
+        }
+    }
 }
 
 @end

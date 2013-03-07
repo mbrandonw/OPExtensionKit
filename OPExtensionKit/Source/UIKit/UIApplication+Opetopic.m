@@ -16,11 +16,20 @@
     
     if (task)
     {
-        UIBackgroundTaskIdentifier identifier = [self beginBackgroundTaskWithExpirationHandler:expiration];
+        UIBackgroundTaskIdentifier identifier = UIBackgroundTaskInvalid;
+        identifier = [self beginBackgroundTaskWithExpirationHandler:^{
+            [self endBackgroundTask:identifier];
+            if (expiration) {
+                expiration();
+            }
+        }];
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
-            task();
-            if (completion)
+            if (task) {
+                task();
+            }
+            if (completion) {
                 completion();
+            }
             [self endBackgroundTask:identifier];
         });
     }
@@ -30,11 +39,22 @@
     
     if (task)
     {
-        UIBackgroundTaskIdentifier identifier = [self beginBackgroundTaskWithExpirationHandler:expiration];
-        dispatch_asap_main_queue(task);
-        if (completion)
-            dispatch_asap_main_queue(completion);
-        [self endBackgroundTask:identifier];
+        UIBackgroundTaskIdentifier identifier = UIBackgroundTaskInvalid;
+        identifier = [self beginBackgroundTaskWithExpirationHandler:^{
+            [self endBackgroundTask:identifier];
+            if (expiration) {
+                expiration();
+            }
+        }];
+        dispatch_asap_main_queue(^{
+            if (task) {
+                task();
+            }
+            if (completion) {
+                completion();
+            }
+            [self endBackgroundTask:identifier];
+        });
     }
 }
 

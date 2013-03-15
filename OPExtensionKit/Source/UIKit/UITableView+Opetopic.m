@@ -75,4 +75,20 @@ UITableViewRowAnimation UITableViewRowAnimationAutomaticOr(UITableViewRowAnimati
     return retVal;
 }
 
+-(void) setTableViewHeaders:(NSArray*)headers {
+    
+    UIView *mainHeader = [UIView new];
+    CGFloat top = 0.0f;
+    
+    mainHeader.width = [[headers firstObject] width];
+    for (UIView *header in headers) {
+        mainHeader.height += header.height;
+        header.top = top;
+        top += header.height;
+        [mainHeader addSubview:header];
+    }
+    
+    self.tableHeaderView = mainHeader;
+}
+
 @end

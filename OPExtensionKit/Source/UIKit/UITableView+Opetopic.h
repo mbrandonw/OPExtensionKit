@@ -21,4 +21,6 @@ UITableViewRowAnimation UITableViewRowAnimationAutomaticOr(UITableViewRowAnimati
 
 -(CGFloat) heightForSection:(NSInteger)section;
 
+-(void) setTableViewHeaders:(NSArray*)headers;
+
 @end

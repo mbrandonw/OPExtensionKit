@@ -7,6 +7,7 @@
 //
 
 #import "UITableView+Opetopic.h"
+#import "NSObject+Opetopic.h"
 
 UITableViewRowAnimation UITableViewRowAnimationAutomaticOr(UITableViewRowAnimation rowAnimation) {
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 5.0)
@@ -75,7 +76,7 @@ UITableViewRowAnimation UITableViewRowAnimationAutomaticOr(UITableViewRowAnimati
     return retVal;
 }
 
--(void) setTableViewHeaders:(NSArray*)headers {
+OPAssociatedObject(tableHeaderViews, setTableHeaderViews, OBJC_ASSOCIATION_RETAIN, nil, ^(NSArray *headers){
     
     UIView *mainHeader = [UIView new];
     CGFloat top = 0.0f;
@@ -89,6 +90,7 @@ UITableViewRowAnimation UITableViewRowAnimationAutomaticOr(UITableViewRowAnimati
     }
     
     self.tableHeaderView = mainHeader;
-}
+
+});
 
 @end

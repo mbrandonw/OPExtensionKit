@@ -12,8 +12,27 @@
  */
 
 #import <Foundation/Foundation.h>
+#import <objc/runtime.h>
 
 #define $m(obj)     [obj mutableCopy]
+
+#define OPAssociatedObject(getterName, setterName, associationPolicy, getterBlock, setterBlock) \
+\
+-(void) setterName:(id)obj { \
+    objc_setAssociatedObject(self, "__OP_AssociatedObject_##setterName", obj, associationPolicy); \
+    void(^_setterBlock)(id obj) = setterBlock; \
+    if (_setterBlock) { \
+        _setterBlock(obj); \
+    } \
+} \
+-(NSArray*) getterName { \
+    void(^_getterBlock)(id obj) = getterBlock; \
+    id obj = objc_getAssociatedObject(self, "__OP_AssociatedObject_##setterName"); \
+    if (_getterBlock) { \
+        _getterBlock(obj); \
+    } \
+    return obj; \
+}
 
 @interface NSObject (Opetopic)
 

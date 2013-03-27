@@ -25,11 +25,6 @@
 #pragma clang diagnostic pop 
 }
 
-+(void) performBlockNextRunloop:(void(^)(void))block {
-    if (block)
-        dispatch_async(dispatch_get_current_queue(), block);
-}
-
 -(id) tap:(void(^)(id obj))tap {
     tap(self);
     return self;

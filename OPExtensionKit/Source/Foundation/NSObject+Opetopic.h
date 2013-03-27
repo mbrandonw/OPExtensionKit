@@ -47,11 +47,6 @@
 -(void) performSelector:(SEL)aSelector withEachObjectIn:(id<NSFastEnumeration>)objects;
 
 /**
- Calls `block` on the next run loop pass.
- */
-+(void) performBlockNextRunloop:(void(^)(void))block;
-
-/**
  Tappity tap
  */
 -(id) tap:(void(^)(id obj))tap;

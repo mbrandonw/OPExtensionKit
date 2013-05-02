@@ -85,6 +85,7 @@ OPAssociatedObject(tableHeaderViews, setTableHeaderViews, OBJC_ASSOCIATION_RETAI
     for (UIView *header in headers) {
         mainHeader.height += header.height;
         header.top = top;
+        header.autoresizingMask |= UIViewAutoresizingFlexibleWidth;
         top += header.height;
         [mainHeader addSubview:header];
     }

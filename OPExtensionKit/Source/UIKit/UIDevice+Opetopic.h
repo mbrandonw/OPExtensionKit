@@ -56,4 +56,6 @@ typedef NS_ENUM(NSInteger, OPDeviceType) {
 +(double) freeMemory;
 +(double) appMemoryUsage;
 
+-(NSString*) universalUniqueIDString;
+
 @end

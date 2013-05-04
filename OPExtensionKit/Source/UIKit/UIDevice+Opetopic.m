@@ -136,4 +136,8 @@
 #endif
 }
 
+-(NSString*) universalUniqueIDString {
+    return [UIDevice instancesRespondToSelector:@selector(identifierForVendor)] ? [[[UIDevice currentDevice] identifierForVendor] UUIDString] : nil;
+}
+
 @end

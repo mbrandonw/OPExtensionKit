@@ -7,14 +7,18 @@
 //
 
 #import "NSRegularExpression+Opetopic.h"
+#import "NSString+Opetopic.h"
 
 @implementation NSRegularExpression (Opetopic)
 
 +(id) youtubeLinkRegularExpression:(NSError**)error {
-    
     return [NSRegularExpression regularExpressionWithPattern:@"http(?:s?)://(?:www\\.)?youtu(?:be\\.com/watch\?v=|\\.be/)([\\w\\-]+)(&(amp;)?[\\w\?=‌​]*)?"
                                                      options:NSRegularExpressionCaseInsensitive
                                                        error:error];
+}
+
+-(NSArray*) matchesInString:(NSString*)string options:(NSMatchingOptions)options {
+    return [self matchesInString:string options:options range:[string fullRange]];
 }
 
 @end

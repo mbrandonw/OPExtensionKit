@@ -11,5 +11,6 @@
 @interface NSRegularExpression (Opetopic)
 
 +(id) youtubeLinkRegularExpression:(NSError**)error;
+-(NSArray*) matchesInString:(NSString*)string options:(NSMatchingOptions)options;
 
 @end

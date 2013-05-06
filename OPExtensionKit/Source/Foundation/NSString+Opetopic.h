@@ -167,4 +167,14 @@
  */
 -(NSString*) articlize;
 
+/**
+ */
+-(NSString*) stringByRemovingPrefix:(NSString*)prefix;
+-(NSString*) stringByRemovingSuffix:(NSString*)suffix;
+
+/**
+ */
+-(NSString*) toCamelCase;
+-(NSString*) toSnakeCase;
+
 @end

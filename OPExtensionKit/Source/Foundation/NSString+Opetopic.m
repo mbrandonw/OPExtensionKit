@@ -344,4 +344,58 @@
     return [NSString stringWithFormat:@"%@ %@", article, self];
 }
 
+-(NSString*) stringByRemovingPrefix:(NSString*)prefix {
+    if ([self hasPrefix:prefix]) {
+        return [self substringFromIndex:[prefix length]];
+    }
+    return self;
+}
+
+-(NSString*) stringByRemovingSuffix:(NSString*)suffix {
+    if ([self hasSuffix:suffix]) {
+        return [self substringToIndex:[self length] - [suffix length]];
+    }
+    return self;
+}
+
+-(NSString*) toCamelCase {
+    NSArray *components = [self componentsSeparatedByString:@"_"];
+    NSMutableString *output = [NSMutableString string];
+    
+    for (NSUInteger i = 0; i < components.count; i++) {
+        if (i == 0) {
+            [output appendString:components[i]];
+        } else {
+            [output appendString:[components[i] capitalizedString]];
+        }
+    }
+    
+    return [NSString stringWithString:output];
+}
+
+-(NSString*) toSnakeCase {
+    NSScanner *scanner = [[NSScanner alloc] initWithString:self];
+    scanner.caseSensitive = YES;
+    
+    NSCharacterSet *uppercase = [NSCharacterSet uppercaseLetterCharacterSet];
+    NSCharacterSet *lowercase = [NSCharacterSet lowercaseLetterCharacterSet];
+    
+    NSString *buffer = nil;
+    NSMutableString *output = [NSMutableString new];
+    
+    while (scanner.isAtEnd == NO) {
+        if ([scanner scanCharactersFromSet:uppercase intoString:&buffer]) {
+            [output appendString:[buffer lowercaseString]];
+        }
+        if ([scanner scanCharactersFromSet:lowercase intoString:&buffer]) {
+            [output appendString:buffer];
+            if (!scanner.isAtEnd) {
+                [output appendString:@"_"];
+            }
+        }
+    }
+    
+    return [NSString stringWithString:output];
+}
+
 @end

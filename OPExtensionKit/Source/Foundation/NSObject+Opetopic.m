@@ -69,4 +69,8 @@
         [self setValue:[other valueForKeyPath:keyPath] forKeyPath:keyPath];
 }
 
+-(id) forceType:(Class)type {
+    return [self isKindOfClass:type] ? self : nil;
+}
+
 @end

@@ -81,7 +81,7 @@ OPAssociatedObject(tableHeaderViews, setTableHeaderViews, OBJC_ASSOCIATION_RETAI
     UIView *mainHeader = [UIView new];
     CGFloat top = 0.0f;
     
-    mainHeader.width = [[headers firstObject] width];
+    mainHeader.width = [(UIView*)[headers firstObject] width];
     for (UIView *header in headers) {
         mainHeader.height += header.height;
         header.top = top;

@@ -13,10 +13,11 @@ void dispatch_asap_main_queue(dispatch_block_t block) {
 }
 
 void dispatch_asap_queue(dispatch_queue_t queue, dispatch_block_t block) {
-    if (dispatch_get_current_queue() == queue)
+    if (dispatch_get_current_queue() == queue) {
         block();
-    else
+    } else {
         dispatch_async(queue, block);
+    }
 }
 
 void dispatch_next_runloop(dispatch_block_t block) {
@@ -25,4 +26,16 @@ void dispatch_next_runloop(dispatch_block_t block) {
 
 void dispatch_after_delay(double delay, dispatch_block_t block) {
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, delay * NSEC_PER_SEC), dispatch_get_current_queue(), block);
+}
+
+void dispatch_serially_after_delay(double delay, dispatch_block_t block) {
+    static double lastTime = 0.0;
+    if (lastTime == 0.0) {
+        lastTime = [NSDate timeIntervalSinceReferenceDate];
+    }
+    
+    double nextTime = MAX(lastTime + delay, [NSDate timeIntervalSinceReferenceDate]);
+    double delta = MAX(0.0, nextTime - [NSDate timeIntervalSinceReferenceDate]);
+    dispatch_after_delay(delta, block);
+    lastTime = nextTime;
 }

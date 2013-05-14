@@ -29,3 +29,5 @@ void dispatch_next_runloop(dispatch_block_t block);
  Calls the passed block on the current queue after the specified amount of time.
  */
 void dispatch_after_delay(double delay, dispatch_block_t block);
+
+void dispatch_serially_after_delay(double delay, dispatch_block_t block);

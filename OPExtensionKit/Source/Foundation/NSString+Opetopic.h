@@ -177,4 +177,8 @@
 -(NSString*) toCamelCase;
 -(NSString*) toSnakeCase;
 
+/**
+ */
+-(BOOL) matches:(NSRegularExpression*)regex;
+
 @end

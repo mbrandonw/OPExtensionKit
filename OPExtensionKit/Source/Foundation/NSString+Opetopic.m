@@ -398,4 +398,8 @@
     return [NSString stringWithString:output];
 }
 
+-(BOOL) matches:(NSRegularExpression*)regex {
+    return [[regex matchesInString:self options:0] count] > 0;
+}
+
 @end

@@ -10,6 +10,7 @@
 
 @interface NSRegularExpression (Opetopic)
 
++(instancetype) regularExpressionWithPattern:(NSString*)pattern;
 +(id) youtubeLinkRegularExpression:(NSError**)error;
 -(NSArray*) matchesInString:(NSString*)string options:(NSMatchingOptions)options;
 

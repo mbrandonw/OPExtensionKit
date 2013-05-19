@@ -11,6 +11,10 @@
 
 @implementation NSRegularExpression (Opetopic)
 
++(instancetype) regularExpressionWithPattern:(NSString*)pattern {
+    return [[self class] regularExpressionWithPattern:pattern options:0 error:NULL];
+}
+
 +(id) youtubeLinkRegularExpression:(NSError**)error {
     return [NSRegularExpression regularExpressionWithPattern:@"http(?:s?)://(?:www\\.)?youtu(?:be\\.com/watch\?v=|\\.be/)([\\w\\-]+)(&(amp;)?[\\w\?=‌​]*)?"
                                                      options:NSRegularExpressionCaseInsensitive

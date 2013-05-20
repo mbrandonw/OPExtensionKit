@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#define $regex(pattern) [NSRegularExpression regularExpressionWithPattern:pattern]
+
 @interface NSRegularExpression (Opetopic)
 
 +(instancetype) regularExpressionWithPattern:(NSString*)pattern;

@@ -30,8 +30,9 @@
 
 -(UIViewController*) mostParentViewController {
     UIViewController *rootViewController = self;
-    while (rootViewController.parentViewController)
+    while (rootViewController.parentViewController) {
         rootViewController = rootViewController.parentViewController;
+    }
     return rootViewController;
 }
 

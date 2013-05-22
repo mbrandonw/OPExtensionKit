@@ -78,6 +78,12 @@ UITableViewRowAnimation UITableViewRowAnimationAutomaticOr(UITableViewRowAnimati
 
 OPAssociatedObject(tableHeaderViews, setTableHeaderViews, OBJC_ASSOCIATION_RETAIN, nil, ^(NSArray *headers){
     
+    // early out when there are no headers
+    if ([headers count] == 0) {
+        self.tableHeaderView = nil;
+        return ;
+    }
+    
     UIView *mainHeader = [UIView new];
     CGFloat top = 0.0f;
     

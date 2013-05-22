@@ -8,8 +8,15 @@
 
 #import "NSMutableArray+Opetopic.h"
 
-
 @implementation NSMutableArray (Opetopic)
+
++(instancetype) nullArrayWithCapacity:(NSUInteger)count {
+    id retVal = [[self class] arrayWithCapacity:count];
+    for (NSUInteger i = 0; i < count; i++) {
+        retVal[i] = [NSNull null];
+    }
+    return retVal;
+}
 
 -(void) shuffle {
 	

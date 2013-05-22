@@ -18,6 +18,10 @@
 @interface NSMutableArray (Opetopic)
 
 /**
+ */
++(instancetype) nullArrayWithCapacity:(NSUInteger)count;
+
+/**
  Shuffles the array.
  */
 -(void) shuffle;

@@ -79,5 +79,6 @@
 /**
  */
 -(BOOL) isPresent;
+-(id) presence;
 
 @end

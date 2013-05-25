@@ -80,7 +80,14 @@
     if ([self isKindOfClass:[NSString class]]) {
         return [[(NSString*)self trim] length] > 0;
     }
+    if ([self respondsToSelector:@selector(count)]) {
+        return [self performSelector:@selector(count)] > 0;
+    }
     return YES;
+}
+
+-(id) presence {
+    return [self isPresent] ? self : nil;
 }
 
 @end

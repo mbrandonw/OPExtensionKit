@@ -115,11 +115,6 @@
 -(BOOL) isEmail;
 
 /**
- @return YES if the string has at least one non-whitespace character.
- */
--(BOOL) isPresent;
-
-/**
  @return An NSRange covering the whole string.
  */
 -(NSRange) fullRange;

@@ -76,4 +76,8 @@
  */
 -(id) forceType:(Class)type;
 
+/**
+ */
+-(BOOL) isPresent;
+
 @end

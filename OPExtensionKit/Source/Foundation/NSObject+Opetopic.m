@@ -73,4 +73,14 @@
     return [self isKindOfClass:type] ? self : nil;
 }
 
+-(BOOL) isPresent {
+    if (self == [NSNull null]) {
+        return NO;
+    }
+    if ([self isKindOfClass:[NSString class]]) {
+        return [[(NSString*)self trim] length] > 0;
+    }
+    return YES;
+}
+
 @end

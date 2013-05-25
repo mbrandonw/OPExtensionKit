@@ -184,11 +184,6 @@
 	return [[NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegEx] evaluateWithObject:self];
 }
 
--(BOOL) isPresent {
-    
-    return [[self trim] length] > 0;
-}
-
 -(NSRange) fullRange {
     return NSMakeRange(0, [self length]);
 }

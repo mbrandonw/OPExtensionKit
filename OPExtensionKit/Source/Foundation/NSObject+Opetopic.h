@@ -74,7 +74,7 @@
 
 /**
  */
--(id) forceType:(Class)type;
+-(id) typedAs:(Class)type;
 
 /**
  */

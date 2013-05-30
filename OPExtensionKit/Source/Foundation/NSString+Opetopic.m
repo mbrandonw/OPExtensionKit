@@ -9,6 +9,7 @@
 #import "NSString+Opetopic.h"
 #import <CommonCrypto/CommonHMAC.h>
 #import "NSDictionary+Opetopic.h"
+#import "NSJSONSerialization+Opetopic.h"
 
 @implementation NSString (Opetopic)
 
@@ -395,6 +396,14 @@
 
 -(BOOL) matches:(NSRegularExpression*)regex {
     return [[regex matchesInString:self options:0] count] > 0;
+}
+
+-(id) JSONObject {
+  return [NSJSONSerialization JSONObjectWithString:self];
+}
+
+-(id) mutableJSONObject {
+  return [NSJSONSerialization mutableJSONObjectWithString:self];
 }
 
 @end

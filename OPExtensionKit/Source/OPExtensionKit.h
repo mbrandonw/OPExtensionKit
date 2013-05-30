@@ -58,3 +58,4 @@
 #import "MPMoviePlayerController+Opetopic.h"
 #import "UIScreen+Opetopic.h"
 #import "MFMailComposeViewController+Opetopic.h"
+#import "NSJSONSerialization+Opetopic.h"

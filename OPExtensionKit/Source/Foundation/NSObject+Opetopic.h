@@ -81,4 +81,8 @@
 -(BOOL) isPresent;
 -(id) presence;
 
+/**
+ */
+-(NSString*) JSONString;
+
 @end

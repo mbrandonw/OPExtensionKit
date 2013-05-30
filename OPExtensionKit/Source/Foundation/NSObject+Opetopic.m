@@ -8,6 +8,7 @@
 
 #import "NSObject+Opetopic.h"
 #import <objc/runtime.h>
+#import "NSJSONSerialization+Opetopic.h"
 
 @implementation NSObject (Opetopic)
 
@@ -88,6 +89,10 @@
 
 -(id) presence {
     return [self isPresent] ? self : nil;
+}
+
+-(NSString*) JSONString {
+  return [NSJSONSerialization stringWithJSONObject:self];
 }
 
 @end

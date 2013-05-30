@@ -176,4 +176,9 @@
  */
 -(BOOL) matches:(NSRegularExpression*)regex;
 
+/**
+ */
+-(id) JSONObject;
+-(id) mutableJSONObject;
+
 @end

@@ -15,14 +15,6 @@
     return [self count] > 0;
 }
 
--(NSSet*) compact {
-    NSMutableSet *retVal = [NSMutableSet new];
-    for (id obj in self)
-        if (obj != [NSNull null])
-            [retVal addObject:obj];
-    return retVal;
-}
-
 -(NSArray*) sortedArrayUsingDescriptor:(NSSortDescriptor *)sortDescriptor {
     return [self sortedArrayUsingDescriptors:@[sortDescriptor]];
 }

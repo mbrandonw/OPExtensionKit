@@ -103,12 +103,6 @@ typedef enum {
 
 
 /**
- Removes [NSNull null] items.
- */
--(NSArray*) compact;
-
-
-/**
  Removes [NSNull null] objects, empty arrays, empty dictionarys, empty sets...
  */
 -(NSArray*) compactWithOptions:(NSArrayCompactOptions)options;

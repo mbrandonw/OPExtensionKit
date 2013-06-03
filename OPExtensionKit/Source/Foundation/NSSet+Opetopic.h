@@ -25,12 +25,6 @@
 
 
 /**
- Removes [NSNull null] items.
- */
--(NSSet*) compact;
-
-
-/**
  Sorts into an array using a single sort descriptor.
  */
 -(NSArray*) sortedArrayUsingDescriptor:(NSSortDescriptor *)sortDescriptor;

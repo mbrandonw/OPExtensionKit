@@ -126,14 +126,6 @@
     return [self count] > 0;
 }
 
--(NSArray*) compact {
-    NSMutableArray *retVal = [[NSMutableArray alloc] initWithCapacity:[self count]];
-    for (id obj in self)
-        if (obj != [NSNull null])
-            [retVal addObject:obj];
-    return retVal;
-}
-
 -(NSArray*) compactWithOptions:(NSArrayCompactOptions)options {
     NSMutableArray *retVal = [[NSMutableArray alloc] initWithCapacity:[self count]];
     for (id obj in self)

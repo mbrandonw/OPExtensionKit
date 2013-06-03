@@ -19,7 +19,7 @@
 
   UILabel *label = [[self class] new];
   label.text = symbol;
-  label.font = [UIFont symbolsetFontWithSize:size];
+  label.font = [UIFont ssStandardFontWithSize:size];
   label.textColor = color;
   return label;
 }

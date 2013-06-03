@@ -20,8 +20,4 @@
     return retVal;
 }
 
-+(UIFont*) symbolsetFontWithSize:(CGFloat)size {
-  return [UIFont fontWithName:@"SS Standard" size:size];
-}
-
 @end

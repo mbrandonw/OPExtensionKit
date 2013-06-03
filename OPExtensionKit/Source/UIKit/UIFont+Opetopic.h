@@ -12,4 +12,6 @@
 
 +(NSDictionary*) installedFontsByFamily;
 
++(UIFont*) symbolsetFontWithSize:(CGFloat)size;
+
 @end

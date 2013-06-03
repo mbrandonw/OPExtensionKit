@@ -59,3 +59,5 @@
 #import "UIScreen+Opetopic.h"
 #import "MFMailComposeViewController+Opetopic.h"
 #import "NSJSONSerialization+Opetopic.h"
+#import "UILabel+Opetopic.h"
+#import "UIFont+Opetopic.h"

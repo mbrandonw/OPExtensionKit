@@ -11,16 +11,17 @@
 
 @implementation UILabel (Opetopic)
 
-+(instancetype) symbolsetFontWithSymbol:(NSString*)symbol size:(CGFloat)size {
-  return [[self class] symbolsetFontWithSymbol:symbol size:size color:[UIColor blackColor]];
++(instancetype) ssStandardLabelWithSymbol:(NSString*)symbol size:(CGFloat)size {
+  return [[self class] ssStandardLabelWithSymbol:symbol size:size color:[UIColor blackColor]];
 }
 
-+(instancetype) symbolsetFontWithSymbol:(NSString*)symbol size:(CGFloat)size color:(UIColor*)color {
++(instancetype) ssStandardLabelWithSymbol:(NSString*)symbol size:(CGFloat)size color:(UIColor*)color {
 
   UILabel *label = [[self class] new];
-  label.text = symbol;
+  label.text = [UIFont ssStandardSymbolForString:symbol];
   label.font = [UIFont ssStandardFontWithSize:size];
   label.textColor = color;
+  [label sizeToFit];
   return label;
 }
 

@@ -10,7 +10,7 @@
 
 @interface UILabel (Opetopic)
 
-+(instancetype) symbolsetFontWithSymbol:(NSString*)symbol size:(CGFloat)size;
-+(instancetype) symbolsetFontWithSymbol:(NSString*)symbol size:(CGFloat)size color:(UIColor*)color;
++(instancetype) ssStandardLabelWithSymbol:(NSString*)symbol size:(CGFloat)size;
++(instancetype) ssStandardLabelWithSymbol:(NSString*)symbol size:(CGFloat)size color:(UIColor*)color;
 
 @end

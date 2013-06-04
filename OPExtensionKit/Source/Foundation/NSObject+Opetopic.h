@@ -85,4 +85,9 @@
  */
 -(NSString*) JSONString;
 
+/**
+ */
+-(BOOL) isAfter:(NSObject*)obj;
+-(BOOL) isBefore:(NSObject*)obj;
+
 @end

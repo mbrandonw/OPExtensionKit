@@ -95,4 +95,18 @@
   return [NSJSONSerialization stringWithJSONObject:self];
 }
 
+-(BOOL) isAfter:(NSObject*)obj {
+  if ([self respondsToSelector:@selector(compare:)] && [obj respondsToSelector:@selector(compare:)]) {
+    return (NSInteger)[self performSelector:@selector(compare:) withObject:obj] == NSOrderedDescending;
+  }
+  return NO;
+}
+
+-(BOOL) isBefore:(NSObject*)obj {
+  if ([self respondsToSelector:@selector(compare:)] && [obj respondsToSelector:@selector(compare:)]) {
+    return (NSInteger)[self performSelector:@selector(compare:) withObject:obj] == NSOrderedAscending;
+  }
+  return NO;
+}
+
 @end

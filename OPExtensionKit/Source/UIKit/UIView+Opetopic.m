@@ -162,6 +162,10 @@
     [self centerYWithin:v];
 }
 
+-(void) centerWithinSuperview {
+  [self centerWithin:self.superview];
+}
+
 -(id) initWithSize:(CGSize)size {
     return [self initWithFrame:(CGRect){0.0f, 0.0f, size}];
 }

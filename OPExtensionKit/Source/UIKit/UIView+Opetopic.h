@@ -119,6 +119,7 @@ enum {
 -(void) centerXWithin:(UIView*)v;
 -(void) centerYWithin:(UIView*)v;
 -(void) centerWithin:(UIView*)v;
+-(void) centerWithinSuperview;
 
 /**
  For those times you just want to initialize with a size.

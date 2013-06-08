@@ -362,10 +362,16 @@
     }];
 }
 
-+(UIColor*) FacebookBlueColor {
-    return [[OPCache sharedCache] fetch:@"UIColor/Opetopic/FacebookBlueColor" :^id{
-        return $RGBi(59, 89, 182);
++(UIColor*) facebookBlue {
+    return [[OPCache sharedCache] fetch:@"UIColor/Opetopic/facebookBlue" :^id{
+        return $hex(0x3b5998);
     }];
+}
+
++(UIColor*) facebookBlueHover {
+  return [[OPCache sharedCache] fetch:@"UIColor/Opetopic/facebookBlueHover" :^id{
+    return $hex(0x30487b);
+  }];
 }
 
 +(UIColor*) TwitterBlueColor {

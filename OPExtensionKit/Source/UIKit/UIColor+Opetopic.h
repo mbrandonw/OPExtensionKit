@@ -121,7 +121,8 @@
  */
 +(UIColor*) veryLightGrayColor;
 +(UIColor*) veryDarkGrayColor;
-+(UIColor*) FacebookBlueColor;
++(UIColor*) facebookBlue;
++(UIColor*) facebookBlueHover;
 +(UIColor*) TwitterBlueColor;
 +(UIColor*) UIKitHighlightBlueTopColor;
 +(UIColor*) UIKitHighlightBlueBottomColor;

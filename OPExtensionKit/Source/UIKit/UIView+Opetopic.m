@@ -162,6 +162,14 @@
     [self centerYWithin:v];
 }
 
+-(void) centerXWithinSuperview {
+  [self centerXWithin:self.superview];
+}
+
+-(void) centerYWithinSuperview {
+  [self centerYWithin:self.superview];
+}
+
 -(void) centerWithinSuperview {
   [self centerWithin:self.superview];
 }

@@ -119,6 +119,8 @@ enum {
 -(void) centerXWithin:(UIView*)v;
 -(void) centerYWithin:(UIView*)v;
 -(void) centerWithin:(UIView*)v;
+-(void) centerXWithinSuperview;
+-(void) centerYWithinSuperview;
 -(void) centerWithinSuperview;
 
 /**

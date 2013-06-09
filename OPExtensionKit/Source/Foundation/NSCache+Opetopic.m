@@ -13,7 +13,7 @@
 
 OP_SYNTHESIZE_SINGLETON_FOR_CLASS(NSCache, sharedCache);
 
--(id) fetch:(id)key :(id(^)(void))block {
+-(id) fetch:(id)key do:(id(^)(void))block {
     
 	id object = [self objectForKey:key];
 	if (object)

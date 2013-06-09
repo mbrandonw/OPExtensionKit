@@ -11,6 +11,6 @@
 @interface NSCache (Opetopic)
 
 +(id) sharedCache;
--(id) fetch:(id)key :(id(^)(void))block;
+-(id) fetch:(id)key do:(id(^)(void))block;
 
 @end

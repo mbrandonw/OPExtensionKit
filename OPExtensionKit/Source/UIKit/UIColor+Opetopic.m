@@ -351,49 +351,49 @@
 }
 
 +(UIColor*) veryLightGrayColor {
-    return [[OPCache sharedCache] fetch:@"UIColor/Opetopic/veryLightGrayColor" :^id{
+    return [[OPCache sharedCache] fetch:@"UIColor/Opetopic/veryLightGrayColor" do:^id{
         return $WAf(0.85f, 1.0f);
     }];
 }
 
 +(UIColor*) veryDarkGrayColor {
-    return [[OPCache sharedCache] fetch:@"UIColor/Opetopic/veryDarkGrayColor" :^id{
+    return [[OPCache sharedCache] fetch:@"UIColor/Opetopic/veryDarkGrayColor" do:^id{
         return $WAf(0.15f, 1.0f);
     }];
 }
 
 +(UIColor*) facebookBlue {
-    return [[OPCache sharedCache] fetch:@"UIColor/Opetopic/facebookBlue" :^id{
+    return [[OPCache sharedCache] fetch:@"UIColor/Opetopic/facebookBlue" do:^id{
         return $hex(0x3b5998);
     }];
 }
 
 +(UIColor*) facebookBlueHover {
-  return [[OPCache sharedCache] fetch:@"UIColor/Opetopic/facebookBlueHover" :^id{
+  return [[OPCache sharedCache] fetch:@"UIColor/Opetopic/facebookBlueHover" do:^id{
     return $hex(0x30487b);
   }];
 }
 
 +(UIColor*) TwitterBlueColor {
-    return [[OPCache sharedCache] fetch:@"UIColor/Opetopic/TwitterBlueColor" :^id{
+    return [[OPCache sharedCache] fetch:@"UIColor/Opetopic/TwitterBlueColor" do:^id{
         return $RGBi(64,153,255);
     }];
 }
 
 +(UIColor*) UIKitHighlightBlueTopColor {
-    return [[OPCache sharedCache] fetch:@"UIColor/Opetopic/UIKitHighlightBlueTopColor" :^id{
+    return [[OPCache sharedCache] fetch:@"UIColor/Opetopic/UIKitHighlightBlueTopColor" do:^id{
         return $RGBi(5, 140, 245);
     }];
 }
 
 +(UIColor*) UIKitHighlightBlueBottomColor {
-    return [[OPCache sharedCache] fetch:@"UIColor/Opetopic/UIKitHighlightBlueBottomColor" :^id{
+    return [[OPCache sharedCache] fetch:@"UIColor/Opetopic/UIKitHighlightBlueBottomColor" do:^id{
         return $RGBi(1, 95, 230);
     }];
 }
 
 +(UIColor*) darkBlueColor {
-    return [[OPCache sharedCache] fetch:@"UIColor/Opetopic/darkBlueColor" :^id{
+    return [[OPCache sharedCache] fetch:@"UIColor/Opetopic/darkBlueColor" do:^id{
         return $RGBi(81, 102, 145);
     }];
 }

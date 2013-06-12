@@ -189,7 +189,13 @@
     return NSMakeRange(0, [self length]);
 }
 
--(void) drawInRect:(CGRect)rect withFont:(UIFont*)font lineBreakMode:(UILineBreakMode)mode alignment:(UITextAlignment)alignment color:(UIColor*)color shadow:(UIColor*)shadow offset:(CGSize)offset {
+-(void) drawInRect:(CGRect)rect
+          withFont:(UIFont*)font
+     lineBreakMode:(NSLineBreakMode)mode
+         alignment:(NSTextAlignment)alignment
+             color:(UIColor*)color
+            shadow:(UIColor*)shadow
+            offset:(CGSize)offset {
     
     [shadow set];
     CGRect shadowRect = CGRectOffset(rect, offset.width, offset.height);

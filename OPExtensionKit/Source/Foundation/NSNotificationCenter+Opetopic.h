@@ -20,4 +20,9 @@
  */
 -(void) postNotificationOnMainThreadName:(NSString *)aName object:(id)anObject;
 
+/**
+ Helper mehod to add observer on main queue.
+ */
+-(id) addObserverOnMainQueueForName:(NSString*)name object:(id)obj usingBlock:(void(^)(NSNotification *note))block;
+
 @end

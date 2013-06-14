@@ -16,4 +16,8 @@
     });
 }
 
+-(id) addObserverOnMainQueueForName:(NSString*)name object:(id)obj usingBlock:(void(^)(NSNotification *note))block {
+  return [self addObserverForName:name object:obj queue:[NSOperationQueue mainQueue] usingBlock:block];
+}
+
 @end

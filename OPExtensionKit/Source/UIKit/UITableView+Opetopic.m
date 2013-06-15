@@ -9,12 +9,6 @@
 #import "UITableView+Opetopic.h"
 #import "NSObject+Opetopic.h"
 
-UITableViewRowAnimation UITableViewRowAnimationAutomaticOr(UITableViewRowAnimation rowAnimation) {
-    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 5.0)
-        return UITableViewRowAnimationAutomatic;
-    return rowAnimation;
-}
-
 @implementation UITableView (Opetopic)
 
 -(NSArray*) indexPathsInSection:(NSUInteger)section {

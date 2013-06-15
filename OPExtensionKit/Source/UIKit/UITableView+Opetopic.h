@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-UITableViewRowAnimation UITableViewRowAnimationAutomaticOr(UITableViewRowAnimation rowAnimation);
-
 @interface UITableView (Opetopic)
 
 -(NSArray*) indexPathsInSection:(NSUInteger)section;

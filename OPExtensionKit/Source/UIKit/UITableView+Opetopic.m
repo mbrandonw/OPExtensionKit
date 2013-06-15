@@ -94,4 +94,16 @@ OPAssociatedObject(tableHeaderViews, setTableHeaderViews, OBJC_ASSOCIATION_RETAI
 
 });
 
+-(void) registerClassForDefaultCellReuseIdentifier:(Class)cellClass {
+  if ([self respondsToSelector:@selector(registerClass:forCellReuseIdentifier:)]) {
+    [self registerClass:cellClass forCellReuseIdentifier:NSStringFromClass(cellClass)];
+  }
+}
+
+-(void) registerClassForDefaultHeaderFooterViewReuseIdentifier:(Class)aClass {
+  if ([self respondsToSelector:@selector(registerClass:forHeaderFooterViewReuseIdentifier:)]) {
+    [self registerClass:aClass forHeaderFooterViewReuseIdentifier:NSStringFromClass(aClass)];
+  }
+}
+
 @end

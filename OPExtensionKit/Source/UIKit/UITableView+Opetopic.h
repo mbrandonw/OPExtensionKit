@@ -22,4 +22,7 @@
 -(void) setTableHeaderViews:(NSArray*)views;
 -(NSArray*) tableHeaderViews;
 
+-(void) registerClassForDefaultCellReuseIdentifier:(Class)cellClass;
+-(void) registerClassForDefaultHeaderFooterViewReuseIdentifier:(Class)aClass;
+
 @end

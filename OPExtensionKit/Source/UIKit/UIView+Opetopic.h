@@ -174,4 +174,8 @@ enum {
  */
 -(NSString*) rDescription;
 
+/**
+ */
++(instancetype) autoLayoutView;
+
 @end

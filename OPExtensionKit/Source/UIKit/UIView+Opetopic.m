@@ -245,4 +245,10 @@
 #endif
 }
 
++(instancetype) autoLayoutView {
+  UIView *retVal = [[self class] new];
+  retVal.translatesAutoresizingMaskIntoConstraints = NO;
+  return retVal;
+}
+
 @end

@@ -20,7 +20,7 @@
       NSDictionary *metrics = [bindings filter:^BOOL(id obj) {
         return [obj isKindOfClass:[NSNumber class]];
       }];
-      [constraints addObject:[NSLayoutConstraint constraintsWithVisualFormat:format options:0 metrics:metrics views:bindings]];
+      [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:format options:0 metrics:metrics views:bindings]];
     }
   }];
 }

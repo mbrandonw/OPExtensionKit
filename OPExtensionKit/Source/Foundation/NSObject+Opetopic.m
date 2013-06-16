@@ -61,13 +61,26 @@
 
 -(void) copyValuesForKeys:(NSArray*)keys fromObject:(NSObject*)other {
     for (id key in keys) {
-        [self setValue:[other valueForKey:key] forKey:key];
+        if ([self conformsToProtocol:@protocol(NSFastEnumeration)]) {
+            for (id obj in (id<NSFastEnumeration>)self) {
+              [obj setValue:[other valueForKey:key] forKey:key];
+            }
+        } else {
+            [self setValue:[other valueForKey:key] forKey:key];
+        }
     }
 }
 
 -(void) copyValuesForKeyPaths:(NSArray*)keyPaths fromObject:(NSObject*)other {
-    for (id keyPath in keyPaths)
-        [self setValue:[other valueForKeyPath:keyPath] forKeyPath:keyPath];
+  for (id keyPath in keyPaths) {
+      if ([self conformsToProtocol:@protocol(NSFastEnumeration)]) {
+          for (id obj in (id<NSFastEnumeration>)self) {
+              [obj setValue:[other valueForKeyPath:keyPath] forKeyPath:keyPath];
+          }
+      } else {
+          [self setValue:[other valueForKeyPath:keyPath] forKeyPath:keyPath];
+      }
+  }
 }
 
 -(id) typedAs:(Class)type {

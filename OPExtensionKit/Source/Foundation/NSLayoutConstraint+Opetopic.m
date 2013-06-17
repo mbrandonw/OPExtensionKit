@@ -16,11 +16,15 @@
 
   return [[NSMutableArray new] tap:^(NSMutableArray *constraints) {
 
+    NSDictionary *metrics = [bindings filter:^BOOL(id key) {
+      return [bindings[key] isKindOfClass:[NSNumber class]];
+    }];
+    NSDictionary *views = [bindings filter:^BOOL(id key) {
+      return [bindings[key] isKindOfClass:[UIView class]];
+    }];
+
     for (NSString *format in formats) {
-      NSDictionary *metrics = [bindings filter:^BOOL(id obj) {
-        return [obj isKindOfClass:[NSNumber class]];
-      }];
-      [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:format options:0 metrics:metrics views:bindings]];
+      [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:format options:0 metrics:metrics views:views]];
     }
   }];
 }

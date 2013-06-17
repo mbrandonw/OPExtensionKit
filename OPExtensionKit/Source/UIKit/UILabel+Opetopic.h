@@ -13,4 +13,6 @@
 +(instancetype) ssStandardLabelWithSymbol:(NSString*)symbol size:(CGFloat)size;
 +(instancetype) ssStandardLabelWithSymbol:(NSString*)symbol size:(CGFloat)size color:(UIColor*)color;
 
+-(BOOL) isTruncating;
+
 @end

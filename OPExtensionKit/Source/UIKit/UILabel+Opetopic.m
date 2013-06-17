@@ -25,4 +25,14 @@
   return label;
 }
 
+-(BOOL) isTruncating {
+  CGSize perfectSize = [self.text sizeWithFont:self.font
+                             constrainedToSize:CGSizeMake(self.bounds.size.width, NSIntegerMax)
+                                 lineBreakMode:self.lineBreakMode];
+  if (perfectSize.height > self.bounds.size.height) {
+    return YES;
+  }
+  return NO;
+}
+
 @end

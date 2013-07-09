@@ -28,4 +28,6 @@
 -(void) setContentOffsetX:(CGFloat)x animated:(BOOL)animated;
 -(void) setContentOffsetY:(CGFloat)y animated:(BOOL)animated;
 
+-(void) scrollRectToVisible:(CGRect)rect animated:(BOOL)animated position:(UITableViewScrollPosition)position;
+
 @end

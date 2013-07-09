@@ -98,4 +98,24 @@
     [self setContentOffset:CGPointMake(self.contentOffset.x, y) animated:animated];
 }
 
+-(void) scrollRectToVisible:(CGRect)rect animated:(BOOL)animated position:(UITableViewScrollPosition)position {
+
+  CGRect visibleRect = UIEdgeInsetsInsetRect(self.bounds, self.contentInset);
+  CGFloat offset = rect.origin.y;
+  switch (position) {
+    case UITableViewScrollPositionBottom:
+      offset -= visibleRect.size.height - rect.size.height;
+      break;
+    case UITableViewScrollPositionMiddle:
+      offset -= visibleRect.size.height/2.0f - rect.size.height/2.0f;
+      break;
+    case UITableViewScrollPositionTop:
+      break;
+    default:
+      break;
+  }
+
+  [self setContentOffsetY:offset animated:animated];
+}
+
 @end

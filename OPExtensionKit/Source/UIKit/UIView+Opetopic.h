@@ -126,7 +126,13 @@ enum {
 /**
  For those times you just want to initialize with a size.
  */
--(id) initWithSize:(CGSize)size;
+-(instancetype) initWithSize:(CGSize)size;
++(instancetype) viewWithSize:(CGSize)size;
+
+/**
+ Convenience constructor
+ */
++(instancetype) viewWithFrame:(CGRect)frame;
 
 /**
  Just a helper method to kill two birds with one stone.

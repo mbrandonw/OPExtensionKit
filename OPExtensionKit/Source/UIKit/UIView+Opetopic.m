@@ -178,6 +178,14 @@
     return [self initWithFrame:(CGRect){0.0f, 0.0f, size}];
 }
 
++(instancetype) viewWithSize:(CGSize)size {
+  return [[[self class] alloc] initWithSize:size];
+}
+
++(instancetype) viewWithFrame:(CGRect)frame {
+  return [[[self class] alloc] initWithFrame:frame];
+}
+
 -(void) setNeedsDisplayAndLayout {
     [self setNeedsDisplay];
     [self setNeedsLayout];

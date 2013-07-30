@@ -222,6 +222,18 @@
     self.width = width;
 }
 
+-(void) sizeToFitAtMostWidth:(CGFloat)width {
+  self.width = width;
+  [self sizeToFit];
+  self.width = MIN(width, self.width);
+}
+
+-(void) sizeToFitAtLeastWidth:(CGFloat)width {
+  self.width = width;
+  [self sizeToFit];
+  self.width = MAX(width, self.width);
+}
+
 -(UIImage*) renderedImage {
     return [self renderedImage:[[UIScreen mainScreen] scale]];
 }

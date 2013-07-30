@@ -164,6 +164,7 @@ enum {
 -(void) sizeToFitWidth:(CGFloat)width;
 -(void) sizeToFitAtMostWidth:(CGFloat)width;
 -(void) sizeToFitAtLeastWidth:(CGFloat)width;
+-(void) sizeToFitAtLeastWidth:(CGFloat)atLeast atMostWidth:(CGFloat)atMost;
 
 /**
  Renders the view into a UIImage.

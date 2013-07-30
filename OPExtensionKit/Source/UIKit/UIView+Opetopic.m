@@ -217,21 +217,23 @@
 }
 
 -(void) sizeToFitWidth:(CGFloat)width {
-    self.width = width;
-    [self sizeToFit];
-    self.width = width;
+  self.width = width;
+  [self sizeToFitAtLeastWidth:width atMostWidth:width];
 }
 
 -(void) sizeToFitAtMostWidth:(CGFloat)width {
   self.width = width;
-  [self sizeToFit];
-  self.width = MIN(width, self.width);
+  [self sizeToFitAtLeastWidth:0.0f atMostWidth:width];
 }
 
 -(void) sizeToFitAtLeastWidth:(CGFloat)width {
   self.width = width;
+  [self sizeToFitAtLeastWidth:width atMostWidth:CGFLOAT_MAX];
+}
+
+-(void) sizeToFitAtLeastWidth:(CGFloat)atLeast atMostWidth:(CGFloat)atMost {
   [self sizeToFit];
-  self.width = MAX(width, self.width);
+  self.width = MIN(atMost, MAX(atLeast, self.width));
 }
 
 -(UIImage*) renderedImage {

@@ -17,17 +17,18 @@
 #define $m(obj)     [obj mutableCopy]
 
 #define OPAssociatedObject(getterName, setterName, associationPolicy, getterBlock, setterBlock) \
+static char __OP_AssociatedObject_##getterName; \
 \
 -(void) setterName:(id)obj { \
-    objc_setAssociatedObject(self, "__OP_AssociatedObject_##setterName", obj, associationPolicy); \
+    objc_setAssociatedObject(self, &__OP_AssociatedObject_##getterName, obj, associationPolicy); \
     void(^_setterBlock)(id obj) = setterBlock; \
     if (_setterBlock) { \
         _setterBlock(obj); \
     } \
 } \
--(NSArray*) getterName { \
+-(id) getterName { \
     void(^_getterBlock)(id obj) = getterBlock; \
-    id obj = objc_getAssociatedObject(self, "__OP_AssociatedObject_##setterName"); \
+    id obj = objc_getAssociatedObject(self, &__OP_AssociatedObject_##getterName); \
     if (_getterBlock) { \
         _getterBlock(obj); \
     } \

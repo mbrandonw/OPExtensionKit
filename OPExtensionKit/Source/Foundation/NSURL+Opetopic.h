@@ -21,5 +21,6 @@
 -(NSDictionary*) queryParameters;
 -(BOOL) isSecure;
 -(NSString*) fullpath;
+-(NSURL*) URLByAddingQueryValue:(id)value forKey:(NSString*)key;
 
 @end

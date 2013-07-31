@@ -26,4 +26,8 @@
     return [self path];
 }
 
+-(NSURL*) URLByAddingQueryValue:(id)value forKey:(NSString*)key {
+  return $url([self.absoluteString stringByAppendingQueryValue:value forKey:key]);
+}
+
 @end

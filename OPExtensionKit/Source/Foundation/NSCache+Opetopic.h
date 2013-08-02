@@ -7,10 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "OPMacros.h"
 
 @interface NSCache (Opetopic)
 
-+(id) sharedCache;
+OP_SINGLETON_HEADER_FOR(NSCache, sharedCache);
+
 -(id) fetch:(id)key do:(id(^)(void))block;
 
 @end

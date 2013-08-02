@@ -95,15 +95,24 @@ void DLogSimple(NSString *fmt, ...);
 // Allows all orientations on the iPad, and only portrait on the iPhone
 #define UI_RESTRICTIVE_INTERFACE_ORIENTATIONS(orientation)  (UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPad ? YES : orientation==UIInterfaceOrientationPortrait)
 
-#define OP_SYNTHESIZE_SINGLETON_FOR_CLASS(className, singletonMethod) \
-\
-+(id) singletonMethod { \
-    static className *shared##className = nil; \
-    static dispatch_once_t once; \
-    dispatch_once(&once, ^{ \
-        shared##className = [[[self class] alloc] init]; \
-    }); \
-    return shared##className; \
+#define OP_SINGLETON_HEADER_FOR(className, singletonMethod) \
++(instancetype) singletonMethod; \
++(void) setSharedInstance:(id)sharedInstance;
+
+#define OP_SINGLETON_IMPLEMENTATION_FOR(className, singletonMethod) \
+static className *_shared##className = nil; \
+static dispatch_once_t _onceToken = 0; \
++(instancetype) singletonMethod { \
+  dispatch_once(&_onceToken, ^{ \
+    if (! _shared##className) { \
+      _shared##className = [[[self class] alloc] init]; \
+    } \
+  }); \
+  return _shared##className; \
+} \
++(void) setSharedInstance:(id)sharedInstance { \
+  _onceToken = 0; \
+  _shared##className = sharedInstance; \
 }
 
 #define randi(a,b) ({ \

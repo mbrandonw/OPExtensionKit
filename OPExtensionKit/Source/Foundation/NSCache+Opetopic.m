@@ -7,11 +7,10 @@
 //
 
 #import "NSCache+Opetopic.h"
-#import "OPMacros.h"
 
 @implementation NSCache (Opetopic)
 
-OP_SYNTHESIZE_SINGLETON_FOR_CLASS(NSCache, sharedCache);
+OP_SINGLETON_IMPLEMENTATION_FOR(NSCache, sharedCache);
 
 -(id) fetch:(id)key do:(id(^)(void))block {
     

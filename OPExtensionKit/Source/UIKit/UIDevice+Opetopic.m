@@ -99,6 +99,10 @@
     return [[[UIDevice currentDevice] systemVersion] floatValue] >= 6.0f;
 }
 
++(BOOL) isAtLeastiOS7 {
+  return [[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0f;
+}
+
 +(double) freeMemory {
 #ifdef DEBUG
     mach_port_t host_port;

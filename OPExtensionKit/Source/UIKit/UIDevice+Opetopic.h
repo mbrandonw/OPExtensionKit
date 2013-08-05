@@ -52,6 +52,7 @@ typedef NS_ENUM(NSInteger, OPDeviceType) {
 
 +(BOOL) isAtLeastiOS5;
 +(BOOL) isAtLeastiOS6;
++(BOOL) isAtLeastiOS7;
 
 +(double) freeMemory;
 +(double) appMemoryUsage;

@@ -63,3 +63,4 @@
 #import "UIFont+Opetopic.h"
 #import "NSTimeZone+Opetopic.h"
 #import "NSLayoutConstraint+Opetopic.h"
+#import "UIFontDescriptor+Opetopic.h"

@@ -14,3 +14,4 @@ NSString* OPFontTextStyleSubheadline(void);
 NSString* OPFontTextStyleFootnote(void);
 NSString* OPFontTextStyleCaption1(void);
 NSString* OPFontTextStyleCaption2(void);
+CGFloat OPPreferredSizeWithStyle(NSString *style);

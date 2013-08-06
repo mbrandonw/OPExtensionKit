@@ -50,3 +50,11 @@ NSString* OPFontTextStyleCaption2(void) {
   }
   return nil;
 }
+
+CGFloat OPPreferredSizeWithStyle(NSString *style) {
+  if (style && NSClassFromString(@"UIFontDescriptor")) {
+    return [[[[UIFontDescriptor preferredFontDescriptorWithTextStyle:style] fontAttributes]
+             objectForKey:UIFontDescriptorSizeAttribute] floatValue];
+  }
+  return 0.0f;
+}

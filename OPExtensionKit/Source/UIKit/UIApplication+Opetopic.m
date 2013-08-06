@@ -74,6 +74,38 @@
     });
 }
 
+-(OPApplicationContentSizeEnum) preferredContentSizeEnum {
+  NSString *category = nil;
+  if ([UIApplication instancesRespondToSelector:@selector(preferredContentSizeCategory)]) {
+    category = [self preferredContentSizeCategory];
+  } else {
+    return OPApplicationContentSizeEnumNA;
+  }
+
+  if ([category isEqualToString:UIContentSizeCategoryExtraSmall]) {
+    return OPApplicationContentSizeEnumXSmall;
+  }
+  if ([category isEqualToString:UIContentSizeCategorySmall]) {
+    return OPApplicationContentSizeEnumSmall;
+  }
+  if ([category isEqualToString:UIContentSizeCategoryMedium]) {
+    return OPApplicationContentSizeEnumMedium;
+  }
+  if ([category isEqualToString:UIContentSizeCategoryLarge]) {
+    return OPApplicationContentSizeEnumLarge;
+  }
+  if ([category isEqualToString:UIContentSizeCategoryExtraLarge]) {
+    return OPApplicationContentSizeEnumXLarge;
+  }
+  if ([category isEqualToString:UIContentSizeCategoryExtraExtraLarge]) {
+    return OPApplicationContentSizeEnumXXLarge;
+  }
+  if ([category isEqualToString:UIContentSizeCategoryExtraExtraExtraLarge]) {
+    return OPApplicationContentSizeEnumXXXLarge;
+  }
+  return OPApplicationContentSizeEnumNA;
+}
+
 +(void) call:(NSString*)number {
     
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://%@", [number stripNonTelephonyCharacters]]]];

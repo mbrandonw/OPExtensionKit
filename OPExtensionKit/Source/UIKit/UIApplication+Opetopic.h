@@ -11,6 +11,17 @@
  Lots of fancy UIApplication extensions!
  */
 
+typedef NS_ENUM(NSInteger, OPApplicationContentSizeEnum) {
+  OPApplicationContentSizeEnumNA,
+  OPApplicationContentSizeEnumXSmall,
+  OPApplicationContentSizeEnumSmall,
+  OPApplicationContentSizeEnumMedium,
+  OPApplicationContentSizeEnumLarge,
+  OPApplicationContentSizeEnumXLarge,
+  OPApplicationContentSizeEnumXXLarge,
+  OPApplicationContentSizeEnumXXXLarge,
+};
+
 #import <UIKit/UIKit.h>
 
 @interface UIApplication (Opetopic)
@@ -29,6 +40,10 @@
 /**
  */
 -(void) preventDeviceFromIdlingWhile:(void(^)(void))task;
+
+/**
+ */
+-(OPApplicationContentSizeEnum) preferredContentSizeEnum;
 
 /**
  Invoke particular -openURL: schemes.

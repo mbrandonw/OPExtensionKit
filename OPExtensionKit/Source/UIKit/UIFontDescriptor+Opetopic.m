@@ -10,51 +10,65 @@
 #import "UIDevice+Opetopic.h"
 
 NSString* OPFontTextStyleHeadline(void) {
+#if __IPHONE_7_0
   if ([UIDevice isAtLeastiOS7]) {
     return UIFontTextStyleHeadline;
   }
+#endif
   return nil;
 }
 
 NSString* OPFontTextStyleBody(void) {
+#if __IPHONE_7_0
   if ([UIDevice isAtLeastiOS7]) {
     return UIFontTextStyleBody;
   }
+#endif
   return nil;
 }
 
 NSString* OPFontTextStyleSubheadline(void) {
+#if __IPHONE_7_0
   if ([UIDevice isAtLeastiOS7]) {
     return UIFontTextStyleSubheadline;
   }
+#endif
   return nil;
 }
 
 NSString* OPFontTextStyleFootnote(void) {
+#if __IPHONE_7_0
   if ([UIDevice isAtLeastiOS7]) {
     return UIFontTextStyleFootnote;
   }
+#endif
   return nil;
 }
 
 NSString* OPFontTextStyleCaption1(void) {
+#if __IPHONE_7_0
   if ([UIDevice isAtLeastiOS7]) {
     return UIFontTextStyleCaption1;
   }
+#endif
   return nil;
 }
 
 NSString* OPFontTextStyleCaption2(void) {
+#if __IPHONE_7_0
   if ([UIDevice isAtLeastiOS7]) {
     return UIFontTextStyleCaption2;
   }
+#endif
   return nil;
 }
 
 CGFloat OPPreferredSizeWithStyle(NSString *style) {
+#if __IPHONE_7_0
   if (style && NSClassFromString(@"UIFontDescriptor")) {
     return [[[[UIFontDescriptor preferredFontDescriptorWithTextStyle:style] fontAttributes]
              objectForKey:UIFontDescriptorSizeAttribute] floatValue];
   }
+#endif
   return 0.0f;
 }

@@ -259,14 +259,6 @@
         [[self class] animateWithDuration:duration animations:animations completion:completion];
 }
 
--(NSString*) rDescription {
-#ifdef DEBUG
-    return [self performSelector:@selector(recursiveDescription)];
-#else
-    return [self description];
-#endif
-}
-
 +(instancetype) autoLayoutView {
   UIView *retVal = [[self class] new];
   retVal.translatesAutoresizingMaskIntoConstraints = NO;

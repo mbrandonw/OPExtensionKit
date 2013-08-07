@@ -179,11 +179,6 @@ enum {
 +(void) animateWithDuration:(NSTimeInterval)duration animations:(void (^)(void))animations asapCompletion:(void (^)(BOOL finished))completion;
 
 /**
- Easy access to `recursiveDescription`. Don't worry, this is App Store safe.
- */
--(NSString*) rDescription;
-
-/**
  */
 +(instancetype) autoLayoutView;
 

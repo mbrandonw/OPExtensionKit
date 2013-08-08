@@ -18,7 +18,6 @@
     CGSize titleSize = self.titleLabel.size;
 
     self.titleEdgeInsets = UIEdgeInsetsMake(0.0, -imageSize.width, -(imageSize.height + spacing), 0.0);
-    titleSize = self.titleLabel.size;
     self.imageEdgeInsets = UIEdgeInsetsMake(-(titleSize.height + spacing), 0.0, 0.0, - titleSize.width);
   }
 }

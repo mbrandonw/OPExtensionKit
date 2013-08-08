@@ -20,4 +20,20 @@
     return retVal;
 }
 
++(void) printPreferredFontSizes {
+#if __IPHONE_7_0
+  NSArray *styles = @[
+                      UIFontTextStyleFootnote,
+                      UIFontTextStyleCaption2,
+                      UIFontTextStyleCaption1,
+                      UIFontTextStyleBody,
+                      UIFontTextStyleSubheadline,
+                      UIFontTextStyleHeadline,
+                      ];
+  for (NSString *style in styles) {
+    DLog(@"%@: %f", style, [UIFont preferredFontForTextStyle:style].pointSize);
+  }
+#endif
+}
+
 @end

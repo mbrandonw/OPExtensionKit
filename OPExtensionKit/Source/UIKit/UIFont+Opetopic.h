@@ -12,4 +12,6 @@
 
 +(NSDictionary*) installedFontsByFamily;
 
++(void) printPreferredFontSizes;
+
 @end

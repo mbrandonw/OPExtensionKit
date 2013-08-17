@@ -118,7 +118,7 @@ static dispatch_once_t _onceToken = 0; \
 #define randi(a,b) ({ \
     __typeof__(a) __a=(a); \
     __typeof__(b) __b=(b); \
-    (arc4random() % (__b - __a) + __a); \
+    (arc4random_uniform() % (__b - __a) + __a); \
 })
 
 #define randf(a,b) ({ \

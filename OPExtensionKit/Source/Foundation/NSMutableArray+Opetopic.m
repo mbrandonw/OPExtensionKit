@@ -20,8 +20,9 @@
 
 -(void) shuffle {
 	
-	for (NSUInteger i = 0; i < [self count]; i++)
-		[self exchangeObjectAtIndex:i withObjectAtIndex:arc4random()%[self count]];
+	for (NSUInteger i = 0; i < [self count]; i++) {
+		[self exchangeObjectAtIndex:i withObjectAtIndex:arc4random_uniform([self count])];
+  }
 }
 
 -(id) pop {

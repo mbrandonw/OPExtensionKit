@@ -122,4 +122,16 @@
   return NO;
 }
 
+-(BOOL) implementsSelector:(SEL)selector {
+  return [self methodForSelector:selector] != [[self superclass] instanceMethodForSelector:selector];
+}
+
++(BOOL) implementsSelector:(SEL)selector {
+  return [[self class] methodForSelector:selector] != [[[self class] superclass] methodForSelector:selector];
+}
+
++(BOOL) instancesImplementSelector:(SEL)selector {
+  return [[self class] instanceMethodForSelector:selector] != [[[self class] superclass] instanceMethodForSelector:selector];
+}
+
 @end

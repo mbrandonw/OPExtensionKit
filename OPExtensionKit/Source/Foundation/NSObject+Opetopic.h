@@ -91,4 +91,11 @@ static char __OP_AssociatedObject_##getterName; \
 -(BOOL) isAfter:(NSObject*)obj;
 -(BOOL) isBefore:(NSObject*)obj;
 
+/**
+ Check if we directly implement a selector, and not just the superclass' implementation.
+ */
+-(BOOL) implementsSelector:(SEL)selector;
++(BOOL) implementsSelector:(SEL)selector;
++(BOOL) instancesImplementSelector:(SEL)selector;
+
 @end

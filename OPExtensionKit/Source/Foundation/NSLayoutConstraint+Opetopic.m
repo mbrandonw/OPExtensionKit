@@ -34,3 +34,38 @@
 }
 
 @end
+
+@implementation UIView (NSLayoutConstraint_Opetopic)
+
+-(NSLayoutConstraint*) constraintWithWidthToProportionalToHeight:(CGFloat)factor {
+
+  return [NSLayoutConstraint constraintWithItem:self
+                                      attribute:NSLayoutAttributeWidth
+                                      relatedBy:NSLayoutRelationEqual
+                                         toItem:self
+                                      attribute:NSLayoutAttributeHeight
+                                     multiplier:factor
+                                       constant:0.0f];
+}
+
+-(NSLayoutConstraint*) constraintToCenterHorizontallyInSuperview {
+  return [NSLayoutConstraint constraintWithItem:self
+                                      attribute:NSLayoutAttributeCenterX
+                                      relatedBy:NSLayoutRelationEqual
+                                         toItem:self.superview
+                                      attribute:NSLayoutAttributeCenterX
+                                     multiplier:1.0f
+                                       constant:0.0f];
+}
+
+-(NSLayoutConstraint*) constraintToCenterVerticallyInSuperview {
+  return [NSLayoutConstraint constraintWithItem:self
+                                      attribute:NSLayoutAttributeCenterY
+                                      relatedBy:NSLayoutRelationEqual
+                                         toItem:self.superview
+                                      attribute:NSLayoutAttributeCenterY
+                                     multiplier:1.0f
+                                       constant:0.0f];
+}
+
+@end

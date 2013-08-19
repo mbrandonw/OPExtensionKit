@@ -14,3 +14,11 @@
 +(NSArray*) constraintsWithVisualFormats:(NSArray*)formats options:(NSLayoutFormatOptions)options bindings:(NSDictionary*)bindings;
 
 @end
+
+@interface UIView (NSLayoutConstraint_Opetopic)
+
+-(NSLayoutConstraint*) constraintWithWidthToProportionalToHeight:(CGFloat)factor;
+-(NSLayoutConstraint*) constraintToCenterHorizontallyInSuperview;
+-(NSLayoutConstraint*) constraintToCenterVerticallyInSuperview;
+
+@end

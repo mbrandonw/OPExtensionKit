@@ -13,6 +13,10 @@
 @implementation NSLayoutConstraint (Opetopic)
 
 +(NSArray*) constraintsWithVisualFormats:(NSArray*)formats bindings:(NSDictionary*)bindings {
+  return [[self class] constraintsWithVisualFormats:formats options:0 bindings:bindings];
+}
+
++(NSArray*) constraintsWithVisualFormats:(NSArray*)formats options:(NSLayoutFormatOptions)options bindings:(NSDictionary*)bindings {
 
   return [[NSMutableArray new] tap:^(NSMutableArray *constraints) {
 
@@ -24,7 +28,7 @@
     }];
 
     for (NSString *format in formats) {
-      [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:format options:0 metrics:metrics views:views]];
+      [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:format options:options metrics:metrics views:views]];
     }
   }];
 }

@@ -11,5 +11,6 @@
 @interface NSLayoutConstraint (Opetopic)
 
 +(NSArray*) constraintsWithVisualFormats:(NSArray*)formats bindings:(NSDictionary*)bindings;
++(NSArray*) constraintsWithVisualFormats:(NSArray*)formats options:(NSLayoutFormatOptions)options bindings:(NSDictionary*)bindings;
 
 @end

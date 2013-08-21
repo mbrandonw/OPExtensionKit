@@ -15,6 +15,10 @@
     return [[self committedValuesForKeys:nil] count] == 0;
 }
 
+-(void) fault {
+  [self.managedObjectContext refreshObject:self mergeChanges:NO];
+}
+
 -(void) addToContext:(NSManagedObjectContext*)context {
     if (! self.managedObjectContext)
     {

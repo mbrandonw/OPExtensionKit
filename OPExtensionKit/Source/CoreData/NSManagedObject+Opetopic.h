@@ -15,6 +15,11 @@
  */
 -(BOOL) isUnsaved;
 
+/**
+ Faults the object.
+ */
+-(void) fault;
+
 -(void) addToContext:(NSManagedObjectContext*)context;
 
 @end

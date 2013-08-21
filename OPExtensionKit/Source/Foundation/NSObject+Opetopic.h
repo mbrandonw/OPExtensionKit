@@ -98,4 +98,9 @@ static char __OP_AssociatedObject_##getterName; \
 +(BOOL) implementsSelector:(SEL)selector;
 +(BOOL) instancesImplementSelector:(SEL)selector;
 
+/**
+ Performs selector if object responds to it.
+ */
+-(id) try:(SEL)selector;
+
 @end

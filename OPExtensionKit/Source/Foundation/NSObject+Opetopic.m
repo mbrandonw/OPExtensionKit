@@ -134,4 +134,11 @@
   return [[self class] instanceMethodForSelector:selector] != [[[self class] superclass] instanceMethodForSelector:selector];
 }
 
+-(id) try:(SEL)selector {
+  #pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+  return [self respondsToSelector:selector] ? [self performSelector:selector] : nil;
+#pragma clang diagnostic pop
+}
+
 @end

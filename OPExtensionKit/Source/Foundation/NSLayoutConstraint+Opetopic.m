@@ -37,7 +37,7 @@
 
 @implementation UIView (NSLayoutConstraint_Opetopic)
 
--(NSLayoutConstraint*) constraintWithWidthToProportionalToHeight:(CGFloat)factor {
+-(NSLayoutConstraint*) constraintWithWidthProportionalToHeight:(CGFloat)factor {
 
   return [NSLayoutConstraint constraintWithItem:self
                                       attribute:NSLayoutAttributeWidth

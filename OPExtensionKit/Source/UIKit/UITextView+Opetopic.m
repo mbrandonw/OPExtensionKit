@@ -11,7 +11,7 @@
 @implementation UITextView (Opetopic)
 
 +(UIEdgeInsets) textEdgeInsets {
-  if ([UIDevice isAtLeastiOS7]) {
+  if ([UIDevice isiOS7OrLater]) {
     return UIEdgeInsetsMake(11.0f, 5.0f, 11.0f, 5.0f);
   }
   return UIEdgeInsetsMake(12.0f, 9.0f, 12.0f, 9.0f);

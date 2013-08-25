@@ -91,16 +91,28 @@
     return [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"tel://"]];
 }
 
-+(BOOL) isAtLeastiOS5 {
++(BOOL) isiOS5OrLater {
     return [[[UIDevice currentDevice] systemVersion] floatValue] >= 5.0f;
 }
 
-+(BOOL) isAtLeastiOS6 {
++(BOOL) isiOS5OrEarlier {
+  return [[[UIDevice currentDevice] systemVersion] floatValue] <= 5.0f;;
+}
+
++(BOOL) isiOS6OrLater {
     return [[[UIDevice currentDevice] systemVersion] floatValue] >= 6.0f;
 }
 
-+(BOOL) isAtLeastiOS7 {
++(BOOL) isiOS6OrEarlier {
+  return [[[UIDevice currentDevice] systemVersion] floatValue] <= 6.0f;;
+}
+
++(BOOL) isiOS7OrLater {
   return [[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0f;
+}
+
++(BOOL) isiOS7OrEarlier {
+  return [[[UIDevice currentDevice] systemVersion] floatValue] <= 7.0f;;
 }
 
 +(double) freeMemory {

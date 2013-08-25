@@ -11,7 +11,7 @@
 
 NSString* OPFontTextStyleHeadline(void) {
 #if __IPHONE_7_0
-  if ([UIDevice isAtLeastiOS7]) {
+  if ([UIDevice isiOS7OrLater]) {
     return UIFontTextStyleHeadline;
   }
 #endif
@@ -20,7 +20,7 @@ NSString* OPFontTextStyleHeadline(void) {
 
 NSString* OPFontTextStyleBody(void) {
 #if __IPHONE_7_0
-  if ([UIDevice isAtLeastiOS7]) {
+  if ([UIDevice isiOS7OrLater]) {
     return UIFontTextStyleBody;
   }
 #endif
@@ -29,7 +29,7 @@ NSString* OPFontTextStyleBody(void) {
 
 NSString* OPFontTextStyleSubheadline(void) {
 #if __IPHONE_7_0
-  if ([UIDevice isAtLeastiOS7]) {
+  if ([UIDevice isiOS7OrLater]) {
     return UIFontTextStyleSubheadline;
   }
 #endif
@@ -38,7 +38,7 @@ NSString* OPFontTextStyleSubheadline(void) {
 
 NSString* OPFontTextStyleFootnote(void) {
 #if __IPHONE_7_0
-  if ([UIDevice isAtLeastiOS7]) {
+  if ([UIDevice isiOS7OrLater]) {
     return UIFontTextStyleFootnote;
   }
 #endif
@@ -47,7 +47,7 @@ NSString* OPFontTextStyleFootnote(void) {
 
 NSString* OPFontTextStyleCaption1(void) {
 #if __IPHONE_7_0
-  if ([UIDevice isAtLeastiOS7]) {
+  if ([UIDevice isiOS7OrLater]) {
     return UIFontTextStyleCaption1;
   }
 #endif
@@ -56,7 +56,7 @@ NSString* OPFontTextStyleCaption1(void) {
 
 NSString* OPFontTextStyleCaption2(void) {
 #if __IPHONE_7_0
-  if ([UIDevice isAtLeastiOS7]) {
+  if ([UIDevice isiOS7OrLater]) {
     return UIFontTextStyleCaption2;
   }
 #endif

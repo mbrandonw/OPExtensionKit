@@ -96,7 +96,7 @@
 }
 
 +(BOOL) isiOS5OrEarlier {
-  return [[[UIDevice currentDevice] systemVersion] floatValue] <= 5.0f;;
+  return [[[UIDevice currentDevice] systemVersion] floatValue] < 6.0f;;
 }
 
 +(BOOL) isiOS6OrLater {
@@ -104,7 +104,7 @@
 }
 
 +(BOOL) isiOS6OrEarlier {
-  return [[[UIDevice currentDevice] systemVersion] floatValue] <= 6.0f;;
+  return [[[UIDevice currentDevice] systemVersion] floatValue] < 7.0f;;
 }
 
 +(BOOL) isiOS7OrLater {
@@ -112,7 +112,7 @@
 }
 
 +(BOOL) isiOS7OrEarlier {
-  return [[[UIDevice currentDevice] systemVersion] floatValue] <= 7.0f;;
+  return [[[UIDevice currentDevice] systemVersion] floatValue] < 8.0f;;
 }
 
 +(double) freeMemory {

@@ -11,7 +11,7 @@
 @implementation UIViewController (Opetopic)
 
 -(void) dismissModalViewControllerWithAnimation {
-	[self dismissModalViewControllerAnimated:YES];
+	[self dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(void) dismissViewControllerWithAnimation {

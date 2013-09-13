@@ -37,8 +37,7 @@
 
 -(void) performBackgroundTaskOnMainThread:(void(^)(void))task completion:(void(^)(void))completion expiration:(void(^)(void))expiration {
     
-    if (task)
-    {
+    if (task) {
         UIBackgroundTaskIdentifier identifier = UIBackgroundTaskInvalid;
         identifier = [self beginBackgroundTaskWithExpirationHandler:^{
             [self endBackgroundTask:identifier];
@@ -46,7 +45,7 @@
                 expiration();
             }
         }];
-        dispatch_asap_main_queue(^{
+        dispatch_async(dispatch_get_main_queue(), ^{
             if (task) {
                 task();
             }

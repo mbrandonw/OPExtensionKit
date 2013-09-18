@@ -74,7 +74,7 @@
 }
 
 -(OPApplicationContentSizeEnum) preferredContentSizeEnum {
-#if __IPHONE_7_0
+  
   NSString *category = nil;
   if ([UIApplication instancesRespondToSelector:@selector(preferredContentSizeCategory)]) {
     category = [self preferredContentSizeCategory];
@@ -103,7 +103,6 @@
   if ([category isEqualToString:UIContentSizeCategoryExtraExtraExtraLarge]) {
     return OPApplicationContentSizeEnumXXXLarge;
   }
-#endif
   return OPApplicationContentSizeEnumNA;
 }
 

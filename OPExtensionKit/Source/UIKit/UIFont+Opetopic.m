@@ -21,7 +21,7 @@
 }
 
 +(void) printPreferredFontSizes {
-#if __IPHONE_7_0
+  
   NSArray *styles = @[
                       UIFontTextStyleFootnote,
                       UIFontTextStyleCaption2,
@@ -33,7 +33,6 @@
   for (NSString *style in styles) {
     DLog(@"%@: %f", style, [UIFont preferredFontForTextStyle:style].pointSize);
   }
-#endif
 }
 
 @end

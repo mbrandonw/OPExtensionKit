@@ -13,19 +13,20 @@
 +(NSArray*) _symbolProxy:(SEL)selector;
 @end
 
-static NSDateFormatter *__formatters[NSDateFormatterFullStyle][NSDateFormatterFullStyle];
+static NSMutableDictionary *__formatters;
 
 @implementation NSDateFormatter (Opetopic)
 
 +(NSDateFormatter*) formatterWithDateStyle:(NSDateFormatterStyle)dateStyle timeStyle:(NSDateFormatterStyle)timeStyle {
-    @synchronized(self) 
-    {
-        if (! __formatters[dateStyle][timeStyle]) {
-			__formatters[dateStyle][timeStyle] = [[NSDateFormatter alloc] init];
-			[__formatters[dateStyle][timeStyle] setDateStyle:dateStyle];
-			[__formatters[dateStyle][timeStyle] setTimeStyle:timeStyle];
-		}
-        return __formatters[dateStyle][timeStyle];
+  @synchronized(self) {
+    __formatters = __formatters ?: [NSMutableDictionary new];
+    NSString *key = $strfmt(@"%i_%i", dateStyle, timeStyle);
+    if (! __formatters[key]) {
+      __formatters[key] = [NSDateFormatter new];
+      [__formatters[key] setDateStyle:dateStyle];
+			[__formatters[key] setTimeStyle:timeStyle];
+    }
+    return __formatters[key];
 	}
 }
 

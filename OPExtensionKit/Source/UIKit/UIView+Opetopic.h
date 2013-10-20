@@ -182,4 +182,8 @@ enum {
  */
 +(instancetype) autoLayoutView;
 
+/**
+ */
+-(void) removeAllConstraints;
+
 @end

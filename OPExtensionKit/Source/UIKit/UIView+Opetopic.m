@@ -265,4 +265,8 @@
   return retVal;
 }
 
+-(void) removeAllConstraints {
+  [self removeConstraints:self.constraints];
+}
+
 @end

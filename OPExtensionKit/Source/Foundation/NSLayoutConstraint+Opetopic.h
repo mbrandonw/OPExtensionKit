@@ -18,7 +18,8 @@
 @interface UIView (NSLayoutConstraint_Opetopic)
 
 -(NSLayoutConstraint*) constraintWithWidthProportionalToHeight:(CGFloat)factor;
--(NSLayoutConstraint*) constraintToCenterHorizontallyInSuperview;
--(NSLayoutConstraint*) constraintToCenterVerticallyInSuperview;
+-(NSArray*) constraintsToCenterWithin:(UIView*)view;
+-(NSLayoutConstraint*) constraintToCenterHorizontallyWithin:(UIView*)view;
+-(NSLayoutConstraint*) constraintToCenterVerticallyWithin:(UIView*)view;
 
 @end

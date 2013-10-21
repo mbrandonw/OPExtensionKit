@@ -48,21 +48,28 @@
                                        constant:0.0f];
 }
 
--(NSLayoutConstraint*) constraintToCenterHorizontallyInSuperview {
+-(NSArray*) constraintsToCenterWithin:(UIView *)view {
+  return @[
+           [self constraintToCenterHorizontallyWithin:view],
+           [self constraintToCenterVerticallyWithin:view],
+           ];
+}
+
+-(NSLayoutConstraint*) constraintToCenterHorizontallyWithin:(UIView *)view {
   return [NSLayoutConstraint constraintWithItem:self
                                       attribute:NSLayoutAttributeCenterX
                                       relatedBy:NSLayoutRelationEqual
-                                         toItem:self.superview
+                                         toItem:view
                                       attribute:NSLayoutAttributeCenterX
                                      multiplier:1.0f
                                        constant:0.0f];
 }
 
--(NSLayoutConstraint*) constraintToCenterVerticallyInSuperview {
+-(NSLayoutConstraint*) constraintToCenterVerticallyWithin:(UIView *)view {
   return [NSLayoutConstraint constraintWithItem:self
                                       attribute:NSLayoutAttributeCenterY
                                       relatedBy:NSLayoutRelationEqual
-                                         toItem:self.superview
+                                         toItem:view
                                       attribute:NSLayoutAttributeCenterY
                                      multiplier:1.0f
                                        constant:0.0f];

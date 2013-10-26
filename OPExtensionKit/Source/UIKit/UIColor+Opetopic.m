@@ -374,10 +374,16 @@
   }];
 }
 
-+(UIColor*) TwitterBlueColor {
-    return [[OPCache sharedCache] fetch:@"UIColor/Opetopic/TwitterBlueColor" do:^id{
-        return $RGBi(64,153,255);
-    }];
++(UIColor*) twitterBlue {
+  return [[OPCache sharedCache] fetch:@"UIColor/Opetopic/twitterBlue" do:^id{
+    return $hex(0x00aced);
+  }];
+}
+
++(UIColor*) twitterBlueHover {
+  return [[OPCache sharedCache] fetch:@"UIColor/Opetopic/twitterBlueHover" do:^id{
+    return $hex(0x00a2d0);
+  }];
 }
 
 +(UIColor*) UIKitHighlightBlueTopColor {

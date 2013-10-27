@@ -98,6 +98,22 @@
     [self setContentOffset:CGPointMake(self.contentOffset.x, y) animated:animated];
 }
 
+-(void) setContentSizeWidth:(CGFloat)width {
+  self.contentSize = CGSizeMake(width, self.contentSize.height);
+}
+
+-(CGFloat) contentSizeWidth {
+  return self.contentSize.width;
+}
+
+-(void) setContentSizeHeight:(CGFloat)height {
+  self.contentSize = CGSizeMake(self.contentSize.width, height);
+}
+
+-(CGFloat) contentSizeHeight {
+  return self.contentSize.height;
+}
+
 -(void) scrollRectToVisible:(CGRect)rect animated:(BOOL)animated position:(UITableViewScrollPosition)position {
 
   CGRect visibleRect = UIEdgeInsetsInsetRect(self.bounds, self.contentInset);

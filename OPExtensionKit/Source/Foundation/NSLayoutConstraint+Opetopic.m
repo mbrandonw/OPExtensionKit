@@ -33,6 +33,15 @@
   }];
 }
 
++ (id)constraintsWithItems:(NSArray*)items attribute:(NSLayoutAttribute)attr1 relatedBy:(NSLayoutRelation)relation toItem:(id)view2 attribute:(NSLayoutAttribute)attr2 multiplier:(CGFloat)multiplier constant:(CGFloat)constant {
+
+  NSMutableArray *retVal = [NSMutableArray new];
+  for (id item in items) {
+    [retVal addObject:[[self class] constraintWithItem:item attribute:attr1 relatedBy:relation toItem:view2 attribute:attr2 multiplier:multiplier constant:constant]];
+  }
+  return retVal;
+}
+
 @end
 
 @implementation UIView (NSLayoutConstraint_Opetopic)

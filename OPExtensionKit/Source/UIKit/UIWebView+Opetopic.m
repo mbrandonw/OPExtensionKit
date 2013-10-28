@@ -14,6 +14,10 @@
 
 @implementation UIWebView (Opetopic)
 
+-(NSString*) documentTitle {
+  return [self stringByEvaluatingJavaScriptFromString:@"document.title"];
+}
+
 -(void) clearCookies {
     
     NSHTTPCookieStorage *storage = [NSHTTPCookieStorage sharedHTTPCookieStorage];

@@ -10,6 +10,8 @@
 
 @interface UIWebView (Opetopic)
 
+-(NSString*) documentTitle;
+
 -(void) clearCookies;
 -(void) removeBackgroundGradients;
 -(NSString*) rawHTML;

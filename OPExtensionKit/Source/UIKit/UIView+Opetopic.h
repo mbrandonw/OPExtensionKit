@@ -186,4 +186,8 @@ enum {
  */
 -(void) removeAllConstraints;
 
+/**
+ */
+-(void) setContentCompressionResistanceAndHuggingPriority:(UILayoutPriority)priority forAxis:(UILayoutConstraintAxis)axis;
+
 @end

@@ -269,4 +269,9 @@
   [self removeConstraints:self.constraints];
 }
 
+-(void) setContentCompressionResistanceAndHuggingPriority:(UILayoutPriority)priority forAxis:(UILayoutConstraintAxis)axis {
+  [self setContentCompressionResistancePriority:priority forAxis:axis];
+  [self setContentHuggingPriority:priority forAxis:axis];
+}
+
 @end

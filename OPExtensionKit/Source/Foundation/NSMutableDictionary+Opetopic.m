@@ -8,20 +8,6 @@
 
 #import "NSMutableDictionary+Opetopic.h"
 
-NSMutableDictionary *MutableDictionaryWithArrayPrivate(NSUInteger count, id __unsafe_unretained keysAndObjects[]) {
-    
-    id keys[count];
-    id objects[count];
-    
-    for (NSUInteger i = 0; i < count; i++)
-    {
-        keys[i] = keysAndObjects[2 * i];
-        objects[i] = keysAndObjects[2 * i + 1];
-    }
-    
-    return [NSMutableDictionary dictionaryWithObjects:objects forKeys:keys count:count];
-}
-
 @implementation NSMutableDictionary (Opetopic)
 
 -(void) setString:(NSString*)obj forKey:(id)key {

@@ -13,12 +13,6 @@
 
 #import <Foundation/Foundation.h>
 
-/**
- Macro for concisely creating a mutable dictionary with key/value order, as opposed to value/key.
- */
-#define $mdict(...)  MutableDictionaryWithArrayPrivate(VA_ARGS_COUNT(__VA_ARGS__)/2, VA_ARGS_C_ARRAY(__VA_ARGS__))
-NSMutableDictionary *MutableDictionaryWithArrayPrivate(NSUInteger count, id __unsafe_unretained keysAndObjects[]);
-
 @interface NSMutableDictionary (Opetopic)
 
 /**

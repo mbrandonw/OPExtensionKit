@@ -61,6 +61,14 @@ NSDictionary *DictionaryWithArrayPrivate(NSUInteger count, id __unsafe_unretaine
 	return nil;
 }
 
+-(BOOL) boolForKey:(id)key {
+  return [[self numberForKey:key] boolValue];
+}
+
+-(BOOL) boolForKeyPath:(id)keyPath {
+  return [[self numberForKeyPath:keyPath] boolValue];
+}
+
 - (NSDictionary*) dictionaryForKey:(id)key {
 	id r = [self objectForKey:key];
 	if ([r isKindOfClass:[NSDictionary class]])

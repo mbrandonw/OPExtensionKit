@@ -40,6 +40,12 @@ NSDictionary *DictionaryWithArrayPrivate(NSUInteger count, id __unsafe_unretaine
 -(NSNumber*) numberForKeyPath:(id)keyPath;
 
 /**
+ A native BOOL for the object at the key.
+*/
+-(BOOL) boolForKey:(id)key;
+-(BOOL) boolForKeyPath:(id)keyPath;
+
+/**
  The dictionary object for a key.
  
  @return The dictionary object for a key, or `nil` if the object isn't a dictionary.

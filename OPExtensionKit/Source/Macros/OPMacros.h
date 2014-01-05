@@ -141,3 +141,5 @@ static dispatch_once_t _onceToken = 0; \
 })
 
 #define signf(a)	({ __typeof__(a) __a=(a); __a > 0.0f ? 1.0f : __a < 0.0f ? -1.0f : 0.0f; })
+
+#define MEMOIZE(value)  ({ static id memoized = nil; memoized = memoized ?: value; memoized; });

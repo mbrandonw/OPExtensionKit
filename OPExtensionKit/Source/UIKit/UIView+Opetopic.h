@@ -190,4 +190,8 @@ enum {
  */
 -(void) setContentCompressionResistanceAndHuggingPriority:(UILayoutPriority)priority forAxis:(UILayoutConstraintAxis)axis;
 
+/**
+ */
+-(void) recursivelySetSubviewBackgroundColor:(UIColor*)color;
+
 @end

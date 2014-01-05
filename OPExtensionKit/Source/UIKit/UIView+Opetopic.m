@@ -274,4 +274,11 @@
   [self setContentHuggingPriority:priority forAxis:axis];
 }
 
+-(void) recursivelySetSubviewBackgroundColor:(UIColor*)color {
+  for (UIView *subview in self.subviews) {
+    subview.backgroundColor = color;
+    [subview recursivelySetSubviewBackgroundColor:color];
+  }
+}
+
 @end

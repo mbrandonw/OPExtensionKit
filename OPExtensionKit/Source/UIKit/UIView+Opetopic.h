@@ -192,6 +192,7 @@ enum {
 
 /**
  */
+-(void) recursivelySetSubviewBackgroundColor;
 -(void) recursivelySetSubviewBackgroundColor:(UIColor*)color;
 
 @end

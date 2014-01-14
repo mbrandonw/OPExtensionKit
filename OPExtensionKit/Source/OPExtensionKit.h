@@ -66,3 +66,4 @@
 #import "UIFontDescriptor+Opetopic.h"
 #import "UITextView+Opetopic.h"
 #import "NSHTTPCookieStorage+Opetopic.h"
+#import "NSOrderedSet+Opetopic.h"

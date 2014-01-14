@@ -105,4 +105,13 @@ static char __OP_AssociatedObject_##getterName; \
  */
 -(id) try:(SEL)selector;
 
+/**
+ */
+-(void) performSelector:(SEL)selector multiplicity:(NSUInteger)count;
+-(void) performSelector:(SEL)selector withObject:(id)object multiplicity:(NSUInteger)count;
+
+/**
+ */
+-(void) :(NSUInteger)times timesDo:(void(^)(void))block;
+
 @end

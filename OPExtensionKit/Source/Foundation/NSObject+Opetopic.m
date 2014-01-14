@@ -138,10 +138,34 @@
 }
 
 -(id) try:(SEL)selector {
-  #pragma clang diagnostic push
+#pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
   return [self respondsToSelector:selector] ? [self performSelector:selector] : nil;
 #pragma clang diagnostic pop
+}
+
+-(void) performSelector:(SEL)selector multiplicity:(NSUInteger)count {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+  for (NSUInteger index = 0; index < count; index++) {
+    [self performSelector:selector];
+  }
+#pragma clang diagnostic pop
+}
+
+-(void) performSelector:(SEL)selector withObject:(id)object multiplicity:(NSUInteger)count {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+  for (NSUInteger index = 0; index < count; index++) {
+    [self performSelector:selector withObject:object];
+  }
+#pragma clang diagnostic pop
+}
+
+-(void) :(NSUInteger)times timesDo:(void(^)(void))block {
+  for (NSUInteger index = 0; index < times; index++) {
+    block();
+  }
 }
 
 @end

@@ -16,7 +16,9 @@
 }
 
 -(void) fault {
-  [self.managedObjectContext refreshObject:self mergeChanges:NO];
+  if (! [self isFault]) {
+    [self.managedObjectContext refreshObject:self mergeChanges:NO];
+  }
 }
 
 -(void) addToContext:(NSManagedObjectContext*)context {

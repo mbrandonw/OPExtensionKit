@@ -285,4 +285,18 @@
   }
 }
 
+-(void) traverseSelfAndSubviews:(void(^)(UIView *subview))block {
+  block(self);
+  for (UIView *subview in self.subviews) {
+    [subview traverseSubviews:block];
+  }
+}
+
+-(void) traverseSubviews:(void(^)(UIView*))block {
+  for (UIView *subview in self.subviews) {
+    block(subview);
+    [subview traverseSubviews:block];
+  }
+}
+
 @end

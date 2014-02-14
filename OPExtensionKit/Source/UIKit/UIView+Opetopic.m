@@ -288,7 +288,7 @@
 -(void) traverseSelfAndSubviews:(void(^)(UIView *subview))block {
   block(self);
   for (UIView *subview in self.subviews) {
-    [subview traverseSubviews:block];
+    [subview traverseSelfAndSubviews:block];
   }
 }
 

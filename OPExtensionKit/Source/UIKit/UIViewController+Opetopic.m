@@ -36,4 +36,12 @@
     return rootViewController;
 }
 
+-(BOOL) orientationIsPortrait {
+  return UIInterfaceOrientationIsPortrait(self.interfaceOrientation);
+}
+
+-(BOOL) orientationIsLandscape {
+  return UIInterfaceOrientationIsLandscape(self.interfaceOrientation);
+}
+
 @end

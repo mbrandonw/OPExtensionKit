@@ -16,4 +16,7 @@
 -(void) simulateMemoryWarning;
 -(UIViewController*) mostParentViewController;
 
+-(BOOL) orientationIsPortrait;
+-(BOOL) orientationIsLandscape;
+
 @end

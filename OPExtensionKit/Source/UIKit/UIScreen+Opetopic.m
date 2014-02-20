@@ -14,4 +14,8 @@
     return self.bounds.size.height > 480.0f;
 }
 
+-(BOOL) isHighResolution {
+  return self.scale >= 1.5f;
+}
+
 @end

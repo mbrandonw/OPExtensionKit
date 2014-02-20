@@ -11,5 +11,6 @@
 @interface UIScreen (Opetopic)
 
 -(BOOL) isTall;
+-(BOOL) isHighResolution;
 
 @end

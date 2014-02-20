@@ -67,10 +67,6 @@
     return (gcClass && osVersionSupported);
 }
 
-+(BOOL) isRetina {
-	return ((UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) || ([UIScreen instancesRespondToSelector:@selector(scale)] && [[UIScreen mainScreen] scale] > 1.0f));
-}
-
 +(BOOL) isPhone {
 	return UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone;
 }

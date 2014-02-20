@@ -43,7 +43,6 @@ typedef NS_ENUM(NSInteger, OPDeviceType) {
 +(OPDeviceType) deviceType;
 
 +(BOOL) isGameCenterReady;
-+(BOOL) isRetina;
 +(BOOL) isPhone;
 +(BOOL) isPad;
 +(BOOL) isFast;

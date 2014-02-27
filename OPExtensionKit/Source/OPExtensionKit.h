@@ -67,3 +67,4 @@
 #import "UITextView+Opetopic.h"
 #import "NSHTTPCookieStorage+Opetopic.h"
 #import "NSOrderedSet+Opetopic.h"
+#import "UICollectionView+Opetopic.h"

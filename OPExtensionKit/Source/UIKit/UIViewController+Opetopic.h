@@ -19,4 +19,9 @@
 -(BOOL) orientationIsPortrait;
 -(BOOL) orientationIsLandscape;
 
+/**
+ */
+-(void) traverseSelfAndChildrenControllers:(void(^)(UIViewController *child))block;
+-(void) traverseChildrenControllers:(void(^)(UIViewController *child))block;
+
 @end

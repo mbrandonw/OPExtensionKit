@@ -44,4 +44,17 @@
   return UIInterfaceOrientationIsLandscape(self.interfaceOrientation);
 }
 
+-(void) traverseSelfAndChildrenControllers:(void(^)(UIViewController *child))block {
+  block(self);
+  for (UIViewController *child in self.childViewControllers) {
+    [child traverseSelfAndChildrenControllers:block];
+  }
+}
+
+-(void) traverseChildrenControllers:(void(^)(UIViewController *child))block {
+  for (UIViewController *child in self.childViewControllers) {
+    [child traverseSelfAndChildrenControllers:block];
+  }
+}
+
 @end

@@ -35,7 +35,7 @@ static char __OP_AssociatedObject_##getterName; \
     return obj; \
 }
 
-#define OPTypedAs(obj, className)   (className*)[obj typedAs:[className class]]
+#define OPTypedAs(obj, className)   ((className*)[obj typedAs:[className class]])
 
 @interface NSObject (Opetopic)
 

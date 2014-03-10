@@ -299,4 +299,8 @@
   }
 }
 
+-(BOOL) isAnimating {
+  return [self.layer.animationKeys count] > 0;
+}
+
 @end

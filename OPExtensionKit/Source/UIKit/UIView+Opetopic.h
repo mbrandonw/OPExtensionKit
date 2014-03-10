@@ -200,4 +200,8 @@ enum {
 -(void) traverseSelfAndSubviews:(void(^)(UIView *subview))block;
 -(void) traverseSubviews:(void(^)(UIView *subview))block;
 
+/**
+ */
+@property (nonatomic, readonly, getter = isAnimating) BOOL animating;
+
 @end

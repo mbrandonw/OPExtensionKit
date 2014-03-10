@@ -24,4 +24,10 @@
 -(void) traverseSelfAndChildrenControllers:(void(^)(UIViewController *child))block;
 -(void) traverseChildrenControllers:(void(^)(UIViewController *child))block;
 
+/**
+ Extracts the Class return type from the "view" property.
+ */
+-(Class) viewClass;
++(Class) viewClass;
+
 @end

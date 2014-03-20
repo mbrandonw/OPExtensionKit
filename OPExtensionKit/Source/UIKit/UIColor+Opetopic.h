@@ -96,7 +96,7 @@
 /**
  Creating colors from hex values.
  */
-+(UIColor*) colorWithHex:(UInt64)hex;
++(UIColor*) colorWithHex:(UInt32)hex;
 +(UIColor*) colorWithHex:(UInt32)hex alpha:(UInt8)alpha;
 -(UInt32) hex;
 -(UInt64) hexa;

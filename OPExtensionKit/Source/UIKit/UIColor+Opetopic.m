@@ -224,7 +224,7 @@
     return YES;
 }
 
-+(UIColor*) colorWithHex:(UInt64)hex {
++(UIColor*) colorWithHex:(UInt32)hex {
     return [UIColor colorWithHex:hex alpha:0xff];
 }
 

@@ -418,4 +418,8 @@
     }
 }
 
+-(CIColor*) op_CIColor {
+  return [CIColor colorWithCGColor:self.CGColor];
+}
+
 @end

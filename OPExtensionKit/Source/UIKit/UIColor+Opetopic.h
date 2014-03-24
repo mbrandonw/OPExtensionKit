@@ -135,4 +135,9 @@
 -(CGColorSpaceModel) colorSpaceModel;
 -(BOOL) canProvideRGBComponents;
 
+/**
+ Getting CIColor's out of UIColor's.
+ */
+@property (nonatomic, readonly) CIColor *op_CIColor;
+
 @end

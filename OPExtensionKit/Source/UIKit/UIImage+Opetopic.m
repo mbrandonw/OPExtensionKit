@@ -11,6 +11,10 @@
 
 @implementation UIImage (Opetopic)
 
+-(CIImage*) op_CIImage {
+  return [CIImage imageWithCGImage:self.CGImage];
+}
+
 -(NSInteger) rightCapWidth {
 	return (NSInteger)self.size.width - self.leftCapWidth - 1;
 }

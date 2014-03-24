@@ -10,6 +10,8 @@
 
 @interface UIImage (Opetopic)
 
+@property (nonatomic, readonly) CIImage *op_CIImage;
+
 -(NSInteger) rightCapWidth;
 -(NSInteger) bottomCapHeight;
 -(BOOL) isStretchableImage;

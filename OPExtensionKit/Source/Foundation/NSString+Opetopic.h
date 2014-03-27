@@ -187,4 +187,9 @@
 -(id) JSONObject;
 -(id) mutableJSONObject;
 
+/**
+ */
+-(NSAttributedString*) attributedString;
+-(NSMutableAttributedString*) mutableAttributedString;
+
 @end

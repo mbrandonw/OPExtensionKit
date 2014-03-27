@@ -412,4 +412,12 @@
   return [NSJSONSerialization mutableJSONObjectWithString:self];
 }
 
+-(NSAttributedString*) attributedString {
+  return [[NSAttributedString alloc] initWithString:self];
+}
+
+-(NSMutableAttributedString*) mutableAttributedString {
+  return [[NSMutableAttributedString alloc] initWithString:self];
+}
+
 @end

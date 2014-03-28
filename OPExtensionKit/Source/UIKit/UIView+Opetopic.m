@@ -303,4 +303,14 @@
   return [self.layer.animationKeys count] > 0;
 }
 
+-(CGFloat) bottomOfBottomMostVisibleSubview {
+  CGFloat height = 0;
+  for (UIView *subview in self.subviews) {
+    if (subview.alpha > 0.01f && !subview.hidden) {
+      height = MAX(height, subview.bottom);
+    }
+  }
+  return ceilf(height);
+}
+
 @end

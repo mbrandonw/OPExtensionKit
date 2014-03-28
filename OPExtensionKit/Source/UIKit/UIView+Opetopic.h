@@ -204,4 +204,8 @@ enum {
  */
 @property (nonatomic, readonly, getter = isAnimating) BOOL animating;
 
+/**
+ */
+@property (nonatomic, readonly) CGFloat bottomOfBottomMostVisibleSubview;
+
 @end

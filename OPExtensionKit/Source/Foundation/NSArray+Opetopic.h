@@ -76,14 +76,6 @@ typedef enum {
 
 
 /**
- First object in the array
- 
- @return Returns the first object in the array, or `nil` if empty.
- */
--(id) firstObject;
-
-
-/**
  Second object in the array.
  
  @return Returns the second object in the array, or `nil` if there is no such object.

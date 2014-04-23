@@ -70,4 +70,8 @@
   return NSClassFromString(classString);
 }
 
+-(UIView*) lazyView {
+  return [self isViewLoaded] ? self.view : nil;
+}
+
 @end

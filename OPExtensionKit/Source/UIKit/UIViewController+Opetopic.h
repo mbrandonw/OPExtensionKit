@@ -30,4 +30,9 @@
 -(Class) viewClass;
 +(Class) viewClass;
 
+/**
+ Returns the controller's view only if it has been loaded.
+ */
+@property (nonatomic, readonly) UIView *lazyView;
+
 @end

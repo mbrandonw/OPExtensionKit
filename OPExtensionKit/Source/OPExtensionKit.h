@@ -70,3 +70,4 @@
 #import "UICollectionView+Opetopic.h"
 #import "UIView+__OPCellView.h"
 #import "UIResponder+Opetopic.h"
+#import "UIGestureRecognizer+Opetopic.h"

@@ -199,4 +199,8 @@
 -(void) op_drawInRect:(CGRect)rect color:(UIColor*)color withFont:(UIFont*)font lineBreakMode:(NSLineBreakMode)lineBreakMode;
 -(void) op_drawInRect:(CGRect)rect color:(UIColor*)color withFont:(UIFont*)font lineBreakMode:(NSLineBreakMode)lineBreakMode alignment:(NSTextAlignment)alignment;
 
+-(CGSize) op_sizeWithFont:(UIFont*)font;
+-(CGSize) op_sizeWithFont:(UIFont*)font constrainedToSize:(CGSize)size;
+-(CGSize) op_sizeWithFont:(UIFont*)font constrainedToSize:(CGSize)size lineBreakMode:(NSLineBreakMode)lineBreakMode;
+
 @end

@@ -433,4 +433,22 @@
   [self drawInRect:rect withAttributes:@{NSFontAttributeName: font, NSForegroundColorAttributeName: color, NSParagraphStyleAttributeName: style}];
 }
 
+-(CGSize) op_sizeWithFont:(UIFont*)font {
+  return [self op_sizeWithFont:font constrainedToSize:CGSizeMake(CGFLOAT_MAX, CGFLOAT_MAX)];
+}
+
+-(CGSize) op_sizeWithFont:(UIFont*)font constrainedToSize:(CGSize)size {
+  return [self op_sizeWithFont:font constrainedToSize:size lineBreakMode:0];
+}
+
+-(CGSize) op_sizeWithFont:(UIFont*)font constrainedToSize:(CGSize)size lineBreakMode:(NSLineBreakMode)lineBreakMode {
+
+  NSMutableParagraphStyle *style = [NSMutableParagraphStyle new];
+  style.lineBreakMode = lineBreakMode;
+  return [self boundingRectWithSize:size
+                            options:NSStringDrawingUsesLineFragmentOrigin
+                         attributes:@{NSFontAttributeName: font, NSParagraphStyleAttributeName: style}
+                            context:nil].size;
+}
+
 @end

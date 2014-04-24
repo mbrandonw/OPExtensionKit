@@ -26,9 +26,10 @@
 }
 
 -(BOOL) isTruncating {
-  CGSize perfectSize = [self.text sizeWithFont:self.font
-                             constrainedToSize:CGSizeMake(self.bounds.size.width, NSIntegerMax)
-                                 lineBreakMode:self.lineBreakMode];
+  CGSize perfectSize = [self.text boundingRectWithSize:CGSizeMake(self.bounds.size.width, CGFLOAT_MAX)
+                                               options:NSStringDrawingUsesLineFragmentOrigin
+                                            attributes:@{NSFontAttributeName: self.font}
+                                               context:nil].size;
   if (perfectSize.height > self.bounds.size.height) {
     return YES;
   }

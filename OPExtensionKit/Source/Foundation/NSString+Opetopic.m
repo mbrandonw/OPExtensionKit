@@ -196,13 +196,10 @@
              color:(UIColor*)color
             shadow:(UIColor*)shadow
             offset:(CGSize)offset {
-    
-    [shadow set];
-    CGRect shadowRect = CGRectOffset(rect, offset.width, offset.height);
-    [self drawInRect:shadowRect withFont:font lineBreakMode:mode alignment:alignment];
-    
-    [color set];
-    [self drawInRect:rect withFont:font lineBreakMode:mode alignment:alignment];
+
+  CGRect shadowRect = CGRectOffset(rect, offset.width, offset.height);
+  [self op_drawInRect:shadowRect color:shadow withFont:font lineBreakMode:mode alignment:alignment];
+  [self op_drawInRect:rect color:color withFont:font lineBreakMode:mode alignment:alignment];
 }
 
 -(NSDictionary*) dictionaryBySplitting:(NSString*)outer and:(NSString*)inner {
@@ -418,6 +415,22 @@
 
 -(NSMutableAttributedString*) mutableAttributedString {
   return [[NSMutableAttributedString alloc] initWithString:self];
+}
+
+-(void) op_drawInRect:(CGRect)rect color:(UIColor*)color withFont:(UIFont*)font {
+  [self op_drawInRect:rect color:color withFont:font lineBreakMode:0];
+}
+
+-(void) op_drawInRect:(CGRect)rect color:(UIColor*)color withFont:(UIFont*)font lineBreakMode:(NSLineBreakMode)lineBreakMode {
+  [self op_drawInRect:rect color:color withFont:font lineBreakMode:lineBreakMode alignment:0];
+}
+
+-(void) op_drawInRect:(CGRect)rect color:(UIColor*)color withFont:(UIFont*)font lineBreakMode:(NSLineBreakMode)lineBreakMode alignment:(NSTextAlignment)alignment {
+
+  NSMutableParagraphStyle *style = [NSMutableParagraphStyle new];
+  style.alignment = alignment;
+  style.lineBreakMode = lineBreakMode;
+  [self drawInRect:rect withAttributes:@{NSFontAttributeName: font, NSForegroundColorAttributeName: color, NSParagraphStyleAttributeName: style}];
 }
 
 @end

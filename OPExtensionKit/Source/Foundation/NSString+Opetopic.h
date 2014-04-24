@@ -192,4 +192,11 @@
 -(NSAttributedString*) attributedString;
 -(NSMutableAttributedString*) mutableAttributedString;
 
+/**
+ Our own implementation of iOS deprecated methods.
+ */
+-(void) op_drawInRect:(CGRect)rect color:(UIColor*)color withFont:(UIFont*)font;
+-(void) op_drawInRect:(CGRect)rect color:(UIColor*)color withFont:(UIFont*)font lineBreakMode:(NSLineBreakMode)lineBreakMode;
+-(void) op_drawInRect:(CGRect)rect color:(UIColor*)color withFont:(UIFont*)font lineBreakMode:(NSLineBreakMode)lineBreakMode alignment:(NSTextAlignment)alignment;
+
 @end

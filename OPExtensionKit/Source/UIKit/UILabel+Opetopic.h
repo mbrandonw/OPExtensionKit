@@ -15,4 +15,7 @@
 
 -(BOOL) isTruncating;
 
+-(void) transitionTextColorTo:(UIColor*)color;
+-(void) transitionTextColorTo:(UIColor*)color duration:(NSTimeInterval)duration;
+
 @end

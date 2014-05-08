@@ -36,4 +36,14 @@
   return NO;
 }
 
+-(void) transitionTextColorTo:(UIColor*)color {
+  [self transitionTextColorTo:color duration:0.0];
+}
+
+-(void) transitionTextColorTo:(UIColor*)color duration:(NSTimeInterval)duration {
+  [UIView transitionWithView:self duration:duration options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
+    self.textColor = color;
+  } completion:nil];
+}
+
 @end

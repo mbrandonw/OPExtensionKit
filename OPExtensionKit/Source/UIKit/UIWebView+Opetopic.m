@@ -19,23 +19,23 @@
 }
 
 -(void) clearCookies {
-    
-    NSHTTPCookieStorage *storage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
-    for (NSHTTPCookie *cookie in [storage cookies])
-        [storage deleteCookie:cookie];
+
+  NSHTTPCookieStorage *storage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+  for (NSHTTPCookie *cookie in [storage cookies])
+    [storage deleteCookie:cookie];
 }
 
 -(void) removeBackgroundGradients {
-    
-    for (UIView *subview in self.scrollView.subviews) {
-        if ([subview isKindOfClass:[UIImageView class]]) {
-            [subview setHidden:YES];
-        }
+
+  for (UIView *subview in self.scrollView.subviews) {
+    if ([subview isKindOfClass:[UIImageView class]]) {
+      [subview setHidden:YES];
     }
+  }
 }
 
 -(NSString*) rawHTML {
-    return [self stringByEvaluatingJavaScriptFromString:@"document.documentElement.outerHTML"];
+  return [self stringByEvaluatingJavaScriptFromString:@"document.documentElement.outerHTML"];
 }
 
 @end

@@ -99,6 +99,11 @@ typedef enum {
  */
 -(NSArray*) compactWithOptions:(NSArrayCompactOptions)options;
 
+/**
+ Recursively turns a nested array into a one-dimensional array.
+ */
+-(NSArray*) flatten;
+
 
 /**
  Prepends an object to an array.

@@ -134,6 +134,18 @@
     return retVal;
 }
 
+-(NSArray*) flatten {
+  NSMutableArray *retVal = NSMutableArray.new;
+  for (id obj in self) {
+    if ([obj isKindOfClass:NSArray.class]) {
+      [retVal addObjectsFromArray:[obj flatten]];
+    } else {
+      [retVal addObject:obj];
+    }
+  }
+  return retVal;
+}
+
 -(NSArray*) arrayByPrependingObject:(id)object {
     
     NSMutableArray *array = [NSMutableArray arrayWithObject:object];

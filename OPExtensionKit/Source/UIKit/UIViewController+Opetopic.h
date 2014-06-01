@@ -35,4 +35,6 @@
  */
 @property (nonatomic, readonly) UIView *lazyView;
 
+-(void) setNeedsStatusBarAppearanceUpdateAnimated:(NSTimeInterval)duration;
+
 @end

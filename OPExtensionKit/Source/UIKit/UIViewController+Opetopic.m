@@ -74,4 +74,10 @@
   return [self isViewLoaded] ? self.view : nil;
 }
 
+-(void) setNeedsStatusBarAppearanceUpdateAnimated:(NSTimeInterval)duration {
+  [UIView animateWithDuration:duration animations:^{
+    [self setNeedsStatusBarAppearanceUpdate];
+  }];
+}
+
 @end

@@ -28,6 +28,8 @@
 @property (nonatomic, assign) CGFloat contentSizeWidth;
 @property (nonatomic, assign) CGFloat contentSizeHeight;
 
+@property (nonatomic, readonly) BOOL scrolledToTop;
+
 -(void) setContentOffsetX:(CGFloat)x animated:(BOOL)animated;
 -(void) setContentOffsetY:(CGFloat)y animated:(BOOL)animated;
 

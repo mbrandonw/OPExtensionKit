@@ -118,6 +118,10 @@
   return self.contentOffsetY == -self.contentInsetTop;
 }
 
+-(void) scrollToTop {
+  self.contentOffsetY = -self.contentInsetTop;
+}
+
 -(void) scrollRectToVisible:(CGRect)rect animated:(BOOL)animated position:(UITableViewScrollPosition)position {
 
   CGRect visibleRect = UIEdgeInsetsInsetRect(self.bounds, self.contentInset);

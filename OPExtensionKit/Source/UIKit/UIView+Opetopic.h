@@ -57,6 +57,11 @@ enum {
 @interface UIView (Opetopic)
 
 /**
+ Opposite of hidden.
+ */
+@property (nonatomic, assign) BOOL visible;
+
+/**
  The view's left most point's x-coordinate.
  */
 @property (nonatomic, assign) CGFloat left;

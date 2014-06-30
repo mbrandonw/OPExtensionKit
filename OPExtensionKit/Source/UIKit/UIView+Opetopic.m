@@ -10,6 +10,14 @@
 
 @implementation UIView (Opetopic)
 
+-(void) setVisible:(BOOL)visible {
+  self.hidden = !visible;
+}
+
+-(BOOL) visible {
+  return !self.hidden;
+}
+
 -(CGFloat) left {
 	return self.frame.origin.x;
 }

@@ -70,3 +70,4 @@
 #import "UICollectionView+Opetopic.h"
 #import "UIResponder+Opetopic.h"
 #import "UIGestureRecognizer+Opetopic.h"
+#import "NSMutableAttributedString+Opetopic.h"

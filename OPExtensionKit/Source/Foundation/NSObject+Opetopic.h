@@ -114,4 +114,13 @@ static char __OP_AssociatedObject_##getterName; \
  */
 -(void) :(NSUInteger)times timesDo:(void(^)(void))block;
 
+/**
+ Type cast helpers.
+ */
+-(NSString*) asString;
+-(NSArray*) asArray;
+-(NSMutableArray*) asMutableArray;
+-(NSDictionary*) asDictionary;
+-(NSMutableDictionary*) asMutableDictionary;
+
 @end

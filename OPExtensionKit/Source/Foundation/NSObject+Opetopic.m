@@ -168,4 +168,24 @@
   }
 }
 
+-(NSString*) asString {
+  return [self typedAs:NSString.class];
+}
+
+-(NSArray*) asArray {
+  return [self typedAs:NSArray.class];
+}
+
+-(NSMutableArray*) asMutableArray {
+  return [self typedAs:NSMutableArray.class];
+}
+
+-(NSDictionary*) asDictionary {
+  return [self typedAs:NSDictionary.class];
+}
+
+-(NSMutableDictionary*) asMutableDictionary {
+  return [self typedAs:NSMutableDictionary.class];
+}
+
 @end

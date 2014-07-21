@@ -12,4 +12,11 @@
 
 -(NSTimeInterval) completionPercentage;
 
+-(BOOL) isStopped;
+-(BOOL) isPlaying;
+-(BOOL) isPaused;
+-(BOOL) isInterrupted;
+-(BOOL) isSeekingForward;
+-(BOOL) isSeekingBackward;
+
 @end

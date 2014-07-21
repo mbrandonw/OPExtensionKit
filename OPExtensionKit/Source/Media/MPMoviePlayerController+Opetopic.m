@@ -10,11 +10,11 @@
 
 @implementation MPMoviePlayerController (Opetopic)
 
--(NSTimeInterval) completionPercentage {
-  if (self.duration > 0.0) {
-    return self.currentPlaybackTime / self.duration;
+-(CGFloat) completionPercentage {
+  if (self.duration > 0.0 && !isnan(self.currentPlaybackTime)) {
+    return (CGFloat)self.currentPlaybackTime / self.duration;
   }
-  return 0.0;
+  return 0.0f;
 }
 
 -(BOOL) isStopped {

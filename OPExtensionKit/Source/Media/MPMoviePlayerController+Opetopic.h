@@ -10,7 +10,7 @@
 
 @interface MPMoviePlayerController (Opetopic)
 
--(NSTimeInterval) completionPercentage;
+-(CGFloat) completionPercentage;
 
 -(BOOL) isStopped;
 -(BOOL) isPlaying;

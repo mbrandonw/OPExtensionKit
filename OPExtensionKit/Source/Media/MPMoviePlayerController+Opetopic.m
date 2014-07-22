@@ -17,6 +17,13 @@
   return 0.0f;
 }
 
+-(CGFloat) downloadedPercentage {
+  if (self.duration > 0.0 && !isnan(self.playableDuration)) {
+    return (CGFloat)self.playableDuration / self.duration;
+  }
+  return 0.0f;
+}
+
 -(BOOL) isStopped {
   return self.playbackState == MPMoviePlaybackStateStopped;
 }

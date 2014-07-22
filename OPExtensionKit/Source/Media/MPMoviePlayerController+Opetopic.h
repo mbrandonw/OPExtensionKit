@@ -11,6 +11,7 @@
 @interface MPMoviePlayerController (Opetopic)
 
 -(CGFloat) completionPercentage;
+-(CGFloat) downloadedPercentage;
 
 -(BOOL) isStopped;
 -(BOOL) isPlaying;

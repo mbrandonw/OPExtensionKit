@@ -20,6 +20,8 @@
 
 #define $countstr(count,str) [NSString stringWithFormat:@"%i %@%@", count, str, count==1?@"":@"s"]
 
+#define kNBSP @"\u00a0"
+
 @interface NSString (Opetopic)
 
 /**

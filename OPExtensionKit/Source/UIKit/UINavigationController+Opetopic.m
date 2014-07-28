@@ -10,6 +10,10 @@
 
 @implementation UINavigationController (Opetopic)
 
+-(UIViewController*) rootViewController {
+  return self.viewControllers.firstObject;
+}
+
 -(void) popViewControllerWithAnimation {
 	[self popViewControllerAnimated:YES];
 }

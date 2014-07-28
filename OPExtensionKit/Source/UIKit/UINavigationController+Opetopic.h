@@ -10,6 +10,8 @@
 
 @interface UINavigationController (Opetopic)
 
+@property (nonatomic, readonly) UIViewController *rootViewController;
+
 -(void) popViewControllerWithAnimation;
 -(void) popViewControllerWithoutAnimation;
 

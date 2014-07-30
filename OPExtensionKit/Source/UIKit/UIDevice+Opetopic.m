@@ -12,6 +12,26 @@
 #import <mach/mach_host.h>
 #import <sys/sysctl.h>
 
+NSString *UIDeviceOrientationToString(UIDeviceOrientation orientation) {
+  switch (orientation) {
+    case UIDeviceOrientationFaceDown:
+      return @"Face Down";
+    case UIDeviceOrientationFaceUp:
+      return @"Face Up";
+    case UIDeviceOrientationLandscapeLeft:
+      return @"Landscape Left";
+    case UIDeviceOrientationLandscapeRight:
+      return @"Landscape Right";
+    case UIDeviceOrientationPortrait:
+      return @"Portrait";
+    case UIDeviceOrientationPortraitUpsideDown:
+      return @"Portrait Upside Down";
+    case UIDeviceOrientationUnknown:
+      return @"Unknown";
+  }
+  return nil;
+}
+
 @implementation UIDevice (Opetopic)
 
 +(NSString*) deviceString {

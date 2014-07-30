@@ -35,6 +35,8 @@ typedef NS_ENUM(NSInteger, OPDeviceType) {
     OPDeviceTypeiPadSimulator,
 };
 
+FOUNDATION_EXPORT NSString *UIDeviceOrientationToString(UIDeviceOrientation orientation)__attribute__((const));
+
 #import <Foundation/Foundation.h>
 
 @interface UIDevice (Opetopic)

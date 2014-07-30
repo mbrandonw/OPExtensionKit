@@ -321,4 +321,11 @@
   return ceilf(height);
 }
 
+-(NSArray*) superviews {
+  if (! self.superview) {
+    return @[];
+  }
+  return [@[self.superview] arrayByAddingObjectsFromArray:self.superview.superviews];
+}
+
 @end

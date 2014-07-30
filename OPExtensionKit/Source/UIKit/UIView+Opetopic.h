@@ -213,4 +213,8 @@ enum {
  */
 @property (nonatomic, readonly) CGFloat bottomOfBottomMostVisibleSubview;
 
+/**
+ */
+@property (nonatomic, readonly) NSArray *superviews;
+
 @end

@@ -48,4 +48,8 @@
   return self.playbackState == MPMoviePlaybackStateSeekingBackward;
 }
 
+-(CGFloat) naturalRatio {
+  return self.naturalSize.height > 0.0f ? self.naturalSize.width / self.naturalSize.height : 0.0f;
+}
+
 @end

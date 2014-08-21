@@ -20,4 +20,6 @@
 -(BOOL) isSeekingForward;
 -(BOOL) isSeekingBackward;
 
+-(CGFloat) naturalRatio;
+
 @end

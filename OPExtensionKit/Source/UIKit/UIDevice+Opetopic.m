@@ -128,7 +128,15 @@ NSString *UIDeviceOrientationToString(UIDeviceOrientation orientation) {
 }
 
 +(BOOL) isiOS7OrEarlier {
-  return [[[UIDevice currentDevice] systemVersion] floatValue] < 8.0f;;
+  return [[[UIDevice currentDevice] systemVersion] floatValue] < 8.0f;
+}
+
++(BOOL) isiOS8OrLater {
+  return [[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0f;
+}
+
++(BOOL) isiOS8OrEarlier {
+  return [[[UIDevice currentDevice] systemVersion] floatValue] < 9.0f;
 }
 
 +(double) freeMemory {

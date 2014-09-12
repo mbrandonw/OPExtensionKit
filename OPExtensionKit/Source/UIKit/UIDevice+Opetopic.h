@@ -57,6 +57,8 @@ FOUNDATION_EXPORT NSString *UIDeviceOrientationToString(UIDeviceOrientation orie
 +(BOOL) isiOS6OrEarlier;
 +(BOOL) isiOS7OrLater;
 +(BOOL) isiOS7OrEarlier;
++(BOOL) isiOS8OrLater;
++(BOOL) isiOS8OrEarlier;
 
 +(double) freeMemory;
 +(double) appMemoryUsage;

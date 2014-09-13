@@ -115,6 +115,24 @@
     return nil;
 }
 
+-(id) head {
+  return self.firstObject;
+}
+
+-(NSArray*) tail {
+  if (self.count == 0) {
+    return nil;
+  }
+  return [self subarrayFromIndex:1];
+}
+
+-(NSArray*) initial {
+  if (self.count == 0) {
+    return nil;
+  }
+  return [self subarrayToIndex:self.count-1];
+}
+
 -(BOOL) hasElements {
     return [self count] > 0;
 }

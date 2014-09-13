@@ -87,6 +87,11 @@ typedef enum {
  */
 -(id) secondToLastObject;
 
+/**
+  */
+-(id) head;
+-(NSArray*) tail;
+-(NSArray*) initial;
 
 /**
  Array has elements?

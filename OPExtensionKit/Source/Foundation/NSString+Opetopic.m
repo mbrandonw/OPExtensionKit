@@ -430,7 +430,9 @@
   NSMutableParagraphStyle *style = [NSMutableParagraphStyle new];
   style.alignment = alignment;
   style.lineBreakMode = lineBreakMode;
-  [self drawInRect:rect withAttributes:@{NSFontAttributeName: font, NSForegroundColorAttributeName: color, NSParagraphStyleAttributeName: style}];
+  [self drawInRect:rect withAttributes:@{NSFontAttributeName: font,
+                                         NSForegroundColorAttributeName: color,
+                                         NSParagraphStyleAttributeName: style}];
 }
 
 -(CGSize) op_sizeWithFont:(UIFont*)font {

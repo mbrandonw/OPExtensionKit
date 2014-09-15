@@ -51,7 +51,7 @@ NSString *UIDeviceOrientationToString(UIDeviceOrientation orientation) {
     return UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? OPDeviceTypeiPhoneSimulator : OPDeviceTypeiPadSimulator;
 #endif
     
-    NSString *platform = [[self class] deviceString];
+    NSString *platform = self.class.deviceString;
     
     if ([platform isEqualToString:@"iPhone1,1"])    return OPDeviceTypeiPhone;
     if ([platform isEqualToString:@"iPhone1,2"])    return OPDeviceTypeiPhone3G;

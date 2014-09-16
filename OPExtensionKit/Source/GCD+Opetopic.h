@@ -8,10 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-/**
- Calls the passed block on the next runloop of the main queue.
- */
+/// Calls the passed block on the next runloop of the main queue.
 void dispatch_next_runloop(dispatch_block_t block);
+
+/// Dispatches synchronously to the main thread unless already on the
+/// main thread, in which case the block is called immediately.
+void dispatch_sync_or_immediately_main_queue(dispatch_block_t block);
 
 /**
  Calls the passed block on the main queue after the specified amount of time.

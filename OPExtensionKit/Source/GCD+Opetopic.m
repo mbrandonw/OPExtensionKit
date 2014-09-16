@@ -9,7 +9,15 @@
 #import "GCD+Opetopic.h"
 
 void dispatch_next_runloop(dispatch_block_t block) {
-    dispatch_async(dispatch_get_main_queue(), block);
+  dispatch_async(dispatch_get_main_queue(), block);
+}
+
+void dispatch_sync_or_immediately_main_queue(dispatch_block_t block) {
+  if ([NSThread isMainThread]) {
+    block();
+  } else {
+    dispatch_sync(dispatch_get_main_queue(), block);
+  }
 }
 
 void __attribute__((overloadable)) dispatch_after_delay(double delay, dispatch_block_t block) {
@@ -21,13 +29,13 @@ void __attribute__((overloadable)) dispatch_after_delay(double delay, dispatch_q
 }
 
 void dispatch_serially_after_delay(double delay, dispatch_block_t block) {
-    static double lastTime = 0.0;
-    if (lastTime == 0.0) {
-        lastTime = [NSDate timeIntervalSinceReferenceDate];
-    }
-    
-    double nextTime = MAX(lastTime + delay, [NSDate timeIntervalSinceReferenceDate]);
-    double delta = MAX(0.0, nextTime - [NSDate timeIntervalSinceReferenceDate]);
-    dispatch_after_delay(delta, block);
-    lastTime = nextTime;
+  static double lastTime = 0.0;
+  if (lastTime == 0.0) {
+    lastTime = [NSDate timeIntervalSinceReferenceDate];
+  }
+
+  double nextTime = MAX(lastTime + delay, [NSDate timeIntervalSinceReferenceDate]);
+  double delta = MAX(0.0, nextTime - [NSDate timeIntervalSinceReferenceDate]);
+  dispatch_after_delay(delta, block);
+  lastTime = nextTime;
 }

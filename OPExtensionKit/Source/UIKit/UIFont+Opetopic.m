@@ -7,6 +7,7 @@
 //
 
 #import "UIFont+Opetopic.h"
+#import "OPMacros.h"
 
 @implementation UIFont (Opetopic)
 

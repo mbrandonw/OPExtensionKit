@@ -7,6 +7,7 @@
 //
 
 #import "UITextView+Opetopic.h"
+#import "UIDevice+Opetopic.h"
 
 @implementation UITextView (Opetopic)
 

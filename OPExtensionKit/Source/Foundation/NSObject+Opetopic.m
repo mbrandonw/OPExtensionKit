@@ -7,8 +7,9 @@
 //
 
 #import "NSObject+Opetopic.h"
-#import <objc/runtime.h>
+#import "NSString+Opetopic.h"
 #import "NSJSONSerialization+Opetopic.h"
+#import <objc/runtime.h>
 
 @implementation NSObject (Opetopic)
 

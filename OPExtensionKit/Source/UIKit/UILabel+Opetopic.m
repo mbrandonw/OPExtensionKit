@@ -17,12 +17,13 @@
 
 +(instancetype) ssStandardLabelWithSymbol:(NSString*)symbol size:(CGFloat)size color:(UIColor*)color {
 
-  UILabel *label = [[self class] new];
-  label.text = [UIFont ssStandardSymbolForString:symbol];
-  label.font = [UIFont ssStandardFontWithSize:size];
-  label.textColor = color;
-  [label sizeToFit];
-  return label;
+//  UILabel *label = [[self class] new];
+//  label.text = [UIFont ssStandardSymbolForString:symbol];
+//  label.font = [UIFont ssStandardFontWithSize:size];
+//  label.textColor = color;
+//  [label sizeToFit];
+//  return label;
+  return nil;
 }
 
 -(BOOL) isTruncating {

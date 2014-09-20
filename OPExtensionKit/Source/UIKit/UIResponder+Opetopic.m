@@ -8,6 +8,7 @@
 
 #import "UIResponder+Opetopic.h"
 #import "UIViewController+Opetopic.h"
+#import "NSObject+Opetopic.h"
 #import "OPMacros.h"
 
 @implementation UIResponder (Opetopic)

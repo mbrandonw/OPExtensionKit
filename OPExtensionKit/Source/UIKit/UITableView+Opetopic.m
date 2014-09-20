@@ -8,6 +8,7 @@
 
 #import "UITableView+Opetopic.h"
 #import "NSObject+Opetopic.h"
+#import "UIView+Opetopic.h"
 
 @implementation UITableView (Opetopic)
 

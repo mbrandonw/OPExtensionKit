@@ -7,9 +7,10 @@
 //
 
 #import "NSString+Opetopic.h"
-#import <CommonCrypto/CommonHMAC.h>
 #import "NSDictionary+Opetopic.h"
 #import "NSJSONSerialization+Opetopic.h"
+#import "NSRegularExpression+Opetopic.h"
+#import <CommonCrypto/CommonHMAC.h>
 
 @implementation NSString (Opetopic)
 

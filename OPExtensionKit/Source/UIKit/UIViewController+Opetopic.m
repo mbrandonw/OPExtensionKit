@@ -7,6 +7,7 @@
 //
 
 #import "UIViewController+Opetopic.h"
+@import ObjectiveC;
 
 @implementation UIViewController (Opetopic)
 

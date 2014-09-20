@@ -60,9 +60,6 @@ FOUNDATION_EXPORT NSString *UIDeviceOrientationToString(UIDeviceOrientation orie
 +(BOOL) isiOS8OrLater;
 +(BOOL) isiOS8OrEarlier;
 
-+(double) freeMemory;
-+(double) appMemoryUsage;
-
 -(NSString*) universalUniqueIDString;
 
 @end

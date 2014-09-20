@@ -20,7 +20,7 @@ static NSMutableDictionary *__formatters;
 +(NSDateFormatter*) formatterWithDateStyle:(NSDateFormatterStyle)dateStyle timeStyle:(NSDateFormatterStyle)timeStyle {
   @synchronized(self) {
     __formatters = __formatters ?: [NSMutableDictionary new];
-    NSString *key = $strfmt(@"%i_%i", dateStyle, timeStyle);
+    NSString *key = $strfmt(@"%lu_%lu", (unsigned long)dateStyle, (unsigned long)timeStyle);
     if (! __formatters[key]) {
       __formatters[key] = [NSDateFormatter new];
       [__formatters[key] setDateStyle:dateStyle];

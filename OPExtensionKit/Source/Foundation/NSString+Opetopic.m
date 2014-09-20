@@ -13,6 +13,12 @@
 
 @implementation NSString (Opetopic)
 
+-(NSString*) asPlainText {
+
+  NSAttributedString *attr = [[NSAttributedString alloc] initWithData:[self dataUsingEncoding:NSUTF8StringEncoding] options:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: [NSNumber numberWithInt:NSUTF8StringEncoding]} documentAttributes:nil error:nil];
+  return [attr string];
+}
+
 -(NSString*) md5 {
     
 	const char *cStr = [self UTF8String];

@@ -24,6 +24,8 @@
 
 @interface NSString (Opetopic)
 
+-(NSString*) asPlainText;
+
 /**
  @return The MD5 hash of the string.
  */

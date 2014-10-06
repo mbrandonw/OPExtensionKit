@@ -185,6 +185,11 @@ enum {
 
 /**
  */
++(void) transitionWithView:(UIView*)view duration:(NSTimeInterval)duration delay:(NSTimeInterval)delay options:(UIViewAnimationOptions)options animations:(void (^)(void))animations completion:(void (^)(BOOL finished))completion;
++(void) transitionFromView:(UIView*)fromView toView:(UIView*)toView duration:(NSTimeInterval)duration delay:(NSTimeInterval)delay options:(UIViewAnimationOptions)options completion:(void (^)(BOOL finished))completion;
+
+/**
+ */
 +(instancetype) autoLayoutView;
 
 /**

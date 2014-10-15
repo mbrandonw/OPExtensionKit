@@ -20,6 +20,12 @@
   return [attr string];
 }
 
+-(BOOL) containsSubstring:(NSString*)substring {
+  return [self respondsToSelector:@selector(containsString:)] ?
+  [self containsString:substring] :
+  [self rangeOfString:substring].location != NSNotFound;
+}
+
 -(NSString*) md5 {
     
 	const char *cStr = [self UTF8String];

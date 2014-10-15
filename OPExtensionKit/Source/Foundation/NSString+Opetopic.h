@@ -27,6 +27,10 @@
 -(NSString*) asPlainText;
 
 /**
+ */
+-(BOOL) containsSubstring:(NSString*)substring;
+
+/**
  @return The MD5 hash of the string.
  */
 -(NSString*) md5;

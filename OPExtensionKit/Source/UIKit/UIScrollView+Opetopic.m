@@ -119,7 +119,11 @@
 }
 
 -(void) scrollToTop {
-  self.contentOffsetY = -self.contentInsetTop;
+  [self scrollToTopAnimated:NO];
+}
+
+-(void) scrollToTopAnimated:(BOOL)animated {
+  [self setContentOffsetY:-self.contentInsetTop animated:YES];
 }
 
 -(void) scrollRectToVisible:(CGRect)rect animated:(BOOL)animated position:(UITableViewScrollPosition)position {

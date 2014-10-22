@@ -30,6 +30,7 @@
 
 @property (nonatomic, readonly) BOOL scrolledToTop;
 -(void) scrollToTop;
+-(void) scrollToTopAnimated:(BOOL)animated;
 
 -(void) setContentOffsetX:(CGFloat)x animated:(BOOL)animated;
 -(void) setContentOffsetY:(CGFloat)y animated:(BOOL)animated;

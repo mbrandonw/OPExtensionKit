@@ -12,7 +12,7 @@
  and better handling of subviews.
  */
 
-#import <UIKit/UIKit.h>
+@import UIKit;
 
 static inline CGSize CGSizeAspectFit(CGSize size, CGSize maxSize) {
     CGSize retVal = maxSize;
@@ -117,6 +117,11 @@ enum {
  The view's center's y-coordinate.
  */
 @property (nonatomic, assign) CGFloat centerY;
+
+/**
+ */
+-(instancetype) initWithViewController:(UIViewController*)viewController;
+-(instancetype) initWithFrame:(CGRect)frame viewController:(UIViewController*)viewController;
 
 /**
  Center this view within another view.

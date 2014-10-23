@@ -7,6 +7,20 @@
 //
 
 #import "UIView+Opetopic.h"
+@import ObjectiveC;
+
+@interface OPWeakBox : NSObject
+@property (nonatomic, weak) id value;
++(instancetype) boxedValue:(id)value;
+@end
+
+@implementation OPWeakBox
++(instancetype) boxedValue:(id)value {
+  OPWeakBox *b = OPWeakBox.new;
+  b.value = value;
+  return b;
+}
+@end
 
 @implementation UIView (Opetopic)
 
@@ -138,6 +152,15 @@
 
 -(CGSize) size {
   return self.frame.size;
+}
+
+-(instancetype) initWithViewController:(UIViewController*)viewController {
+  return [self initWithFrame:CGRectZero viewController:viewController];
+}
+
+-(instancetype) initWithFrame:(CGRect)frame viewController:(UIViewController*)viewController {
+  [self setViewController:viewController];
+  return [self initWithFrame:frame];
 }
 
 - (CGFloat)centerX {
@@ -337,6 +360,27 @@
     return @[];
   }
   return [@[self.superview] arrayByAddingObjectsFromArray:self.superview.superviews];
+}
+
+-(UIViewController*) viewController {
+  OPWeakBox *boxed = objc_getAssociatedObject(self, @selector(viewController));
+  if (! [boxed isKindOfClass:OPWeakBox.class]) {
+    return nil;
+  }
+
+  UIViewController *retVal = boxed.value;
+  if (! [retVal isKindOfClass:UIViewController.class]) {
+    return nil;
+  }
+
+  return retVal;
+}
+
+-(void) setViewController:(UIViewController*)viewController {
+  objc_setAssociatedObject(self,
+                           @selector(viewController),
+                           [OPWeakBox boxedValue:viewController],
+                           OBJC_ASSOCIATION_ASSIGN);
 }
 
 @end

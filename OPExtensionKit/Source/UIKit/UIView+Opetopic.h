@@ -14,6 +14,16 @@
 
 @import UIKit;
 
+#define UIViewControllerProperty(controllerClass, viewClass)      \
+@interface viewClass (UIViewControllerProperty)                   \
+@property (nonatomic, readonly) controllerClass *viewController;  \
+@end                                                              \
+@implementation viewClass (__viewcontroller__)                    \
+-(controllerClass*) viewController {                              \
+  return (controllerClass*)[super viewController];                \
+}                                                                 \
+@end                                                              \
+
 static inline CGSize CGSizeAspectFit(CGSize size, CGSize maxSize) {
     CGSize retVal = maxSize;
     if (size.width/size.height > maxSize.width/maxSize.height)
@@ -122,6 +132,7 @@ enum {
  */
 -(instancetype) initWithViewController:(UIViewController*)viewController;
 -(instancetype) initWithFrame:(CGRect)frame viewController:(UIViewController*)viewController;
+@property (nonatomic, readonly) UIViewController *op_viewController;
 
 /**
  Center this view within another view.

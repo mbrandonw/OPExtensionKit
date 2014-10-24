@@ -159,7 +159,7 @@
 }
 
 -(instancetype) initWithFrame:(CGRect)frame viewController:(UIViewController*)viewController {
-  [self setViewController:viewController];
+  [self set_op_viewController:viewController];
   return [self initWithFrame:frame];
 }
 
@@ -362,8 +362,8 @@
   return [@[self.superview] arrayByAddingObjectsFromArray:self.superview.superviews];
 }
 
--(UIViewController*) viewController {
-  OPWeakBox *boxed = objc_getAssociatedObject(self, @selector(viewController));
+-(UIViewController*) op_viewController {
+  OPWeakBox *boxed = objc_getAssociatedObject(self, @selector(op_viewController));
   if (! [boxed isKindOfClass:OPWeakBox.class]) {
     return nil;
   }
@@ -376,11 +376,11 @@
   return retVal;
 }
 
--(void) setViewController:(UIViewController*)viewController {
+-(void) set_op_viewController:(UIViewController*)viewController {
   objc_setAssociatedObject(self,
-                           @selector(viewController),
+                           @selector(op_viewController),
                            [OPWeakBox boxedValue:viewController],
-                           OBJC_ASSOCIATION_ASSIGN);
+                           OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 @end

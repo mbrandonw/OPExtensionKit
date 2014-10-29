@@ -19,6 +19,8 @@
 
 -(CGFloat) heightForSection:(NSInteger)section;
 
+-(NSInteger) numberOfRows;
+
 -(void) setTableHeaderViews:(NSArray*)views;
 -(NSArray*) tableHeaderViews;
 

@@ -123,4 +123,6 @@ static char __OP_AssociatedObject_##getterName; \
 -(NSDictionary*) asDictionary;
 -(NSMutableDictionary*) asMutableDictionary;
 
++(Class) classForIVar:(NSString*)ivar;
+
 @end

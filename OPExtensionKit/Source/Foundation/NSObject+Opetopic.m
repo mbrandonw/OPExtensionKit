@@ -189,4 +189,13 @@
   return [self typedAs:NSMutableDictionary.class];
 }
 
++(Class) classForIVar:(NSString *)ivar {
+  objc_property_t property = class_getProperty([self class], [ivar UTF8String]);
+  NSString *propertyAttributes = [NSString stringWithUTF8String:property_getAttributes(property)];
+  NSUInteger location = 3;
+  NSUInteger length = [propertyAttributes rangeOfString:@"\","].location - location;
+  NSString *classString = [propertyAttributes substringWithRange:NSMakeRange(location, length)];
+  return NSClassFromString(classString);
+}
+
 @end

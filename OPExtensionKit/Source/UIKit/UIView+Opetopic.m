@@ -159,7 +159,7 @@
 }
 
 -(instancetype) initWithFrame:(CGRect)frame viewController:(UIViewController*)viewController {
-  [self set_op_viewController:viewController];
+  [self setOp_viewController:viewController];
   return [self initWithFrame:frame];
 }
 
@@ -376,7 +376,7 @@
   return retVal;
 }
 
--(void) set_op_viewController:(UIViewController*)viewController {
+-(void) setOp_viewController:(UIViewController*)viewController {
   objc_setAssociatedObject(self,
                            @selector(op_viewController),
                            [OPWeakBox boxedValue:viewController],

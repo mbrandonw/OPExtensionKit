@@ -132,7 +132,7 @@ enum {
  */
 -(instancetype) initWithViewController:(UIViewController*)viewController;
 -(instancetype) initWithFrame:(CGRect)frame viewController:(UIViewController*)viewController;
-@property (nonatomic, readonly) UIViewController *op_viewController;
+@property (nonatomic, strong) UIViewController *op_viewController;
 
 /**
  Center this view within another view.

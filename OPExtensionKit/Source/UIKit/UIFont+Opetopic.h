@@ -10,6 +10,13 @@
 
 @interface UIFont (Opetopic)
 
++(instancetype) preferredBodyFont;
++(instancetype) preferredHeadlineFont;
++(instancetype) preferredSubheadlineFont;
++(instancetype) preferredFootnoteFont;
++(instancetype) preferredCaption1Font;
++(instancetype) preferredCaption2Font;
+
 +(NSDictionary*) installedFontsByFamily;
 
 +(void) printPreferredFontSizes;

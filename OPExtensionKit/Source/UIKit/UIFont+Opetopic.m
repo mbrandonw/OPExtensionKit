@@ -11,6 +11,30 @@
 
 @implementation UIFont (Opetopic)
 
++(instancetype) preferredBodyFont {
+  return [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+}
+
++(instancetype) preferredHeadlineFont {
+  return [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline];
+}
+
++(instancetype) preferredSubheadlineFont {
+  return [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline];
+}
+
++(instancetype) preferredFootnoteFont {
+  return [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote];
+}
+
++(instancetype) preferredCaption1Font {
+  return [UIFont preferredFontForTextStyle:UIFontTextStyleCaption1];
+}
+
++(instancetype) preferredCaption2Font {
+  return [UIFont preferredFontForTextStyle:UIFontTextStyleCaption2];
+}
+
 +(NSDictionary*) installedFontsByFamily {
     
     NSMutableDictionary *retVal = [NSMutableDictionary new];

@@ -10,6 +10,8 @@
 
 @interface UIGestureRecognizer (Opetopic)
 
+@property (nonatomic, readonly, getter = isTracking) BOOL tracking;
+
 -(void) cancelRecognizer;
 
 @end

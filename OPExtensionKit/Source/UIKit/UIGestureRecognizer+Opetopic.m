@@ -10,6 +10,10 @@
 
 @implementation UIGestureRecognizer (Opetopic)
 
+-(BOOL) isTracking {
+  return (self.state == UIGestureRecognizerStateBegan || self.state == UIGestureRecognizerStateChanged);
+}
+
 -(void) cancelRecognizer {
   BOOL enabled = self.enabled;
   self.enabled = NO;

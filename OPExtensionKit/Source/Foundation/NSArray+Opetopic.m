@@ -152,11 +152,11 @@
   return retVal;
 }
 
--(NSArray*) flatten {
+-(NSArray*) flattenedArray {
   NSMutableArray *retVal = NSMutableArray.new;
   for (id obj in self) {
     if ([obj isKindOfClass:NSArray.class]) {
-      [retVal addObjectsFromArray:[obj flatten]];
+      [retVal addObjectsFromArray:[obj flattenedArray]];
     } else {
       [retVal addObject:obj];
     }

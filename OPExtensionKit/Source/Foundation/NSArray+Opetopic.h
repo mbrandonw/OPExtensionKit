@@ -107,7 +107,7 @@ typedef enum {
 /**
  Recursively turns a nested array into a one-dimensional array.
  */
--(NSArray*) flatten;
+-(NSArray*) flattenedArray;
 
 
 /**

@@ -11,6 +11,8 @@
 
 @interface NSAttributedString (Opetopic)
 
+-(instancetype) initWithAttributedString:(NSAttributedString*)attributedString attributes:(NSDictionary*)attributes;
+
 -(void) drawInRect:(CGRect)rect parentBounds:(CGRect)bounds;
 -(CGSize) sizeContrainedTo:(CGSize)constraints;
 -(CTFramesetterRef) framesetterRef;

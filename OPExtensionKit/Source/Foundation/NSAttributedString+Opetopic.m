@@ -11,6 +11,13 @@
 
 @implementation NSAttributedString (Opetopic)
 
+-(instancetype) initWithAttributedString:(NSAttributedString*)attributedString attributes:(NSDictionary*)attributes {
+
+  NSMutableAttributedString *string = attributedString.mutableCopy;
+  [string addAttributes:attributes range:string.string.fullRange];
+  return string;
+}
+
 -(void) drawInRect:(CGRect)rect parentBounds:(CGRect)bounds {
   CGContextRef c = UIGraphicsGetCurrentContext();
 

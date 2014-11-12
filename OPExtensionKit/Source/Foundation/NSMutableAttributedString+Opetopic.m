@@ -11,7 +11,7 @@
 @implementation NSMutableAttributedString (Opetopic)
 
 -(void) appendString:(NSString*)string attributes:(NSDictionary*)attributes {
-  [self appendAttributedString:[[NSAttributedString alloc] initWithString:string attributes:attributes]];
+  [self appendAttributedString:[NSAttributedString.alloc initWithString:string attributes:attributes]];
 }
 
 @end

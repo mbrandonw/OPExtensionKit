@@ -227,6 +227,10 @@
   [self sendSubviewToBack:view];
 }
 
+-(void) addToSuperview:(UIView*)superview {
+  [superview addSubview:self];
+}
+
 -(void) hideAllSubviews {
 
   for (UIView *s in self.subviews)

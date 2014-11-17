@@ -166,6 +166,10 @@ enum {
 -(void) addSubviewToBack:(UIView *)view;
 
 /**
+ */
+-(void) addToSuperview:(UIView*)superview;
+
+/**
  Hides all of the view's subviews.
  */
 -(void) hideAllSubviews;

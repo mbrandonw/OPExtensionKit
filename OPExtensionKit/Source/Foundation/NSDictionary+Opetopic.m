@@ -122,6 +122,21 @@
     return retVal;
 }
 
+-(NSDictionary*) withPrefixedKeys:(NSString*)prefix {
+
+  NSMutableDictionary *ret = NSMutableDictionary.new;
+
+  for (NSString *key in self) {
+    if ([key isKindOfClass:NSString.class]) {
+      ret[ [NSString stringWithFormat:@"%@%@", prefix, key] ] = self[key];
+    } else {
+      ret[key] = self[key];
+    }
+  }
+
+  return ret;
+}
+
 -(BOOL) hasElements {
     return [self count] > 0;
 }

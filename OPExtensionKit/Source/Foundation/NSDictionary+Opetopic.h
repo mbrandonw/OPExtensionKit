@@ -79,6 +79,11 @@
 -(NSDictionary*) merge:(NSDictionary *)dict conflicts:(id(^)(id key, id lvalue, id rvalue))conflict;
 
 /**
+ Returns new dictionary with all keys prefixed.
+ */
+-(NSDictionary*) withPrefixedKeys:(NSString*)prefix;
+
+/**
  Dictionary has elements?
  */
 -(BOOL) hasElements;

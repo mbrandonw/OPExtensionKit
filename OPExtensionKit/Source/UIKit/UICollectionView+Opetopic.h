@@ -12,4 +12,6 @@
 
 @property (nonatomic, readonly) NSArray *selectedCells;
 
+-(void) reloadVisibleIndexPaths;
+
 @end

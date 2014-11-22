@@ -21,6 +21,8 @@
 
 -(NSInteger) numberOfRows;
 
+-(void) reloadVisibleIndexPaths;
+
 -(void) setTableHeaderViews:(NSArray*)views;
 -(NSArray*) tableHeaderViews;
 

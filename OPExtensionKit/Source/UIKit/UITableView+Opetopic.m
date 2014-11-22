@@ -79,6 +79,10 @@
   return n;
 }
 
+-(void) reloadVisibleIndexPaths {
+  [self reloadRowsAtIndexPaths:self.indexPathsForVisibleRows withRowAnimation:UITableViewRowAnimationAutomatic];
+}
+
 OPAssociatedObject(tableHeaderViews, setTableHeaderViews, OBJC_ASSOCIATION_RETAIN, nil, ^(NSArray *headers){
 
   // early out when there are no headers

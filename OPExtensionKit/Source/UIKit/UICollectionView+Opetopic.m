@@ -18,4 +18,8 @@
   return retVal;
 }
 
+-(void) reloadVisibleIndexPaths {
+  [self reloadItemsAtIndexPaths:self.indexPathsForVisibleItems];
+}
+
 @end

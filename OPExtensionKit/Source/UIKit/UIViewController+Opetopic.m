@@ -76,9 +76,13 @@
 }
 
 -(void) setNeedsStatusBarAppearanceUpdateAnimated:(NSTimeInterval)duration {
-  [UIView animateWithDuration:duration animations:^{
+  if (duration > 0.0) {
+    [UIView animateWithDuration:duration animations:^{
+      [self setNeedsStatusBarAppearanceUpdate];
+    }];
+  } else {
     [self setNeedsStatusBarAppearanceUpdate];
-  }];
+  }
 }
 
 @end

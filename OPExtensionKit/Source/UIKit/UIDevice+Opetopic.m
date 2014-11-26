@@ -90,7 +90,7 @@ NSString *UIDeviceOrientationToString(UIDeviceOrientation orientation) {
   return UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone;
 }
 
-+(BOOL) isPad {
++(BOOL) isTablet {
   return UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad;
 }
 

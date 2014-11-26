@@ -46,7 +46,7 @@ FOUNDATION_EXPORT NSString *UIDeviceOrientationToString(UIDeviceOrientation orie
 
 +(BOOL) isGameCenterReady;
 +(BOOL) isPhone;
-+(BOOL) isPad;
++(BOOL) isTablet;
 +(BOOL) isFast;
 +(BOOL) hasFacetime;
 +(BOOL) hasTelephony;

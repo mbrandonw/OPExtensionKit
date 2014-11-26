@@ -94,6 +94,14 @@ NSString *UIDeviceOrientationToString(UIDeviceOrientation orientation) {
   return UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad;
 }
 
++(BOOL) isCompact {
+  return UIScreen.mainScreen.bounds.size.height <= 568.0f;
+}
+
++(BOOL) isCompactPhone {
+  return UIDevice.isCompact && UIDevice.isPhone;
+}
+
 +(BOOL) isFast {
   return [[self class] deviceType] >= MAX(OPDeviceTypeiPad3, MAX(OPDeviceTypeiPhone4S, OPDeviceTypeiPod5));
 }

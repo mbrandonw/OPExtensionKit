@@ -45,10 +45,15 @@ FOUNDATION_EXPORT NSString *UIDeviceOrientationToString(UIDeviceOrientation orie
 +(OPDeviceType) deviceType;
 
 +(BOOL) isGameCenterReady;
+
 +(BOOL) isPhone;
 +(BOOL) isTablet;
+
 +(BOOL) isCompact;
++(BOOL) isVerticallyCompact;
++(BOOL) isHorizontallyCompact;
 +(BOOL) isCompactPhone;
+
 +(BOOL) isFast;
 +(BOOL) hasFacetime;
 +(BOOL) hasTelephony;

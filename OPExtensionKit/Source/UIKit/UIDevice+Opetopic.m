@@ -8,6 +8,7 @@
 
 #import "UIDevice+Opetopic.h"
 #import "NSString+Opetopic.h"
+#import "UIScreen+Opetopic.h"
 #import <mach/mach.h>
 #import <mach/mach_host.h>
 #import <sys/sysctl.h>
@@ -99,11 +100,11 @@ NSString *UIDeviceOrientationToString(UIDeviceOrientation orientation) {
 }
 
 +(BOOL) isVerticallyCompact {
-  return UIScreen.mainScreen.nativeBounds.size.height < 568.0f * UIScreen.mainScreen.nativeScale;
+  return UIScreen.mainScreen.normalizedBounds.size.height < 568.0f;
 }
 
 +(BOOL) isHorizontallyCompact {
-  return UIScreen.mainScreen.nativeBounds.size.width <= 320.0f * UIScreen.mainScreen.nativeScale;
+  return UIScreen.mainScreen.normalizedBounds.size.width <= 320.0f;
 }
 
 +(BOOL) isCompactPhone {

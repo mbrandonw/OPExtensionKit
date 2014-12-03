@@ -17,6 +17,8 @@
 +(BOOL) isHorizontallyCompact;
 +(BOOL) isCompactPhone;
 
+-(CGRect) normalizedBounds;
+
 -(BOOL) isHighResolution;
 -(CGFloat) aspectRatio;
 

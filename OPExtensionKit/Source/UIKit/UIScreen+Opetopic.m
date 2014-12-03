@@ -31,6 +31,15 @@
   return UIScreen.isCompact && UIDevice.isPhone;
 }
 
+-(CGRect) normalizedBounds {
+  return (CGRect){
+    self.nativeBounds.origin.x / UIScreen.mainScreen.nativeScale,
+    self.nativeBounds.origin.y / UIScreen.mainScreen.nativeScale,
+    self.nativeBounds.size.width / UIScreen.mainScreen.nativeScale,
+    self.nativeBounds.size.height / UIScreen.mainScreen.nativeScale,
+  };
+}
+
 -(BOOL) isHighResolution {
   return self.scale >= 1.5f;
 }

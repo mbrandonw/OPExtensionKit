@@ -54,6 +54,8 @@ FOUNDATION_EXPORT NSString *UIDeviceOrientationToString(UIDeviceOrientation orie
 +(BOOL) isHorizontallyCompact;
 +(BOOL) isCompactPhone;
 
+-(CGRect) bounds;
+
 +(BOOL) isFast;
 +(BOOL) hasFacetime;
 +(BOOL) hasTelephony;

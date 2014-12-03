@@ -18,4 +18,8 @@
   return self.scale >= 1.5f;
 }
 
+-(CGFloat) aspectRatio {
+  return MIN(self.bounds.size.width, self.bounds.size.height) / MAX(self.bounds.size.width, self.bounds.size.height);
+}
+
 @end

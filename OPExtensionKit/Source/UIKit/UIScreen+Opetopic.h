@@ -12,5 +12,6 @@
 
 -(BOOL) isTall;
 -(BOOL) isHighResolution;
+-(CGFloat) aspectRatio;
 
 @end

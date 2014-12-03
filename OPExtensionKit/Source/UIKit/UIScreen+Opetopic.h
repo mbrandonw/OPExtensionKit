@@ -10,7 +10,13 @@
 
 @interface UIScreen (Opetopic)
 
--(BOOL) isTall;
++(BOOL) isTall;
+
++(BOOL) isCompact;
++(BOOL) isVerticallyCompact;
++(BOOL) isHorizontallyCompact;
++(BOOL) isCompactPhone;
+
 -(BOOL) isHighResolution;
 -(CGFloat) aspectRatio;
 

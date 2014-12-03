@@ -95,15 +95,15 @@ NSString *UIDeviceOrientationToString(UIDeviceOrientation orientation) {
 }
 
 +(BOOL) isCompact {
-  return self.class.isVerticallyCompact || self.class.isHorizontallyCompact;
+  return self.class.isVerticallyCompact && self.class.isHorizontallyCompact;
 }
 
 +(BOOL) isVerticallyCompact {
-  return UIScreen.mainScreen.bounds.size.height <= 568.0f;
+  return UIScreen.mainScreen.nativeBounds.size.height < 568.0f * UIScreen.mainScreen.nativeScale;
 }
 
 +(BOOL) isHorizontallyCompact {
-  return UIScreen.mainScreen.bounds.size.height <= 320.0f;
+  return UIScreen.mainScreen.nativeBounds.size.width <= 320.0f * UIScreen.mainScreen.nativeScale;
 }
 
 +(BOOL) isCompactPhone {

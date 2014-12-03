@@ -7,11 +7,28 @@
 //
 
 #import "UIScreen+Opetopic.h"
+#import "UIDevice+Opetopic.h"
 
 @implementation UIScreen (Opetopic)
 
--(BOOL) isTall {
-    return self.bounds.size.height > 480.0f;
++(BOOL) isTall {
+    return self.class.mainScreen.bounds.size.height > 480.0f;
+}
+
++(BOOL) isCompact {
+  return self.class.isVerticallyCompact && self.class.isHorizontallyCompact;
+}
+
++(BOOL) isVerticallyCompact {
+  return self.class.mainScreen.bounds.size.height <= 320.0f;
+}
+
++(BOOL) isHorizontallyCompact {
+  return self.class.mainScreen.bounds.size.width <= 320.0f;
+}
+
++(BOOL) isCompactPhone {
+  return UIScreen.isCompact && UIDevice.isPhone;
 }
 
 -(BOOL) isHighResolution {

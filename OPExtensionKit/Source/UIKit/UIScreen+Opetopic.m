@@ -32,11 +32,14 @@
 }
 
 -(CGRect) normalizedBounds {
+  CGRect bounds = [self respondsToSelector:@selector(nativeBounds)] ? self.nativeBounds : self.bounds;
+  CGFloat scale = [self respondsToSelector:@selector(nativeScale)] ? self.nativeScale : 1.0f;
+  
   return (CGRect){
-    self.nativeBounds.origin.x / UIScreen.mainScreen.nativeScale,
-    self.nativeBounds.origin.y / UIScreen.mainScreen.nativeScale,
-    self.nativeBounds.size.width / UIScreen.mainScreen.nativeScale,
-    self.nativeBounds.size.height / UIScreen.mainScreen.nativeScale,
+    bounds.origin.x / scale,
+    bounds.origin.y / scale,
+    bounds.size.width / scale,
+    bounds.size.height / scale,
   };
 }
 

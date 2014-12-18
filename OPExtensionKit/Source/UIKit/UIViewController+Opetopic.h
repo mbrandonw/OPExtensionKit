@@ -15,6 +15,7 @@
 -(BOOL) isViewVisible;
 -(void) simulateMemoryWarning;
 -(UIViewController*) mostParentViewController;
+-(NSArray*) parentViewControllers;
 
 -(BOOL) orientationIsPortrait;
 -(BOOL) orientationIsLandscape;

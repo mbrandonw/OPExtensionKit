@@ -37,6 +37,14 @@
     return rootViewController;
 }
 
+-(NSArray*) parentViewControllers {
+  if (self.parentViewController) {
+    return [@[ self.parentViewController ]
+            arrayByAddingObjectsFromArray:self.parentViewController.parentViewControllers];
+  }
+  return @[];
+}
+
 -(BOOL) orientationIsPortrait {
   return UIInterfaceOrientationIsPortrait(self.interfaceOrientation);
 }

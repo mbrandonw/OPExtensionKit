@@ -271,6 +271,10 @@
   self.width = MIN(atMost, MAX(atLeast, self.width));
 }
 
+-(CGSize) sizeThatFitsWidth:(CGFloat)width {
+  return [self sizeThatFits:CGSizeMake(width, CGFLOAT_MAX)];
+}
+
 -(UIImage*) renderedImage {
   return [self renderedImage:[[UIScreen mainScreen] scale]];
 }

@@ -12,7 +12,7 @@
 @implementation NSManagedObject (Opetopic)
 
 -(BOOL) isUnsaved {
-    return [[self committedValuesForKeys:nil] count] == 0;
+  return self.objectID.isTemporaryID;
 }
 
 -(void) fault {
@@ -22,26 +22,26 @@
 }
 
 -(void) addToContext:(NSManagedObjectContext*)context {
-    if (! self.managedObjectContext)
-    {
-        [context insertObject:self];
-        
-        // first add all relationships to the context
-        NSDictionary *relationships = [[self entity] relationshipsByName];
-        [relationships enumerateKeysAndObjectsUsingBlock:^(id relationshipKey, NSRelationshipDescription *relationshipDescription, BOOL *stop) {
-            
-            id relationship = [self valueForKey:relationshipKey];
-            if ([relationship conformsToProtocol:@protocol(NSFastEnumeration)])
-            {
-                for (NSManagedObject *object in relationship)
-                    [object addToContext:context];
-            }
-            else
-            {
-                [relationship addToContext:context];
-            }
-        }];
-    }
+  if (! self.managedObjectContext)
+  {
+    [context insertObject:self];
+
+    // first add all relationships to the context
+    NSDictionary *relationships = [[self entity] relationshipsByName];
+    [relationships enumerateKeysAndObjectsUsingBlock:^(id relationshipKey, NSRelationshipDescription *relationshipDescription, BOOL *stop) {
+
+      id relationship = [self valueForKey:relationshipKey];
+      if ([relationship conformsToProtocol:@protocol(NSFastEnumeration)])
+      {
+        for (NSManagedObject *object in relationship)
+          [object addToContext:context];
+      }
+      else
+      {
+        [relationship addToContext:context];
+      }
+    }];
+  }
 }
 
 @end

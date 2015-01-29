@@ -22,6 +22,8 @@ typedef NS_ENUM(NSInteger, OPApplicationContentSizeEnum) {
   OPApplicationContentSizeEnumXXXLarge,
 };
 
+FOUNDATION_EXPORT NSString *UIInterfaceOrientationToString(UIInterfaceOrientation orientation)__attribute__((const));
+
 #import <UIKit/UIKit.h>
 
 @interface UIApplication (Opetopic)

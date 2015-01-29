@@ -10,6 +10,22 @@
 #import "NSString+Opetopic.h"
 #import "GCD+Opetopic.h"
 
+NSString *UIInterfaceOrientationToString(UIInterfaceOrientation orientation) {
+  switch (orientation) {
+    case UIInterfaceOrientationLandscapeLeft:
+      return  @"Landscape Left";
+    case UIInterfaceOrientationLandscapeRight:
+      return  @"Landscape Right";
+    case UIInterfaceOrientationPortrait:
+      return  @"Portrait";
+    case UIInterfaceOrientationPortraitUpsideDown:
+      return  @"Portrait Upside Down";
+    case UIInterfaceOrientationUnknown:
+      return  @"Unknown";
+  }
+  return nil;
+}
+
 @implementation UIApplication (Opetopic)
 
 -(void) performBackgroundTask:(void(^)(void))task completion:(void(^)(void))completion expiration:(void(^)(void))expiration {

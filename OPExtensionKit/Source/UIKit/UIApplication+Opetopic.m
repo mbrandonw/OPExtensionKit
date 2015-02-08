@@ -154,4 +154,8 @@ NSString *UIInterfaceOrientationToString(UIInterfaceOrientation orientation) {
       [NSString stringWithFormat:@"http://maps.google.com/maps?daddr=Current%%20Location&saddr=%@", [address URLEncodedString]]]];
 }
 
++(BOOL) isAppStoreVersion {
+  return [NSBundle.mainBundle pathForResource:@"embedded" ofType:@"mobileprovision"] == nil;
+}
+
 @end

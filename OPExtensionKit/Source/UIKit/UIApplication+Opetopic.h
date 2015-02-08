@@ -57,4 +57,6 @@ FOUNDATION_EXPORT NSString *UIInterfaceOrientationToString(UIInterfaceOrientatio
 +(void) openMaps:(NSString*)address;
 +(void) openMapsWithDirectionsTo:(NSString*)address;
 
++(BOOL) isAppStoreVersion;
+
 @end

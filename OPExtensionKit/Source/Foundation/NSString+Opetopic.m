@@ -10,6 +10,7 @@
 #import "NSDictionary+Opetopic.h"
 #import "NSJSONSerialization+Opetopic.h"
 #import "NSRegularExpression+Opetopic.h"
+#import "NSObject+Opetopic.h"
 #import <CommonCrypto/CommonHMAC.h>
 
 @implementation NSString (Opetopic)
@@ -420,6 +421,14 @@
 
 -(id) mutableJSONObject {
   return [NSJSONSerialization mutableJSONObjectWithString:self];
+}
+
+-(NSDictionary*) JSONDictionary {
+  return [self.JSONObject typedAs:NSDictionary.class];
+}
+
+-(NSMutableDictionary*) mutableJSONDictionary {
+  return [self.mutableJSONObject typedAs:NSMutableDictionary.class];
 }
 
 -(NSAttributedString*) attributedString {

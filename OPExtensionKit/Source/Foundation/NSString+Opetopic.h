@@ -194,6 +194,8 @@
  */
 -(id) JSONObject;
 -(id) mutableJSONObject;
+-(NSDictionary*) JSONDictionary;
+-(NSMutableDictionary*) mutableJSONDictionary;
 
 /**
  */

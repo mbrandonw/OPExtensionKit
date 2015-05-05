@@ -73,4 +73,8 @@
     return retVal;
 }
 
+-(NSString*) languageCode {
+  return [self objectForKey:NSLocaleLanguageCode];
+}
+
 @end

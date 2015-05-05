@@ -30,4 +30,6 @@
  */
 +(NSArray*) countryListGroupedByLetter;
 
+-(NSString*) languageCode;
+
 @end
